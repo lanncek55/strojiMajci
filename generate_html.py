@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+html_content = r"""<!DOCTYPE html>
 <html lang="sl">
 <head>
     <meta charset="UTF-8">
@@ -21,6 +21,7 @@
     <main class="container">
         <a href="index.html" style="display:inline-block; margin-bottom: 20px; color: var(--primary-color); text-decoration: none;">&larr; Nazaj na zemljevid</a>
 
+        <!-- ... Enačbe ... -->
         <section class="content-section">
             <h2>Uvodne Enačbe in Koncepti</h2>
             <p>Osnova za izračunavanje magnetnih krogov so naslednje enačbe:</p>
@@ -63,8 +64,10 @@
                 <div class="interactive-svg-wrapper">
                     <svg id="svg-core-1" width="200" height="200" viewBox="0 0 200 200">
                         <path d="M 40,40 L 160,40 L 160,160 L 40,160 Z" fill="none" stroke="#ccc" stroke-width="40"/>
+                        <!-- Zračna reža (bel pravokotnik, ki ga bomo širili) -->
                         <rect id="svg-gap-1" x="140" y="90" width="40" height="5" fill="#fafafa" stroke="#333" stroke-width="1"/>
                         <text x="175" y="100" font-size="12" fill="#333" font-family="sans-serif">δ</text>
+                        <!-- Tuljava -->
                         <path d="M 20,70 Q 10,80 30,90 Q 50,100 30,110 Q 10,120 30,130" fill="none" stroke="#e67e22" stroke-width="5"/>
                         <text x="15" y="65" font-size="14" fill="#e67e22" font-family="sans-serif">N=500</text>
                     </svg>
@@ -75,7 +78,9 @@
                 <summary>Prikaži uradno rešitev in postopek z enačbami (iz izhodišča δ = 0.5 mm)</summary>
                 <div class="solution-step">
                     <h4>a) Izračun reluktanc:</h4>
+                    <p>Reluktanca železa:</p>
                     <div class="formula-box">\[ R_{mFe} = \frac{l_{Fe}}{\mu_r \cdot \mu_0 \cdot A_{Fe}} = 3789 \text{ A/Vs} \]</div>
+                    <p>Reluktanca zračne reže:</p>
                     <div class="formula-box">\[ R_{m\delta} = \frac{\delta}{\mu_0 \cdot A_\delta} = \frac{0.0005}{4\pi \cdot 10^{-7} \cdot 9 \cdot 10^{-4}} = 4.42 \cdot 10^5 \text{ A/Vs} \]</div>
                 </div>
                 <div class="solution-step">
@@ -118,10 +123,16 @@
                 </div>
                 <div class="interactive-svg-wrapper">
                     <svg width="250" height="200" viewBox="0 0 250 200">
+                        <!-- Stator zunaj -->
                         <path d="M 20,20 L 230,20 L 230,180 L 20,180 Z" fill="none" stroke="#bdc3c7" stroke-width="20"/>
+                        <!-- Rotor notri -->
                         <rect x="70" y="50" width="110" height="100" fill="#7f8c8d" />
+                        <!-- Zračna reža -->
+                        <!-- Prikaz B vektorjev -->
                         <g id="svg-b-arrows-2" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrowhead)">
+                             <!-- Zgoraj -->
                              <line x1="125" y1="50" x2="125" y2="30"/>
+                             <!-- Spodaj -->
                              <line x1="125" y1="180" x2="125" y2="150"/>
                         </g>
                         <defs>
@@ -145,93 +156,6 @@
             </details>
         </section>
 
-        <!-- Naloga 1.3 -->
-        <section class="task">
-            <h3>NALOGA 1.3: Dve paralelni zračni reži</h3>
-            <p>Magnetni krog po skici sestoji iz \( N \) ovojev na magnetnem jedru (\( \mu \to \infty \)) z dvema paralelnima zračnima režama dolžin \( \delta_1 \) in \( \delta_2 \) ter pripadajočima prerezoma \( A_1 \) in \( A_2 \).</p>
-            <ol type="a">
-                <li>Izračunajte induktivnost navitja.</li>
-                <li>Izračunajte magnetno gostoto v zračni reži \( \delta_1 \), ko po navitju teče tok \( i \).</li>
-            </ol>
-            <details>
-                <summary>Prikaži rešitev in postopek</summary>
-                <div class="solution-step">
-                    <h4>Ekvivalentno vezje:</h4>
-                    <p>Celotna nadomestna reluktanca \( R_m \) je paralelna kombinacija dveh reluktanc zračnih rež:</p>
-                    <div class="formula-box">
-                        \[ \Phi = \frac{N \cdot i}{R_m} = N \cdot i \cdot \left(\frac{R_{m1} + R_{m2}}{R_{m1} \cdot R_{m2}}\right) \]
-                        \[ R_{m1} = \frac{\delta_1}{\mu_0 \cdot A_1}, \quad R_{m2} = \frac{\delta_2}{\mu_0 \cdot A_2} \]
-                    </div>
-                    <h4>a) Induktivnost:</h4>
-                    <div class="formula-box">
-                        \[ L = \frac{\Psi}{i} = \frac{N \cdot \Phi}{i} = N^2 \cdot \left( \frac{1}{R_{m1}} + \frac{1}{R_{m2}} \right) = \mu_0 \cdot N^2 \cdot \left( \frac{A_1}{\delta_1} + \frac{A_2}{\delta_2} \right) \]
-                    </div>
-                    <h4>b) Gostota magnetnega pretoka v \( \delta_1 \):</h4>
-                    <div class="formula-box">
-                        \[ B_1 = \frac{\Phi_1}{A_1} = \frac{N \cdot i \cdot \mu_0}{\delta_1} \]
-                    </div>
-                </div>
-            </details>
-        </section>
-
-        <!-- Naloga 1.4 -->
-        <section class="task">
-            <h3>NALOGA 1.4: Nadomestni prerez in povprečna pot</h3>
-            <p>Izpelji splošno enačbo za magnetni krog z neenakomernimi preseki in dolžinami (\( A_1, A_2, l_1, l_2 \)).</p>
-            <details>
-                <summary>Prikaži rešitev in postopek</summary>
-                <div class="solution-step">
-                    <p>Za zaporedno vezavo je skupna reluktanca vsota posameznih:</p>
-                    <div class="formula-box">
-                        \[ R_m = \frac{l_1}{\mu_1 \cdot A_1} + \frac{l_2}{\mu_2 \cdot A_2} \]
-                        \[ \Phi = \frac{V_m}{R_m} \]
-                    </div>
-                </div>
-            </details>
-        </section>
-
-        <!-- Naloga 1.5 -->
-        <section class="task">
-            <h3>NALOGA 1.5: Uporaba magnetilnice</h3>
-            <p><strong>Naloga:</strong> Iz krivulje magnetenja določite ustrezen parameter \( H \) za \( B_{max} = 1.5 \text{ T} \).</p>
-            <details>
-                <summary>Prikaži rešitev in postopek</summary>
-                <div class="solution-step">
-                    <p>Z grafa razberemo: Za \( B_{max} = 1.5 \text{ T} \) je \( H = 36 \text{ A/m} \). Od tu dobimo \( \mu_r \):</p>
-                    <div class="formula-box">\[ \mu_r = \frac{B}{\mu_0 \cdot H} = 33157 \]</div>
-                </div>
-            </details>
-        </section>
-
-        <!-- Naloga 1.6 -->
-        <section class="task">
-            <h3>NALOGA 1.6: Navitje s časovno spremenljivo napetostjo</h3>
-            <p>Navitje napaja napetost, ki v jedru ustvari gostoto \( B_{Fe}(t) = 1.5 \cdot \sin(314 \cdot t) \text{ T} \). Polnilni faktor \( f_{Fe} = 0.94 \), prerez \( A = 25 \cdot 10^{-4} \text{ m}^2 \), \( N = 200 \).</p>
-            <ol type="a">
-                <li>Določi inducirano napetost \( e \).</li>
-                <li>Določi maksimalni vzbujalni tok.</li>
-            </ol>
-            <details>
-                <summary>Prikaži rešitev in postopek</summary>
-                <div class="solution-step">
-                    <h4>a) Inducirana napetost:</h4>
-                    <div class="formula-box">
-                        \[ e = N \cdot A_{Fe} \cdot \frac{dB(t)}{dt} = 200 \cdot 25 \cdot 10^{-4} \cdot 0.94 \cdot 314 \cdot 1.5 \cdot \cos(314t) \]
-                        \[ e = 221.4 \cdot \cos(314 \cdot t) \text{ V} \]
-                    </div>
-                    <h4>b) Maksimalni vzbujalni tok:</h4>
-                    <p>Srednja pot \( l_{Fe\_sr} = 0.7 \text{ m} \). Iz prejšnje naloge \( H_{max} = 36 \text{ A/m} \).</p>
-                    <div class="formula-box">\[ I_{max} = \frac{l_{Fe\_sr} \cdot H_{max}}{N} = \frac{0.7 \cdot 36}{200} = 0.126 \text{ A} \]</div>
-                </div>
-            </details>
-        </section>
-
-        <!-- Odsek: Sklopljena navitja -->
-        <section class="content-section">
-            <h2>Sklopljena Navitja in Induktivnost</h2>
-            <p>Kadar imamo na istem jedru več navitij, so ta med seboj magnetno sklopljena. Tok v enem navitju povzroči magnetni pretok, ki objame tudi drugo navitje in v njem inducira napetost.</p>
-        </section>
-
         <!-- Naloga 1.7 / 1.8 -->
         <section class="task">
             <h3>NALOGA 1.7 in 1.8: Dve sklopljeni navitji in vpliv zračne reže</h3>
@@ -244,7 +168,7 @@
                     <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
                     Uporaba v praksi
                 </div>
-                <p><strong>Zakaj uporabljamo sklopljena navitja?</strong> To je osnova vsakega transformatorja. Zračna reža drastično zniža induktivnost navitja in povzroči slabo sklopljenost, zato klasični omrežni transformatorji NIMAJO zračne reže. Imajo pa jo "flyback" transformatorji ali dušilke, ker preprečuje nasičenje jedra (saturation) pri enosmernem toku.</p>
+                <p><strong>Zakaj uporabljamo sklopljena navitja?</strong> To je osnova vsakega transformatorja. Zveza med primarno in sekundarno stranjo omogoča pretvorbo visoke napetosti iz omrežja na npr. 5V za polnjenje telefona. Dodana zračna reža drastično zniža induktivnost navitja in povzroči slabo sklopljenost, zato transformatorji v omrežju NIMAJO zračne reže. Imajo pa jih dušilke, kjer rabimo linearnejšo karakteristiko in preprečitev nasičenja (saturation).</p>
             </div>
 
             <p><strong>Interaktivni preizkus:</strong> Vklapljaj in izklapljaj zračno režo ali zmanjšaj njeno širino, da vidiš, kako drastično reža "ubije" induktivnost jedra z visoko permeabilnostjo.</p>
@@ -265,7 +189,9 @@
                 <div class="interactive-svg-wrapper">
                     <svg width="250" height="200" viewBox="0 0 250 200">
                         <path d="M 50,40 L 200,40 L 200,160 L 50,160 Z" fill="none" stroke="#2c3e50" stroke-width="30"/>
+                        <!-- Zračna reža -->
                         <rect id="svg-gap-8" x="115" y="25" width="20" height="30" fill="#fafafa" stroke="#333" stroke-width="1"/>
+                        <!-- N1 in N2 tuljave -->
                         <rect x="30" y="70" width="40" height="60" fill="#e67e22" rx="5"/>
                         <text x="40" y="105" font-size="16" fill="white">N1</text>
                         <rect x="180" y="70" width="40" height="60" fill="#3498db" rx="5"/>
@@ -287,65 +213,15 @@
                     <h4>Rešitev 1.8 (Z zračno režo δ = 2 mm):</h4>
                     <div class="formula-box">
                         \[ R_{mc} = R_{mFe} + R_{m\delta} = 79.4 \cdot 10^3 + 636.6 \cdot 10^3 = 716.02 \cdot 10^3 \text{ A/Vs} \]
-                        \[ L_{11} = \frac{N_1^2}{R_{mc}} = 3.5 \text{ mH} \]
+                        \[ L_{11} = \frac{N_1^2}{R_{mc}} = \frac{50^2}{716.02 \cdot 10^3} = 3.5 \text{ mH} \]
                         \[ L_{22} = \frac{N_2^2}{R_{mc}} = 14 \text{ mH} \]
                     </div>
                 </div>
             </details>
         </section>
 
-        <!-- Naloga 1.9 -->
-        <section class="task">
-            <h3>NALOGA 1.9: T-nadomestno vezje</h3>
-            <p>Dve magnetno sklopljeni navitji z določenim stresanjem. \( L_{11} = 100 \text{ mH} \), \( N_1 = 1000 \), \( L_{\sigma1} = 0.1 \cdot L_{11} \). Izračunajte T-nadomestno vezje preračunano na prvo navitje.</p>
-            <details>
-                <summary>Prikaži rešitev in postopek</summary>
-                <div class="solution-step">
-                    <div class="formula-box">
-                        \[ L_{m1} = L_{11} - L_{\sigma1} = 90 \text{ mH} \]
-                        \[ L_{\sigma2}' = L_{\sigma2} \cdot \left(\frac{N_1}{N_2}\right)^2 = 2.5 \cdot 2^2 = 10 \text{ mH} \]
-                    </div>
-                </div>
-            </details>
-        </section>
 
-        <!-- Naloga 1.10 -->
-        <section class="task">
-            <h3>NALOGA 1.10: Induktivnost in pretok pri enojni zračni reži</h3>
-            <p>Magnetni krog z enojno zračno režo. \( A_{Fe} = 1.5 \cdot 10^{-3} \text{ m}^2 \), \( l_{Fe} = 0.7 \text{ m} \), \( \delta = 2.5 \text{ mm} \), \( N = 75 \). Izračunaj induktivnost za \( \mu \to \infty \) in za \( \mu = 1500 \cdot \mu_0 \).</p>
-            <details>
-                <summary>Prikaži rešitev in postopek</summary>
-                <div class="solution-step">
-                    <h4>a) Pri \( \mu \to \infty \):</h4>
-                    <div class="formula-box">
-                        \[ R_{m\delta} = 1.326 \cdot 10^6 \text{ A/Vs} \quad \implies \quad L = 4.24 \text{ mH} \]
-                    </div>
-                    <h4>b) Pri \( \mu = 1500 \cdot \mu_0 \):</h4>
-                    <div class="formula-box">
-                        \[ R_{mFe} = 0.247 \cdot 10^6 \text{ A/Vs} \quad \implies \quad L = 3.58 \text{ mH} \]
-                    </div>
-                </div>
-            </details>
-        </section>
-
-        <!-- Naloga 1.11 -->
-        <section class="task">
-            <h3>NALOGA 1.11: Toroid z zračno režo</h3>
-            <p>Magnetni krog je toroid debeline \( d = 2 \text{ cm} \), \( R_z = 4 \text{ cm} \), \( R_n = 3 \text{ cm} \), \( \delta = 5 \text{ mm} \), \( \mu \to \infty \), \( N = 75 \).</p>
-            <details>
-                <summary>Prikaži rešitev in postopek</summary>
-                <div class="solution-step">
-                    <div class="formula-box">
-                        \[ A_{Fe} = d \cdot (R_z - R_n) = 2 \cdot 10^{-4} \text{ m}^2 \]
-                        \[ R_{m\delta} = 19.9 \cdot 10^6 \text{ A/Vs} \quad \implies \quad L = 0.283 \text{ mH} \]
-                        \[ i_\mu = \frac{B_\delta \cdot \delta}{\mu_0 \cdot N} = 63.7 \text{ A} \]
-                    </div>
-                </div>
-            </details>
-        </section>
-
-
-        <!-- Trdomagnetni materiali -->
+        <!-- Trdomagnetni materiali in preostale naloge izvirno oblikovane -->
         <section class="content-section">
             <h2>Magnetni krogi s trdomagnetnimi materiali</h2>
 
@@ -356,13 +232,15 @@
                 </div>
                 <p><strong>Alnico 5 in stalni magneti:</strong> Trdomagnetni materiali ohranijo močno magnetno polje (velika remanenca \( B_r \)) tudi po tem, ko odstranimo zunanje vzbujanje. Uporabljajo se v BLDC motorjih (motorji brez ščetk v dronih, skuterjih, električnih avtomobilih), zvočnikih, senzorjih (Hall senzorji) in zadrževalnih magnetih. Alnico zlitine posebej so zelo stabilne pri visokih temperaturah.</p>
             </div>
+
+            <p>Trdomagnetne materiale (npr. Alnico 5) karakterizira velika remanenčna gostota magnetnega pretoka \( B_r \) in velika koercitivna jakost magnetnega polja \( H_c \). Delovna točka se določi s presečiščem <strong>obremenilne karakteristike</strong> (odvisne od dimenzij magnetnega kroga in zračne reže) in materialove B-H krivulje (2. kvadrant histerezne zanke).</p>
         </section>
 
         <!-- Naloga 1.12 & 1.13 -->
         <section class="task">
             <h3>NALOGA 1.12 in 1.13: Trdomagnetni materiali v zračni reži</h3>
             <p><strong>1.12:</strong> Magnetni krog tvori jedro iz mehkomagnetnega materiala (\( \mu \to \infty \)), zračna reža \( \delta = 0.2 \text{ cm} \) in odsek iz trdomagnetnega materiala dolžine \( l_m = 1 \text{ cm} \). Prerezi \( A_m = A_\delta = 4 \text{ cm}^2 \). Izračunajte gostoto v reži.</p>
-            <p><strong>1.13:</strong> Reža je pomanjšana na \( A_\delta = 2 \text{ cm}^2 \). Določi volumen magneta za \( B_\delta = 0.8 \text{ T} \) pri optimalni točki (energijski produkt 40 kJ/m³ pri B=1T in H=-40kA/m).</p>
+            <p><strong>1.13:</strong> Reža je pomanjšana na \( 2 \text{ cm}^2 \). Določi volumen magneta za \( B_\delta = 0.8 \text{ T} \) pri optimalni točki (energijski produkt 40 kJ/m³ pri B=1T in H=-40kA/m).</p>
 
             <details>
                 <summary>Prikaži rešitev in postopek</summary>
@@ -400,16 +278,15 @@
     </main>
 
     <footer>
-        <p>Ustvarjeno za učenje in utrjevanje znanja. <i>Popoln prepis vseh 13 nalog.</i></p>
+        <p>Ustvarjeno za učenje in utrjevanje znanja.</p>
     </footer>
 
     <script>
+        // JS logika za interaktivne drsnike
         const PI4e7 = 4 * Math.PI * 1e-7;
 
         function updateTask1() {
-            let el = document.getElementById('slider-delta-1');
-            if(!el) return;
-            let delta_mm = parseFloat(el.value);
+            let delta_mm = parseFloat(document.getElementById('slider-delta-1').value);
             document.getElementById('val-delta-1').innerText = delta_mm.toFixed(2);
 
             let delta_m = delta_mm / 1000.0;
@@ -419,7 +296,7 @@
             let rm_g = delta_m / (PI4e7 * A_delta);
             let rm_tot = rm_fe + rm_g;
 
-            let phi = 9e-4;
+            let phi = 9e-4; // B=1T, A=9e-4
             let n = 500;
             let i = (phi * rm_tot) / n;
 
@@ -427,20 +304,21 @@
             document.getElementById('res-rmt-1').innerText = rm_tot.toExponential(2);
             document.getElementById('res-i-1').innerText = i.toFixed(2);
 
+            // Vizualni update SVG (širina gap elementa je sorazmerna)
+            // Osnovna širina je bila 40 za gap, reža je debela 'height'.
             let gapHeight = Math.max(1, delta_mm * 10);
             document.getElementById('svg-gap-1').setAttribute('height', gapHeight);
+            // premaknemo, da ostane sredinsko
             document.getElementById('svg-gap-1').setAttribute('y', 100 - gapHeight/2);
         }
 
         function updateTask2() {
-            let el = document.getElementById('slider-tok-2');
-            if(!el) return;
-            let i = parseFloat(el.value);
+            let i = parseFloat(document.getElementById('slider-tok-2').value);
             document.getElementById('val-tok-2').innerText = i;
 
             let N = 1000;
             let A = 0.2;
-            let delta = 0.01;
+            let delta = 0.01; // 1 cm
 
             let Vm = N * i;
             let phi = (N * i * PI4e7 * A) / (2 * delta);
@@ -450,14 +328,13 @@
             document.getElementById('res-phi-2').innerText = phi.toFixed(3);
             document.getElementById('res-b-2').innerText = B.toFixed(3);
 
+            // Vizualni update puščic: deblje puščice pomenijo večje polje
             let strokeW = Math.max(1, B * 4);
             document.getElementById('svg-b-arrows-2').setAttribute('stroke-width', strokeW);
         }
 
         function updateTask8() {
-            let el = document.getElementById('slider-delta-8');
-            if(!el) return;
-            let delta_mm = parseFloat(el.value);
+            let delta_mm = parseFloat(document.getElementById('slider-delta-8').value);
             document.getElementById('val-delta-8').innerText = delta_mm.toFixed(1);
 
             let delta_m = delta_mm / 1000.0;
@@ -472,13 +349,14 @@
             let N1 = 50;
             let N2 = 100;
 
-            let l11 = (N1 * N1) / rm_tot * 1000;
-            let l22 = (N2 * N2) / rm_tot * 1000;
+            let l11 = (N1 * N1) / rm_tot * 1000; // v mH
+            let l22 = (N2 * N2) / rm_tot * 1000; // v mH
 
             document.getElementById('res-rm-8').innerText = Math.round(rm_tot);
             document.getElementById('res-l11-8').innerText = l11.toFixed(1);
             document.getElementById('res-l22-8').innerText = l22.toFixed(1);
 
+            // Vizualni update SVG gap (če delta=0, ga skrijemo)
             let gapWidth = delta_mm * 4;
             let gap = document.getElementById('svg-gap-8');
             if (delta_mm === 0) {
@@ -490,6 +368,7 @@
             }
         }
 
+        // Initialize sliders on load
         window.onload = function() {
             updateTask1();
             updateTask2();
@@ -503,6 +382,7 @@
             if (isNaN(input)) {
                 fb.className = "feedback error"; fb.innerText = "Prosim vnesi številko."; return;
             }
+            // Pri 5 mm reluktanca zraste na okoli 1.67e6, L11 = 50^2 / 1.67e6 = 1.5 mH
             if (input >= 1.4 && input <= 1.6) {
                 fb.className = "feedback success"; fb.innerText = "Odlično! Pravilen odgovor je 1.5 mH. Zračna reža drastično zmanjša induktivnost.";
             } else {
@@ -512,3 +392,6 @@
     </script>
 </body>
 </html>
+"""
+with open('1_magnetni_krogi.html', 'w', encoding='utf-8') as f:
+    f.write(html_content)
