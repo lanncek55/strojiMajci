@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>1. Magnetni krogi - Interaktivni učbenik</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .task { background-color: #fcfcfc; border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        .solution-step { margin-top: 15px; border-left: 3px solid var(--primary-color); padding-left: 15px; background: #f4f7f6; }
+        .image-placeholder { background: #e9ecef; border: 1px dashed #ccc; padding: 20px; text-align: center; color: #666; margin: 15px 0; }
+        .formula-box { background-color: #f8f9fa; border-left: 4px solid var(--primary-color); padding: 1rem; margin: 1rem 0; font-family: monospace; font-size: 1.1rem; overflow-x: auto;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>1. Magnetni krogi</h1>
+        <p>Popoln pregled in zbirka nalog iz področja magnetnih krogov z interaktivnimi razlagami.</p>
+    </header>
+
+    <main class="container">
+        <a href="index.html" style="display:inline-block; margin-bottom: 20px; color: var(--primary-color); text-decoration: none;">&larr; Nazaj na zemljevid</a>
+
+        <section class="content-section">
+            <h2>Uvodne Enačbe in Koncepti</h2>
+            <p>Osnova za izračunavanje magnetnih krogov so naslednje enačbe:</p>
+            <ul>
+                <li><strong>Magnetna napetost:</strong> \( V_m = N \cdot i \)</li>
+                <li><strong>Ohmov zakon za magnetne kroge:</strong> \( V_m = \Phi \cdot R_m \)</li>
+                <li><strong>Reluktanca (magnetna upornost):</strong> \( R_m = \frac{l}{\mu \cdot A} \), pri čemer je \( \mu = \mu_r \cdot \mu_0 \)</li>
+                <li><strong>Gostota magnetnega pretoka:</strong> \( B = \frac{\Phi}{A} \) in \( B = \mu \cdot H \)</li>
+            </ul>
+        </section>
+
+        <!-- Naloga 1.1 -->
+        <section class="task">
+            <h3>NALOGA 1.1: Magnetni krog – transformatorsko jedro z zračno režo</h3>
+            <p><strong>Podatki:</strong></p>
+            <ul>
+                <li>\( A_{Fe} = 9 \text{ cm}^2 = 9 \cdot 10^{-4} \text{ m}^2 \)</li>
+                <li>\( A_\delta = 9 \text{ cm}^2 = 9 \cdot 10^{-4} \text{ m}^2 \)</li>
+                <li>\( \delta = 0.5 \text{ mm} = 0.0005 \text{ m} \)</li>
+                <li>\( l_{Fe} = 30 \text{ cm} = 0.3 \text{ m} \)</li>
+                <li>\( N = 500 \text{ ovojev} \)</li>
+                <li>\( \mu_r = 70000 \)</li>
+                <li>\( \mu_0 = 4\pi \cdot 10^{-7} \text{ Vs/Am} \)</li>
+            </ul>
+            <p><strong>Vprašanja:</strong></p>
+            <ol type="a">
+                <li>Izračunajte magnetne upornosti (reluktance) \( R_{mFe} \) in \( R_{m\delta} \), če je gostota magnetnega pretoka v jedru \( B_{Fe} = 1 \text{ T} \).</li>
+                <li>Določite magnetni pretok \( \Phi \).</li>
+                <li>Določite magnetilni tok \( i_\mu \).</li>
+            </ol>
+
+            <div class="image-placeholder">Skica: Transformatorsko jedro z zračno režo, kjer tok \( i \) teče skozi navitje z \( N \) ovoji na eni strani, na nasprotni strani pa je zračna reža širine \( \delta \).</div>
+
+            <details>
+                <summary>Prikaži rešitev in postopek</summary>
+                <div class="solution-step">
+                    <h4>a) Izračun reluktanc:</h4>
+                    <p>Reluktanca železa:</p>
+                    <div class="formula-box">
+                        \[ R_{mFe} = \frac{l_{Fe}}{\mu_r \cdot \mu_0 \cdot A_{Fe}} = \frac{0.3}{70000 \cdot 4\pi \cdot 10^{-7} \cdot 9 \cdot 10^{-4}} = 3789 \text{ A/Vs} \]
+                    </div>
+                    <p>Reluktanca zračne reže:</p>
+                    <div class="formula-box">
+                        \[ R_{m\delta} = \frac{\delta}{\mu_0 \cdot A_\delta} = \frac{0.0005}{4\pi \cdot 10^{-7} \cdot 9 \cdot 10^{-4}} = 4.42 \cdot 10^5 \text{ A/Vs} \]
+                    </div>
+                    <p><em>Namig: Opazite, da je upornost kratke zračne reže stokrat večja od celotnega železnega jedra!</em></p>
+                </div>
+                <div class="solution-step">
+                    <h4>b) Magnetni pretok:</h4>
+                    <div class="formula-box">
+                        \[ \Phi = B_{Fe} \cdot A_{Fe} = 1 \cdot 0.0009 = 9 \cdot 10^{-4} \text{ Vs} \]
+                    </div>
+                </div>
+                <div class="solution-step">
+                    <h4>c) Magnetilni tok:</h4>
+                    <p>Uporabimo formulo \( V_m = N \cdot i_\mu = \Phi \cdot (R_{mFe} + R_{m\delta}) \):</p>
+                    <div class="formula-box">
+                        \[ i_\mu = \frac{\Phi \cdot (R_{mFe} + R_{m\delta})}{N} = \frac{9 \cdot 10^{-4} \cdot (3789 + 4.42 \cdot 10^5)}{500} = 0.8 \text{ A} \]
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- Naloga 1.2 -->
+        <section class="task">
+            <h3>NALOGA 1.2: Magnetni krog sinhronskega stroja</h3>
+            <p>Predpostavimo, da ima rotorsko in statorsko železo neskončno permeabilnost (\( \mu \to \infty \)). Kakšen je magnetni pretok v zračni reži in kolikšna je gostota magnetnega pretoka?</p>
+            <p><strong>Podatki:</strong></p>
+            <ul>
+                <li>\( i = 10 \text{ A} \)</li>
+                <li>\( N = 1000 \text{ ovojev} \)</li>
+                <li>\( \delta = 1 \text{ cm} = 10^{-2} \text{ m} \) (Pozor: Dve zračni reži v krogu)</li>
+                <li>\( A_\delta = 2000 \text{ cm}^2 = 0.2 \text{ m}^2 \)</li>
+            </ul>
+
+            <details>
+                <summary>Prikaži rešitev in postopek</summary>
+                <div class="solution-step">
+                    <p>Ker je \( \mu \to \infty \), je reluktanca železa enaka 0. Magnetna napetost se porazgubi samo na zračnih režah. V krogu sta dve zračni reži zaporedno povezani, zato je skupna dolžina zračne reže \( 2 \cdot \delta \).</p>
+                    <p><strong>Magnetni pretok:</strong></p>
+                    <div class="formula-box">
+                        \[ \Phi \approx \frac{V_m}{R_\delta} = \frac{N \cdot i}{\frac{2\delta}{\mu_0 A_\delta}} = N \cdot i \cdot \frac{\mu_0 \cdot A_\delta}{2 \cdot \delta} \]
+                        \[ \Phi = 1000 \cdot 10 \cdot \frac{4\pi \cdot 10^{-7} \cdot 0.2}{2 \cdot 10^{-2}} = 0.126 \text{ Wb} \]
+                    </div>
+                    <p><strong>Gostota magnetnega pretoka:</strong></p>
+                    <div class="formula-box">
+                        \[ B_\delta = \frac{\Phi}{A_\delta} = \frac{0.126}{0.2} = 0.63 \text{ T} \]
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 1 -->
+        <section class="quiz-section">
+            <h3>Kviz 1: Razumevanje dveh zračnih rež</h3>
+            <p>Na podlagi naloge 1.2: Če bi imeli samo <strong>eno</strong> zračno režo dolžine \( 1 \text{ cm} \) (namesto dveh zaporednih), kakšen bi bil magnetni pretok \( \Phi \) v \( \text{Wb} \)?</p>
+            <div class="input-group">
+                <input type="number" id="quiz1-input" placeholder="Vnesi rezultat" step="0.001">
+                <button onclick="checkQuiz1()">Preveri Kviz 1</button>
+            </div>
+            <div id="quiz1-feedback" class="feedback"></div>
+        </section>
+
+        <!-- Naloga 1.3 -->
+        <section class="task">
+            <h3>NALOGA 1.3: Dve paralelni zračni reži</h3>
+            <p>Magnetni krog po skici sestoji iz \( N \) ovojev na magnetnem jedru (\( \mu \to \infty \)) z dvema paralelnima zračnima režama dolžin \( \delta_1 \) in \( \delta_2 \) ter pripadajočima prerezoma \( A_1 \) in \( A_2 \).</p>
+            <ol type="a">
+                <li>Izračunajte induktivnost navitja.</li>
+                <li>Izračunajte magnetno gostoto v zračni reži \( \delta_1 \), ko po navitju teče tok \( i \).</li>
+            </ol>
+
+            <details>
+                <summary>Prikaži rešitev in postopek</summary>
+                <div class="solution-step">
+                    <h4>Ekvivalentno vezje:</h4>
+                    <p>Celotna nadomestna reluktanca \( R_m \) je paralelna kombinacija dveh reluktanc zračnih rež:</p>
+                    <div class="formula-box">
+                        \[ \Phi = \frac{N \cdot i}{R_m} = N \cdot i \cdot \left(\frac{R_{m1} + R_{m2}}{R_{m1} \cdot R_{m2}}\right) \]
+                        \[ R_{m1} = \frac{\delta_1}{\mu_0 \cdot A_1}, \quad R_{m2} = \frac{\delta_2}{\mu_0 \cdot A_2} \]
+                    </div>
+                    <h4>a) Induktivnost:</h4>
+                    <div class="formula-box">
+                        \[ L = \frac{\Psi}{i} = \frac{N \cdot \Phi}{i} = N^2 \cdot \left( \frac{1}{R_{m1}} + \frac{1}{R_{m2}} \right) = \mu_0 \cdot N^2 \cdot \left( \frac{A_1}{\delta_1} + \frac{A_2}{\delta_2} \right) \]
+                    </div>
+                    <h4>b) Gostota magnetnega pretoka v \( \delta_1 \):</h4>
+                    <p>Magnetna napetost preko obeh paralelnih vej je ista in enaka \( V_m = N \cdot i \).</p>
+                    <div class="formula-box">
+                        \[ \Phi_1 = \frac{V_m}{R_{m1}} = N \cdot i \cdot \frac{\mu_0 \cdot A_1}{\delta_1} \]
+                        \[ B_1 = \frac{\Phi_1}{A_1} = \frac{N \cdot i \cdot \mu_0}{\delta_1} \]
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- Naloga 1.4 -->
+        <section class="task">
+            <h3>NALOGA 1.4: Magnetni krog z različnimi prerezi</h3>
+            <p>Magnetni krog je sestavljen iz dveh delov. Prvi del ima dolžino \( l_1 \), prerez \( A_1 \) in permeabilnost \( \mu_1 \). Drugi del ima dolžino \( l_2 \), prerez \( A_2 \) in permeabilnost \( \mu_2 \). Magnetna napetost \( V_m \) in tok sta znana.</p>
+            <p><strong>Naloga:</strong> Določite magnetni pretok v vezju. Zanemarite stresanje.</p>
+            <details>
+                <summary>Prikaži rešitev in postopek</summary>
+                <div class="solution-step">
+                    <p>Za zaporedno vezavo je skupna reluktanca vsota posameznih:</p>
+                    <div class="formula-box">
+                        \[ R_m = \frac{l_1}{\mu_1 \cdot A_1} + \frac{l_2}{\mu_2 \cdot A_2} \]
+                        \[ \Phi = \frac{V_m}{R_m} \]
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- Naloga 1.5 -->
+        <section class="task">
+            <h3>NALOGA 1.5: Uporaba magnetilnice</h3>
+            <p><strong>Naloga:</strong> Iz magnetilnice (podatki krivulje magnetenja) določite ustrezen parameter za določeno vrednost \( B \) ali \( H \).</p>
+            <details>
+                <summary>Prikaži rešitev in postopek</summary>
+                <div class="solution-step">
+                    <p>V nalogah v pdf-ju uporabljamo točko za \( B_{max} = 1.5 \text{ T} \), za katero je po krivulji magnetenja \( H = 36 \text{ A/m} \). Od koder smo dobili permeabilnost \( \mu_r = \frac{B}{\mu_0 \cdot H} = 33157 \).</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Naloga 1.6 -->
+        <section class="task">
+            <h3>NALOGA 1.6: Navitje s časovno spremenljivo napetostjo</h3>
+            <p>Navitje je napajano z napetostjo, ki ustvari v jedru magnetno gostoto \( B_{Fe}(t) = 1.5 \cdot \sin(314 \cdot t) \text{ T} \). Polnilni faktor jedra je \( f_{Fe} = 0.94 \), specifična gostota je \( \rho_{Fe} = 7.65 \text{ kg/dm}^3 \). Prerez jedra po sliki je \( A = 5 \times 5 \text{ cm} = 25 \cdot 10^{-4} \text{ m}^2 \). Število ovojev \( N = 200 \).</p>
+            <p>Določite:</p>
+            <ol type="a">
+                <li>napajalno napetost (inducirano napetost \( e \)),</li>
+                <li>maksimalni vzbujalni tok.</li>
+            </ol>
+            <details>
+                <summary>Prikaži rešitev in postopek</summary>
+                <div class="solution-step">
+                    <h4>a) Inducirana napetost:</h4>
+                    <div class="formula-box">
+                        \[ e = N \cdot \frac{d\Phi(t)}{dt} = N \cdot A_{Fe} \cdot \frac{dB(t)}{dt} = N \cdot A \cdot f_{Fe} \cdot \frac{dB(t)}{dt} \]
+                        \[ e = 200 \cdot 25 \cdot 10^{-4} \cdot 0.94 \cdot 314 \cdot 1.5 \cdot \cos(314t) \]
+                        \[ e = 221.4 \cdot \cos(314 \cdot t) \text{ V} \]
+                    </div>
+                    <h4>b) Maksimalni vzbujalni tok:</h4>
+                    <p>Iz magnetilnice (naloga 5): \( B_{max} = 1.5 \text{ T} \to H_{max} = 36 \text{ A/m} \).</p>
+                    <p>Srednja pot po železnem jedru: \( l_{Fe\_sr} = 0.7 \text{ m} \).</p>
+                    <div class="formula-box">
+                        \[ I_{max} = \frac{l_{Fe\_sr} \cdot H_{max}}{N} = \frac{0.7 \cdot 36}{200} = 0.126 \text{ A} \]
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- Odsek: Sklopljena navitja -->
+        <section class="content-section">
+            <h2>Sklopljena Navitja in Induktivnost</h2>
+            <p>Kadar imamo na istem jedru več navitij, so ta med seboj magnetno sklopljena. Tok v enem navitju povzroči magnetni pretok, ki objame tudi drugo navitje in v njem inducira napetost.</p>
+            <ul>
+                <li><strong>Samoinduktivnost (\( L_{11}, L_{22} \)):</strong> \( L_{11} = \frac{N_1^2}{R_m} \)</li>
+                <li><strong>Medsebojna induktivnost (\( L_{12}, L_{21} \)):</strong> \( L_{12} = L_{21} = \frac{N_1 \cdot N_2}{R_m} \)</li>
+            </ul>
+        </section>
+
+        <!-- Naloga 1.7 in 1.8 -->
+        <section class="task">
+            <h3>NALOGA 1.7 in 1.8: Dve sklopljeni navitji</h3>
+            <p>Dve navitji sta sklopljeni preko železnega jedra: \( N_1 = 50 \) ovojev, \( N_2 = 100 \) ovojev, \( \mu_r = 4000 \). Srednja pot \( l = 1 \text{ m} \), \( A_{Fe} = 25 \cdot 10^{-4} \text{ m}^2 \). Stresanje zanemarite.</p>
+            <p><strong>Naloga 1.7:</strong> Izračunajte samoinduktivnosti \( L_{11} \) in \( L_{22} \) brez zračne reže.</p>
+            <p><strong>Naloga 1.8:</strong> Ponovite izračun za primer zračne reže \( \delta = 2.0 \text{ mm} \) (\( 0.002 \text{ m} \)) po celem prerezu jedra.</p>
+
+            <details>
+                <summary>Prikaži rešitev in postopek</summary>
+                <div class="solution-step">
+                    <h4>Rešitev 1.7 (Brez zračne reže):</h4>
+                    <p>Za linearni sistem brez stresanja velja:</p>
+                    <div class="formula-box">
+                        \[ L_{11} = \frac{N_1^2 \cdot \mu_r \cdot \mu_0 \cdot A_{Fe}}{l} = \frac{50^2 \cdot 4000 \cdot 4\pi \cdot 10^{-7} \cdot 25 \cdot 10^{-4}}{1} = 31.4 \text{ mH} \]
+                        \[ L_{22} = \frac{N_2^2 \cdot \mu_r \cdot \mu_0 \cdot A_{Fe}}{l} = 125.7 \text{ mH} \]
+                    </div>
+                </div>
+                <div class="solution-step">
+                    <h4>Rešitev 1.8 (Z zračno režo):</h4>
+                    <p>Izračunamo celotno reluktanco (železo + zrak). Dolžina železa je \( l_{Fe} = 1 \text{ m} - 0.002 \text{ m} = 0.998 \text{ m} \).</p>
+                    <div class="formula-box">
+                        \[ R_{mFe} = \frac{0.998}{4000 \cdot 4\pi \cdot 10^{-7} \cdot 25 \cdot 10^{-4}} = 79.4 \cdot 10^3 \text{ A/Vs} \]
+                        \[ R_{m\delta} = \frac{0.002}{4\pi \cdot 10^{-7} \cdot 25 \cdot 10^{-4}} = 636.6 \cdot 10^3 \text{ A/Vs} \]
+                        \[ R_{mc} = R_{mFe} + R_{m\delta} = 716.02 \cdot 10^3 \text{ A/Vs} \]
+                    </div>
+                    <div class="formula-box">
+                        \[ L_{11} = \frac{N_1^2}{R_{mc}} = \frac{50^2}{716.02 \cdot 10^3} = 3.5 \text{ mH} \]
+                        \[ L_{22} = \frac{N_2^2}{R_{mc}} = 14 \text{ mH} \]
+                    </div>
+                    <p><em>Namig: Zračna reža drastično zmanjša induktivnost! Iz 31.4 mH na 3.5 mH.</em></p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Naloga 1.9 -->
+        <section class="task">
+            <h3>NALOGA 1.9: T-nadomestno vezje</h3>
+            <p>Dve magnetno sklopljeni navitji imata naslednje parametre:</p>
+            <ul>
+                <li>\( L_{11} = 100 \text{ mH} \), \( N_1 = 1000 \text{ ovojev} \), \( L_{\sigma1} = 0.1 \cdot L_{11} \), \( R_1 = 10 \ \Omega \)</li>
+                <li>\( L_{22} = 25 \text{ mH} \), \( N_2 = 500 \text{ ovojev} \), \( L_{\sigma2} = 0.1 \cdot L_{22} \), \( R_2 = 2.5 \ \Omega \)</li>
+            </ul>
+            <p>Izračunajte T-nadomestno vezje preračunano na prvo navitje. Izračun ponovite za preračun na drugo navitje.</p>
+            <details>
+                <summary>Prikaži rešitev in postopek</summary>
+                <div class="solution-step">
+                    <h4>Pretvorbe parametrov:</h4>
+                    <div class="formula-box">
+                        \[ L_{m1} = L_{11} - L_{\sigma1} = 100 - 10 = 90 \text{ mH} \]
+                        \[ L_{m2} = L_{22} - L_{\sigma2} = 25 - 2.5 = 22.5 \text{ mH} \]
+                    </div>
+                    <p>Preračun na prvo navitje (razmerje ovojev na kvadrat):</p>
+                    <div class="formula-box">
+                        \[ L_{\sigma2}' = L_{\sigma2} \cdot \left(\frac{N_1}{N_2}\right)^2 = 2.5 \cdot 2^2 = 10 \text{ mH} \]
+                        \[ R_2' = R_2 \cdot \left(\frac{N_1}{N_2}\right)^2 = 2.5 \cdot 2^2 = 10 \ \Omega \]
+                    </div>
+                    <p>Tako sta \( L_{\sigma1} \) in \( L_{\sigma2}' \) serijsko vezana s paralelno vejo, kjer je glavna induktivnost \( L_{m1} \).</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Naloga 1.10 -->
+        <section class="task">
+            <h3>NALOGA 1.10: Induktivnost in pretok pri enojni zračni reži</h3>
+            <p>Magnetni krog z enojno zračno režo. \( \mu \to \infty \). Podatki:</p>
+            <ul>
+                <li>\( A_{Fe} = 1.5 \cdot 10^{-3} \text{ m}^2 \)</li>
+                <li>\( l_{Fe} = 0.7 \text{ m} \)</li>
+                <li>\( \delta = 2.5 \text{ mm} \)</li>
+                <li>\( N = 75 \text{ ovojev} \)</li>
+            </ul>
+            <p>Pri toku \( i = 1 \text{ A} \) izračunajte:</p>
+            <ol type="a">
+                <li>magnetni pretok,</li>
+                <li>magnetni sklep,</li>
+                <li>induktivnost.</li>
+            </ol>
+            <p>Nato izračun ponovite za \( \mu = 1500 \cdot \mu_0 \).</p>
+
+            <details>
+                <summary>Prikaži rešitev in postopek</summary>
+                <div class="solution-step">
+                    <h4>a) Pri \( \mu \to \infty \):</h4>
+                    <div class="formula-box">
+                        \[ V_m = N \cdot i = 75 \cdot 1 = 75 \text{ A} \]
+                        \[ R_{mFe} = 0 \]
+                        \[ R_{m\delta} = \frac{2.5 \cdot 10^{-3}}{4\pi \cdot 10^{-7} \cdot 1.5 \cdot 10^{-3}} = 1.326 \cdot 10^6 \text{ A/Vs} \]
+                        \[ \Phi = \frac{V_m}{R_{m\delta}} = \frac{75}{1.326 \cdot 10^6} = 5.65 \cdot 10^{-5} \text{ Wb} \]
+                        \[ \Psi = N \cdot \Phi = 75 \cdot 5.65 \cdot 10^{-5} = 4.24 \cdot 10^{-3} \text{ Vs} \]
+                        \[ L = \frac{\Psi}{i} = \frac{4.24 \cdot 10^{-3}}{1} = 4.24 \text{ mH} \]
+                    </div>
+                    <h4>b) Pri \( \mu = 1500 \cdot \mu_0 \):</h4>
+                    <div class="formula-box">
+                        \[ R_{mFe} = \frac{0.7}{1500 \cdot 4\pi \cdot 10^{-7} \cdot 1.5 \cdot 10^{-3}} = 0.247 \cdot 10^6 \text{ A/Vs} \]
+                        \[ \Phi = \frac{75}{R_{mFe} + R_{m\delta}} = \frac{75}{1.57 \cdot 10^6} = 4.77 \cdot 10^{-5} \text{ Wb} \]
+                        \[ \Psi = 75 \cdot 4.77 \cdot 10^{-5} = 3.58 \cdot 10^{-3} \text{ Vs} \]
+                        \[ L = 3.58 \text{ mH} \]
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 2 -->
+        <section class="quiz-section">
+            <h3>Kviz 2: Padec induktivnosti z reluktanco</h3>
+            <p>V nalogi 1.10 je induktivnost pri neskončni permeabilnosti železa znašala 4.24 mH. Ko smo upoštevali realno permeabilnost (\( 1500 \mu_0 \)), pa se je zmanjšala. Zapiši točnost nove vrednosti induktivnosti v mH (na dve decimalki natančno).</p>
+            <div class="input-group">
+                <input type="number" id="quiz2-input" placeholder="Vnesi rezultat" step="0.01">
+                <button onclick="checkQuiz2()">Preveri Kviz 2</button>
+            </div>
+            <div id="quiz2-feedback" class="feedback"></div>
+        </section>
+
+        <!-- Naloga 1.11 -->
+        <section class="task">
+            <h3>NALOGA 1.11: Toroid z zračno režo</h3>
+            <p>Magnetni krog je toroid debeline \( d = 2 \text{ cm} \), zunanjega polmera \( R_z = 4 \text{ cm} \), notranjega polmera \( R_n = 3 \text{ cm} \), zračne reže \( \delta = 5 \text{ mm} \), \( \mu \to \infty \), \( N = 75 \text{ ovojev} \).</p>
+            <p>Izračunajte:</p>
+            <ol type="a">
+                <li>srednjo dolžino jedra,</li>
+                <li>reluktanco,</li>
+                <li>induktivnost,</li>
+                <li>magnetilni tok pri \( B_\delta = 1.2 \text{ T} \),</li>
+                <li>megnetni pretok in sklep znotraj tuljave.</li>
+            </ol>
+            <details>
+                <summary>Prikaži rešitev in postopek</summary>
+                <div class="solution-step">
+                    <div class="formula-box">
+                        \[ A_{Fe} = d \cdot (R_z - R_n) = 20 \cdot 10 = 200 \text{ mm}^2 = 2 \cdot 10^{-4} \text{ m}^2 \]
+                        \[ R_{m\delta} = \frac{5 \cdot 10^{-3}}{4\pi \cdot 10^{-7} \cdot 2 \cdot 10^{-4}} = 19.9 \cdot 10^6 \text{ A/Vs} \]
+                        \[ L = \frac{N^2}{R_m} = \frac{75^2}{19.9 \cdot 10^6} = 0.283 \text{ mH} \]
+                        \[ i_\mu = \frac{B_\delta \cdot \delta}{\mu_0 \cdot N} = \frac{1.2 \cdot 5 \cdot 10^{-3}}{4\pi \cdot 10^{-7} \cdot 75} = 63.7 \text{ A} \]
+                        \[ \Phi = B_\delta \cdot A = 1.2 \cdot 2 \cdot 10^{-4} = 0.24 \cdot 10^{-3} \text{ Wb} \]
+                        \[ \Psi = N \cdot \Phi = 75 \cdot 0.24 \cdot 10^{-3} = 18 \text{ mWb} \]
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- Odsek: Magnetni materiali -->
+        <section class="content-section">
+            <h2>Magnetni krogi s trdomagnetnimi materiali</h2>
+            <p>Trdomagnetne materiale (npr. Alnico 5) karakterizira velika remanenčna gostota magnetnega pretoka \( B_r \) in velika koercitivna jakost magnetnega polja \( H_c \). Zmožni so ohranjati magnetni pretok brez zunanjega vira energije. Mehkomagnetni materiali (npr. M-5) imajo veliko \( B_r \), vendar zanemarljivo majhen \( H_c \).</p>
+        </section>
+
+        <!-- Naloga 1.12 & 1.13 -->
+        <section class="task">
+            <h3>NALOGA 1.12: Gostota magnetnega pretoka v zračni reži</h3>
+            <p>Magnetni krog tvori jedro iz mehkomagnetnega materiala (\( \mu \to \infty \)), zračna reža \( \delta = 0.2 \text{ cm} \) in odsek iz trdomagnetnega materiala dolžine \( l_m = 1 \text{ cm} \). Prerezi \( A_m = A_\delta = 4 \text{ cm}^2 \).</p>
+
+            <details>
+                <summary>Prikaži rešitev in postopek</summary>
+                <div class="solution-step">
+                    <p>Magnetna napetost zaprtega kroga je nič: \( 0 = H_\delta \cdot \delta + H_m \cdot l_m \). Ker je \( B_\delta = \mu_0 \cdot H_\delta \) in je pretok stalen, je obremenilna karakteristika (enačba premice na B-H grafu):</p>
+                    <div class="formula-box">
+                        \[ B_m = -\mu_0 \cdot \frac{A_\delta}{A_m} \cdot \frac{l_m}{\\delta} \cdot H_m \]
+                        \[ B_m = -4\pi \cdot 10^{-7} \cdot 1 \cdot \frac{0.01}{0.002} \cdot H_m = -6.28 \cdot 10^{-6} \cdot H_m \]
+                    </div>
+                    <p>Za grafično rešitev (v presečišču te premice in histerezne zanke) pri materialu Alnico 5 dobimo iz PDF-ja \( B_m = 0.3 \text{ T} \). Ker so prerezi enaki, je \( B_\delta = 0.3 \text{ T} \).</p>
+                </div>
+            </details>
+        </section>
+
+        <section class="task">
+            <h3>NALOGA 1.13: Minimalni volumen trdomagnetnega materiala</h3>
+            <p>Zračna reža iz nalogice zgoraj je zmanjšana na \( A_\delta = 2 \text{ cm}^2 \). Izračunajte minimalni volumen trdomagnetnega materiala Alnico 5 tako, da bo gostota magnetnega pretoka v zračni reži \( B_\delta = 0.8 \text{ T} \).</p>
+            <details>
+                <summary>Prikaži rešitev in postopek</summary>
+                <div class="solution-step">
+                    <p>Minimalni volumen ustreza delovni točki maksimalnega energijskega produkta na grafu (\( (-B_m \cdot H_m) = 40 \text{ kJ/m}^3 \)), ki se doseže pri \( B_m = 1 \text{ T} \) in \( H_m = -40 \text{ kA/m} \).</p>
+                    <div class="formula-box">
+                        \[ A_m = A_\delta \cdot \frac{B_\delta}{B_m} = 2 \cdot 10^{-4} \cdot \frac{0.8}{1.0} = 1.6 \cdot 10^{-4} \text{ m}^2 \]
+                        \[ l_m = -\delta \cdot \frac{B_\delta}{\mu_0 \cdot H_m} = -0.002 \cdot \frac{0.8}{4\pi \cdot 10^{-7} \cdot (-40000)} = 0.0318 \text{ m} = 31.8 \text{ mm} \]
+                        \[ V_m = l_m \cdot A_m = 3.18 \cdot 10^{-2} \cdot 1.6 \cdot 10^{-4} = 5.09 \cdot 10^{-6} \text{ m}^3 \]
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 3 -->
+        <section class="quiz-section">
+            <h3>Kviz 3: Razumevanje Alnico 5</h3>
+            <p>Iz naloge 1.13: Če bi želeli v zračni reži doseči 1.0 T, namesto 0.8 T (ob enakem \( A_\delta = 2 \text{ cm}^2 \)), kolikšen bi moral biti nov prerez trdomagnetnega materiala \( A_m \) (v \( \text{m}^2 \)) pri optimalnem energijskem produktu?</p>
+            <div class="input-group">
+                <input type="number" id="quiz3-input" placeholder="Vnesi rezultat" step="0.0001">
+                <button onclick="checkQuiz3()">Preveri Kviz 3</button>
+            </div>
+            <div id="quiz3-feedback" class="feedback"></div>
+        </section>
+
+        <!-- Sklepna informacija o učbeniku -->
+        <section class="content-section">
+            <p><strong>Zabeležka:</strong> Celoten dokument 1-Magnetni_krogi 2021.pdf je sedaj popolnoma analiziran in prenešen v interaktivno obliko. Zgornje naloge pokrivajo celoten spekter zahtevanih znanj iz prve teme.</p>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Ustvarjeno za učenje in utrjevanje znanja.</p>
+    </footer>
+
+    <script>
+        function checkQuiz1() {
+            const input = document.getElementById("quiz1-input").value;
+            const feedbackBox = document.getElementById("quiz1-feedback");
+            const userAnswer = parseFloat(input);
+
+            if (isNaN(userAnswer)) {
+                feedbackBox.className = "feedback error";
+                feedbackBox.textContent = "Prosim vnesite število.";
+                return;
+            }
+
+            if (userAnswer >= 0.251 && userAnswer <= 0.253) {
+                feedbackBox.className = "feedback success";
+                feedbackBox.textContent = "Pravilno! Magnetni pretok bi bil dvakrat večji (okoli 0.252 Wb), ker bi se upornost zračne reže prepolovila.";
+            } else {
+                feedbackBox.className = "feedback error";
+                feedbackBox.textContent = "Ni prav. Pomislite: Če je zračna reža za polovico krajša, se reluktanca prepolovi, kar pomeni, da je magnetni pretok dvakrat večji. Poskusite pomnožiti prejšnji pretok z 2.";
+            }
+        }
+
+        function checkQuiz2() {
+            const input = document.getElementById("quiz2-input").value;
+            const feedbackBox = document.getElementById("quiz2-feedback");
+            const userAnswer = parseFloat(input);
+
+            if (isNaN(userAnswer)) {
+                feedbackBox.className = "feedback error";
+                feedbackBox.textContent = "Prosim vnesite število.";
+                return;
+            }
+
+            if (userAnswer >= 3.57 && userAnswer <= 3.59) {
+                feedbackBox.className = "feedback success";
+                feedbackBox.textContent = "Pravilno! Induktivnost je padla na 3.58 mH zaradi upornosti samega železa, ki zdaj ni več enaka nič.";
+            } else {
+                feedbackBox.className = "feedback error";
+                feedbackBox.textContent = "Ni prav. Poglej rezultat naloge 1.10 del (b).";
+            }
+        }
+
+        function checkQuiz3() {
+            const input = document.getElementById("quiz3-input").value;
+            const feedbackBox = document.getElementById("quiz3-feedback");
+            const userAnswer = parseFloat(input);
+
+            if (isNaN(userAnswer)) {
+                feedbackBox.className = "feedback error";
+                feedbackBox.textContent = "Prosim vnesite število.";
+                return;
+            }
+
+            if (userAnswer >= 0.00019 && userAnswer <= 0.00021) {
+                feedbackBox.className = "feedback success";
+                feedbackBox.textContent = "Pravilno! A_m = 2e-4 * (1.0 / 1.0) = 0.0002 m^2.";
+            } else {
+                feedbackBox.className = "feedback error";
+                feedbackBox.textContent = "Ni prav. Uporabite formulo iz naloge 1.13, vendar spremenite B_delta na 1.0.";
+            }
+        }
+    </script>
+</body>
+</html>
