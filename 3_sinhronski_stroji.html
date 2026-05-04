@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3. Sinhronski stroji - Interaktivni učbenik</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .task { background-color: #fcfcfc; border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        .solution-step { margin-top: 15px; border-left: 3px solid var(--primary-color); padding-left: 15px; background: #f4f7f6; margin-bottom: 15px; padding-bottom: 10px; padding-top: 10px;}
+        .formula-box { background-color: #f8f9fa; border-left: 4px solid var(--primary-color); padding: 1rem; margin: 1rem 0; font-family: monospace; font-size: 1.1rem; overflow-x: auto;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>3. Sinhronski stroji</h1>
+        <p>Poglavje o sinhronskih strojih z nalogami, razlagami in interaktivnimi prikazi.</p>
+    </header>
+
+    <main class="container">
+        <a href="index.html" style="display:inline-block; margin-bottom: 20px; color: var(--primary-color); text-decoration: none;">&larr; Nazaj na zemljevid</a>
+
+        <!-- Naloga 3.2 -->
+        <section class="task">
+            <h3>NALOGA 3.2: Sinhronski generator s cilindričnim rotorjem</h3>
+            <p>Sinhronski generator s cilindričnim rotorjem (turbo generator) ima nazivno moč \(S_n = 94 \text{ MVA}\), nazivno napetost na priključnih sponkah \(U_{2n} = 10.5 \text{ kV}\), nazivno frekvenco \(f = 50 \text{ Hz}\), nazivni faktor delavnosti toka \(\cos\phi_{2n} = 0.8\) ter relativno sinhronsko reluktanco \(X_{sr} = 1.8\). Generator obratuje na togem omrežju nazivne napetosti in frekvence ter je nazivno obremenjen.</p>
+            <ol type="a">
+                <li>Narišite v relativnem merilu kazalčni diagram za nazivno obremenitev z upoštevanjem linearizirane karakteristike (magnetno nenasičen stroj). Določite (grafično in analitično) relativno inducirano napetosti \(E_{0r}\).</li>
+                <li>Generator obratuje na togem nazivnem omrežju (\(U_2 = \text{konstantna}\)) in je nazivno vzbujen. Vzbujalni tok se ne spreminja. Moč turbine počasi povečujemo. Kako veliko moč ima turbina, tik preden generator pade iz sinhronizma z omrežjem (električne in mehanske izgube zanemarimo)? Narišite kazalčni diagram tega obratovalnega stanja.</li>
+            </ol>
+
+            <div class="real-world-box">
+                <div class="real-world-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    Uporaba v praksi
+                </div>
+                <p><strong>Stabilnost elektroenergetskega omrežja (Kolesni kot δ):</strong> Turbogeneratorji v termo in jedrskih elektrarnah so priključeni na ogromno ("togo") omrežje. Fizična os njihovega rotorja (katere pozicijo predstavlja vektor \(\vec{E}_0\)) se vrti povsem sinhrono z omrežno napetostjo (\(\vec{U}_2\)). Če v elektrarni dodajamo več pare na turbino, se rotor hoče zavrteti hitreje, vendar ga "togo" magnetno polje omrežja drži nazaj. Zato se rotor le malo prestavi naprej za <strong>kolesni kot \(\delta\)</strong>. To deluje kot nekakšna prožna vzmet - bolj ko je vzmet napeta (večji \(\delta\)), več moči se prenaša v omrežje. Vendar POZOR: če turbino premočno poženemo in kot \(\delta\) preseže \(90^\circ\), se ta "magnetna vzmet" strga. Generator pade iz sinhronizma, začne pospeševati in lahko se mehansko uniči (odleti v preobrate). To nalogo rešujemo, da izračunamo točko zloma (omahno moč).</p>
+            </div>
+
+            <div class="interactive-container" style="justify-content: center; background: #fafafa;">
+                <div style="text-align: center; padding: 10px; width: 100%;">
+                    <h4>Kazalčni diagram generatorja in omahna moč</h4>
+                    <p style="font-size: 14px;">Premikaj kolesni kot \(\delta\) in opazuj, kako raste delovna moč, dokler ne doseže \(90^\circ\) (maksimum). Nato moč začne padati in generator omahne!</p>
+
+                    <div style="margin: 15px 0;">
+                        <label for="slider-delta-32">Kolesni kot \(\delta\) [°]: <span id="val-delta-32">35</span></label>
+                        <input type="range" id="slider-delta-32" min="0" max="150" step="1" value="35" oninput="updateTask32()">
+                    </div>
+
+                    <div style="display: flex; justify-content: space-around; font-size: 14px; margin-bottom: 10px;">
+                        <div>Relativna moč (\(P / S_n\)): <strong><span id="res-p-32" style="color:#e74c3c;">0.81</span></strong></div>
+                        <div>Maksimalna moč (\(P_{om}\)): <strong>1.41</strong></div>
+                    </div>
+
+                    <svg id="svg-phasor-32" width="500" height="300" viewBox="-150 -250 300 300" style="border: 1px solid #ccc; background: #fff;">
+                        <!-- Mreža -->
+                        <line x1="-150" y1="0" x2="150" y2="0" stroke="#eee" stroke-width="1"/>
+                        <line x1="0" y1="-250" x2="0" y2="50" stroke="#eee" stroke-width="1"/>
+
+                        <!-- U2 kazalec (Fiksen na x osi, relativna vrednost 1) -->
+                        <line x1="0" y1="0" x2="100" y2="0" stroke="#3498db" stroke-width="3" marker-end="url(#arrow)"/>
+                        <text x="50" y="15" font-size="12" fill="#3498db">U_2r = 1</text>
+
+                        <!-- E0 kazalec (Konstantna dolžina 2.53, vrti se okoli (0,0) glede na delta) -->
+                        <line id="svg-e0-32" x1="0" y1="0" x2="100" y2="-100" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrow-red)"/>
+                        <text id="svg-e0-txt-32" x="50" y="-50" font-size="12" fill="#e74c3c">E_0r = 2.53</text>
+
+                        <!-- Padec napetosti I2*Xs (Povezuje U2 in E0) -->
+                        <line id="svg-ixs-32" x1="100" y1="0" x2="100" y2="-100" stroke="#27ae60" stroke-width="2" marker-end="url(#arrow-green)"/>
+                        <text id="svg-ixs-txt-32" x="105" y="-50" font-size="12" fill="#27ae60">j*I_2*X_s</text>
+
+                        <!-- Tok I2 (izračunan in rotiran nazaj za 90 stopinj glede na I2*Xs) -->
+                        <line id="svg-i2-32" x1="0" y1="0" x2="50" y2="20" stroke="#f39c12" stroke-width="2" stroke-dasharray="4,4" marker-end="url(#arrow)"/>
+                        <text id="svg-i2-txt-32" x="25" y="10" font-size="12" fill="#f39c12">I_2</text>
+
+                        <!-- Oznaka kota Delta -->
+                        <path id="svg-angle-arc-32" d="M 40,0 A 40,40 0 0,0 30,-20" fill="none" stroke="#e74c3c" stroke-width="1"/>
+                        <text id="svg-angle-txt-32" x="45" y="-10" font-size="12" fill="#e74c3c">δ</text>
+
+                        <defs>
+                            <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+                            </marker>
+                            <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c" />
+                            </marker>
+                            <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+
+            <details>
+                <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
+
+                <div class="solution-step">
+                    <h4>a) Analitični izračun relativne inducirane napetosti (\(E_{0r}\)):</h4>
+                    <p>Izračune pri velikih strojih zelo pogosto delamo v <strong>relativnih enotah (pu - per unit)</strong>. To pomeni, da vse nazivne vrednosti (\(U_{2n}\), \(I_{2n}\), \(Z_n\)) postavimo na vrednost 1 (oz. 100%).</p>
+                    <p>Enačba generatorja s cilindričnim rotorjem je: \(\vec{E}_0 = \vec{U}_2 + j \cdot \vec{I}_2 \cdot X_s\). To pomeni, da je notranja inducirana napetost (\(E_0\)) enaka vsoti omrežne napetosti in padca napetosti na sinhronski reaktanci stroja.</p>
+                    <p>V relativnem merilu zapišemo kompleksno enačbo preko njenih komponent (realna in imaginarna os). Relativni nazivni tok je \(I_{2nr} = 1\), relativna napetost pa \(U_{2r} = 1\). Upoštevamo, da faza med napetostjo in tokom zamuja za \(\cos\phi = 0.8\) (torej \(\sin\phi = 0.6\)). Geometrijsko to tvori pravokotni trikotnik, kjer uporabimo Pitagorov izrek:</p>
+                    <div class="formula-box">
+                        \[ E_{0r}^2 = (U_{2r} + I_{2nr} \cdot X_{sr} \cdot \sin\phi)^2 + (I_{2nr} \cdot X_{sr} \cdot \cos\phi)^2 \]
+                    </div>
+                    <p>Vstavimo podane vrednosti (\(U_{2r} = 1\), \(I_{2nr} = 1\), \(X_{sr} = 1.8\), \(\cos\phi = 0.8\), \(\sin\phi = 0.6\)):</p>
+                    <div class="formula-box">
+                        \[ E_{0r}^2 = (1 + 1 \cdot 1.8 \cdot 0.6)^2 + (1 \cdot 1.8 \cdot 0.8)^2 \]
+                        \[ E_{0r}^2 = (1 + 1.08)^2 + (1.44)^2 = (2.08)^2 + 2.0736 = 4.3264 + 2.0736 = 6.4 \]
+                        \[ E_{0r} = \sqrt{6.4} = \underline{\underline{2.53}} \]
+                    </div>
+                    <p>To pomeni, da je v nazivnem obratovanju notranja napetost stroja 2.53-krat večja od napetosti na sponkah! Zato se imenuje <em>prekomerno vzbujen</em> (njegov E0 je precej večji od U).</p>
+                </div>
+
+                <div class="solution-step">
+                    <h4>b) Omahna moč (izguba sinhronizma):</h4>
+                    <p>Sedaj stroj pustimo vzbujen (torej vzbujalni tok se ne spreminja, posledično je tudi \(E_{0r}\) konstanten pri vrednosti 2.53). Povečujemo moč turbine (odpiramo ventil pare), da bi oddali več aktivne moči v omrežje.</p>
+                    <p>Splošna formula za delovno moč generatorja v funkciji kolesnega kota \(\delta\) (to je kot med \(E_0\) in \(U_2\)) je izpeljana iz moči in reaktance:</p>
+                    <div class="formula-box">
+                        \[ P = \frac{m \cdot U_2 \cdot E_0}{X_s} \cdot \sin\delta \]
+                    </div>
+                    <p>V relativnem merilu izraz delimo z nazivno močjo (\(S_n\)) in preidemo na preprosto enačbo:</p>
+                    <div class="formula-box">
+                        \[ \frac{P}{S_n} = \frac{U_{2r} \cdot E_{0r}}{X_{sr}} \cdot \sin\delta \]
+                    </div>
+                    <p>To je matematično čista sinusoida! Največjo moč (omahno moč, \(P_{om}\)) dobimo takrat, ko je sinus maksimalen, to je pri <strong>kolesnem kotu \(\delta = \pi/2\) oziroma \(90^\circ\)</strong>, kjer je \(\sin(90^\circ) = 1\).</p>
+                    <div class="formula-box">
+                        \[ \frac{P_{om}}{S_n} = \frac{1 \cdot 2.53}{1.8} \cdot 1 = 1.41 \]
+                    </div>
+                    <p>V absolutnih vrednostih (ker je nazivna moč \(S_n = 94 \text{ MVA}\)):</p>
+                    <div class="formula-box">
+                        \[ P_{om} = 1.41 \cdot S_n = 1.41 \cdot 94 \cdot 10^6 = \underline{\underline{132 \text{ MW}}} \]
+                    </div>
+                    <p>Generator lahko zdrži do \(132 \text{ MW}\) mehanske moči s turbine. Če bi turbina dodala 133 MW, magnetno polje rotorja ne bi zmoglo več slediti statorju, preskočilo bi pol, in generator bi padel iz sinhronizma.</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 3.2 -->
+        <section class="quiz-section">
+            <h3>Kviz 3.2: Omahna meja</h3>
+            <p>Z drsnikom v interaktivnem prikazu povleči kolesni kot \(\delta\) preko 90 stopinj. Glede na formulo \(P \propto \sin\delta\), kaj se začne dogajati z električno oddano močjo generatorja, ko kolesni kot postane večji od \(90^\circ\) (in do \(180^\circ\))?</p>
+            <div class="input-group">
+                <label><input type="radio" name="quiz32" value="narasca"> Še naprej narašča</label><br>
+                <label><input type="radio" name="quiz32" value="pada"> Začne padati (sistem postane nestabilen)</label><br>
+                <button onclick="checkQuiz32()" style="margin-top: 10px;">Preveri</button>
+            </div>
+            <div id="quiz32-feedback" class="feedback"></div>
+        </section>
+
+        <hr>
+
+        <!-- Naloga 3.3 -->
+        <section class="task">
+            <h3>NALOGA 3.3: Določitev sinhronske reaktance iz prostega teka</h3>
+            <p>Sinhronski generator s cilindričnim rotorjem ima nazivne podatke: \(5 \text{ MVA}, 4360 \text{ V}, 50 \text{ Hz}, \cos\phi_{2n} = 0.8\). Pri obratovanju na nazivnem togem omrežju in nazivni obremenitvi je vzbujalni tok \(I_1\) naravnan na \(190\%\) vzbujalnega toka za prosti tek!</p>
+            <ol type="a">
+                <li>Določite relativno sinhronsko reaktanco!</li>
+                <li>Kako velika je mehanska moč, pri kateri nazivno vzbujen generator pade iz sinhronizma z nazivnim omrežjem?</li>
+            </ol>
+
+            <div class="real-world-box">
+                <div class="real-world-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    Uporaba v praksi
+                </div>
+                <p><strong>Sinhronska reaktanca (Kratek stik vs. Prosti tek):</strong> Sinhronska reaktanca (\(X_s\)) je najpomembnejši parameter sinhronskega stroja. Pove nam, kako se bo napetost stroja sesedla ob obremenitvi (ali pri kratkem stiku). Stroji z veliko \(X_s\) (preko 1.0 pu) imajo majhen tok kratkega stika, kar je dobro za zaščito omrežja, vendar hitreje padejo iz sinhronizma (imajo manjšo omahno moč). \(X_s\) proizvajalci določijo prav z meritvijo toka pri prostem teku in kratkem stiku. Tukaj je podatek "190% vzbujanja za prosti tek" eleganten način, s katerim inženirji izrazijo, da je \(E_{0r} = 1.9\).</p>
+            </div>
+
+            <details>
+                <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
+
+                <div class="solution-step">
+                    <h4>a) Relativna sinhronska reaktanca (\(X_{sr}\)):</h4>
+                    <p>Linearna karakteristika prostega teka pomeni, da je notranja inducirana napetost (\(E_0\)) premo sorazmerna z vzbujalnim tokom (\(I_1\)). Če vzbujalni tok dvignemo na 190% tistega toka, ki bi dal ravno nazivno napetost v prostem teku, pomeni, da bo tudi napetost narasla na 190% nazivne. Relativno gledano to preprosto pomeni:</p>
+                    <div class="formula-box">
+                        \[ E_{0r} = 1.9 \cdot E_{nr} = 1.9 \cdot 1 = 1.9 \]
+                    </div>
+                    <p>Za nazivno stanje na omrežju poznamo: \(U_{2nr} = 1\), \(I_{2nr} = 1\), \(\cos\phi_{2n} = 0.8\) (torej \(\sin\phi_{2n} = 0.6\)). Napišemo enako kompleksno/geometrijsko enačbo kot v nalogi 3.2, vendar nam tokrat manjka \(X_{sr}\):</p>
+                    <div class="formula-box">
+                        \[ E_{0r}^2 = (U_{2nr} + I_{2nr} \cdot X_{sr} \cdot \sin\phi)^2 + (I_{2nr} \cdot X_{sr} \cdot \cos\phi)^2 \]
+                    </div>
+                    <p>Kvadrirajmo člene (spomnimo se \((a+b)^2 = a^2 + 2ab + b^2\)):</p>
+                    <div class="formula-box">
+                        \[ E_{0r}^2 = U_{2nr}^2 + 2 \cdot U_{2nr} \cdot I_{2nr} \cdot X_{sr} \cdot \sin\phi + (I_{2nr} \cdot X_{sr} \cdot \sin\phi)^2 + (I_{2nr} \cdot X_{sr} \cdot \cos\phi)^2 \]
+                    </div>
+                    <p>Ker je \(\sin^2\phi + \cos^2\phi = 1\), se zadnja dva člena združita v \((I_{2nr} \cdot X_{sr})^2\). Preuredimo v kvadratno enačbo za iskani \(X_{sr}\):</p>
+                    <div class="formula-box">
+                        \[ I_{2nr}^2 \cdot X_{sr}^2 + (2 \cdot U_{2nr} \cdot I_{2nr} \cdot \sin\phi) \cdot X_{sr} + (U_{2nr}^2 - E_{0r}^2) = 0 \]
+                    </div>
+                    <p>Vstavimo številke (vse vrednosti 1 preprosto odpadejo):</p>
+                    <div class="formula-box">
+                        \[ 1 \cdot X_{sr}^2 + (2 \cdot 1 \cdot 1 \cdot 0.6) \cdot X_{sr} + (1^2 - 1.9^2) = 0 \]
+                        \[ X_{sr}^2 + 1.2 \cdot X_{sr} + (1 - 3.61) = 0 \]
+                        \[ X_{sr}^2 + 1.2 \cdot X_{sr} - 2.61 = 0 \]
+                    </div>
+                    <p>Kvadratno enačbo rešimo s formulo \(x_{1,2} = \frac{-b \pm \sqrt{b^2 - 4ac}}{2a}\):</p>
+                    <div class="formula-box">
+                        \[ X_{sr} = \frac{-1.2 \pm \sqrt{1.2^2 - 4 \cdot 1 \cdot (-2.61)}}{2} = \frac{-1.2 \pm \sqrt{1.44 + 10.44}}{2} = \frac{-1.2 \pm \sqrt{11.88}}{2} \]
+                        \[ X_{sr} = \frac{-1.2 \pm 3.447}{2} \]
+                    </div>
+                    <p>Pozitivna rešitev (fizikalno smiselna) je: \(X_{sr} = \frac{2.247}{2} = \underline{\underline{1.123}}\). Negativna rešitev \(X_{sr} < 0\) nima fizikalnega smisla.</p>
+                </div>
+
+                <div class="solution-step">
+                    <h4>b) Omahna moč (izguba sinhronizma):</h4>
+                    <p>Tako kot v nalogi 3.2, omahna moč nastopi, ko je \(\sin\delta = 1\).</p>
+                    <div class="formula-box">
+                        \[ P_{om} = S_n \cdot \frac{U_{2r} \cdot E_{0r}}{X_{sr}} \cdot 1 \]
+                        \[ P_{om} = 5 \cdot 10^6 \cdot \frac{1 \cdot 1.9}{1.123} = 5 \cdot 10^6 \cdot 1.691 = \underline{\underline{8.46 \text{ MW}}} \]
+                    </div>
+                    <p>Stroj nazivne moči 5 MVA lahko kratkotrajno potegne do 8.46 MW mehanske moči, preden izgubi sinhronizem. (Pri nazivni obremenitvi oddaja zgolj \(5 \cdot \cos(0.8) = 4 \text{ MW}\) delovne moči).</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 3.3 -->
+        <section class="quiz-section">
+            <h3>Kviz 3.3: Matematika in fizika</h3>
+            <p>Pri izračunu sinhronske reaktance iz kvadratne enačbe smo dobili eno negativno rešitev. Kaj bi v teoriji pomenila negativna reaktanca (\(X_s < 0\)) v izmeničnem sistemu, če bi bila sploh možna?</p>
+            <div class="input-group">
+                <label><input type="radio" name="quiz33" value="upor"> Da bi se stroj obnašal kot čisti ohmski upor.</label><br>
+                <label><input type="radio" name="quiz33" value="kapac"> Da bi se narava navitja iz induktivnega spremenila v povsem kapacitivno.</label><br>
+                <button onclick="checkQuiz33()" style="margin-top: 10px;">Preveri</button>
+            </div>
+            <div id="quiz33-feedback" class="feedback"></div>
+        </section>
+
+        <hr>
+
+        <!-- Naloga 3.4 -->
+        <section class="task">
+            <h3>NALOGA 3.4: V-krivulje in kompenzacija reaktivne moči</h3>
+            <p>Sinhronski generator s podatki: \(10 \text{ MVA}, 10.5 \text{ kV}, 50 \text{ Hz}, X_{sr} = 1.2, \cos\phi_{2n} = 0.7\) obratuje na nazivnem togem omrežju. Pri nazivni obremenitvi je vzbujalno navitje termično maksimalno izkoriščeno (vzbujalni tok \(I_1 = I_{1max}\)).</p>
+            <ol type="a">
+                <li>Določite moč generatorja, če se spremeni faktor delavnosti toka od nazivne vrednosti \(\cos\phi_{2n}\) na vrednost \(\cos\phi_2 = 0.5\)!</li>
+                <li>Koliko se mora spremeniti vzbujalni tok \(I_1\), če se bremenski tok zmanjša na \(I_2 = 0.25 \cdot I_{2n}\) pri \(\cos\phi_{2n}\)?</li>
+                <li>Koliko se mora spremeniti vzbujalni tok \(I_1\), če se bremenski tok zmanjša na \(I_2 = 0.50 \cdot I_{2n}\) pri \(\cos\phi_2 = 1\)?</li>
+            </ol>
+
+            <div class="real-world-box">
+                <div class="real-world-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    Uporaba v praksi
+                </div>
+                <p><strong>Sinhronski kompenzatorji (V-krivulje):</strong> Izjemen pojav pri sinhronskih strojih je njihova "V-krivulja". Če pri stroju, ki oddaja konstantno delovno moč v omrežje, spreminjamo vzbujalni tok (vzbujanje rotorja), se bo spreminjal njegov \(\cos\phi\). Če ga prekomerno vzbujamo (velik \(I_1\)), bo deloval kot velikanski kondenzator in v omrežje oddajal jalovo (reaktivno) moč, ki jo nujno potrebujemo za vzdrževanje napetosti v sistemu. Če ga premalo vzbujamo (majhen \(I_1\)), bo jalovo moč iz omrežja jemal (kot dušilka). Stari, odpisani generatorji se pogosto odklopijo s turbin in se uporabljajo izključno kot "sinhronski kompenzatorji" - vrtijo se v prazno in zgolj stabilizirajo napetost omrežja s spreminjanjem vzbujanja.</p>
+            </div>
+
+            <div class="interactive-container">
+                <div class="interactive-controls">
+                    <div class="control-group">
+                        <label for="slider-ivzb-34">Vzbujalni tok (sorazmeren z \(E_0\)): <span id="val-ivzb-34">2.04</span> pu</label>
+                        <input type="range" id="slider-ivzb-34" min="0.5" max="3.0" step="0.05" value="2.04" oninput="updateTask34()">
+                    </div>
+                    <div class="control-group">
+                        <label for="slider-p-34">Delovna moč (\(P / S_n\)): <span id="val-p-34">0.7</span> pu</label>
+                        <input type="range" id="slider-p-34" min="0.0" max="1.0" step="0.1" value="0.7" oninput="updateTask34()">
+                    </div>
+                    <div class="interactive-results">
+                        <div>Izračunan tok statorja \(I_2\): <span id="res-i2-34">1.00</span> pu</div>
+                        <div style="margin-top:10px; font-weight:bold; color:var(--primary-color);">Faktor moči (\(\cos\phi\)): <span id="res-cos-34">0.70</span> (<span id="res-type-34">induktivno</span>)</div>
+                    </div>
+                </div>
+                <div class="interactive-svg-wrapper" style="flex: 1.5; background: #fff; padding: 10px;">
+                    <!-- V krivulja graf -->
+                    <svg id="svg-vcurve-34" width="400" height="250" viewBox="0 0 400 250">
+                        <!-- Osi -->
+                        <line x1="40" y1="200" x2="380" y2="200" stroke="#333" stroke-width="2"/>
+                        <line x1="40" y1="20" x2="40" y2="200" stroke="#333" stroke-width="2"/>
+                        <text x="320" y="215" font-size="12">Vzbujalni tok (E0)</text>
+                        <text x="5" y="30" font-size="12">Tok I2</text>
+
+                        <!-- Trenutna V krivulja (za izbran P) -->
+                        <path id="svg-vcurve-path-34" d="" fill="none" stroke="#2980b9" stroke-width="3"/>
+
+                        <!-- Točka minimalnega toka (cos phi = 1) -->
+                        <line id="svg-vcurve-min-line" x1="150" y1="20" x2="150" y2="200" stroke="#7f8c8d" stroke-dasharray="4,4"/>
+                        <text id="svg-vcurve-min-text" x="155" y="195" font-size="10" fill="#7f8c8d">cosφ=1</text>
+
+                        <!-- Trenutna delovna točka -->
+                        <circle id="svg-vcurve-pt-34" cx="250" cy="100" r="5" fill="#e74c3c"/>
+
+                        <!-- Območja -->
+                        <text x="60" y="50" font-size="12" fill="#c0392b" font-style="italic">Podvzbujen</text>
+                        <text x="280" y="50" font-size="12" fill="#27ae60" font-style="italic">Prevzbujen</text>
+                    </svg>
+                </div>
+            </div>
+
+            <details>
+                <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
+
+                <p>Naloga obravnava primer, kjer je vzbujalno navitje rotorja termično maksimalno izkoriščeno pri nazivnem obratovanju (\(10 \text{ MVA}, \cos\phi_{2n} = 0.7\)). To pomeni, da je nazivni vzbujalni tok \(I_1\) in posledično nazivna inducirana napetost \(E_0\) največja dovoljena.</p>
+
+                <div class="solution-step">
+                    <h4>Najprej izračunamo maksimalno notranjo napetost (\(E_{0nr}\)):</h4>
+                    <p>Za nazivno stanje na togem omrežju v relativnem merilu velja: \(U_{2r} = 1\), \(I_{2r} = 1\), \(X_{sr} = 1.2\), \(\cos\phi_n = 0.7\). Iz \(\cos\phi\) lahko določimo \(\sin\phi_n = \sqrt{1 - 0.7^2} = 0.714\).</p>
+                    <div class="formula-box">
+                        \[ E_{0nr}^2 = (U_{2r} + I_{2r} X_{sr} \sin\phi)^2 + (I_{2r} X_{sr} \cos\phi)^2 \]
+                        \[ E_{0nr}^2 = (1 + 1 \cdot 1.2 \cdot 0.714)^2 + (1 \cdot 1.2 \cdot 0.7)^2 \]
+                        \[ E_{0nr}^2 = (1 + 0.8568)^2 + (0.84)^2 = 1.8568^2 + 0.7056 = 3.447 + 0.7056 = 4.15 \]
+                        \[ E_{0nr} = \sqrt{4.15} = \underline{2.04} \]
+                    </div>
+                </div>
+
+                <div class="solution-step">
+                    <h4>a) Sprememba faktorja moči pri maksimalnem vzbujanju:</h4>
+                    <p>Če se \(\cos\phi\) spremeni na 0.5 (torej \(\sin\phi = 0.866\)) in je vzbujanje še vedno maksimalno (\(E_{0r} = E_{0nr} = 2.04\)), moramo izračunati, kakšen nov tok \(I_2'\) lahko teče, ne da bi presegli to napetost. Isto enačbo obrnemo (neznanka je \(I_2'\)):</p>
+                    <div class="formula-box">
+                        \[ E_{0nr}^2 = (U_{2r} + I_2' X_{sr} \sin\phi')^2 + (I_2' X_{sr} \cos\phi')^2 \]
+                        \[ 2.04^2 = (1 + I_2' \cdot 1.2 \cdot 0.866)^2 + (I_2' \cdot 1.2 \cdot 0.5)^2 \]
+                        \[ 4.15 = (1 + 1.04 \cdot I_2')^2 + (0.6 \cdot I_2')^2 \]
+                        \[ 4.15 = 1 + 2.08 \cdot I_2' + 1.08 \cdot (I_2')^2 + 0.36 \cdot (I_2')^2 \]
+                        \[ 1.44 \cdot (I_2')^2 + 2.08 \cdot I_2' - 3.15 = 0 \]
+                    </div>
+                    <p>Rešimo kvadratno enačbo za \(I_2'\) in dobimo fizikalno smiselno rešitev \(I_2' = \underline{0.927 \text{ pu}}\).</p>
+                    <p>Končna delovna moč generatorja se izračuna po formuli \(P = \sqrt{3} U I \cos\phi\). V relativnem merilu:</p>
+                    <div class="formula-box">
+                        \[ \frac{P}{S_n} = U_{2r} \cdot I_2' \cdot \cos\phi' = 1 \cdot 0.927 \cdot 0.5 = 0.4635 \]
+                        \[ P = 0.4635 \cdot S_n = 0.4635 \cdot 10 \text{ MVA} = \underline{\underline{4.635 \text{ MW}}} \]
+                    </div>
+                    <p>Zaradi zelo slabega faktorja moči (\(\cos\phi = 0.5\)) in omejitve vzbujanja, lahko generator namesto nazivnih 7 MW (pri 0.7) v omrežje odda le dobrih 4.6 MW delovne moči!</p>
+                </div>
+
+                <div class="solution-step">
+                    <h4>b in c) Zmanjševanje vzbujalnega toka pri manjših obremenitvah:</h4>
+                    <p>Za izračun potrebnega vzbujalnega toka (\(I_1\)) uporabljamo pravilo linearne magnetilne karakteristike, ki pravi, da je inducirana napetost stroja direktno sorazmerna z vzbujalnim tokom rotorja (\(E_0 \propto I_1\)):</p>
+                    <div class="formula-box">
+                        \[ \frac{I_1'}{I_{1n}} = \frac{E_{0r}'}{E_{0nr}} \]
+                    </div>
+
+                    <p><strong>Primer b)</strong> \(I_2' = 0.25 \text{ pu}\), \(\cos\phi = 0.7\). Izračunamo nov potreben \(E_{0r}'\):</p>
+                    <div class="formula-box">
+                        \[ E_{0r}' = \sqrt{ (1 + 0.25 \cdot 1.2 \cdot 0.714)^2 + (0.25 \cdot 1.2 \cdot 0.7)^2 } = \sqrt{ (1.214)^2 + (0.21)^2 } = \underline{1.23} \]
+                        \[ \frac{I_1'}{I_{1n}} = \frac{1.23}{2.04} = \underline{\underline{0.60}} \text{ (oz. 60% nazivnega toka)} \]
+                    </div>
+
+                    <p><strong>Primer c)</strong> \(I_2' = 0.5 \text{ pu}\), \(\cos\phi = 1\) (torej \(\sin\phi = 0\)):</p>
+                    <div class="formula-box">
+                        \[ E_{0r}' = \sqrt{ (1 + 0.5 \cdot 1.2 \cdot 0)^2 + (0.5 \cdot 1.2 \cdot 1)^2 } = \sqrt{ 1^2 + 0.6^2 } = \sqrt{1.36} = \underline{1.17} \]
+                        \[ \frac{I_1'}{I_{1n}} = \frac{1.17}{2.04} = \underline{\underline{0.57}} \text{ (oz. 57% nazivnega toka)} \]
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 3.4 -->
+        <section class="quiz-section">
+            <h3>Kviz 3.4: Reaktivna moč in vzbujanje</h3>
+            <p>S pomočjo interaktivnega prikaza V-krivulje (zgoraj) določi: če generator oddaja nespremenjeno konstantno delovno moč (npr. \(P = 0.7 \text{ pu}\)) in mu <strong>povečamo</strong> vzbujalni tok (\(E_0\)) daleč na desno stran krivulje, kaj bo generator oddajal v omrežje?</p>
+            <div class="input-group">
+                <label><input type="radio" name="quiz34" value="ind"> Induktivno jalovo moč (deluje kot kondenzator)</label><br>
+                <label><input type="radio" name="quiz34" value="kap"> Kapacitivno jalovo moč (deluje kot dušilka)</label><br>
+                <button onclick="checkQuiz34()" style="margin-top: 10px;">Preveri</button>
+            </div>
+            <div id="quiz34-feedback" class="feedback"></div>
+        </section>
+
+        <hr>
+
+    </main>
+
+    <footer>
+        <p>Ustvarjeno za učenje in utrjevanje znanja.</p>
+    </footer>
+
+    <script>
+        function updateTask32() {
+            let delta_deg = parseFloat(document.getElementById('slider-delta-32').value);
+            document.getElementById('val-delta-32').innerText = delta_deg;
+
+            let delta_rad = delta_deg * (Math.PI / 180);
+            let E0r = 2.53;
+            let Xsr = 1.8;
+            let U2r = 1.0;
+
+            // Moc P / Sn = (U * E0 / X) * sin(delta)
+            let p_rel = (U2r * E0r / Xsr) * Math.sin(delta_rad);
+            document.getElementById('res-p-32').innerText = p_rel.toFixed(2);
+
+            // Vizualizacija Fazorjev
+            let center_x = 0;
+            let center_y = 0;
+            let scale = 50; // 1 r.e. = 50 px
+
+            // E0 se vrti glede na delta (pozitiven kot v elektrotehniki je v SVG navzgor, torej -y)
+            let e0_x = center_x + E0r * scale * Math.cos(delta_rad);
+            let e0_y = center_y - E0r * scale * Math.sin(delta_rad);
+
+            document.getElementById('svg-e0-32').setAttribute('x2', e0_x);
+            document.getElementById('svg-e0-32').setAttribute('y2', e0_y);
+            document.getElementById('svg-e0-txt-32').setAttribute('x', e0_x + 5);
+            document.getElementById('svg-e0-txt-32').setAttribute('y', e0_y - 5);
+
+            // j*I*Xs je vektor od U2 konca (1*scale, 0) do E0 konca (e0_x, e0_y)
+            let u2_x = center_x + U2r * scale;
+            let u2_y = center_y;
+            document.getElementById('svg-ixs-32').setAttribute('x1', u2_x);
+            document.getElementById('svg-ixs-32').setAttribute('y1', u2_y);
+            document.getElementById('svg-ixs-32').setAttribute('x2', e0_x);
+            document.getElementById('svg-ixs-32').setAttribute('y2', e0_y);
+            document.getElementById('svg-ixs-txt-32').setAttribute('x', (u2_x + e0_x)/2 + 5);
+            document.getElementById('svg-ixs-txt-32').setAttribute('y', (u2_y + e0_y)/2 - 5);
+
+            // Kot j*I*Xs je atan2, nato odštejemo 90 stopinj (ker je množen z j), da dobimo vektor I2
+            let dx = e0_x - u2_x;
+            let dy = e0_y - u2_y; // negative is up
+
+            // Zavrtimo dx, dy za -90 stopinj (v SVG koordinatah to pomeni zamenjavo) da dobimo I2 smer
+            // Pazi na inverzijo Y osi! Rotacija -90 v matematiki pomeni množenje z -j.
+            let i2_x = -dy; // (-y) postane pozitivni x
+            let i2_y = dx;
+
+            // Normaliziramo I2 vizualizacijo, da ni predolg
+            let len = Math.sqrt(i2_x*i2_x + i2_y*i2_y);
+            if (len > 0) {
+                i2_x = (i2_x / len) * 50;
+                i2_y = (i2_y / len) * 50;
+            }
+
+            document.getElementById('svg-i2-32').setAttribute('x2', center_x + i2_x);
+            document.getElementById('svg-i2-32').setAttribute('y2', center_y + i2_y);
+            document.getElementById('svg-i2-txt-32').setAttribute('x', center_x + i2_x + 5);
+            document.getElementById('svg-i2-txt-32').setAttribute('y', center_y + i2_y + 15);
+
+            // Lok kota
+            let arc_r = 30;
+            let arc_end_x = center_x + arc_r * Math.cos(delta_rad);
+            let arc_end_y = center_y - arc_r * Math.sin(delta_rad);
+            let large_arc = delta_deg > 180 ? 1 : 0;
+            let path = `M ${center_x + arc_r},${center_y} A ${arc_r},${arc_r} 0 ${large_arc},0 ${arc_end_x},${arc_end_y}`;
+            if(delta_deg === 0) path = ""; // Skrij če je 0
+            document.getElementById('svg-angle-arc-32').setAttribute('d', path);
+            document.getElementById('svg-angle-txt-32').setAttribute('x', center_x + arc_r * Math.cos(delta_rad/2) + 10);
+            document.getElementById('svg-angle-txt-32').setAttribute('y', center_y - arc_r * Math.sin(delta_rad/2) - 5);
+        }
+
+        function checkQuiz32() {
+            let selected = document.querySelector('input[name="quiz32"]:checked');
+            if (!selected) {
+                let fb = document.getElementById('quiz32-feedback');
+                fb.className = "feedback error"; fb.innerText = "Prosim izberite odgovor."; return;
+            }
+            let input = selected.value;
+            let fb = document.getElementById('quiz32-feedback');
+            if (input === 'pada') {
+                fb.className = "feedback success";
+                fb.innerText = "Pravilno! Po 90° sinusna funkcija začne padati (npr. sin(100°) < sin(90°)). Ker turbina še vedno poskuša dovajati isto (ali večjo) mehansko moč, generator pa ne more več oddati toliko električne moči v omrežje, se razlika pojavi kot pospeševanje rotorja. Generator izgubi korak (pade iz sinhronizma), kar se imenuje omah stroja.";
+            } else {
+                fb.className = "feedback error";
+                fb.innerText = "Napačno. Poglej graf funkcije sinus v matematiki. Kaj se zgodi s sin(x), ko x naraste čez 90° (oz. π/2)?";
+            }
+        }
+
+        function checkQuiz33() {
+            let selected = document.querySelector('input[name="quiz33"]:checked');
+            if (!selected) {
+                let fb = document.getElementById('quiz33-feedback');
+                fb.className = "feedback error"; fb.innerText = "Prosim izberite odgovor."; return;
+            }
+            let input = selected.value;
+            let fb = document.getElementById('quiz33-feedback');
+            if (input === 'kapac') {
+                fb.className = "feedback success";
+                fb.innerText = "Pravilno! Reaktanca X = X_L - X_C. Induktivna reaktanca (tuljave, kot so tiste v generatorju) je pozitivna (+jX). Če bi bila negativna, bi to pomenilo, da v vezju prevladujejo kondenzatorji (kapacitivna narava). Generatorji so seveda narejeni iz tuljav, zato je reaktanca vedno pozitivna.";
+            } else {
+                fb.className = "feedback error";
+                fb.innerText = "Napačno. Ohmski upor nima zveze s preznakom reaktance (reaktanca na imaginarni osi, R na realni). Če se premikamo po imaginarni osi navzdol v negativno, pridemo na področje...";
+            }
+        }
+
+        function updateTask34() {
+            let E0 = parseFloat(document.getElementById('slider-ivzb-34').value);
+            let P_rel = parseFloat(document.getElementById('slider-p-34').value);
+
+            document.getElementById('val-ivzb-34').innerText = E0.toFixed(2);
+            document.getElementById('val-p-34').innerText = P_rel.toFixed(1);
+
+            let Xs = 1.2;
+            let U = 1.0;
+
+            // Equation: E0^2 = (U + I2 * Xs * sin(phi))^2 + (I2 * Xs * cos(phi))^2
+            // And P_rel = U * I2 * cos(phi) => I2 * cos(phi) = P_rel / U
+            let I2cos = P_rel / U;
+
+            // P_rel decides the minimum possible E0 (omahna meja)
+            // If E0 is too low to even support this active power, cap it in the math
+            let min_E0 = P_rel * Xs / U;
+
+            // We need to find I2 for drawing the V-curve at this specific P_rel
+            let path = "M ";
+            let pt_cx = 0;
+            let pt_cy = 0;
+            let found_pt = false;
+
+            // Scan E0 from min_E0 to 3.5 to draw the V-curve
+            for(let e_test = Math.max(0.1, min_E0); e_test <= 3.5; e_test += 0.05) {
+                // E0^2 = (U + I2*Xs*sin(phi))^2 + (I2cos * Xs)^2
+                // E0^2 - (I2cos * Xs)^2 = (U + I2*Xs*sin(phi))^2
+                let val = Math.pow(e_test, 2) - Math.pow(I2cos * Xs, 2);
+                if (val < 0) continue;
+
+                let term1 = Math.sqrt(val); // U + I2*Xs*sin(phi)
+                let I2sin = (term1 - U) / Xs;
+
+                // I2^2 = I2cos^2 + I2sin^2
+                let i2_test = Math.sqrt(Math.pow(I2cos, 2) + Math.pow(I2sin, 2));
+
+                // Točke na SVG: x = E0, y = I2
+                // E0 range: 0 to 3.5 (mapped to 40 to 380 = 340px -> ~97px per unit)
+                // I2 range: 0 to 2.5 (mapped to 200 to 20 = 180px -> ~72px per unit)
+                let svgX = 40 + e_test * 97;
+                let svgY = 200 - i2_test * 72;
+
+                path += `${svgX},${svgY} `;
+
+                // Save the point that corresponds to the slider's E0
+                if (!found_pt && e_test >= E0) {
+                    pt_cx = svgX;
+                    pt_cy = svgY;
+                    found_pt = true;
+
+                    // Update results
+                    document.getElementById('res-i2-34').innerText = i2_test.toFixed(2);
+
+                    let cos_phi = I2cos / i2_test;
+                    if (cos_phi > 1) cos_phi = 1;
+                    document.getElementById('res-cos-34').innerText = cos_phi.toFixed(2);
+
+                    let type = "delovno";
+                    if (I2sin > 0.01) type = "kapacitivno (prevzbujen)";
+                    else if (I2sin < -0.01) type = "induktivno (podvzbujen)";
+                    document.getElementById('res-type-34').innerText = type;
+                }
+            }
+
+            // Draw the second branch of V-curve (negative I2sin)
+            let path2 = "M ";
+            for(let e_test = 3.5; e_test >= Math.max(0.1, min_E0); e_test -= 0.05) {
+                let val = Math.pow(e_test, 2) - Math.pow(I2cos * Xs, 2);
+                if (val < 0) continue;
+
+                let term1 = -Math.sqrt(val); // U + I2*Xs*sin(phi) can be negative if under-excited
+                let I2sin = (term1 - U) / Xs;
+
+                let i2_test = Math.sqrt(Math.pow(I2cos, 2) + Math.pow(I2sin, 2));
+
+                let svgX = 40 + e_test * 97;
+                let svgY = 200 - i2_test * 72;
+
+
+                if (path2 === "M ") path2 += `${svgX},${svgY} `;
+                else path2 += `L ${svgX},${svgY} `;
+
+                if (!found_pt && e_test <= E0) {
+                    pt_cx = svgX;
+                    pt_cy = svgY;
+                    found_pt = true;
+
+                    document.getElementById('res-i2-34').innerText = i2_test.toFixed(2);
+                    let cos_phi = I2cos / i2_test;
+                    if (cos_phi > 1) cos_phi = 1;
+                    document.getElementById('res-cos-34').innerText = cos_phi.toFixed(2);
+                    document.getElementById('res-type-34').innerText = "induktivno (podvzbujen)";
+                }
+            }
+
+            document.getElementById('svg-vcurve-path-34').setAttribute('d', path + path2);
+
+            if (found_pt) {
+                document.getElementById('svg-vcurve-pt-34').setAttribute('cx', pt_cx);
+                document.getElementById('svg-vcurve-pt-34').setAttribute('cy', pt_cy);
+                document.getElementById('svg-vcurve-pt-34').style.display = "block";
+            } else {
+                document.getElementById('svg-vcurve-pt-34').style.display = "none";
+                document.getElementById('res-i2-34').innerText = "Omrežje razpadlo!";
+                document.getElementById('res-type-34').innerText = "omah stroja";
+            }
+
+            // Min točka (cos phi = 1 -> I2sin = 0)
+            // E0^2 = U^2 + (I2cos*Xs)^2
+            let min_e0_val = Math.sqrt(Math.pow(U, 2) + Math.pow(I2cos * Xs, 2));
+            let min_svgX = 40 + min_e0_val * 97;
+            document.getElementById('svg-vcurve-min-line').setAttribute('x1', min_svgX);
+            document.getElementById('svg-vcurve-min-line').setAttribute('x2', min_svgX);
+            document.getElementById('svg-vcurve-min-text').setAttribute('x', min_svgX + 5);
+        }
+
+        function checkQuiz34() {
+            let selected = document.querySelector('input[name="quiz34"]:checked');
+            if (!selected) {
+                let fb = document.getElementById('quiz34-feedback');
+                fb.className = "feedback error"; fb.innerText = "Prosim izberite odgovor."; return;
+            }
+            let input = selected.value;
+            let fb = document.getElementById('quiz34-feedback');
+            if (input === 'ind') {
+                fb.className = "feedback success";
+                fb.innerText = "Pravilno! Prevzbujen generator (E0 > U) deluje navzven v omrežje kot ogromen kondenzator - oddaja induktivno reaktivno moč, ki jo porabljajo motorji v tovarnah. S tem dviguje napetost v omrežju.";
+            } else {
+                fb.className = "feedback error";
+                fb.innerText = "Napačno. Poglej napis nad rdečo piko v interaktivnem prikazu (rezultat tipa). Ko je E0 velik, je stroj prevzbujen in v omrežje pošilja...";
+            }
+        }
+
+        window.onload = function() {
+            updateTask32();
+            updateTask34();
+        }
+    </script>
+</body>
+</html>
