@@ -30,7 +30,7 @@ Zaradi kompleksnosti in obsežnosti so PDF-ji razdeljeni na manjše, obvladljive
 - [x] **Korak 10:** Naloge 2.4 in 2.5 (Trifazni transformatorji, vezave Yz5, preračuni izgub in izkoristek pri spremembi frekvence in napetosti) - *Strani 4-8 v PDF-ju*.
 - [x] **Korak 11:** Naloge 2.6, 2.7 in 2.8 (Fazorski diagrami, nadomestno vezje, paralelno obratovanje transformatorjev) - *Strani 9-13 v PDF-ju*.
 - [x] **Korak 12:** Naloge 2.9, 2.10 in 2.11 (Segrevanje stroja, časovna konstanta in dopustna preobremenitev) - *Strani 14-16 v PDF-ju*.
-- [ ] **Korak 13:** Naloge 2.12 in 2.13 (Prevezave navitij, urni koti, asimetrične in napačne vezave - vektorski diagrami) - *Strani 17-21 v PDF-ju*.
+- [x] **Korak 13:** Naloge 2.12 in 2.13 (Prevezave navitij, urni koti, asimetrične in napačne vezave - vektorski diagrami) - *Strani 17-21 v PDF-ju*.
 
 **3. POGLAVJE: SINHRONSKI STROJI**
 - [ ] **Korak 14:** Implementacija **3. Sinhronski stroji** (`3-Sinhronski_stroji 2021_Brez navitij.pdf`) - razdelitev nalog bo narejena naknadno.

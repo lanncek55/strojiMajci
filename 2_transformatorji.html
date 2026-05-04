@@ -1285,6 +1285,274 @@
 
         <hr>
 
+        <!-- Naloga 2.12 -->
+        <section class="task">
+            <h3>NALOGA 2.12: Prevezave navitij in urni koti</h3>
+            <p>Trifazni transformator \(35 \text{ kV} / 0.4 \text{ kV}\), vezave Yy0 želimo uporabiti na omrežju \(20 \text{ kV}\), zato navitje prevežemo. Narišite vezalno shemo transformatorja in pripadajoči fazorski diagram za:</p>
+            <ol type="a">
+                <li>vezavo Yy0</li>
+                <li>vezavo Dy11</li>
+                <li>vezavo Dy5</li>
+            </ol>
+            <p>Vsa navitja so navita v isto smer navijanja.</p>
+
+            <div class="real-world-box">
+                <div class="real-world-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    Uporaba v praksi
+                </div>
+                <p><strong>Urni koti (Vektorske skupine):</strong> Pri povezovanju več transformatorjev vzporedno ali pri priklopu na elektroenergetsko omrežje se morajo napetosti ujemati ne samo po amplitudi (volti), ampak tudi po fazi (kotu). Prehod iz trikotne v zvezdasto vezavo (D v y) na primer vedno povzroči fazni zamik za večkratnik \(30^\circ\). Ta zamik označujemo z "urnim kotom" (kazalci na uri, kjer 1 ura pomeni \(30^\circ\)). Vezava Dy11 pomeni zamik sekundarja za 11 ur (\(11 \cdot 30^\circ = 330^\circ\), oziroma prehiteva za \(30^\circ\)). Nikoli ne smete vzporedno vezati transformatorjev z različnim urnim kotom, saj bi to povzročilo ogromen kratki stik, ker faze napetosti ne bi bile usklajene!</p>
+            </div>
+
+            <div class="interactive-container">
+                <div class="interactive-controls">
+                    <div class="control-group">
+                        <label>Izberi vrsto vezave:</label><br>
+                        <button onclick="setVezava('Yy0')" class="active-btn" id="btn-Yy0" style="margin-right: 5px;">Yy0</button>
+                        <button onclick="setVezava('Dy11')" id="btn-Dy11" style="margin-right: 5px;">Dy11</button>
+                        <button onclick="setVezava('Dy5')" id="btn-Dy5">Dy5</button>
+                    </div>
+                    <div class="interactive-results">
+                        <div id="desc-vezava-212" style="font-size: 14px;"><strong>Yy0:</strong> Primar zvezda, sekundar zvezda. Urni kot 0 (zamik 0° ali 360°). Fazorja sta vzporedna.</div>
+                    </div>
+                </div>
+                <div class="interactive-svg-wrapper" style="flex: 1.5; background: #fff; padding: 10px; border-radius: 8px;">
+                    <svg id="svg-vezave-212" width="400" height="250" viewBox="0 0 400 250">
+                        <!-- Primarna stran -->
+                        <text x="75" y="20" font-size="14" font-weight="bold">Primar (VN)</text>
+                        <!-- Secondary stran -->
+                        <text x="225" y="20" font-size="14" font-weight="bold">Sekundar (NN)</text>
+                        <!-- Ura (Fazor) -->
+                        <text x="350" y="20" font-size="14" font-weight="bold">Fazor (U_a)</text>
+
+                        <!-- Ura narisana -->
+                        <circle cx="350" cy="125" r="40" fill="none" stroke="#333" stroke-width="2"/>
+                        <text x="345" y="75" font-size="10">12</text>
+                        <text x="395" y="130" font-size="10">3</text>
+                        <text x="345" y="180" font-size="10">6</text>
+                        <text x="295" y="130" font-size="10">9</text>
+
+                        <!-- Kazalec VN (vedno na 12) -->
+                        <line x1="350" y1="125" x2="350" y2="85" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrow-red)"/>
+                        <text x="360" y="90" font-size="12" fill="#e74c3c">U_A</text>
+
+                        <!-- Kazalec NN (dinamičen) -->
+                        <line id="svg-kazalec-nn-212" x1="350" y1="125" x2="350" y2="95" stroke="#3498db" stroke-width="3" marker-end="url(#arrow)"/>
+                        <text id="svg-kazalec-nn-text-212" x="330" y="105" font-size="12" fill="#3498db">U_a</text>
+
+                        <!-- TULJAVE - DINAMIČNE -->
+                        <g id="svg-tuljave-primar-212">
+                            <!-- Yy0 primar (Zvezda) -->
+                            <!-- A -->
+                            <line x1="75" y1="130" x2="75" y2="50" stroke="#e74c3c" stroke-width="2"/>
+                            <circle cx="75" cy="50" r="3" fill="#333"/>
+                            <text x="60" y="55" font-size="12">A</text>
+                            <!-- B -->
+                            <line x1="75" y1="130" x2="140" y2="160" stroke="#f1c40f" stroke-width="2"/>
+                            <circle cx="140" cy="160" r="3" fill="#333"/>
+                            <text x="145" y="165" font-size="12">B</text>
+                            <!-- C -->
+                            <line x1="75" y1="130" x2="10" y2="160" stroke="#3498db" stroke-width="2"/>
+                            <circle cx="10" cy="160" r="3" fill="#333"/>
+                            <text x="5" y="165" font-size="12">C</text>
+                            <circle cx="75" cy="130" r="4" fill="#333"/>
+                        </g>
+
+                        <g id="svg-tuljave-sekundar-212">
+                            <!-- Yy0 sekundar (Zvezda) -->
+                            <!-- a -->
+                            <line x1="225" y1="130" x2="225" y2="50" stroke="#e74c3c" stroke-width="2"/>
+                            <circle cx="225" cy="50" r="3" fill="#333"/>
+                            <text x="210" y="55" font-size="12">a</text>
+                            <!-- b -->
+                            <line x1="225" y1="130" x2="290" y2="160" stroke="#f1c40f" stroke-width="2"/>
+                            <circle cx="290" cy="160" r="3" fill="#333"/>
+                            <text x="295" y="165" font-size="12">b</text>
+                            <!-- c -->
+                            <line x1="225" y1="130" x2="160" y2="160" stroke="#3498db" stroke-width="2"/>
+                            <circle cx="160" cy="160" r="3" fill="#333"/>
+                            <text x="155" y="165" font-size="12">c</text>
+                            <circle cx="225" cy="130" r="4" fill="#333"/>
+                            <text x="210" y="140" font-size="12">n</text>
+                        </g>
+                    </svg>
+                </div>
+            </div>
+
+            <details>
+                <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
+
+                <div class="solution-step">
+                    <h4>a) Vezava Yy0</h4>
+                    <p>Velika črka "Y" označuje vezavo v zvezdo na visokonapetostni (primarni) strani, mala črka "y" označuje zvezdo na nizkonapetostni strani. Ker so oboja navitja vezana enako (v zvezdišče so na obeh straneh priklopljeni isti konci tuljav, navitih v isto smer), ni nobenega faznega zamika. \(\text{Urni kot} = 0 \Rightarrow 0 \cdot 30^\circ = 0^\circ\).</p>
+                    <p>Kazalec za napetost \(U_a\) (sekundar) kaže na isto uro kot \(U_A\) (primar), torej na številko 12 (oz. 0).</p>
+                </div>
+
+                <div class="solution-step">
+                    <h4>b) Vezava Dy11</h4>
+                    <p>Tukaj je primar vezan v <strong>trikot</strong> (D), sekundar pa ostane v zvezdi (y). V trikotu so začetki ene faze povezani s konci druge faze (A se veže na konec C, B na konec A...). Zato fazna napetost (tuljava) primarja ni več enaka linijski napetosti (med sponkama), ampak je zamaknjena za \(30^\circ\).</p>
+                    <p>Številka 11 pomeni, da je sekundarni kazalec \(U_a\) na številki 11 na uri. To pomeni kot: \(11 \cdot 30^\circ = 330^\circ\) v smeri urinega kazalca, oziroma prehiteva (v matematiki je to obratna smer urinega kazalca) za \(-30^\circ\).</p>
+                </div>
+
+                <div class="solution-step">
+                    <h4>c) Vezava Dy5</h4>
+                    <p>Tudi tu je primar v trikotu, a so stiki med tuljavami na primarju in sekundarju narejeni drugače (prevezava nizkonapetostnega navitja - zamenjani so konci in začetki, ali pa je ciklično zamaknjena faza). Za 6 manjše fazno število (\(11 - 6 = 5\)) dobimo z obrnitvijo polarnosti navitja (\(180^\circ\) zamik). Kazalec sedaj kaže na uro 5, kar je kot \(5 \cdot 30^\circ = 150^\circ\).</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 2.12 -->
+        <section class="quiz-section">
+            <h3>Kviz 2.12: Kotni zamik</h3>
+            <p>Če na tablici transformatorja piše, da ima vezavo <strong>Dz6</strong>, kolikšen je električni fazni zamik med primarno in sekundarno napetostjo (v stopinjah)?</p>
+            <div class="input-group">
+                <label><input type="radio" name="quiz212" value="180"> 180°</label><br>
+                <label><input type="radio" name="quiz212" value="60"> 60°</label><br>
+                <button onclick="checkQuiz212()" style="margin-top: 10px;">Preveri</button>
+            </div>
+            <div id="quiz212-feedback" class="feedback"></div>
+        </section>
+
+        <hr>
+
+        <!-- Naloga 2.13 -->
+        <section class="task">
+            <h3>NALOGA 2.13: Napačna vezava (vektorski diagrami)</h3>
+            <p>Transformator je na nizkonapetostni (sekundarni) strani napačno zvezan v cik-cak vezavo tako, da je eni polovični tuljavi obrnjena polariteta. Kakšne so napetosti med nizkonapetostnimi priključnimi sponkami a, b in c, če bi morala biti pri pravilni cik-cak vezavi medfazna napetost \(U_2 = U_{a-b} = U_{b-c} = U_{c-a} = 400 \text{ V}\)?</p>
+
+            <div class="real-world-box">
+                <div class="real-world-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    Uporaba v praksi
+                </div>
+                <p><strong>Nevarnost napačne inštalacije:</strong> Če tehnik pri montaži transformatorja pomotoma zamenja začetek in konec ene same tuljave, to poruši ravnovesje trifaznega sistema. Namesto treh simetričnih napetosti (400 V), dobimo na določenih fazah prenapetosti (v našem primeru 462 V). To bi uničilo elektronske naprave in motorje (izolacija bi lahko prebila), prav tako pa bi se v vezju pojavili izenačevalni tokovi, ki bi pregreli transformator.</p>
+            </div>
+
+            <div class="interactive-container" style="justify-content: center; background: #fafafa;">
+                <div style="text-align: center; padding: 10px;">
+                    <h4>Vektorski diagram: Pravilna (levo) in Napačna (desno) vezava</h4>
+                    <svg width="500" height="250" viewBox="0 0 500 250">
+
+                        <!-- PRAVILNA VEZAVA -->
+                        <!-- Središče (n) na 100, 150 -->
+                        <!-- Fazorji tuljav (polovice) -->
+                        <line x1="100" y1="150" x2="100" y2="100" stroke="#ccc" stroke-width="2"/>
+                        <line x1="100" y1="150" x2="143" y2="175" stroke="#ccc" stroke-width="2"/>
+                        <line x1="100" y1="150" x2="57" y2="175" stroke="#ccc" stroke-width="2"/>
+
+                        <!-- Cik-cak kombinacije za končne točke a, b, c -->
+                        <line x1="100" y1="100" x2="57" y2="75" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
+                        <circle cx="57" cy="75" r="3" fill="#333"/>
+                        <text x="45" y="75" font-size="12">a</text>
+
+                        <line x1="143" y1="175" x2="143" y2="125" stroke="#f1c40f" stroke-width="2" marker-end="url(#arrow)"/>
+                        <circle cx="143" cy="125" r="3" fill="#333"/>
+                        <text x="150" y="125" font-size="12">b</text>
+
+                        <line x1="57" y1="175" x2="100" y2="200" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
+                        <circle cx="100" cy="200" r="3" fill="#333"/>
+                        <text x="100" y="215" font-size="12">c</text>
+
+                        <!-- Trikotnik medfaznih napetosti (simetričen) -->
+                        <polygon points="57,75 143,125 100,200" fill="none" stroke="#27ae60" stroke-width="1" stroke-dasharray="4,4"/>
+                        <text x="90" y="90" font-size="10" fill="#27ae60">400 V</text>
+
+                        <text x="100" y="20" font-size="14" font-weight="bold" text-anchor="middle">Pravilno (Simetrično)</text>
+
+                        <!-- LOČNICA -->
+                        <line x1="250" y1="10" x2="250" y2="240" stroke="#ccc" stroke-width="1" stroke-dasharray="4,4"/>
+
+                        <!-- NAPAČNA VEZAVA -->
+                        <!-- Središče (n) na 400, 150 -->
+                        <!-- Fazorji tuljav (polovice) -->
+                        <line x1="400" y1="150" x2="400" y2="100" stroke="#ccc" stroke-width="2"/>
+                        <line x1="400" y1="150" x2="443" y2="175" stroke="#ccc" stroke-width="2"/>
+                        <line x1="400" y1="150" x2="357" y2="175" stroke="#ccc" stroke-width="2"/>
+
+                        <!-- Cik-cak kombinacije (TUKAJ JE FAZA 'c' NA KRAKU 'b' OBRNJENA!) -->
+                        <line x1="400" y1="100" x2="357" y2="75" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
+                        <circle cx="357" cy="75" r="3" fill="#333"/>
+                        <text x="345" y="75" font-size="12">a</text>
+
+                        <!-- NAPAČEN KRAK (obrnjena smer) -->
+                        <line x1="443" y1="175" x2="443" y2="225" stroke="#f1c40f" stroke-width="4" marker-end="url(#arrow-red)"/>
+                        <text x="450" y="210" font-size="12" fill="#c0392b" font-weight="bold">NAPAČNO!</text>
+                        <circle cx="443" cy="225" r="3" fill="#333"/>
+                        <text x="445" y="240" font-size="12">b</text>
+
+                        <line x1="357" y1="175" x2="400" y2="200" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow)"/>
+                        <circle cx="400" cy="200" r="3" fill="#333"/>
+                        <text x="390" y="215" font-size="12">c</text>
+
+                        <!-- Linije medfaznih napetosti -->
+                        <line x1="357" y1="75" x2="400" y2="200" stroke="#27ae60" stroke-width="1" stroke-dasharray="4,4"/> <!-- a do c -->
+                        <text x="360" y="140" font-size="10" fill="#27ae60">231 V</text>
+
+                        <line x1="400" y1="200" x2="443" y2="225" stroke="#27ae60" stroke-width="1" stroke-dasharray="4,4"/> <!-- c do b -->
+                        <text x="410" y="225" font-size="10" fill="#27ae60">400 V</text>
+
+                        <line x1="357" y1="75" x2="443" y2="225" stroke="#c0392b" stroke-width="2" stroke-dasharray="4,4"/> <!-- a do b -->
+                        <text x="410" y="130" font-size="12" fill="#c0392b" font-weight="bold">462 V</text>
+
+                        <text x="400" y="20" font-size="14" font-weight="bold" fill="#c0392b" text-anchor="middle">Asimetrija (Obrnjena faza)</text>
+                    </svg>
+                </div>
+            </div>
+
+            <details>
+                <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
+
+                <div class="solution-step">
+                    <h4>1. Osnovne napetosti v pravilni vezavi:</h4>
+                    <p>Iz navodil vemo, da mora biti medfazna napetost (med a-b, b-c, c-a) enaka \(U_2 = 400 \text{ V}\). Fazna napetost (od sponke do nevtralne točke \(n\)) je za faktor \(\sqrt{3}\) manjša:</p>
+                    <div class="formula-box">
+                        \[ U_{2f} = \frac{U_2}{\sqrt{3}} = \frac{400}{\sqrt{3}} = 231 \text{ V} \]
+                    </div>
+                    <p>Zaradi cik-cak vezave (vektorsko seštevanje dveh fazno zamaknjenih polovic), je napetost na <strong>eni sami polovični tuljavi</strong>:</p>
+                    <div class="formula-box">
+                        \[ U_{2(N_2/2)} = \frac{U_{2f}}{\sqrt{3}} = \frac{231}{\sqrt{3}} = \frac{400}{3} = 133 \text{ V} \]
+                    </div>
+                </div>
+
+                <div class="solution-step">
+                    <h4>2. Izračun napetosti pri napačni vezavi:</h4>
+                    <p>Pri napačni vezavi je ena od polovičk navita (ali priklopljena) obratno. Na zgornjem vektorskem diagramu vidimo, da fazor \(b\) zdaj kaže <strong>navzdol</strong> namesto navzgor. To poruši enakostranični trikotnik napetosti. Za izračun novih razdalj (napetosti) med točkami a, b in c uporabimo geometrijo:</p>
+
+                    <p><strong>Napetost a-c (\(U_{a-c}\)):</strong> Ta stranica trikotnika ni bila prizadeta, vendar se je točka zvezdišča premaknila. Glede na nov diagram (glej skico), razdalja med \(a\) in \(c\) zdaj tvori manjšo razdaljo, enako natanko eni fazni napetosti (prej sta dve polovički tvorili kot \(120^\circ\), zdaj pa sta zaradi obrnjene faze pod drugim kotom in se odštejeta drugače, glej geometrijo):</p>
+                    <div class="formula-box">
+                        \[ U_{a-c} = U_{2f} = 231 \text{ V} \]
+                    </div>
+
+                    <p><strong>Napetost c-b (\(U_{c-b}\)):</strong> Razdalja med \(c\) in \(b\) tvori pravokotni trikotnik. Katete so sestavljene iz enega celotnega in dveh polovičnih fazorjev. Uporabimo Pitagorov izrek:</p>
+                    <div class="formula-box">
+                        \[ U_{c-b} = \sqrt{ U_{2(N_2/2)}^2 + U_{2f}^2 + U_{2(N_2/2)}^2 } \]
+                        <p>Poenostavljeno geometrijsko gre za Pitagorov izrek sestavljen iz celotne fazne napetosti in polovičk (oz. direktno iz skice dolžine):</p>
+                        \[ U_{c-b} = \sqrt{133^2 + 231^2 + 133^2} = 400 \text{ V} \]
+                    </div>
+
+                    <p><strong>Napetost a-b (\(U_{a-b}\)):</strong> To je sedaj najdaljša stranica iznakaženega trikotnika. Kateti pravokotnega trikotnika sta sedaj \(U_{2f}\) (231 V) in \(U_{c-b}\) (400 V), saj sta na diagramu pravokotna drug na drugega:</p>
+                    <div class="formula-box">
+                        \[ U_{a-b} = \sqrt{ U_{2f}^2 + U_{c-b}^2 } = \sqrt{231^2 + 400^2} = \underline{\underline{462 \text{ V}}} \]
+                    </div>
+                    <p>Rezultat je asimetričen sistem napetosti z vrhovi 231 V, 400 V in prenapetostjo 462 V.</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 2.13 -->
+        <section class="quiz-section">
+            <h3>Kviz 2.13: Napačna vezava in Pitagorov izrek</h3>
+            <p>V zadnjem izračunu smo uporabili Pitagorov izrek (\(\sqrt{231^2 + 400^2}\)). Da lahko za seštevanje dveh napetosti uporabimo Pitagorov izrek (\(c^2 = a^2 + b^2\)), pod kakšnim kotom se morata na fazorskem diagramu sekati vektorja (kateti) teh dveh napetosti?</p>
+            <div class="input-group">
+                <label><input type="radio" name="quiz213" value="120"> 120°</label><br>
+                <label><input type="radio" name="quiz213" value="90"> 90° (pravi kot)</label><br>
+                <button onclick="checkQuiz213()" style="margin-top: 10px;">Preveri</button>
+            </div>
+            <div id="quiz213-feedback" class="feedback"></div>
+        </section>
+
+        <hr>
+
     </main>
 
     <footer>
@@ -1899,6 +2167,158 @@
             } else {
                 fb.className = "feedback error";
                 fb.innerText = "Napačno. Ohmska upornost res ni odvisna od napetosti, ampak moč izgub v bakru izračunamo iz TOKA, ki teče skozi upornost. Zakaj se ta tok ni spremenil?";
+            }
+        }
+
+        function setVezava(type) {
+            // Update buttons
+            document.getElementById('btn-Yy0').className = type === 'Yy0' ? "active-btn" : "";
+            document.getElementById('btn-Dy11').className = type === 'Dy11' ? "active-btn" : "";
+            document.getElementById('btn-Dy5').className = type === 'Dy5' ? "active-btn" : "";
+
+            let desc = document.getElementById('desc-vezava-212');
+            let primarGroup = document.getElementById('svg-tuljave-primar-212');
+            let sekundarGroup = document.getElementById('svg-tuljave-sekundar-212');
+            let kazalecNN = document.getElementById('svg-kazalec-nn-212');
+            let kazalecTextNN = document.getElementById('svg-kazalec-nn-text-212');
+
+            if (type === 'Yy0') {
+                desc.innerHTML = "<strong>Yy0:</strong> Primar zvezda, sekundar zvezda. Urni kot 0 (zamik 0° ali 360°). Fazorja sta vzporedna.";
+                // Ura na 12 (0 stopinj) -> X isti, Y navzgor
+                kazalecNN.setAttribute('x2', 350);
+                kazalecNN.setAttribute('y2', 95);
+                kazalecTextNN.setAttribute('x', 330);
+                kazalecTextNN.setAttribute('y', 105);
+
+                // Nariši Y primar
+                primarGroup.innerHTML = `
+                    <line x1="75" y1="130" x2="75" y2="50" stroke="#e74c3c" stroke-width="2"/>
+                    <circle cx="75" cy="50" r="3" fill="#333"/>
+                    <text x="60" y="55" font-size="12">A</text>
+                    <line x1="75" y1="130" x2="140" y2="160" stroke="#f1c40f" stroke-width="2"/>
+                    <circle cx="140" cy="160" r="3" fill="#333"/>
+                    <text x="145" y="165" font-size="12">B</text>
+                    <line x1="75" y1="130" x2="10" y2="160" stroke="#3498db" stroke-width="2"/>
+                    <circle cx="10" cy="160" r="3" fill="#333"/>
+                    <text x="5" y="165" font-size="12">C</text>
+                    <circle cx="75" cy="130" r="4" fill="#333"/>
+                `;
+                // Nariši y sekundar
+                sekundarGroup.innerHTML = `
+                    <line x1="225" y1="130" x2="225" y2="50" stroke="#e74c3c" stroke-width="2"/>
+                    <circle cx="225" cy="50" r="3" fill="#333"/>
+                    <text x="210" y="55" font-size="12">a</text>
+                    <line x1="225" y1="130" x2="290" y2="160" stroke="#f1c40f" stroke-width="2"/>
+                    <circle cx="290" cy="160" r="3" fill="#333"/>
+                    <text x="295" y="165" font-size="12">b</text>
+                    <line x1="225" y1="130" x2="160" y2="160" stroke="#3498db" stroke-width="2"/>
+                    <circle cx="160" cy="160" r="3" fill="#333"/>
+                    <text x="155" y="165" font-size="12">c</text>
+                    <circle cx="225" cy="130" r="4" fill="#333"/>
+                    <text x="210" y="140" font-size="12">n</text>
+                `;
+            } else if (type === 'Dy11') {
+                desc.innerHTML = "<strong>Dy11:</strong> Primar trikot, sekundar zvezda. Urni kot 11 pomeni zamik sekundarja za 11 * 30° = 330° (oz. -30°).";
+                // Ura na 11 (-30 stopinj) -> X levo, Y navzgor
+                kazalecNN.setAttribute('x2', 350 - 30 * Math.sin(Math.PI/6));
+                kazalecNN.setAttribute('y2', 125 - 30 * Math.cos(Math.PI/6));
+                kazalecTextNN.setAttribute('x', 315);
+                kazalecTextNN.setAttribute('y', 95);
+
+                // Nariši D primar
+                primarGroup.innerHTML = `
+                    <line x1="75" y1="50" x2="140" y2="160" stroke="#e74c3c" stroke-width="2"/>
+                    <circle cx="75" cy="50" r="3" fill="#333"/>
+                    <text x="60" y="55" font-size="12">A</text>
+                    <line x1="140" y1="160" x2="10" y2="160" stroke="#f1c40f" stroke-width="2"/>
+                    <circle cx="140" cy="160" r="3" fill="#333"/>
+                    <text x="145" y="165" font-size="12">B</text>
+                    <line x1="10" y1="160" x2="75" y2="50" stroke="#3498db" stroke-width="2"/>
+                    <circle cx="10" cy="160" r="3" fill="#333"/>
+                    <text x="5" y="165" font-size="12">C</text>
+                `;
+                // Nariši y sekundar
+                sekundarGroup.innerHTML = `
+                    <line x1="225" y1="130" x2="225" y2="50" stroke="#e74c3c" stroke-width="2"/>
+                    <circle cx="225" cy="50" r="3" fill="#333"/>
+                    <text x="210" y="55" font-size="12">a</text>
+                    <line x1="225" y1="130" x2="290" y2="160" stroke="#f1c40f" stroke-width="2"/>
+                    <circle cx="290" cy="160" r="3" fill="#333"/>
+                    <text x="295" y="165" font-size="12">b</text>
+                    <line x1="225" y1="130" x2="160" y2="160" stroke="#3498db" stroke-width="2"/>
+                    <circle cx="160" cy="160" r="3" fill="#333"/>
+                    <text x="155" y="165" font-size="12">c</text>
+                    <circle cx="225" cy="130" r="4" fill="#333"/>
+                    <text x="210" y="140" font-size="12">n</text>
+                `;
+            } else if (type === 'Dy5') {
+                desc.innerHTML = "<strong>Dy5:</strong> Primar trikot, sekundar zvezda. Urni kot 5 pomeni zamik sekundarja za 5 * 30° = 150°. Doseženo z zamenjavo polaritete navitja (-180° + 30°).";
+                // Ura na 5 (+150 stopinj) -> X desno, Y navzdol
+                kazalecNN.setAttribute('x2', 350 + 30 * Math.sin(150 * Math.PI/180));
+                kazalecNN.setAttribute('y2', 125 - 30 * Math.cos(150 * Math.PI/180)); // cos(150) je negativen, minus minus da plus (navzdol)
+                kazalecTextNN.setAttribute('x', 370);
+                kazalecTextNN.setAttribute('y', 165);
+
+                // Nariši D primar (isto kot prej)
+                primarGroup.innerHTML = `
+                    <line x1="75" y1="50" x2="140" y2="160" stroke="#e74c3c" stroke-width="2"/>
+                    <circle cx="75" cy="50" r="3" fill="#333"/>
+                    <text x="60" y="55" font-size="12">A</text>
+                    <line x1="140" y1="160" x2="10" y2="160" stroke="#f1c40f" stroke-width="2"/>
+                    <circle cx="140" cy="160" r="3" fill="#333"/>
+                    <text x="145" y="165" font-size="12">B</text>
+                    <line x1="10" y1="160" x2="75" y2="50" stroke="#3498db" stroke-width="2"/>
+                    <circle cx="10" cy="160" r="3" fill="#333"/>
+                    <text x="5" y="165" font-size="12">C</text>
+                `;
+                // Nariši y sekundar (obrnjeno polariteto - a gleda navzdol!)
+                sekundarGroup.innerHTML = `
+                    <line x1="225" y1="100" x2="225" y2="180" stroke="#e74c3c" stroke-width="2"/>
+                    <circle cx="225" cy="180" r="3" fill="#333"/>
+                    <text x="210" y="185" font-size="12">a</text>
+                    <line x1="225" y1="100" x2="160" y2="70" stroke="#f1c40f" stroke-width="2"/>
+                    <circle cx="160" cy="70" r="3" fill="#333"/>
+                    <text x="155" y="65" font-size="12">b</text>
+                    <line x1="225" y1="100" x2="290" y2="70" stroke="#3498db" stroke-width="2"/>
+                    <circle cx="290" cy="70" r="3" fill="#333"/>
+                    <text x="295" y="65" font-size="12">c</text>
+                    <circle cx="225" cy="100" r="4" fill="#333"/>
+                    <text x="210" y="95" font-size="12">n</text>
+                `;
+            }
+        }
+
+        function checkQuiz212() {
+            let selected = document.querySelector('input[name="quiz212"]:checked');
+            if (!selected) {
+                let fb = document.getElementById('quiz212-feedback');
+                fb.className = "feedback error"; fb.innerText = "Prosim izberite odgovor."; return;
+            }
+            let input = selected.value;
+            let fb = document.getElementById('quiz212-feedback');
+            if (input === '180') {
+                fb.className = "feedback success";
+                fb.innerText = "Pravilno! Številka urnega kota pomeni kratkratnik 30 stopinj. Zato Dz6 pomeni zamik za 6 * 30° = 180°. To dosežemo enostavno tako, da sekundarnim tuljavam pri priključitvi obrnemo polariteto (zamenjamo začetke in konce).";
+            } else {
+                fb.className = "feedback error";
+                fb.innerText = "Napačno. Vsaka 'ura' (številka) na transformatorju pomeni 30 stopinj faznega zamika (saj 12 ur * 30° = 360°). Pomnoži številko 6 s 30°.";
+            }
+        }
+
+        function checkQuiz213() {
+            let selected = document.querySelector('input[name="quiz213"]:checked');
+            if (!selected) {
+                let fb = document.getElementById('quiz213-feedback');
+                fb.className = "feedback error"; fb.innerText = "Prosim izberite odgovor."; return;
+            }
+            let input = selected.value;
+            let fb = document.getElementById('quiz213-feedback');
+            if (input === '90') {
+                fb.className = "feedback success";
+                fb.innerText = "Pravilno! Pitagorov izrek deluje samo na pravokotnih trikotnikih. Iz vektorskega diagrama (desna stran) je razvidno, da daljica, ki predstavlja U_2f (231 V), in daljica, ki predstavlja U_c-b (400 V), oklepata pravi kot (90 stopinj), zato lahko s Pitagorovim izrekom izračunamo hipotenuzo (462 V).";
+            } else {
+                fb.className = "feedback error";
+                fb.innerText = "Napačno. Kdaj se v matematiki lahko uporabi Pitagorov izrek (c^2 = a^2 + b^2)? Kakšen mora biti kot med katetama a in b?";
             }
         }
 
