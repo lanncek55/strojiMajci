@@ -1,1 +1,494 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Transformatorji - Interaktivni učbenik</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .task { background-color: #fcfcfc; border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        .solution-step { margin-top: 15px; border-left: 3px solid var(--primary-color); padding-left: 15px; background: #f4f7f6; margin-bottom: 15px; padding-bottom: 10px; padding-top: 10px;}
+        .formula-box { background-color: #f8f9fa; border-left: 4px solid var(--primary-color); padding: 1rem; margin: 1rem 0; font-family: monospace; font-size: 1.1rem; overflow-x: auto;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>2. Transformatorji</h1>
+        <p>Poglavje o transformatorjih z nalogami, razlagami in interaktivnimi prikazi.</p>
+    </header>
 
+    <main class="container">
+        <a href="index.html" style="display:inline-block; margin-bottom: 20px; color: var(--primary-color); text-decoration: none;">&larr; Nazaj na zemljevid</a>
+
+        <!-- Naloga 2.1 -->
+        <section class="task">
+            <h3>NALOGA 2.1: Osnovne enačbe transformatorja</h3>
+            <p>Enofazni transformator ima na primarni (visokonapetostni) strani \(N_1 = 4800\) ovojev. Grajen je za napajalno napetost \(U_1 = 2400 \text{ V}\) frekvence \(f = 50 \text{ Hz}\). Izračunajte:</p>
+            <ol type="a">
+                <li>Glavni magnetni pretok \(\Phi_m\).</li>
+                <li>Število ovojev sekundarnega navitja (\(N_2\)), tako da bo sekundarna inducirana napetost neobremenjenega transformatorja \(E_2 = 230 \text{ V}\).</li>
+                <li>Enako transformatorsko jedro uporabimo za transformator, ki ima na primarni strani \(N_1' = 1320\) in \(N_2' = 46\) ovojev na sekundarju. Izračunajte inducirano napetost primarnega in sekundarnega navitja neobremenjenega transformatorja, če je temenska vrednost glavnega magnetnega pretoka \(\Phi_m' = 0.045 \text{ Wb}\) pri frekvenci \(f = 50 \text{ Hz}\).</li>
+            </ol>
+
+            <div class="real-world-box">
+                <div class="real-world-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    Uporaba v praksi
+                </div>
+                <p><strong>Zakaj uporabljamo transformatorje in kako delujejo:</strong> Glavna naloga transformatorja je sprememba nivoja napetosti, kar je ključno za prenos električne energije na dolge razdalje. Osnovni princip temelji na tem, da primarno navitje ustvari magnetni pretok v jedru, ta pretok pa nato inducira napetost v sekundarnem navitju. Razmerje napetosti je direktno sorazmerno razmerju ovojev (če zanemarimo izgube). Tako se npr. iz distribucijskega omrežja z 2400 V ali 10 kV preoblikuje napetost na hišnih 230 V.</p>
+            </div>
+
+            <p><strong>Interaktivni preizkus:</strong> Spreminjajte primarno napetost, frekvenco in število ovojev za izračun potrebnega magnetnega pretoka.</p>
+
+            <div class="interactive-container">
+                <div class="interactive-controls">
+                    <div class="control-group">
+                        <label for="slider-u1-21">Napajalna napetost \(U_1\) [V]: <span id="val-u1-21">2400</span></label>
+                        <input type="range" id="slider-u1-21" min="200" max="10000" step="100" value="2400" oninput="updateTask21()">
+                    </div>
+                    <div class="control-group">
+                        <label for="slider-n1-21">Primarni ovoji \(N_1\): <span id="val-n1-21">4800</span></label>
+                        <input type="range" id="slider-n1-21" min="1000" max="10000" step="100" value="4800" oninput="updateTask21()">
+                    </div>
+                    <div class="control-group">
+                        <label for="slider-f-21">Frekvenca \(f\) [Hz]: <span id="val-f-21">50</span></label>
+                        <input type="range" id="slider-f-21" min="10" max="100" step="5" value="50" oninput="updateTask21()">
+                    </div>
+                    <div class="interactive-results">
+                        <div style="margin-top:10px; font-weight:bold; color:var(--primary-color);">Glavni magnetni pretok (\(\Phi_m\)): <span id="res-phi-21">0.00225</span> Wb</div>
+                    </div>
+                </div>
+                <div class="interactive-svg-wrapper">
+                    <svg id="svg-transformer-21" width="200" height="200" viewBox="0 0 200 200">
+                        <path d="M 40,40 L 160,40 L 160,160 L 40,160 Z" fill="none" stroke="#ccc" stroke-width="40"/>
+                        <path id="svg-coil-primary-21" d="M 20,70 Q 10,80 30,90 Q 50,100 30,110 Q 10,120 30,130" fill="none" stroke="#e67e22" stroke-width="5"/>
+                        <text x="5" y="65" font-size="14" fill="#e67e22" font-family="sans-serif">N₁</text>
+                        <path id="svg-coil-secondary-21" d="M 180,70 Q 190,80 170,90 Q 150,100 170,110 Q 190,120 170,130" fill="none" stroke="#2980b9" stroke-width="5"/>
+                        <text x="175" y="65" font-size="14" fill="#2980b9" font-family="sans-serif">N₂</text>
+                        <path d="M 100,50 L 140,50 L 140,150 L 60,150 L 60,80" fill="none" stroke="#27ae60" stroke-width="2" stroke-dasharray="5,5" marker-end="url(#arrowhead)"/>
+                        <defs>
+                            <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60" />
+                            </marker>
+                        </defs>
+                        <text x="100" y="45" font-size="12" fill="#27ae60" font-family="sans-serif">Φ_m</text>
+                    </svg>
+                </div>
+            </div>
+
+            <details>
+                <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
+                <div class="solution-step">
+                    <h4>a) Izračun glavnega magnetnega pretoka (\(\Phi_m\)):</h4>
+                    <p>Za izračun magnetnega pretoka iz inducirane napetosti izhajamo iz Faraday-evega zakona. Ker v prostem teku skozi sekundarno navitje ne teče tok (oziroma je zelo majhen magnetilni tok), padec napetosti na primarni strani zanemarimo, in je inducirana napetost (\(E_1\)) enaka napajalni napetosti (\(U_1\)).</p>
+                    <div class="formula-box">
+                        \[ E_1 = U_1 = 4 \cdot f_o \cdot f \cdot N_1 \cdot \Phi_m \]
+                    </div>
+                    <p>Faktor oblike (\(f_o\)) za čisto sinusno napetost (kar je privzeto za omrežja, če ni podano drugače) znaša 1.11. To formulo zato pogosto najdemo v poenostavljeni obliki z vključeno konstanto 4.44 (ker je 4 * 1.11 = 4.44):</p>
+                    <div class="formula-box">
+                        \[ E = 4.44 \cdot f \cdot N \cdot \Phi_m \]
+                    </div>
+                    <p>Iz zgornje formule izrazimo maksimalni glavni magnetni pretok (\(\Phi_m\)):</p>
+                    <div class="formula-box">
+                        \[ \Phi_m = \frac{U_1}{4 \cdot f_o \cdot f \cdot N_1} = \frac{2400}{4 \cdot 1.11 \cdot 50 \cdot 4800} = \underline{\underline{0.00225 \text{ Wb}}} \]
+                    </div>
+                </div>
+                <div class="solution-step">
+                    <h4>b) Število ovojev sekundarnega navitja (\(N_2\)):</h4>
+                    <p>Zdaj, ko poznamo glavni magnetni pretok (\(\Phi_m\)) in napetost, ki jo želimo dobiti na sekundarni strani (\(E_2 = 230 \text{ V}\)), lahko iz iste enačbe izrazimo potrebno število ovojev sekundarnega navitja (\(N_2\)). Pretok \(\Phi_m\) in frekvenca se na obeh straneh jedra ne spreminjata.</p>
+                    <div class="formula-box">
+                        \[ E_2 = 4 \cdot f_o \cdot f \cdot N_2 \cdot \Phi_m \]
+                        \[ \Rightarrow N_2 = \frac{E_2}{4 \cdot f_o \cdot f \cdot \Phi_m} = \frac{230}{4 \cdot 1.11 \cdot 50 \cdot 0.00225} = \underline{\underline{460 \text{ ovojev}}} \]
+                    </div>
+                    <p>Vidimo, da je razmerje napetosti obratno sorazmerno z razmerjem ovojev (\(U_1/E_2 \approx N_1/N_2\)): 2400/230 = 10.43, in tudi 4800/460 = 10.43. To je temeljno pravilo idealnega transformatorja.</p>
+                </div>
+                <div class="solution-step">
+                    <h4>c) Inducirani napetosti v novem jedru:</h4>
+                    <p>Če vstavimo novo navitje (\(N_1' = 1320\) in \(N_2' = 46\)) in v njem ustvarimo nov, mnogo višji maksimalni magnetni pretok (\(\Phi_m' = 0.045 \text{ Wb}\)), bodo inducirane napetosti izračunane po isti poti, z uporabo standardne enačbe in s preprostim vstavljanjem vrednosti:</p>
+                    <div class="formula-box">
+                        \[ E_1' = 4 \cdot f_o \cdot f \cdot N_1' \cdot \Phi_m' = 4 \cdot 1.11 \cdot 50 \cdot 1320 \cdot 0.045 = 13197 \text{ V} \approx \underline{\underline{13.2 \text{ kV}}} \]
+                        \[ E_2' = 4 \cdot f_o \cdot f \cdot N_2' \cdot \Phi_m' = 4 \cdot 1.11 \cdot 50 \cdot 46 \cdot 0.045 = \underline{\underline{460 \text{ V}}} \]
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 2.1 -->
+        <section class="quiz-section">
+            <h3>Kviz 2.1: Sorazmernost napetosti</h3>
+            <p>V transformatorju je razmerje napetosti odvisno od razmerja števila ovojev. Če bi na isti primarni strani (napetost \(U_1\) = 2400 V, \(N_1\) = 4800 ovojev) želeli na sekundarni strani pridobiti 120 V namesto 230 V, bi bilo število sekundarnih ovojev (\(N_2\)) večje ali manjše od 460?</p>
+            <div class="input-group">
+                <label><input type="radio" name="quiz21" value="večje"> Večje</label><br>
+                <label><input type="radio" name="quiz21" value="manjše"> Manjše</label>
+                <button onclick="checkQuiz21()">Preveri</button>
+            </div>
+            <div id="quiz21-feedback" class="feedback"></div>
+        </section>
+
+        <hr>
+
+        <!-- Naloga 2.2 -->
+        <section class="task">
+            <h3>NALOGA 2.2: Harmonske komponente napetosti</h3>
+            <p>Transformator ima \(N_1 = 200\) ovojev na primarni strani. Priključen je na napajalno napetost \(u(t) = 100 \cdot \sin(\omega_1 t) - 20 \cdot \sin(\omega_5 t)\). Izračunajte magnetni pretok v jedru transformatorja. Transformator je neobremenjen, stresanje magnetnega polja in upornost navitja zanemarimo.</p>
+            <ul>
+                <li>\(\omega_1 = 2 \cdot \pi \cdot f_1 = 314 \text{ s}^{-1}\) (osnovna frekvenca, 50 Hz)</li>
+                <li>\(\omega_5 = 5 \cdot \omega_1 = 1571 \text{ s}^{-1}\) (peta harmonska)</li>
+            </ul>
+
+            <div class="real-world-box">
+                <div class="real-world-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    Uporaba v praksi
+                </div>
+                <p><strong>Višje harmonike v električnem omrežju:</strong> Idealno omrežje bi moralo imeti čisto sinusno napetost pri 50 Hz. V praksi pa zaradi nelinearnih porabnikov (npr. računalniški napajalniki, LED sijalke, frekvenčni pretvorniki) v omrežje prihajajo višje harmonske komponente (na primer 3. harmonika pri 150 Hz, 5. pri 250 Hz, itd.). Te komponente popačijo obliko napetosti in posledično povzročajo dodatno segrevanje transformatorjev zaradi večjih izgub v železu (vrtinčni tokovi rastejo s kvadratom frekvence). Ta naloga prikazuje, kako takšna nesinusna napetost vpliva na magnetni pretok v samem jedru.</p>
+            </div>
+
+            <p><strong>Interaktivni graf:</strong> Oglejte si vpliv amplitude in frekvence pete harmonske na obliko napetosti in magnetnega pretoka.</p>
+
+            <div class="interactive-container">
+                <div class="interactive-controls">
+                    <div class="control-group">
+                        <label for="slider-amp5-22">Amplituda 5. harmonske \(U_5\): <span id="val-amp5-22">20</span> V</label>
+                        <input type="range" id="slider-amp5-22" min="0" max="80" step="5" value="20" oninput="updateTask22()">
+                    </div>
+                    <div class="interactive-results">
+                        <div>Zaradi integracije (kjer v imenovalec pride ogromen \( \omega_5 = 1571 \)) je vpliv visokofrekvenčnih harmonik na magnetni pretok <strong>bistveno manjši</strong> kot njihov vpliv na samo napetost. Transformator deluje kot nizkoprepustni filter za pretok!</div>
+                    </div>
+                </div>
+                <div class="interactive-svg-wrapper">
+                    <svg id="svg-graph-22" width="300" height="200" viewBox="0 0 300 200">
+                        <line x1="20" y1="100" x2="280" y2="100" stroke="#ccc"/>
+                        <line x1="20" y1="20" x2="20" y2="180" stroke="#ccc"/>
+                        <path id="svg-u-path-22" d="" fill="none" stroke="#e74c3c" stroke-width="2"/>
+                        <path id="svg-phi-path-22" d="" fill="none" stroke="#27ae60" stroke-width="2"/>
+                        <text x="260" y="90" font-size="10" fill="#333">ωt</text>
+                        <text x="5" y="30" font-size="10" fill="#e74c3c">u(t)</text>
+                        <text x="5" y="180" font-size="10" fill="#27ae60">Φ(t)</text>
+                    </svg>
+                </div>
+            </div>
+
+            <details>
+                <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
+                <div class="solution-step">
+                    <h4>Faraday-ev zakon (zveza med napetostjo in pretokom)</h4>
+                    <p>Iz prejšnje naloge vemo, da je v neobremenjenem transformatorju pritisnjena napetost enaka inducirani: \(e_1(t) = u(t)\). Faraday-ev zakon nam pove, da je inducirana napetost sorazmerna odvodu magnetnega pretoka po času:</p>
+                    <div class="formula-box">
+                        \[ e_1(t) = - N_1 \cdot \frac{d\Phi(t)}{dt} \]
+                    </div>
+                    <p>Za izračun magnetnega pretoka \(\Phi(t)\) moramo zgornjo enačbo <strong>integrirati</strong>. Negativni predznak (Lenzovo pravilo) pomeni, da inducirana napetost nasprotuje spremembi pretoka.</p>
+                    <div class="formula-box">
+                        \[ d\Phi(t) = - \frac{1}{N_1} \cdot e_1(t) dt \quad \Rightarrow \quad \Phi(t) = - \frac{1}{N_1} \int e_1(t) dt \]
+                    </div>
+                </div>
+                <div class="solution-step">
+                    <h4>Integracija napetostnega signala</h4>
+                    <p>Naš napetostni signal je sestavljen iz dveh sinusnih komponent: osnovne in pete harmonske. Zato integriramo vsak člen posebej. Integral od \(\sin(\omega t)\) je \(-\frac{1}{\omega} \cos(\omega t)\).</p>
+                    <div class="formula-box">
+                        \[ \Phi(t) = - \frac{1}{N_1} \int \left[ 100 \cdot \sin(\omega_1 t) - 20 \cdot \sin(\omega_5 t) \right] dt \]
+                        \[ \Phi(t) = - \frac{1}{N_1} \left[ - \frac{100}{\omega_1} \cdot \cos(\omega_1 t) - \left(- \frac{20}{\omega_5} \cdot \cos(\omega_5 t)\right) \right] \]
+                    </div>
+                    <p>Pomnožimo z negativnim predznakom pred oklepajem in dobimo:</p>
+                    <div class="formula-box">
+                        \[ \Phi(t) = \frac{1}{N_1} \left[ \frac{100}{\omega_1} \cdot \cos(\omega_1 t) - \frac{20}{\omega_5} \cdot \cos(\omega_5 t) \right] \]
+                    </div>
+                </div>
+                <div class="solution-step">
+                    <h4>Izračun s konkretnimi številkami</h4>
+                    <p>Vstavimo znane vrednosti: \(N_1 = 200\), \(\omega_1 = 314\) in \(\omega_5 = 1571\).</p>
+                    <div class="formula-box">
+                        \[ \Phi(t) = \frac{1}{200} \left[ \frac{100}{314} \cdot \cos(314 \cdot t) - \frac{20}{1571} \cdot \cos(1571 \cdot t) \right] \]
+                        \[ \Phi(t) = \frac{1}{200} \left[ 0.318 \cdot \cos(314 \cdot t) - 0.0127 \cdot \cos(1571 \cdot t) \right] \]
+                    </div>
+                    <p>Na koncu vse pomnožimo z \(1/200\):</p>
+                    <div class="formula-box">
+                        \[ \Phi(t) = 0.0016 \cdot \cos(314 \cdot t) - 0.0000636 \cdot \cos(1571 \cdot t) \text{ Wb} \]
+                    </div>
+                    <p>Opazimo, da je amplituda osnovnega pretoka \(0.0016 \text{ Wb}\), amplituda 5. harmonske komponente pretoka pa je izjemno majhna (\(0.0000636 \text{ Wb}\)). Čeprav je 5. harmonska komponenta napetosti (20 V) kar 1/5 osnovne komponente (100 V), je 5. harmonska komponenta pretoka le 1/25 osnovne komponente. To se zgodi, ker pri integraciji v imenovalec pride vrednost \(\omega_5\), ki je 5-krat večja od \(\omega_1\).</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 2.2 -->
+        <section class="quiz-section">
+            <h3>Kviz 2.2: Vpliv integracije</h3>
+            <p>Glede na zgornji izračun, ali transformator deluje bolj kot filter za nizke frekvence (vpliv višjih frekvenc na pretok je zelo zmanjšan) ali filter za visoke frekvence?</p>
+            <div class="input-group">
+                <label><input type="radio" name="quiz22" value="nizke"> Filter za nizke frekvence</label><br>
+                <label><input type="radio" name="quiz22" value="visoke"> Filter za visoke frekvence</label>
+                <button onclick="checkQuiz22()">Preveri</button>
+            </div>
+            <div id="quiz22-feedback" class="feedback"></div>
+        </section>
+
+        <hr>
+
+        <!-- Naloga 2.3 -->
+        <section class="task">
+            <h3>NALOGA 2.3: Izračun mase bakra v navitjih</h3>
+            <p>Transformator s podatki \(S_n = 100 \text{ kVA}\), \(10 \text{ kV}/0.4 \text{ kV}\), \(50 \text{ Hz}\) ima izgube v prostem teku \(P_0 = 600 \text{ W}\), nazivni izkoristek \(\eta_n = 0.97\), gostoto toka v navitju pri nazivni obremenitvi \(\Gamma_n = 3 \text{ A/mm}^2\), magnetno gostoto v železnem jedru \(B_{Fe} = 1.3 \text{ T}\) ter prerez železnega jedra \(A_{Fe} = 150 \text{ cm}^2\). Določite:</p>
+            <ol type="a">
+                <li>\(N_2\) ... število ovojev nizkonapetostnega navitja</li>
+                <li>\(N_1\) ... število ovojev visokonapetostnega navitja</li>
+                <li>\(m_{Cu}\) ... skupno maso navitja iz bakrene žice</li>
+            </ol>
+
+            <div class="real-world-box">
+                <div class="real-world-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    Uporaba v praksi
+                </div>
+                <p><strong>Cena vs. Izkoristek:</strong> Pri načrtovanju transformatorjev inženirji vedno iščejo ravnotežje. Baker je drag in težak material. Da bi dosegli izkoristek 97%, moramo omejiti izgube v bakru (ki so posledica upornosti žic). Izgube zmanjšamo tako, da uporabimo debelejšo žico (manjša gostota toka \(\Gamma\)), kar pa takoj pomeni večjo maso bakra in s tem dražji in težji transformator. Ta naloga povezuje fizikalne lastnosti električnih strojev s čisto materialno kalkulacijo mase.</p>
+            </div>
+
+            <p><strong>Interaktivni kalkulator mase bakra:</strong> Preverite, kako sprememba zahtevanega izkoristka in dovoljene gostote toka vpliva na končno potrebno maso bakra v transformatorju (če ostale količine pustimo enake).</p>
+
+            <div class="interactive-container">
+                <div class="interactive-controls">
+                    <div class="control-group">
+                        <label for="slider-eta-23">Nazivni izkoristek \(\eta_n\) [%]: <span id="val-eta-23">97.0</span></label>
+                        <input type="range" id="slider-eta-23" min="95" max="99" step="0.1" value="97.0" oninput="updateTask23()">
+                    </div>
+                    <div class="control-group">
+                        <label for="slider-g-23">Gostota toka \(\Gamma_n\) [A/mm²]: <span id="val-g-23">3.0</span></label>
+                        <input type="range" id="slider-g-23" min="1.0" max="6.0" step="0.1" value="3.0" oninput="updateTask23()">
+                    </div>
+                    <div class="interactive-results">
+                        <div>Izgube v bakru (\(P_{Cun}\)): <span id="res-pcu-23">2400</span> W</div>
+                        <div style="margin-top:10px; font-weight:bold; color:var(--primary-color);">Potrebna masa bakra (\(m_{Cu}\)): <span id="res-mcu-23">136</span> kg</div>
+                    </div>
+                </div>
+                <div class="interactive-svg-wrapper">
+                    <!-- Visualization of a copper spool scaling with mass -->
+                    <svg id="svg-copper-23" width="200" height="200" viewBox="0 0 200 200">
+                        <rect x="70" y="30" width="60" height="140" fill="#7f8c8d" />
+                        <path d="M 60,30 L 140,30 L 140,40 L 60,40 Z" fill="#333" />
+                        <path d="M 60,160 L 140,160 L 140,170 L 60,170 Z" fill="#333" />
+
+                        <!-- Copper wire wrapping representing mass -->
+                        <rect id="svg-copper-fill-23" x="65" y="45" width="70" height="110" fill="#d35400" rx="5" />
+                        <text x="100" y="105" text-anchor="middle" font-size="16" fill="#fff" font-weight="bold"><span id="svg-mcu-text-23">136</span> kg</text>
+                    </svg>
+                </div>
+            </div>
+
+            <details>
+                <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
+
+                <p>V prostem teku transformatorja v sekundarnem navitju ni toka, tok prostega teka na primarnem navitju (\(VN\)) pa povzroča zanemarljivo majhne padce napetosti. Zato z zelo dobrim približkom velja: \(U_2 = E_2\) in \(U_1 = E_1\).</p>
+
+                <div class="solution-step">
+                    <h4>a in b) Število ovojev:</h4>
+                    <p>Za izračun števila ovojev uporabimo osnovno transformatorsko enačbo: \(E = 4.44 \cdot f \cdot B_{Fe} \cdot A_{Fe} \cdot N\). Ne smemo pozabiti pretvoriti \(150 \text{ cm}^2\) v \(150 \cdot 10^{-4} \text{ m}^2\).</p>
+                    <div class="formula-box">
+                        \[ N_2 = \frac{E_2}{4.44 \cdot f \cdot B_{Fe} \cdot A_{Fe}} = \frac{U_2}{4.44 \cdot f \cdot B_{Fe} \cdot A_{Fe}} = \frac{400}{4.44 \cdot 50 \cdot 1.3 \cdot 150 \cdot 10^{-4}} = 92.4 \Rightarrow \underline{\underline{93 \text{ ovojev}}} \]
+                        \[ N_1 = \frac{E_1}{4.44 \cdot f \cdot B_{Fe} \cdot A_{Fe}} = \frac{U_1}{4.44 \cdot f \cdot B_{Fe} \cdot A_{Fe}} = \frac{10000}{4.44 \cdot 50 \cdot 1.3 \cdot 150 \cdot 10^{-4}} = \underline{\underline{2310 \text{ ovojev}}} \]
+                    </div>
+                </div>
+
+                <div class="solution-step">
+                    <h4>c) Izgube in masa bakra:</h4>
+                    <p>Izgube prostega teka (\(P_0\)) so enake izgubam v železu (\(P_{Fe}\)), saj takrat skozi upornosti navitij teče zanemarljiv tok: \(P_0 = P_{Fe} = P_{Fen} = 600 \text{ W}\).</p>
+                    <p>Celotne izgube pri nazivni moči (\(S_n = 100 \text{ kVA} = 100 \cdot 10^3 \text{ VA}\)) izračunamo s pomočjo izkoristka (\(\eta_n = 0.97\)):</p>
+                    <div class="formula-box">
+                        \[ P_{izn} = S_n \cdot (1 - \eta_n) = P_{Cun} + P_{Fen} \]
+                    </div>
+                    <p>Nazivne izgube v navitju (bakru) so torej celotne izgube minus izgube v železu:</p>
+                    <div class="formula-box">
+                        \[ P_{Cun} = P_{izn} - P_{Fen} = 100 \cdot 10^3 \cdot (1 - 0.97) - 600 = 3000 - 600 = 2400 \text{ W} \]
+                    </div>
+
+                    <p><strong>Izpeljava formule za maso:</strong></p>
+                    <p>Ohmska upornost žice je podana z \(R = \rho_{Cu} \cdot \frac{l_{Cu}}{q}\), kjer je \(\rho_{Cu} = 0.0175 \cdot 10^{-6} \ \Omega\text{m}^2/\text{m}\) (upornost), \(l_{Cu}\) dolžina in \(q\) prerez žice.</p>
+                    <p>Izgube v navitju so \(P_{Cun} = I_n^2 \cdot R\). Tok lahko zapišemo kot produkt gostote toka (\(\Gamma_n\)) in preseka žice (\(q\)): \(I_n = \Gamma_n \cdot q\).</p>
+                    <div class="formula-box">
+                        \[ P_{Cun} = (\Gamma_n \cdot q)^2 \cdot \rho_{Cu} \cdot \frac{l_{Cu}}{q} = \Gamma_n^2 \cdot q \cdot l_{Cu} \cdot \rho_{Cu} \]
+                    </div>
+                    <p>Ker je volumen žice enakovreden \((q \cdot l_{Cu})\), ga lahko izrazimo preko mase in specifične gostote bakra \(\gamma_{Cu} = 8.92 \cdot 10^3 \text{ kg/m}^3\):</p>
+                    <div class="formula-box">
+                        \[ m_{Cu} = \gamma_{Cu} \cdot l_{Cu} \cdot q \quad \Rightarrow \quad (l_{Cu} \cdot q) = \frac{m_{Cu}}{\gamma_{Cu}} \]
+                    </div>
+                    <p>Vstavimo to v prejšnjo enačbo izgub in izrazimo maso \(m_{Cu}\):</p>
+                    <div class="formula-box">
+                        \[ P_{Cun} = \Gamma_n^2 \cdot \frac{m_{Cu}}{\gamma_{Cu}} \cdot \rho_{Cu} \quad \Rightarrow \quad m_{Cu} = \frac{P_{Cun} \cdot \gamma_{Cu}}{\Gamma_n^2 \cdot \rho_{Cu}} \]
+                    </div>
+
+                    <p><strong>Izračun:</strong> Ne pozabite pretvoriti \(\Gamma_n = 3 \text{ A/mm}^2\) v \(3 \cdot 10^6 \text{ A/m}^2\)!</p>
+                    <div class="formula-box">
+                        \[ m_{Cu} = \frac{2400 \cdot 8.92 \cdot 10^3}{(3 \cdot 10^6)^2 \cdot 0.0175 \cdot 10^{-6}} = \frac{21.408 \cdot 10^6}{9 \cdot 10^{12} \cdot 0.0175 \cdot 10^{-6}} = \frac{21.408 \cdot 10^6}{0.1575 \cdot 10^6} = \underline{\underline{136 \text{ kg}}} \]
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 2.3 -->
+        <section class="quiz-section">
+            <h3>Kviz 2.3: Izgube v prostem teku in obremenitvi</h3>
+            <p>V zgornji nalogi smo sklepali, da so izgube v prostem teku (\(P_0\)) enake le izgubam v železu (\(P_{Fe}\)). Zakaj izgube v bakru (\(P_{Cu}\)) v prostem teku niso pomembne (zakaj smo jih zanemarili)?</p>
+            <div class="input-group">
+                <label><input type="radio" name="quiz23" value="napetost"> Zaradi velike napetosti v prostem teku</label><br>
+                <label><input type="radio" name="quiz23" value="tok"> Ker je tok prostega teka zanemarljivo majhen</label><br>
+                <label><input type="radio" name="quiz23" value="frekvenca"> Zaradi nizke frekvence v prostem teku</label>
+                <button onclick="checkQuiz23()">Preveri</button>
+            </div>
+            <div id="quiz23-feedback" class="feedback"></div>
+        </section>
+
+        <hr>
+
+    </main>
+
+    <footer>
+        <p>Ustvarjeno za učenje in utrjevanje znanja.</p>
+    </footer>
+
+    <script>
+        function updateTask21() {
+            let u1 = parseFloat(document.getElementById('slider-u1-21').value);
+            let n1 = parseFloat(document.getElementById('slider-n1-21').value);
+            let f = parseFloat(document.getElementById('slider-f-21').value);
+
+            document.getElementById('val-u1-21').innerText = u1;
+            document.getElementById('val-n1-21').innerText = n1;
+            document.getElementById('val-f-21').innerText = f;
+
+            let phi = u1 / (4 * 1.11 * f * n1);
+            document.getElementById('res-phi-21').innerText = phi.toExponential(3);
+        }
+
+        function checkQuiz21() {
+            let selected = document.querySelector('input[name="quiz21"]:checked');
+            if (!selected) {
+                let fb = document.getElementById('quiz21-feedback');
+                fb.className = "feedback error"; fb.innerText = "Prosim izberite odgovor."; return;
+            }
+            let input = selected.value;
+            let fb = document.getElementById('quiz21-feedback');
+            if (input === 'manjše' || input === 'manjse') {
+                fb.className = "feedback success";
+                fb.innerText = "Pravilno! Nižja izhodna napetost (120 V namesto 230 V) pomeni, da potrebujemo tudi manjše število ovojev na sekundarju (za približno polovico manj, torej 240).";
+            } else {
+                fb.className = "feedback error";
+                fb.innerText = "Napačno. Enačba je U1 / U2 = N1 / N2. Če želiš zmanjšati U2, kaj moraš storiti z N2, da bo razmerje držalo?";
+            }
+        }
+
+        function updateTask22() {
+            let u5 = parseFloat(document.getElementById('slider-amp5-22').value);
+            document.getElementById('val-amp5-22').innerText = u5;
+
+            let uPath = "M ";
+            let phiPath = "M ";
+
+            let w1 = 314;
+            let w5 = 5 * w1;
+            let N1 = 200;
+
+            for (let x = 0; x <= 260; x += 2) {
+                let t = x / 10000;
+
+                // U(t) = 100 * sin(w1 * t) - u5 * sin(w5 * t)
+                let u = 100 * Math.sin(w1 * t) - u5 * Math.sin(w5 * t);
+                let svgY_u = 100 - (u * 0.5); // scale
+                uPath += (x + 20) + "," + svgY_u + " L ";
+
+                // Phi(t) = 1/N1 * (100/w1 * cos(w1 * t) - u5/w5 * cos(w5 * t))
+                let phi = (1/N1) * ( (100/w1) * Math.cos(w1 * t) - (u5/w5) * Math.cos(w5 * t) );
+                let svgY_phi = 100 - (phi * 30000); // scale heavily to make it visible
+                phiPath += (x + 20) + "," + svgY_phi + " L ";
+            }
+
+            // Remove trailing " L "
+            uPath = uPath.slice(0, -3);
+            phiPath = phiPath.slice(0, -3);
+
+            document.getElementById('svg-u-path-22').setAttribute('d', uPath);
+            document.getElementById('svg-phi-path-22').setAttribute('d', phiPath);
+        }
+
+        function checkQuiz22() {
+            let selected = document.querySelector('input[name="quiz22"]:checked');
+            if (!selected) {
+                let fb = document.getElementById('quiz22-feedback');
+                fb.className = "feedback error"; fb.innerText = "Prosim izberite odgovor."; return;
+            }
+            let input = selected.value;
+            let fb = document.getElementById('quiz22-feedback');
+            if (input === 'nizke' || input === 'filter za nizke') {
+                fb.className = "feedback success";
+                fb.innerText = "Pravilno! Magnetni pretok je integral napetosti. Zato se visoke frekvence v pretoku močno zadušijo (ker delimo z \u03c9), nizke pa ohranijo, zato je transformator low-pass filter za magnetni pretok.";
+            } else {
+                fb.className = "feedback error";
+                fb.innerText = "Napačno. Glede na to, da je vpliv 5. harmonske (visoka frekvenca) bistveno zmanjšan v primerjavi z osnovno (nizka frekvenca), katere frekvence lažje 'preidejo' skozi ta matematični proces?";
+            }
+        }
+
+        function updateTask23() {
+            let eta = parseFloat(document.getElementById('slider-eta-23').value) / 100;
+            let gamma_mm2 = parseFloat(document.getElementById('slider-g-23').value);
+
+            document.getElementById('val-eta-23').innerText = (eta * 100).toFixed(1);
+            document.getElementById('val-g-23').innerText = gamma_mm2.toFixed(1);
+
+            let S_n = 100000;
+            let P_Fe = 600;
+            let P_izn = S_n * (1 - eta);
+            let P_Cun = P_izn - P_Fe;
+
+            // If P_Cun becomes negative due to high efficiency requirement
+            if (P_Cun < 0) P_Cun = 0;
+
+            document.getElementById('res-pcu-23').innerText = Math.round(P_Cun);
+
+            let gamma_m2 = gamma_mm2 * 1e6;
+            let gamma_Cu = 8.92e3;
+            let rho_Cu = 0.0175e-6;
+
+            let m_Cu = (P_Cun * gamma_Cu) / (Math.pow(gamma_m2, 2) * rho_Cu);
+
+            document.getElementById('res-mcu-23').innerText = Math.round(m_Cu);
+            document.getElementById('svg-mcu-text-23').innerText = Math.round(m_Cu);
+
+            // Visual update
+            let visualScale = m_Cu / 136;
+            let minWidth = 10;
+            let maxWidth = 120;
+            let newWidth = 70 * visualScale;
+            if (newWidth < minWidth) newWidth = minWidth;
+            if (newWidth > maxWidth) newWidth = maxWidth;
+
+            let fillRect = document.getElementById('svg-copper-fill-23');
+            fillRect.setAttribute('width', newWidth);
+            fillRect.setAttribute('x', 100 - (newWidth / 2));
+
+            let textX = 100;
+            document.getElementById('svg-mcu-text-23').parentNode.setAttribute('x', textX);
+        }
+
+        function checkQuiz23() {
+            let selected = document.querySelector('input[name="quiz23"]:checked');
+            if (!selected) {
+                let fb = document.getElementById('quiz23-feedback');
+                fb.className = "feedback error"; fb.innerText = "Prosim izberite odgovor."; return;
+            }
+            let input = selected.value;
+            let fb = document.getElementById('quiz23-feedback');
+            if (input === 'tok') {
+                fb.className = "feedback success";
+                fb.innerText = "Pravilno! V prostem teku je tok (I_0) zelo majhen. Ker so izgube v bakru sorazmerne s kvadratom toka (P = I^2 * R), je ta vrednost ob majhnem toku praktično zanemarljiva v primerjavi z izgubami v železu.";
+            } else {
+                fb.className = "feedback error";
+                fb.innerText = "Napačno. Od česa so neposredno odvisne izgube v bakru (P_Cu = I^2 * R)? Kakšen je ta parameter med prostim tekom?";
+            }
+        }
+
+        window.onload = function() {
+            updateTask21();
+            updateTask22();
+            updateTask23();
+        };
+    </script>
+</body>
+</html>
