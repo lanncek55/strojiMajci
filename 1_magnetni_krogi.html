@@ -1115,6 +1115,202 @@
             <div id="quiz18-feedback" class="feedback"></div>
         </section>
 
+        <!-- Naloga 1.9 -->
+        <section class="task-section" id="naloga-1-9">
+            <h2>Naloga 1.9: T-nadomestno vezje sklopljenih navitij</h2>
+            <p><strong>Besedilo naloge:</strong> Dve magnetno sklopljeni navitji imata naslednje parametre:
+            <br>\(L_{11} = 100 \text{ mH}\), \(N_1 = 1000 \text{ ovojev}\), \(L_{\sigma 1} = 0.1 \cdot L_{11}\), \(R_1 = 10 \ \Omega\)
+            <br>\(L_{22} = 25 \text{ mH}\), \(N_2 = 500 \text{ ovojev}\), \(L_{\sigma 2} = 0.1 \cdot L_{22}\), \(R_2 = 2.5 \ \Omega\)
+            <br>Izračunajte T-nadomestno vezje preračunano na prvo navitje. Izračun ponovite za preračun na drugo navitje.</p>
+
+            <div class="real-world-box">
+                <strong>🌍 Real World Use:</strong> T-nadomestno vezje je standardni način za analizo realnih transformatorjev in elektromotorjev. Ker imata primar in sekundar pogosto različno število ovojev, njunih napetosti in tokov ne moremo direktno seštevati v istem električnem vezju. S "preračunavanjem" (referring) vse elemente ene strani navidezno prestavimo na drugo stran. Pri tem upornosti in induktivnosti pomnožimo s kvadratom prestavnega razmerja \((N_1/N_2)^2\). Tako dobimo enostavno vezje za izračun padcev napetosti in izgub.
+            </div>
+
+            <!-- Interactive SVG for Task 9 (T-Circuit) -->
+            <div class="interactive-container">
+                <svg width="600" height="300" viewBox="0 0 600 300" xmlns="http://www.w3.org/2000/svg" class="magnetic-core-svg">
+                    <!-- Base Circuit Lines -->
+                    <line x1="50" y1="100" x2="150" y2="100" stroke="#333" stroke-width="2" />
+                    <line x1="200" y1="100" x2="250" y2="100" stroke="#333" stroke-width="2" />
+                    <line x1="300" y1="100" x2="350" y2="100" stroke="#333" stroke-width="2" />
+                    <line x1="400" y1="100" x2="500" y2="100" stroke="#333" stroke-width="2" />
+                    <line x1="50" y1="250" x2="500" y2="250" stroke="#333" stroke-width="2" />
+                    <line x1="300" y1="100" x2="300" y2="150" stroke="#333" stroke-width="2" />
+                    <line x1="300" y1="200" x2="300" y2="250" stroke="#333" stroke-width="2" />
+
+                    <!-- R1 / R1' -->
+                    <rect x="150" y="90" width="50" height="20" fill="none" stroke="#FF5722" stroke-width="2" />
+                    <text x="175" y="80" text-anchor="middle" font-size="16" fill="#FF5722" font-weight="bold" id="label-r1-9">R₁</text>
+
+                    <!-- L_sigma 1 / L_sigma 1' -->
+                    <path d="M 250 100 Q 262.5 80 275 100 Q 287.5 80 300 100" fill="none" stroke="#FF9800" stroke-width="2" />
+                    <text x="275" y="80" text-anchor="middle" font-size="16" fill="#FF9800" font-weight="bold" id="label-ls1-9">L_{σ1}</text>
+
+                    <!-- L_m -->
+                    <path d="M 300 150 Q 280 162.5 300 175 Q 280 187.5 300 200" fill="none" stroke="#4CAF50" stroke-width="2" />
+                    <text x="280" y="180" text-anchor="end" font-size="16" fill="#4CAF50" font-weight="bold" id="label-lm-9">L_{m1} = L_{m2}</text>
+
+                    <!-- L_sigma 2 / L_sigma 2' -->
+                    <path d="M 350 100 Q 362.5 80 375 100 Q 387.5 80 400 100" fill="none" stroke="#03A9F4" stroke-width="2" />
+                    <text x="375" y="80" text-anchor="middle" font-size="16" fill="#03A9F4" font-weight="bold" id="label-ls2-9">L_{σ2}'</text>
+
+                    <!-- R2 / R2' -->
+                    <rect x="400" y="90" width="50" height="20" fill="none" stroke="#2196F3" stroke-width="2" />
+                    <text x="425" y="80" text-anchor="middle" font-size="16" fill="#2196F3" font-weight="bold" id="label-r2-9">R₂'</text>
+
+                    <!-- Terminals -->
+                    <circle cx="50" cy="100" r="4" fill="#333" />
+                    <circle cx="50" cy="250" r="4" fill="#333" />
+                    <circle cx="500" cy="100" r="4" fill="#333" />
+                    <circle cx="500" cy="250" r="4" fill="#333" />
+                    <text x="30" y="175" text-anchor="middle" font-size="16" fill="#333">1</text>
+                    <text x="520" y="175" text-anchor="middle" font-size="16" fill="#333">2</text>
+                </svg>
+
+                <!-- Interactive Controls -->
+                <div class="controls-panel" style="text-align: center;">
+                    <h3>Izbira referenčne strani</h3>
+                    <div style="margin-bottom: 20px;">
+                        <button onclick="setReferenceSide(1)" id="btn-ref-1" class="active-btn" style="padding: 10px 20px; font-size: 16px; margin-right: 10px; cursor: pointer; background-color: #4CAF50; color: white; border: none; border-radius: 4px;">Preračunano na 1. navitje</button>
+                        <button onclick="setReferenceSide(2)" id="btn-ref-2" style="padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: #ccc; color: black; border: none; border-radius: 4px;">Preračunano na 2. navitje</button>
+                    </div>
+
+                    <div class="result-box" style="text-align: left;">
+                        <p><strong>Leva stran (1):</strong> <span id="res-side1-9">R₁ = 10 Ω, L_{σ1} = 10 mH</span></p>
+                        <p><strong>Sredina (m):</strong> <span id="res-sidem-9">L_{m1} = L_{m2} = 90 mH</span></p>
+                        <p><strong>Desna stran (2):</strong> <span id="res-side2-9">R₂' = 10 Ω, L_{σ2}' = 10 mH</span></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rešitev -->
+            <details>
+                <summary>Poglej postopek reševanja</summary>
+                <div class="solution-step">
+                    <h4>1. Razumevanje magnetnih pretokov</h4>
+                    <p>Skupni magnetni pretok vsakega navitja je sestavljen iz <strong>stresanega</strong> pretoka (\(\Phi_\sigma\)), ki gre po zraku okoli lastnega navitja in ne doseže drugega, ter <strong>glavnega</strong> (medsebojnega) pretoka (\(\Phi_m\)), ki gre po železnem jedru skozi obe navitji.</p>
+                    <p>Zato velja za induktivnosti:
+                    <br>\(L_{11} = L_{\sigma 1} + L_{m1}\)
+                    <br>\(L_{22} = L_{\sigma 2} + L_{m2}\)</p>
+                </div>
+                <div class="solution-step">
+                    <h4>2. Izračun stresanih in glavnih induktivnosti</h4>
+                    <p>Za prvo navitje:</p>
+                    <div class="formula-box">
+                        \[ L_{\sigma 1} = 0.1 \cdot L_{11} = 0.1 \cdot 100 \text{ mH} = 10 \text{ mH} \]
+                        \[ L_{m1} = L_{11} - L_{\sigma 1} = 100 - 10 = 90 \text{ mH} \]
+                    </div>
+                    <p>Za drugo navitje:</p>
+                    <div class="formula-box">
+                        \[ L_{\sigma 2} = 0.1 \cdot L_{22} = 0.1 \cdot 25 \text{ mH} = 2.5 \text{ mH} \]
+                        \[ L_{m2} = L_{22} - L_{\sigma 2} = 25 - 2.5 = 22.5 \text{ mH} \]
+                    </div>
+                </div>
+                <div class="solution-step">
+                    <h4>3. Preračun na 1. navitje</h4>
+                    <p>Želimo imeti enotno vezje brez galvanske ločitve. Da lahko elemente z desne (2) prestavimo na levo (1), jih moramo pomnožiti s kvadratom prestavnega razmerja: \((N_1 / N_2)^2\).</p>
+                    <div class="formula-box">
+                        \[ \text{Prestavno razmerje: } \left(\frac{N_1}{N_2}\right)^2 = \left(\frac{1000}{500}\right)^2 = 2^2 = 4 \]
+                    </div>
+                    <p>Preračunani elementi drugega navitja (označeni s črtico '):</p>
+                    <div class="formula-box">
+                        \[ R_2' = R_2 \cdot \left(\frac{N_1}{N_2}\right)^2 = 2.5 \cdot 4 = 10 \ \Omega \]
+                        \[ L_{\sigma 2}' = L_{\sigma 2} \cdot \left(\frac{N_1}{N_2}\right)^2 = 2.5 \cdot 4 = 10 \text{ mH} \]
+                    </div>
+                    <p>Opazimo, da je po preračunu \(L_{m1} = 90 \text{ mH}\) enak preračunanemu \(L_{m2}'\): \((22.5 \cdot 4 = 90 \text{ mH})\). Zato v sredinski veji nadomestnega vezja pišemo samo eno vrednost, ki predstavlja glavno magnetilno induktivnost!</p>
+                </div>
+                <div class="solution-step">
+                    <h4>4. Preračun na 2. navitje</h4>
+                    <p>Če želimo elemente z leve (1) prestaviti na desno (2), množimo obratno: s kvadratom razmerja \((N_2 / N_1)^2\).</p>
+                    <div class="formula-box">
+                        \[ \text{Prestavno razmerje: } \left(\frac{N_2}{N_1}\right)^2 = \left(\frac{500}{1000}\right)^2 = \left(\frac{1}{2}\right)^2 = 0.25 \]
+                    </div>
+                    <p>Preračunani elementi prvega navitja:</p>
+                    <div class="formula-box">
+                        \[ R_1' = R_1 \cdot \left(\frac{N_2}{N_1}\right)^2 = 10 \cdot 0.25 = 2.5 \ \Omega \]
+                        \[ L_{\sigma 1}' = L_{\sigma 1} \cdot \left(\frac{N_2}{N_1}\right)^2 = 10 \cdot 0.25 = 2.5 \text{ mH} \]
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 1.9 -->
+        <section class="quiz-section">
+            <h3>Kviz 1.9: Preračunavanje upornosti</h3>
+            <p>Transformator ima na primarju 1000 ovojev, na sekundarju pa 100 ovojev. Sekundarno navitje ima upornost 2 Ω. Če to upornost preračunamo na primarno stran (naredimo nadomestno vezje), kolikšna bo navidezna upornost \(R_2'\) z vidika primarja? Vnesite samo številko (v Ω).</p>
+            <div class="input-group">
+                <input type="number" id="quiz19-input" placeholder="npr. 10">
+                <button onclick="checkQuiz19()">Preveri</button>
+            </div>
+            <div id="quiz19-feedback" class="feedback"></div>
+        </section>
+
+        <!-- Trdomagnetni materiali -->
+        <section class="task-section" id="trdomagnetni">
+            <h2>Magnetni krogi s trdomagnetnimi materiali (Histerezna zanka)</h2>
+            <p>Do sedaj smo obravnavali <strong>mehkomagnetne materiale</strong> (npr. jeklo M-5), ki imajo majhno koercitivno poljsko jakost \(H_c\) (zlahka se razmagnetijo in premagnetijo). <strong>Trdomagnetni materiali</strong> (npr. Alnico 5) pa imajo ogromen \(H_c\), kar pomeni, da ostanejo magnetni tudi brez zunanjega vzbujalnega toka. Zato se uporabljajo za trajne magnete.</p>
+
+            <div class="real-world-box">
+                <strong>🌍 Real World Use:</strong> Trdomagnetni materiali so osnova trajnih magnetov, ki se uporabljajo v zvočnikih, BLDC motorjih, in trdih diskih. Ohranijo močno magnetno polje (\(B_r\)) tudi brez napajanja. Njihova delovna točka se vedno nahaja v <strong>drugem kvadrantu</strong> histerezne zanke. Mehkomagnetni materiali pa se uporabljajo v transformatorjih, kjer želimo čim lažje premagnetenje (majhne histerezne izgube) ob izmeničnem toku.
+            </div>
+
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
+                <!-- Hysteresis Graph for Soft Material -->
+                <div style="text-align: center; max-width: 45%;">
+                    <h4>Mehkomagnetni material (M-5)</h4>
+                    <p>Ozek in visok profil. Majhen \(H_c\) (\(\approx -6 \text{ A/m}\)), visok \(B_r\) (\(\approx 1.4 \text{ T}\)).</p>
+                    <svg width="250" height="250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Axes -->
+                        <line x1="20" y1="125" x2="230" y2="125" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
+                        <line x1="125" y1="230" x2="125" y2="20" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
+                        <text x="230" y="140" text-anchor="end" font-size="12">H [A/m]</text>
+                        <text x="140" y="20" text-anchor="start" font-size="12">B [T]</text>
+                        <!-- Curve -->
+                        <path d="M 125 125 Q 120 20 200 10" fill="none" stroke="#2196F3" stroke-width="2" />
+                        <path d="M 125 125 Q 130 230 50 240" fill="none" stroke="#2196F3" stroke-width="2" />
+                        <path d="M 200 10 C 130 10 120 230 50 240" fill="none" stroke="#FF5722" stroke-width="2" />
+                        <!-- B_r and H_c -->
+                        <circle cx="125" cy="40" r="3" fill="#f44336" />
+                        <text x="135" y="45" font-size="10">Br</text>
+                        <circle cx="120" cy="125" r="3" fill="#f44336" />
+                        <text x="110" y="140" font-size="10">Hc</text>
+                    </svg>
+                </div>
+
+                <!-- Hysteresis Graph for Hard Material -->
+                <div style="text-align: center; max-width: 45%;">
+                    <h4>Trdomagnetni material (Alnico 5)</h4>
+                    <p>Širok profil v 2. kvadrantu. Velik \(H_c\) (\(\approx -49 \text{ kA/m}\)), visok \(B_r\) (\(\approx 1.22 \text{ T}\)).</p>
+                    <svg width="250" height="250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
+                        <!-- Axes -->
+                        <line x1="20" y1="125" x2="230" y2="125" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
+                        <line x1="125" y1="230" x2="125" y2="20" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
+                        <text x="230" y="140" text-anchor="end" font-size="12">H [A/m]</text>
+                        <text x="140" y="20" text-anchor="start" font-size="12">B [T]</text>
+                        <!-- Curve (2nd Quadrant focus) -->
+                        <path d="M 125 50 C 60 50 40 100 40 125" fill="none" stroke="#E91E63" stroke-width="3" />
+                        <!-- Load line (Bremenska karakteristika) -->
+                        <line x1="125" y1="125" x2="60" y2="20" stroke="#4CAF50" stroke-width="2" stroke-dasharray="5 5" id="load-line-9" />
+                        <!-- Operating point -->
+                        <circle cx="85" cy="85" r="4" fill="#000" id="operating-point-9" />
+                        <!-- Labels -->
+                        <circle cx="125" cy="50" r="3" fill="#f44336" />
+                        <text x="135" y="55" font-size="10">Br</text>
+                        <circle cx="40" cy="125" r="3" fill="#f44336" />
+                        <text x="30" y="140" font-size="10">Hc</text>
+                    </svg>
+
+                    <div style="margin-top: 10px;">
+                        <label for="slider-gap-9">Bremenska karakteristika (zračna reža):</label>
+                        <input type="range" id="slider-gap-9" min="0.1" max="2" step="0.1" value="1" oninput="updateTask9Hysteresis()">
+                    </div>
+                </div>
+            </div>
+
+            <p style="margin-top: 20px;"><strong>Obremenilna (bremenska) karakteristika:</strong> Vstavljanje zračne reže v krog s trajnim magnetom spremeni njegovo delovno točko. Matematično se izrazi kot premica v 2. kvadrantu: \(B_m = -\mu_0 \cdot \frac{A_\delta}{A_m} \cdot \frac{l_m}{\delta} \cdot H_m\). Presečišče te premice z zanko materiala določa dejanski \(B\) in \(H\).</p>
+        </section>
+
     </main>
 
     <footer>
@@ -1282,12 +1478,86 @@
             if(coil2) coil2.setAttribute('d', drawCoil(N2, 325, 100));
         }
 
+        function setReferenceSide(side) {
+            let btn1 = document.getElementById('btn-ref-1');
+            let btn2 = document.getElementById('btn-ref-2');
+
+            let res1 = document.getElementById('res-side1-9');
+            let res2 = document.getElementById('res-side2-9');
+
+            let lblR1 = document.getElementById('label-r1-9');
+            let lblLS1 = document.getElementById('label-ls1-9');
+            let lblR2 = document.getElementById('label-r2-9');
+            let lblLS2 = document.getElementById('label-ls2-9');
+
+            if (side === 1) {
+                btn1.className = "active-btn"; btn1.style.backgroundColor = "#4CAF50"; btn1.style.color = "white";
+                btn2.className = ""; btn2.style.backgroundColor = "#ccc"; btn2.style.color = "black";
+
+                res1.innerHTML = "R₁ = 10 Ω, L<sub>σ1</sub> = 10 mH";
+                res2.innerHTML = "R₂' = 10 Ω, L<sub>σ2</sub>' = 10 mH";
+
+                lblR1.innerHTML = "R₁";
+                lblLS1.innerHTML = "L<sub>σ1</sub>";
+                lblR2.innerHTML = "R₂'";
+                lblLS2.innerHTML = "L<sub>σ2</sub>'";
+            } else {
+                btn2.className = "active-btn"; btn2.style.backgroundColor = "#4CAF50"; btn2.style.color = "white";
+                btn1.className = ""; btn1.style.backgroundColor = "#ccc"; btn1.style.color = "black";
+
+                res1.innerHTML = "R₁' = 2.5 Ω, L<sub>σ1</sub>' = 2.5 mH";
+                res2.innerHTML = "R₂ = 2.5 Ω, L<sub>σ2</sub> = 2.5 mH";
+
+                lblR1.innerHTML = "R₁'";
+                lblLS1.innerHTML = "L<sub>σ1</sub>'";
+                lblR2.innerHTML = "R₂";
+                lblLS2.innerHTML = "L<sub>σ2</sub>";
+            }
+        }
+
+        function updateTask9Hysteresis() {
+            let el = document.getElementById('slider-gap-9');
+            if(!el) return;
+            let val = parseFloat(el.value);
+
+            // Equation of load line: B = -a * H. We just visually move the end point.
+            // Center is at 125, 125.
+            // When val = 1: B goes to max, H goes to some point.
+            // Let's say top point is x=60, y=20 (default).
+            // By increasing air gap, slope becomes steeper (x moves towards 125).
+            let endX = 125 - (65 / val);
+            let endY = 20; // Keep top Y constant
+
+            let loadLine = document.getElementById('load-line-9');
+            if(loadLine) {
+                loadLine.setAttribute('x2', endX);
+                loadLine.setAttribute('y2', endY);
+            }
+
+            // Approximate intersection with the curve M 125 50 C 60 50 40 100 40 125
+            // This is just a visual approximation for interactivity
+            let opX = 125 - (40 / val);
+            let opY = 125 - (40 / val);
+            if (val > 1) { opY = 125 - (60 / val); opX = 125 - (20 / val); }
+            if (val < 1) { opX = 125 - (50); opY = 125 - (20); } // saturate
+
+            let op = document.getElementById('operating-point-9');
+            if(op) {
+                // Move point roughly along the curve
+                let t = val / 2; // parameter 0 to 1
+                // simple interpolation
+                op.setAttribute('cx', 125 - 40 * t);
+                op.setAttribute('cy', 125 - 75 * t);
+            }
+        }
+
         window.onload = function() {
             updateTask1();
             updateTask2();
             updateTask6();
             updateTask7();
             updateTask8();
+            updateTask9Hysteresis();
         };
 
         function checkQuiz11() {
@@ -1370,6 +1640,17 @@
                 fb.className = "feedback success"; fb.innerText = "Pravilno! Zrak ima drastično manjšo permeabilnost (okoli 4000-krat manjšo od železa v tem primeru). Zato kljub majhni dolžini 2 mm povzroči ogromno povečanje reluktance, kar drastično zmanjša induktivnost.";
             } else {
                 fb.className = "feedback error"; fb.innerText = "Poskusi ponovno. Razmisli, zakaj imenovalec v formuli za induktivnost tako zelo zraste. Kaj ima zrak, česar železo nima (ali obratno)?";
+            }
+        }
+
+        function checkQuiz19() {
+            let input = parseFloat(document.getElementById('quiz19-input').value);
+            let fb = document.getElementById('quiz19-feedback');
+            if (isNaN(input)) { fb.className = "feedback error"; fb.innerText = "Prosim vnesi številko."; return; }
+            if (input === 200) {
+                fb.className = "feedback success"; fb.innerText = "Odlično! Prestavno razmerje je N1/N2 = 10. Kvadrat tega je 100. Če upornost R2 (2 Ω) preračunamo na primar, jo pomnožimo s 100, torej R2' = 2 * 100 = 200 Ω.";
+            } else {
+                fb.className = "feedback error"; fb.innerText = "Ni prav. Najprej izračunaj razmerje N1/N2. Nato to vrednost kvadriraj. Na koncu pomnoži z 2 Ω.";
             }
         }
     </script>
