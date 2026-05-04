@@ -781,30 +781,99 @@
             <div class="formula-box">
                 \[ E_{max} = \omega \cdot N \cdot \Phi_{max} = 2\pi \cdot f \cdot N \cdot A_{Fe} \cdot B_{max} \]
             </div>
-            <p>V elektrotehniki večinoma računamo z <strong>efektivnimi vrednostmi</strong> (\(E_{ef}\)). Za sinusne oblike velja razmerje \(E_{ef} = \frac{E_{max}}{\sqrt{2}}\):</p>
+            <p>V elektrotehniki večinoma računamo z <strong>efektivnimi vrednostmi</strong> (\(E_{ef}\)). Z uporabo faktorja oblike (\(f_o\)) lahko napetost izrazimo na splošen način:</p>
             <div class="formula-box">
                 \[ E_{ef} = \frac{2\pi}{\sqrt{2}} \cdot f \cdot N \cdot A_{Fe} \cdot B_{max} = \frac{4\pi}{2\sqrt{2}} \cdot f \cdot N \cdot A_{Fe} \cdot B_{max} = 4 \cdot f_o \cdot N \cdot A_{Fe} \cdot B_{max} \]
+            </div>
+            <p>Za sinusni signal vstavimo \(f_o \cong 1.11\) in dobimo znano formulo:</p>
+            <div class="formula-box">
                 \[ E_{ef} = 4.44 \cdot f \cdot N \cdot A_{Fe} \cdot B_{max} \]
             </div>
-            <p>Zgornja formula s faktorjem <strong>4.44</strong> velja za sinusno vzbujanje. Faktor \(f_o\) je faktor oblike signala, ki je po definiciji razmerje med efektivno in srednjo vrednostjo. Za sinusni signal velja \( f_o = \frac{\pi}{2\sqrt{2}} \cong 1.11 \).</p>
+            <p><strong>Faktor oblike (\(f_o\))</strong> je po definiciji razmerje med efektivno in srednjo vrednostjo električne veličine:</p>
+            <div class="formula-box">
+                \[ f_o = \frac{\text{efektivna vrednost } U_{ef}}{\text{srednja vrednost } U_{sr}} \]
+            </div>
+            <p>Definicija srednje in efektivne vrednosti periodičnega signala s periodo \(T\):</p>
+            <div class="formula-box">
+                \[ U_{sr} = \frac{1}{T} \int_0^T u(\omega t) \, d(\omega t) \]
+                \[ U_{ef} = \sqrt{\frac{1}{T} \int_0^T u^2(\omega t) \, d(\omega t)} \]
+            </div>
 
-            <h4>Primeri periodičnih signalov in faktorji oblike:</h4>
-            <ul>
-                <li><strong>Sinusni signal:</strong> \( u = U_m \cdot \sin(\omega t) \), \( f_o \cong 1.11 \)</li>
-                <li><strong>Pravokotni signal:</strong> \( U_{ef} = U_m \), \( U_{sr} = U_m \), \( f_o = 1 \)</li>
-                <li><strong>Trikotni signal:</strong> \( U_{ef} = \frac{U_m}{\sqrt{3}} \), \( U_{sr} = \frac{U_m}{2} \), \( f_o = \frac{2}{\sqrt{3}} \cong 1.1547 \)</li>
-            </ul>
+            <h4>Primeri periodičnih signalov in integrali:</h4>
 
-            <h4>Moč in specifična moč</h4>
-            <p>Efektivna vrednost magnetilnega toka \(I_{ef\mu}\) je povezana z efektivno jakostjo magnetnega polja:</p>
+            <div style="display: flex; flex-direction: column; gap: 30px;">
+                <!-- Sinusni -->
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <svg width="200" height="150" viewBox="0 0 200 150">
+                        <line x1="10" y1="75" x2="190" y2="75" stroke="#333" marker-end="url(#arrow-end)"/>
+                        <line x1="20" y1="140" x2="20" y2="10" stroke="#333" marker-end="url(#arrow-end)"/>
+                        <text x="180" y="90" font-size="12">ωt</text>
+                        <text x="25" y="20" font-size="12">u</text>
+                        <text x="5" y="30" font-size="12">Uₘ</text>
+                        <text x="100" y="90" font-size="12">π</text>
+                        <text x="160" y="90" font-size="12">2π</text>
+                        <path d="M 20 75 Q 60 -10 100 75 T 180 75" fill="none" stroke="#2196F3" stroke-width="2"/>
+                    </svg>
+                    <div>
+                        <p><strong>a) Sinusni signal</strong>: \( u = U_m \cdot \sin(\omega t) \)</p>
+                        <p>\( U_{sr} = \frac{1}{\pi} \int_0^\pi U_m \cdot \sin(\omega t) \, d(\omega t) = \frac{2 \cdot U_m}{\pi} \)</p>
+                        <p>\( U_{ef}^2 = \frac{1}{2\pi} \int_0^{2\pi} U_m^2 \cdot \sin^2(\omega t) \, d(\omega t) = \frac{U_m^2}{2} \quad \Rightarrow U_{ef} = \frac{U_m}{\sqrt{2}} \)</p>
+                        <p>\( f_o = \frac{U_m / \sqrt{2}}{2 U_m / \pi} \cong 1.11 \)</p>
+                    </div>
+                </div>
+
+                <!-- Pravokotni -->
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <svg width="200" height="150" viewBox="0 0 200 150">
+                        <line x1="10" y1="75" x2="190" y2="75" stroke="#333" marker-end="url(#arrow-end)"/>
+                        <line x1="20" y1="140" x2="20" y2="10" stroke="#333" marker-end="url(#arrow-end)"/>
+                        <text x="180" y="90" font-size="12">ωt</text>
+                        <text x="25" y="20" font-size="12">u</text>
+                        <text x="5" y="30" font-size="12">Uₘ</text>
+                        <text x="100" y="90" font-size="12">π</text>
+                        <text x="160" y="90" font-size="12">2π</text>
+                        <path d="M 20 75 L 20 25 L 100 25 L 100 125 L 180 125 L 180 75" fill="none" stroke="#4CAF50" stroke-width="2"/>
+                    </svg>
+                    <div>
+                        <p><strong>b) Pravokotni signal</strong></p>
+                        <p>\( U_{sr} = \frac{1}{\pi} \int_0^\pi U_m \, d(\omega t) = U_m \)</p>
+                        <p>\( U_{ef}^2 = \frac{1}{2\pi} \int_0^{2\pi} U_m^2 \, d(\omega t) = U_m^2 \quad \Rightarrow U_{ef} = U_m \)</p>
+                        <p>\( f_o = \frac{U_m}{U_m} = 1 \)</p>
+                    </div>
+                </div>
+
+                <!-- Trikotni -->
+                <div style="display: flex; align-items: center; gap: 20px;">
+                    <svg width="200" height="150" viewBox="0 0 200 150">
+                        <line x1="10" y1="75" x2="190" y2="75" stroke="#333" marker-end="url(#arrow-end)"/>
+                        <line x1="20" y1="140" x2="20" y2="10" stroke="#333" marker-end="url(#arrow-end)"/>
+                        <text x="180" y="90" font-size="12">ωt</text>
+                        <text x="25" y="20" font-size="12">u</text>
+                        <text x="5" y="30" font-size="12">Uₘ</text>
+                        <text x="100" y="90" font-size="12">π</text>
+                        <text x="160" y="90" font-size="12">2π</text>
+                        <path d="M 20 75 L 60 25 L 140 125 L 180 75" fill="none" stroke="#FF9800" stroke-width="2"/>
+                    </svg>
+                    <div>
+                        <p><strong>c) Trikotni signal</strong></p>
+                        <p>\( U_{sr} = \frac{1}{\pi/2} \int_0^{\pi/2} U_m \cdot \frac{\omega t}{\pi/2} \, d(\omega t) = \frac{U_m}{2} \)</p>
+                        <p>\( U_{ef}^2 = \frac{1}{\pi/2} \int_0^{\pi/2} U_m^2 \cdot \left(\frac{\omega t}{\pi/2}\right)^2 \, d(\omega t) = \frac{U_m^2}{3} \quad \Rightarrow U_{ef} = \frac{U_m}{\sqrt{3}} \)</p>
+                        <p>\( f_o = \frac{U_m / \sqrt{3}}{U_m / 2} \cong 1.1547 \)</p>
+                    </div>
+                </div>
+            </div>
+
+            <h4 style="margin-top: 30px;">Moč in specifična moč</h4>
+            <p>Vzbujalna navidezna moč je neodvisna od geometrije in števila ovojev. Efektivna vrednost magnetilnega toka \(I_{ef\mu}\) je po Amperovem zakonu:</p>
             <div class="formula-box">
                 \[ I_{ef\mu} = \frac{l_{Fe} \cdot H_{ef}}{N} \]
             </div>
-            <p>Navidezna moč \( P \) se izračuna kot:</p>
+            <p>Navidezna moč \( P \) se izračuna kot produkt efektivne napetosti in efektivnega magnetilnega toka:</p>
             <div class="formula-box">
-                \[ P = E_{ef} \cdot I_{ef\mu} = \sqrt{2}\pi \cdot f \cdot A_{Fe} \cdot B_{max} \cdot l_{Fe} \cdot H_{ef} \]
+                \[ P = E_{ef} \cdot I_{ef\mu} = \left(\sqrt{2}\pi \cdot f \cdot N \cdot A_{Fe} \cdot B_{max}\right) \cdot \left(\frac{l_{Fe} \cdot H_{ef}}{N}\right) \]
+                \[ P = \sqrt{2}\pi \cdot f \cdot A_{Fe} \cdot B_{max} \cdot l_{Fe} \cdot H_{ef} \]
             </div>
-            <p>Pri specifični gostoti materiala \( \rho_{Fe} \) dobimo <strong>moč na enoto mase</strong> (\( p \)), ki je neodvisna od geometrije jedra in števila ovojev:</p>
+            <p>Masa železa je \(m_{Fe} = A_{Fe} \cdot l_{Fe} \cdot \rho_{Fe}\). Pri specifični gostoti materiala \( \rho_{Fe} \) dobimo <strong>moč na enoto mase</strong> (\( p = P / m_{Fe} \)):</p>
             <div class="formula-box">
                 \[ p = \frac{\sqrt{2}\pi \cdot f}{\rho_{Fe}} \cdot B_{max} \cdot H_{ef} \]
             </div>
@@ -947,11 +1016,11 @@
                     <line x1="50" y1="355" x2="100" y2="355" stroke="#333" stroke-width="1" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)"/>
 
                     <!-- Navitje N1 (levo) -->
-                    <g id="svg-coil-n1-7" stroke="#FF5722" stroke-width="4" fill="none"></g>
+                    <path id="svg-coil-n1-7" stroke="#FF5722" stroke-width="4" fill="none"></path>
                     <text x="20" y="200" text-anchor="end" font-size="18" fill="#FF5722" font-weight="bold">N₁</text>
 
                     <!-- Navitje N2 (desno) -->
-                    <g id="svg-coil-n2-7" stroke="#2196F3" stroke-width="4" fill="none"></g>
+                    <path id="svg-coil-n2-7" stroke="#2196F3" stroke-width="4" fill="none"></path>
                     <text x="380" y="200" text-anchor="start" font-size="18" fill="#2196F3" font-weight="bold">N₂</text>
                 </svg>
 
@@ -1048,11 +1117,11 @@
                     <rect x="75" y="75" width="250" height="250" fill="none" stroke="#f44336" stroke-width="2" stroke-dasharray="10 5"/>
 
                     <!-- Navitje N1 (levo) -->
-                    <g id="svg-coil-n1-8" stroke="#FF5722" stroke-width="4" fill="none"></g>
+                    <path id="svg-coil-n1-8" stroke="#FF5722" stroke-width="4" fill="none"></path>
                     <text x="20" y="200" text-anchor="end" font-size="18" fill="#FF5722" font-weight="bold">N₁</text>
 
                     <!-- Navitje N2 (desno) -->
-                    <g id="svg-coil-n2-8" stroke="#2196F3" stroke-width="4" fill="none"></g>
+                    <path id="svg-coil-n2-8" stroke="#2196F3" stroke-width="4" fill="none"></path>
                     <text x="380" y="200" text-anchor="start" font-size="18" fill="#2196F3" font-weight="bold">N₂</text>
 
                     <text x="310" y="205" text-anchor="end" font-size="16" fill="#000" font-weight="bold">δ</text>
@@ -1758,63 +1827,111 @@
 
         <!-- Trdomagnetni materiali -->
         <section class="task-section" id="trdomagnetni">
-            <h2>Magnetni krogi s trdomagnetnimi materiali (Histerezna zanka)</h2>
-            <p>Do sedaj smo obravnavali <strong>mehkomagnetne materiale</strong> (npr. jeklo M-5), ki imajo majhno koercitivno poljsko jakost \(H_c\) (zlahka se razmagnetijo in premagnetijo). <strong>Trdomagnetni materiali</strong> (npr. Alnico 5) pa imajo ogromen \(H_c\), kar pomeni, da ostanejo magnetni tudi brez zunanjega vzbujalnega toka. Zato se uporabljajo za trajne magnete.</p>
+            <h2>Magnetni krogi s trdomagnetnimi materiali</h2>
+            <p>Histerezno zanko <strong>trdomagnetnega materiala Alnico 5</strong> karakterizira velika vrednost remanenčne gostote magnetnega pretoka \(B_r\) (približno 1.22 T) in velika vrednost koercitivne jakosti magnetnega polja \(H_c\) (približno \(-49 \cdot 10^3 \text{ A/m}\)). Remanenčna gostota magnetnega pretoka se nanaša na gostoto sklenjenega magnetnega kroga, izdelanega iz danega trdomagnetnega materiala, ko gonilna magnetna napetost in s tem celotna jakost magnetnega polja pade na nič.</p>
+            <p>Pri <strong>mehkomagnetnem jeklu M-5</strong> je remanenčna gostota magnetnega pretoka \(B_r\) velika (približno 1.4 T), koercitivna jakost magnetnega polja \(H_c\) pa zelo majhna (približno \(-6 \text{ A/m}\)), kar je okrog 8000 krat manj.</p>
+            <p>Temeljna značilnost remanentnega magnetizma je obstoj magnetnega pretoka v sklenjenih magnetnih krogih tudi brez zunanjega vzbujanja v obliki elektromagneta.</p>
 
             <div class="real-world-box">
-                <strong>🌍 Real World Use:</strong> Trdomagnetni materiali so osnova trajnih magnetov, ki se uporabljajo v zvočnikih, BLDC motorjih, in trdih diskih. Ohranijo močno magnetno polje (\(B_r\)) tudi brez napajanja. Njihova delovna točka se vedno nahaja v <strong>drugem kvadrantu</strong> histerezne zanke. Mehkomagnetni materiali pa se uporabljajo v transformatorjih, kjer želimo čim lažje premagnetenje (majhne histerezne izgube) ob izmeničnem toku.
+                <strong>🌍 Real World Use:</strong> Trdomagnetni materiali so osnova trajnih magnetov, ki se uporabljajo v zvočnikih in BLDC motorjih. Njihova delovna točka se vedno nahaja v <strong>drugem kvadrantu</strong> histerezne zanke. Mehkomagnetni materiali pa se uporabljajo v transformatorjih, kjer želimo čim lažje premagnetenje ob izmeničnem toku, da preprečimo izgube.
             </div>
 
             <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px;">
-                <!-- Hysteresis Graph for Soft Material -->
-                <div style="text-align: center; max-width: 45%;">
-                    <h4>Mehkomagnetni material (M-5)</h4>
-                    <p>Ozek in visok profil. Majhen \(H_c\) (\(\approx -6 \text{ A/m}\)), visok \(B_r\) (\(\approx 1.4 \text{ T}\)).</p>
+
+                <!-- Slika 1.1: Alnico 5 -->
+                <div style="text-align: center; max-width: 30%;">
+                    <h4>Slika 1.1: Alnico 5</h4>
+                    <p style="font-size: 14px;">Trdomagnetni material</p>
                     <svg width="250" height="250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Axes -->
-                        <line x1="20" y1="125" x2="230" y2="125" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
-                        <line x1="125" y1="230" x2="125" y2="20" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
-                        <text x="230" y="140" text-anchor="end" font-size="12">H [A/m]</text>
-                        <text x="140" y="20" text-anchor="start" font-size="12">B [T]</text>
+                        <line x1="20" y1="210" x2="230" y2="210" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
+                        <line x1="210" y1="230" x2="210" y2="20" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
+                        <text x="230" y="225" text-anchor="end" font-size="12">H [kA/m]</text>
+                        <text x="220" y="20" text-anchor="start" font-size="12">B [T]</text>
+
+                        <!-- Grid marks H -->
+                        <text x="40" y="225" font-size="10" text-anchor="middle">-50</text>
+                        <text x="75" y="225" font-size="10" text-anchor="middle">-40</text>
+                        <text x="110" y="225" font-size="10" text-anchor="middle">-30</text>
+                        <text x="145" y="225" font-size="10" text-anchor="middle">-20</text>
+                        <text x="180" y="225" font-size="10" text-anchor="middle">-10</text>
+
+                        <!-- Grid marks B -->
+                        <text x="195" y="50" font-size="10" text-anchor="end">1.0</text>
+                        <text x="195" y="130" font-size="10" text-anchor="end">0.5</text>
+
                         <!-- Curve -->
-                        <path d="M 125 125 Q 120 20 200 10" fill="none" stroke="#2196F3" stroke-width="2" />
-                        <path d="M 125 125 Q 130 230 50 240" fill="none" stroke="#2196F3" stroke-width="2" />
-                        <path d="M 200 10 C 130 10 120 230 50 240" fill="none" stroke="#FF5722" stroke-width="2" />
-                        <!-- B_r and H_c -->
-                        <circle cx="125" cy="40" r="3" fill="#f44336" />
-                        <text x="135" y="45" font-size="10">Br</text>
-                        <circle cx="120" cy="125" r="3" fill="#f44336" />
-                        <text x="110" y="140" font-size="10">Hc</text>
+                        <path d="M 210 25 C 130 35 45 130 45 210" fill="none" stroke="#E91E63" stroke-width="2" />
+
+                        <!-- Operating point / Load line -->
+                        <line x1="210" y1="210" x2="75" y2="50" stroke="#4CAF50" stroke-width="1" stroke-dasharray="3 3" id="load-line-9" />
+                        <circle cx="100" cy="90" r="4" fill="#000" id="operating-point-9" />
+                        <text x="75" y="100" font-size="10" fill="#333">Bremenska</text>
+                        <text x="75" y="112" font-size="10" fill="#333">karakteristika</text>
+
+                        <!-- Max Energy point box -->
+                        <rect x="75" y="50" width="135" height="160" fill="none" stroke="#607D8B" stroke-dasharray="2 2" />
+                        <circle cx="75" cy="50" r="3" fill="#607D8B" />
+                        <text x="70" y="35" font-size="10" text-anchor="end" fill="#607D8B">Točka max</text>
+                        <text x="70" y="47" font-size="10" text-anchor="end" fill="#607D8B">energ. produkta</text>
+                    </svg>
+                    <div style="margin-top: 10px;">
+                        <label for="slider-gap-9" style="font-size:12px;">Preizkusi bremensko kar.:</label>
+                        <input type="range" id="slider-gap-9" min="0.1" max="2" step="0.1" value="1" oninput="updateTask9Hysteresis()">
+                    </div>
+                </div>
+
+                <!-- Slika 1.2: M-5 (Macro) -->
+                <div style="text-align: center; max-width: 30%;">
+                    <h4>Slika 1.2: M-5</h4>
+                    <p style="font-size: 14px;">Mehkomagnetni material</p>
+                    <svg width="250" height="250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
+                        <line x1="20" y1="210" x2="230" y2="210" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
+                        <line x1="210" y1="230" x2="210" y2="20" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
+                        <text x="230" y="225" text-anchor="end" font-size="12">H [A/m]</text>
+                        <text x="220" y="20" text-anchor="start" font-size="12">B [T]</text>
+
+                        <!-- Grid marks H -->
+                        <text x="40" y="225" font-size="10" text-anchor="middle">-10</text>
+                        <text x="125" y="225" font-size="10" text-anchor="middle">-5</text>
+
+                        <!-- Grid marks B -->
+                        <text x="195" y="50" font-size="10" text-anchor="end">1.0</text>
+                        <text x="195" y="130" font-size="10" text-anchor="end">0.5</text>
+
+                        <!-- Curve -->
+                        <path d="M 210 10 L 210 20 C 190 20 120 150 110 210" fill="none" stroke="#2196F3" stroke-width="2" />
+                        <text x="205" y="15" font-size="10" fill="#f44336" text-anchor="end">Br</text>
+                        <circle cx="210" cy="10" r="3" fill="#f44336" />
+                        <text x="105" y="205" font-size="10" fill="#f44336" text-anchor="end">Hc</text>
+                        <circle cx="110" cy="210" r="3" fill="#f44336" />
                     </svg>
                 </div>
 
-                <!-- Hysteresis Graph for Hard Material -->
-                <div style="text-align: center; max-width: 45%;">
-                    <h4>Trdomagnetni material (Alnico 5)</h4>
-                    <p>Širok profil v 2. kvadrantu. Velik \(H_c\) (\(\approx -49 \text{ kA/m}\)), visok \(B_r\) (\(\approx 1.22 \text{ T}\)).</p>
+                <!-- Slika 1.3: M-5 (Micro) -->
+                <div style="text-align: center; max-width: 30%;">
+                    <h4>Slika 1.3: M-5 (povečano)</h4>
+                    <p style="font-size: 14px;">B < 4.5 · 10⁻⁵ T</p>
                     <svg width="250" height="250" viewBox="0 0 250 250" xmlns="http://www.w3.org/2000/svg">
-                        <!-- Axes -->
-                        <line x1="20" y1="125" x2="230" y2="125" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
-                        <line x1="125" y1="230" x2="125" y2="20" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
-                        <text x="230" y="140" text-anchor="end" font-size="12">H [A/m]</text>
-                        <text x="140" y="20" text-anchor="start" font-size="12">B [T]</text>
-                        <!-- Curve (2nd Quadrant focus) -->
-                        <path d="M 125 50 C 60 50 40 100 40 125" fill="none" stroke="#E91E63" stroke-width="3" />
-                        <!-- Load line (Bremenska karakteristika) -->
-                        <line x1="125" y1="125" x2="60" y2="20" stroke="#4CAF50" stroke-width="2" stroke-dasharray="5 5" id="load-line-9" />
-                        <!-- Operating point -->
-                        <circle cx="85" cy="85" r="4" fill="#000" id="operating-point-9" />
-                        <!-- Labels -->
-                        <circle cx="125" cy="50" r="3" fill="#f44336" />
-                        <text x="135" y="55" font-size="10">Br</text>
-                        <circle cx="40" cy="125" r="3" fill="#f44336" />
-                        <text x="30" y="140" font-size="10">Hc</text>
-                    </svg>
+                        <line x1="20" y1="210" x2="230" y2="210" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
+                        <line x1="210" y1="230" x2="210" y2="20" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
+                        <text x="230" y="225" text-anchor="end" font-size="12">H [A/m]</text>
+                        <text x="220" y="20" text-anchor="start" font-size="12">B [T]</text>
 
-                    <div style="margin-top: 10px;">
-                        <label for="slider-gap-9">Bremenska karakteristika (zračna reža):</label>
-                        <input type="range" id="slider-gap-9" min="0.1" max="2" step="0.1" value="1" oninput="updateTask9Hysteresis()">
-                    </div>
+                        <!-- Grid marks H -->
+                        <text x="40" y="225" font-size="10" text-anchor="middle">-6</text>
+
+                        <!-- Grid marks B -->
+                        <text x="195" y="40" font-size="10" text-anchor="end">4·10⁻⁵</text>
+                        <text x="195" y="125" font-size="10" text-anchor="end">2·10⁻⁵</text>
+
+                        <!-- Curve -->
+                        <path d="M 210 25 L 140 210" fill="none" stroke="#2196F3" stroke-width="2" />
+
+                        <!-- Operating Point at B=3.8e-5 -->
+                        <line x1="210" y1="210" x2="140" y2="45" stroke="#4CAF50" stroke-width="1" stroke-dasharray="3 3"/>
+                        <circle cx="150" cy="50" r="4" fill="#000" />
+                        <text x="145" y="45" font-size="10" text-anchor="end">3.8·10⁻⁵</text>
+                    </svg>
                 </div>
             </div>
 
@@ -2031,12 +2148,12 @@
             let val = parseFloat(el.value);
 
             // Equation of load line: B = -a * H. We just visually move the end point.
-            // Center is at 125, 125.
+            // Center is at 210, 210.
             // When val = 1: B goes to max, H goes to some point.
-            // Let's say top point is x=60, y=20 (default).
-            // By increasing air gap, slope becomes steeper (x moves towards 125).
-            let endX = 125 - (65 / val);
-            let endY = 20; // Keep top Y constant
+            // Let's say top point is x=75, y=50 (default).
+            // By increasing air gap, slope becomes steeper (x moves towards 210).
+            let endX = 210 - (135 / val);
+            let endY = 50; // Keep top Y constant
 
             let loadLine = document.getElementById('load-line-9');
             if(loadLine) {
@@ -2044,20 +2161,13 @@
                 loadLine.setAttribute('y2', endY);
             }
 
-            // Approximate intersection with the curve M 125 50 C 60 50 40 100 40 125
-            // This is just a visual approximation for interactivity
-            let opX = 125 - (40 / val);
-            let opY = 125 - (40 / val);
-            if (val > 1) { opY = 125 - (60 / val); opX = 125 - (20 / val); }
-            if (val < 1) { opX = 125 - (50); opY = 125 - (20); } // saturate
-
+            // Approximate intersection with the curve M 210 25 C 130 35 45 130 45 210
             let op = document.getElementById('operating-point-9');
             if(op) {
-                // Move point roughly along the curve
-                let t = val / 2; // parameter 0 to 1
-                // simple interpolation
-                op.setAttribute('cx', 125 - 40 * t);
-                op.setAttribute('cy', 125 - 75 * t);
+                let t = val / 2.0;
+                if (t > 1) t = 1;
+                op.setAttribute('cx', 210 - 110 * Math.sqrt(t));
+                op.setAttribute('cy', 210 - 120 * Math.sqrt(t));
             }
         }
 
