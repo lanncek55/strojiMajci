@@ -25,22 +25,22 @@
         <!-- TO DO: Naslednji agent bo tukaj dodal vsebino (Naloge 2.1 naprej) -->
 
         <section id="naloga-2-1" class="task-section">
-            <h3>Naloga 2.1: Osnovne enačbe transformatorja</h3>
-            <div class="task-description">
-                <p>Enofazni transformator ima na primarni (visokonapetostni) strani \(N_1 = 4800\) ovojev. Grajen je za napajalno napetost \(U_1 = 2400 \text{ V}\) frekvence \(f = 50 \text{ Hz}\). Izračunajte:</p>
+            <h2>Naloga 2.1: Osnovne enačbe transformatorja</h2>
+            <p><strong>Besedilo naloge:</strong> Enofazni transformator ima na primarni (visokonapetostni) strani \(N_1 = 4800\) ovojev. Grajen je za napajalno napetost \(U_1 = 2400 \text{ V}\) frekvence \(f = 50 \text{ Hz}\). Izračunajte:</p>
                 <ol type="a">
                     <li>Glavni magnetni pretok \(\Phi_m\).</li>
                     <li>Število ovojev sekundarnega navitja, tako da bo sekundarna inducirana napetost neobremenjenega transformatorja \(E_2 = 230 \text{ V}\).</li>
                     <li>Enako transformatorsko jedro uporabimo za transformator, ki ima na primarni strani \(N_1' = 1320\) in \(N_2' = 46\) ovojev na sekundarju. Izračunajte inducirano napetost primarnega in sekundarnega navitja neobremenjenega transformatorja, če je temenska vrednost glavnega magnetnega pretoka \(\Phi_m' = 0.045 \text{ Wb}\) pri frekvenci \(f = 50 \text{ Hz}\).</li>
                 </ol>
-            </div>
 
-            <div class="real-world-use">
-                <h4>🌍 Real World Use: Enofazni transformatorji v distribuciji</h4>
+            <div class="real-world-box">
+                <strong>🌍 Real World Use:</strong> Enofazni transformatorji v distribuciji
                 <p>Transformatorji so temeljni gradniki elektroenergetskega sistema. Omogočajo prenos energije pri visokih napetostih (kjer so tokovi in s tem izgube na vodnikih manjši) in nato njeno varno znižanje na nivoje, ki jih uporabljamo v gospodinjstvih (npr. 230 V). Osnovna enačba transformatorja nas uči, da je napetost neposredno sorazmerna s številom ovojev in frekvenco spreminjanja magnetnega pretoka. Zato je izjemno pomembno natančno načrtovanje števila ovojev v proizvodnji transformatorjev za posamezno napetostno stopnjo.</p>
             </div>
 
-            <div class="solution-step">
+            <details class="solution">
+                <summary>Prikaži rešitev in interaktivne elemente</summary>
+                <div class="solution-step">
                 <h4>a) Izračun glavnega magnetnega pretoka \(\Phi_m\)</h4>
                 <p>Magnetni pretok izračunamo iz inducirane napetosti. V prostem teku je inducirana napetost \(E_1\) na primarni strani enaka napajalni napetosti \(U_1\). To predpostavimo, ker ob neobremenjenem transformatorju skoznje teče le zelo majhen tok prostega teka, zato so padci napetosti na upornosti navitja zanemarljivi.</p>
 
@@ -128,9 +128,11 @@
                 </div>
             </div>
 
+                        </details>
+
             <!-- Kviz -->
-            <div class="quiz-container" id="quiz-2-1">
-                <h4>🧠 Kviz 2.1</h4>
+            <section class="quiz-section" id="quiz-2-1">
+                <h3>Kviz 2.1</h3>
                 <p>Kako vpliva povečanje števila ovojev sekundarnega navitja (\(N_2\)) na inducirano sekundarno napetost \(E_2\), če vse ostale parametre obdržimo konstantne?</p>
                 <form class="quiz-form">
                     <label><input type="radio" name="q2-1" value="A"> \(E_2\) se bo zmanjšala, saj je obratno sorazmerna številu ovojev.</label><br>
@@ -139,24 +141,24 @@
                     <button type="button" class="btn-check-quiz" onclick="checkQuiz('quiz-2-1', 'B', 'Pravilno! Inducirana napetost na strani transformatorja je direktno sorazmerna številu njenih ovojev in magnetnemu pretoku.')">Preveri odgovor</button>
                 </form>
                 <div class="quiz-feedback"></div>
-            </div>
+            </section>
         </section>
 
 
 
         <section id="naloga-2-2" class="task-section">
-            <h3>Naloga 2.2: Harmonske komponente in magnetni pretok</h3>
-            <div class="task-description">
-                <p>Transformator ima \(N_1 = 200\) ovojev na primarni strani. Priključen je na napajalno napetost \(u(t) = 100 \cdot \sin(\omega_1 t) - 20 \cdot \sin(\omega_5 t)\). Izračunajte magnetni pretok v jedru transformatorja.</p>
+            <h2>Naloga 2.2: Harmonske komponente in magnetni pretok</h2>
+            <p><strong>Besedilo naloge:</strong> Transformator ima \(N_1 = 200\) ovojev na primarni strani. Priključen je na napajalno napetost \(u(t) = 100 \cdot \sin(\omega_1 t) - 20 \cdot \sin(\omega_5 t)\). Izračunajte magnetni pretok v jedru transformatorja.</p>
                 <p>Transformator je neobremenjen, stresanje magnetnega polja in upornost navitja zanemarimo.</p>
-            </div>
 
-            <div class="real-world-use">
-                <h4>🌍 Real World Use: Harmonske komponente v nelinearnih omrežjih</h4>
+            <div class="real-world-box">
+                <strong>🌍 Real World Use:</strong> Harmonske komponente v nelinearnih omrežjih
                 <p>V sodobnem omrežju na transformatorje niso priključene le linearne obremenitve, ampak veliko naprav z usmerniki (računalniki, LED sijalke, frekvenčni pretvorniki, polnilnice električnih vozil). Te naprave črpajo nesinusni tok, kar povzroča padec napetosti na impedanci omrežja z višjimi harmonskimi komponentami napetosti (tu npr. 5. harmonik: \(\omega_5\)). Ko transformator napajamo s tako popačeno napetostjo, se popači tudi magnetni pretok. Višji harmoniki lahko povzročijo močno pregrevanje transformatorskega jedra zaradi povečanih izgub in zmanjšajo življenjsko dobo stroja.</p>
             </div>
 
-            <div class="solution-step">
+            <details class="solution">
+                <summary>Prikaži rešitev in interaktivne elemente</summary>
+                <div class="solution-step">
                 <h4>Postopek izračuna magnetnega pretoka \(\Phi(t)\)</h4>
                 <p>Magnetni pretok izračunamo iz inducirane napetosti. Ker sta upornost navitja in stresanje magnetnega polja zanemarjena, in ker je \(I_2 = 0\), je inducirana napetost enaka napajalni:</p>
 
@@ -217,9 +219,11 @@
                 </svg>
             </div>
 
+                        </details>
+
             <!-- Kviz -->
-            <div class="quiz-container" id="quiz-2-2">
-                <h4>🧠 Kviz 2.2</h4>
+            <section class="quiz-section" id="quiz-2-2">
+                <h3>Kviz 2.2</h3>
                 <p>Kaj se matematično zgodi z višjimi harmonskimi komponentami napetosti (npr. \(\omega_5\)), ko preidejo v magnetni pretok \(\Phi(t)\)?</p>
                 <form class="quiz-form">
                     <label><input type="radio" name="q2-2" value="A"> Ohranijo enako razmerje glede na osnovni harmonik, zato je popačenje pretoka enako popačenju napetosti.</label><br>
@@ -228,28 +232,28 @@
                     <button type="button" class="btn-check-quiz" onclick="checkQuiz('quiz-2-2', 'C', 'Pravilno! Faradayev zakon \(\Phi(t) = \int e(t) dt\) pomeni integracijo, ki iz vstavljenega \(\sin(\omega t)\) pridobi \(-1/\omega \cdot \cos(\omega t)\). Višji \(\omega\) torej dodatno zmanjša amplitudo.')">Preveri odgovor</button>
                 </form>
                 <div class="quiz-feedback"></div>
-            </div>
+            </section>
         </section>
 
 
 
         <section id="naloga-2-3" class="task-section">
-            <h3>Naloga 2.3: Izračun izkoristka in mase bakra</h3>
-            <div class="task-description">
-                <p>Transformator s podatki \(S_n = 100 \text{ kVA}\), \(10 \text{ kV} / 0.4 \text{ kV}\), \(50 \text{ Hz}\) ima izgube v prostem teku \(P_0 = 600 \text{ W}\), nazivni izkoristek \(\eta_n = 0.97\), gostoto toka v navitju pri nazivni obremenitvi \(\Gamma_n = 3 \text{ A/mm}^2\), magnetno gostoto v železnem jedru \(B_{Fe} = 1.3 \text{ T}\) ter prerez železnega jedra \(A_{Fe} = 150 \text{ cm}^2\). Določite:</p>
+            <h2>Naloga 2.3: Izračun izkoristka in mase bakra</h2>
+            <p><strong>Besedilo naloge:</strong> Transformator s podatki \(S_n = 100 \text{ kVA}\), \(10 \text{ kV} / 0.4 \text{ kV}\), \(50 \text{ Hz}\) ima izgube v prostem teku \(P_0 = 600 \text{ W}\), nazivni izkoristek \(\eta_n = 0.97\), gostoto toka v navitju pri nazivni obremenitvi \(\Gamma_n = 3 \text{ A/mm}^2\), magnetno gostoto v železnem jedru \(B_{Fe} = 1.3 \text{ T}\) ter prerez železnega jedra \(A_{Fe} = 150 \text{ cm}^2\). Določite:</p>
                 <ol type="a">
                     <li>\(N_2\) ... število ovojev nizkonapetostnega navitja,</li>
                     <li>\(N_1\) ... število ovojev visokonapetostnega navitja,</li>
                     <li>\(m_{Cu}\) ... skupno maso navitja iz bakrene žice.</li>
                 </ol>
-            </div>
 
-            <div class="real-world-use">
-                <h4>🌍 Real World Use: Ekonomska optimizacija gradnje transformatorjev</h4>
+            <div class="real-world-box">
+                <strong>🌍 Real World Use:</strong> Ekonomska optimizacija gradnje transformatorjev
                 <p>Materiali za izdelavo transformatorja so izjemno dragi - še posebej baker (\(Cu\)) in transformatorsko jeklo (\(Fe\)). Pri načrtovanju se inženirji srečujejo s kompromisom: več bakra (debelejše žice z večjim prerezom) pomeni manjši električni upor, s tem manjše izgube in višji izkoristek stroja (\(\eta\)), vendar se močno poveča teža in cena stroja. Ta naloga vas popelje skozi analitični pristop, kako ob zadanem izkoristku transformatorja (v tem primeru precej realističnih \(97\%\)) in termičnih omejitvah (tokovna gostota \(\Gamma_n\)) izračunamo potrebno količino dragega materiala - \(136 \text{ kg}\) bakra!</p>
             </div>
 
-            <div class="solution-step">
+            <details class="solution">
+                <summary>Prikaži rešitev in interaktivne elemente</summary>
+                <div class="solution-step">
                 <h4>a) in b) Število ovojev \(N_1\) in \(N_2\)</h4>
                 <p>V prostem teku transformatorja v sekundarnem navitju ni toka (\(I_2 = 0\)). Tok prostega teka na primarnem navitju (VN) povzroča zanemarljivo majhne padce napetosti na omski upornosti in stresani reaktanci primarnega navitja. Zato lahko z visoko natančnostjo vzamemo: \(U_2 = E_2\) in \(U_1 = E_1\).</p>
 
@@ -337,9 +341,11 @@
                 </div>
             </div>
 
+                        </details>
+
             <!-- Kviz -->
-            <div class="quiz-container" id="quiz-2-3">
-                <h4>🧠 Kviz 2.3</h4>
+            <section class="quiz-section" id="quiz-2-3">
+                <h3>Kviz 2.3</h3>
                 <p>Zakaj lahko pri izračunu moči izgub prostega teka transformatorja \(P_0\) zanemarimo izgube v bakru \(P_{Cu0}\)?</p>
                 <form class="quiz-form">
                     <label><input type="radio" name="q2-3" value="A"> Ker baker nima omske upornosti, ko ni obremenitve.</label><br>
@@ -348,7 +354,7 @@
                     <button type="button" class="btn-check-quiz" onclick="checkQuiz('quiz-2-3', 'C', 'Pravilno! Tok \(I_0\) je ponavadi le par odstotkov nazivnega, torej so izgube \(P_{Cu} \sim I_0^2\) zelo blizu ničli in jih mirno zanemarimo.')">Preveri odgovor</button>
                 </form>
                 <div class="quiz-feedback"></div>
-            </div>
+            </section>
         </section>
 
 
