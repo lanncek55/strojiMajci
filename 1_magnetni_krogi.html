@@ -1517,6 +1517,245 @@
             <div id="quiz111-feedback" class="feedback"></div>
         </section>
 
+        <!-- Naloga 1.12 -->
+        <section class="task-section" id="naloga-1-12">
+            <h2>Naloga 1.12: Magnetni krog s trajnim magnetom</h2>
+            <p><strong>Besedilo naloge:</strong> Magnetni krog po skici tvori jedro iz mehkomagnetnega materiala z veliko permeabilnostjo (\(\mu \to \infty\)), zračne reže dolžine \(\delta\) in odseka iz trdomagnetnega materiala dolžine \(l_m\).
+            <br>Izračunajte gostoto magnetnega pretoka v zračni reži \(B_\delta\) za oba magnetna materiala: Alnico 5 in M-5.
+            <br>Podatki: \(l_m = 1 \text{ cm}\), \(\delta = 0.2 \text{ cm}\), \(A_m = A_\delta = 4 \text{ cm}^2\).</p>
+
+            <div class="real-world-box">
+                <strong>🌍 Real World Use:</strong> Zelo veliko sodobnih strojev (npr. BLDC motorji v električnih avtomobilih ali skirojih) ne uporablja navitij za ustvarjanje konstantnega magnetnega polja, temveč trajne magnete. S tem privarčujemo na teži bakra in odpravimo izgube (segrevanje) v vzbujalnem navitju. Magnetni krog mora biti zasnovan tako, da delovna točka magneta pade v ustrezno območje histerezne zanke (2. kvadrant).
+            </div>
+
+            <div class="interactive-container">
+                <svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="magnetic-core-svg">
+                    <defs>
+                        <pattern id="iron-pattern-12" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <line x1="0" y1="10" x2="10" y2="0" stroke="#B0BEC5" stroke-width="1" />
+                        </pattern>
+                    </defs>
+
+                    <!-- C-Core -->
+                    <path d="M 100 50 L 300 50 L 300 130 L 250 130 L 250 100 L 150 100 L 150 200 L 250 200 L 250 170 L 300 170 L 300 250 L 100 250 Z" fill="url(#iron-pattern-12)" stroke="#607D8B" stroke-width="4" />
+
+                    <!-- Air Gap -->
+                    <rect x="250" y="130" width="50" height="40" fill="#ffffff" />
+                    <text x="315" y="155" font-size="16" font-weight="bold">δ</text>
+
+                    <!-- Permanent Magnet (Left Leg) -->
+                    <rect x="102" y="100" width="46" height="100" fill="#E91E63" />
+                    <text x="125" y="155" font-size="16" fill="white" font-weight="bold" text-anchor="middle">N S</text>
+                    <text x="70" y="155" font-size="16" font-weight="bold">lₘ</text>
+
+                    <!-- Annotations -->
+                    <text x="200" y="40" font-size="14" font-weight="bold" text-anchor="middle">μ → ∞</text>
+                    <text x="200" y="270" font-size="14" font-weight="bold" text-anchor="middle">Aₘ = A_δ</text>
+                </svg>
+
+                <div class="controls-panel">
+                    <h3>Bremenska karakteristika</h3>
+                    <label for="slider-delta-12">Dolžina zračne reže \(\delta\) [cm]: <span id="val-delta-12">0.2</span></label>
+                    <input type="range" id="slider-delta-12" min="0.05" max="0.5" step="0.05" value="0.2" oninput="updateTask12()">
+
+                    <label for="slider-lm-12">Dolžina magneta \(l_m\) [cm]: <span id="val-lm-12">1.0</span></label>
+                    <input type="range" id="slider-lm-12" min="0.5" max="2.0" step="0.1" value="1.0" oninput="updateTask12()">
+
+                    <div class="result-box">
+                        <p>Koeficient premice (naklon a): <strong><span id="res-a-12">6.28</span> · 10⁻⁶</strong></p>
+                        <p>Vrednost za Alnico 5 (\(B_m\)): <strong><span id="res-b-12">~0.3</span> T</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <details>
+                <summary>Poglej postopek reševanja</summary>
+
+                <div class="solution-step">
+                    <h4>1. Zveza med napetostjo, poljem in pretokom</h4>
+                    <p>Ker v vezju ni tuljave, ki bi vsiljevala tok, je celotna magnetna napetost (gonilna sila) enaka nič (\(V_m = 0\)). Po zakonu o obhodu magnetne napetosti za sklenjen krog z idealnim železom (\(H_{Fe} = 0\)) velja:</p>
+                    <div class="formula-box">
+                        \[ V_m = 0 = H_\delta \cdot \delta + H_m \cdot l_m \]
+                    </div>
+                    <p>Iz tega lahko izrazimo jakost polja v zračni reži (\(H_\delta\)) z jakostjo polja znotraj samega magneta (\(H_m\)):</p>
+                    <div class="formula-box">
+                        \[ H_\delta = -\left(\frac{l_m}{\delta}\right) \cdot H_m \]
+                    </div>
+                    <p>Vidimo, da sta jakost polja v reži in v magnetu <strong>nasprotno predznačeni</strong>, kar pomeni, da je magnet v stanju razmagnetevanja (2. kvadrant histerezne zanke, \(H_m < 0\)).</p>
+                </div>
+
+                <div class="solution-step">
+                    <h4>2. Povezava prek magnetnega pretoka</h4>
+                    <p>Magnetni pretok se nikjer ne izgubi, torej je pretok skozi magnet (\(\Phi_m\)) enak pretoku skozi zračno režo (\(\Phi_\delta\)):</p>
+                    <div class="formula-box">
+                        \[ \Phi = A_\delta \cdot B_\delta = A_m \cdot B_m \]
+                    </div>
+                    <p>Izrazimo gostoto polja v reži:</p>
+                    <div class="formula-box">
+                        \[ B_\delta = \frac{A_m}{A_\delta} \cdot B_m \]
+                    </div>
+                </div>
+
+                <div class="solution-step">
+                    <h4>3. Izpeljava obremenilne (bremenske) karakteristike</h4>
+                    <p>Združimo zgoraj izpeljani enačbi z dejstvom, da za zrak velja \(B_\delta = \mu_0 \cdot H_\delta\):</p>
+                    <div class="formula-box">
+                        \[ B_m = \frac{A_\delta}{A_m} \cdot B_\delta = \frac{A_\delta}{A_m} \cdot (\mu_0 \cdot H_\delta) \]
+                    </div>
+                    <p>Vstavimo izraz za \(H_\delta\):</p>
+                    <div class="formula-box">
+                        \[ B_m = -\mu_0 \cdot \frac{A_\delta}{A_m} \cdot \frac{l_m}{\delta} \cdot H_m \]
+                    </div>
+                    <p>Ta enačba predstavlja <strong>premico v drugem kvadrantu</strong> B-H grafa. Naklon te premice je odvisen samo od dimenzij vezja (\(l_m, \delta, A\)) in lastnosti zraka (\(\mu_0\)), nič pa od samega materiala magneta!</p>
+                </div>
+
+                <div class="solution-step">
+                    <h4>4. Izračun obremenilne karakteristike in rešitev za Alnico 5</h4>
+                    <p>Vstavimo podane vrednosti (ker velja \(A_m = A_\delta\), se prereza pokrajšata):</p>
+                    <div class="formula-box">
+                        \[ B_m = - (4\pi \cdot 10^{-7}) \cdot 1 \cdot \frac{1 \cdot 10^{-2}}{0.2 \cdot 10^{-2}} \cdot H_m \]
+                        \[ B_m = - (4\pi \cdot 10^{-7}) \cdot 5 \cdot H_m = -6.28 \cdot 10^{-6} \cdot H_m \]
+                    </div>
+                    <p>Dejansko vrednost \(B_m\) dobimo grafično: vrišemo to premico v B-H graf materiala (Alnico 5) in odčitamo presečišče s krivuljo (glej graf iz poglavja zgoraj). Za Alnico 5 presečišče pade na:</p>
+                    <div class="formula-box">
+                        \[ B_m \approx 0.3 \text{ T} \]
+                    </div>
+                    <p>Zaradi enakosti prerezov je \(B_\delta = B_m = 0.3 \text{ T}\).</p>
+                </div>
+
+                <div class="solution-step">
+                    <h4>5. Rešitev za material M-5</h4>
+                    <p>Premica (bremenska karakteristika) ostane popolnoma enaka (\(B_m = -6.28 \cdot 10^{-6} \cdot H_m\)), saj je odvisna le od geometrije, ne od materiala. Odčitamo novo presečišče na B-H grafu za M-5 in dobimo:</p>
+                    <div class="formula-box">
+                        \[ B_m \approx 3.8 \cdot 10^{-5} \text{ T} \]
+                    </div>
+                    <p>Gostota polja za M-5 je drastično manjša, saj je to mehkomagneten material, ki ni primeren za uporabo kot trajni magnet z veliko zračno režo.</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 1.12 -->
+        <section class="quiz-section">
+            <h3>Kviz 1.12: Bremenska karakteristika</h3>
+            <p>V nalogi 1.12 smo izpeljali enačbo bremenske karakteristike. Kaj se zgodi z njenim naklonom (strmino) v B-H grafu, če <strong>povečamo</strong> zračno režo \(\delta\)? Z uporabo drsnika zgoraj premisli in izberi: ali postane premica bolj strma ali bolj položna glede na H-os?</p>
+            <div class="input-group">
+                <input type="text" id="quiz112-input" placeholder="bolj strma / bolj položna" style="width: 200px;">
+                <button onclick="checkQuiz112()">Preveri</button>
+            </div>
+            <div id="quiz112-feedback" class="feedback"></div>
+        </section>
+
+        <!-- Naloga 1.13 -->
+        <section class="task-section" id="naloga-1-13">
+            <h2>Naloga 1.13: Minimalni volumen trajnega magneta</h2>
+            <p><strong>Besedilo naloge:</strong> Magnetni krog iz prejšnje vaje je modificiran tako, da je prerez zračne reže zmanjšan na \(A_\delta = 2 \text{ cm}^2\). Zračna reža ostaja \(\delta = 0.2 \text{ cm}\).
+            <br>Izračunajte minimalni volumen trdomagnetnega materiala Alnico 5 tako, da bo gostota magnetnega pretoka v zračni reži \(B_\delta = 0.8 \text{ T}\).</p>
+
+            <div class="real-world-box">
+                <strong>🌍 Real World Use:</strong> Trajni magneti, še posebej tisti iz redkih zemelj (neodim), so zelo dragi. Zato inženirji pri snovanju motorjev ali senzorjev vedno iščejo načine, kako uporabiti <strong>minimalno količino</strong> magnetnega materiala, da še vedno dosežejo zahtevano magnetno polje v zračni reži. Matematika nam pove, da je volumen magneta najmanjši točno takrat, ko magnet deluje v točki "maksimalnega energijskega produkta". To je sveti gral snovanja magnetnih vezij!
+            </div>
+
+            <div class="interactive-container">
+                <svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+                    <!-- Axes -->
+                    <line x1="20" y1="200" x2="380" y2="200" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
+                    <line x1="300" y1="280" x2="300" y2="20" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
+                    <text x="380" y="215" text-anchor="end" font-size="12">H [kA/m]</text>
+                    <text x="310" y="20" text-anchor="start" font-size="12">B [T]</text>
+
+                    <!-- Grid for H -->
+                    <text x="50" y="215" text-anchor="middle" font-size="10">-50</text>
+                    <text x="100" y="215" text-anchor="middle" font-size="10">-40</text>
+                    <text x="200" y="215" text-anchor="middle" font-size="10">-20</text>
+
+                    <!-- Grid for B -->
+                    <text x="310" y="50" text-anchor="start" font-size="10">1.0</text>
+                    <text x="310" y="125" text-anchor="start" font-size="10">0.5</text>
+
+                    <!-- B-H Curve (2nd Quadrant) Alnico 5 -->
+                    <path d="M 300 20 C 150 20 50 150 50 200" fill="none" stroke="#E91E63" stroke-width="3" />
+
+                    <!-- Optimal Point Box (Maximum Energy Product) -->
+                    <rect x="100" y="50" width="200" height="150" fill="rgba(76, 175, 80, 0.2)" stroke="#4CAF50" stroke-width="1" stroke-dasharray="4 4" />
+                    <circle cx="100" cy="50" r="5" fill="#4CAF50" />
+                    <text x="95" y="40" font-size="12" fill="#4CAF50" font-weight="bold" text-anchor="end">Max (B_m * H_m)</text>
+
+                    <!-- Current Operating Point (Dynamic) -->
+                    <circle cx="100" cy="50" r="6" fill="#000" id="opt-point-13" />
+                    <line x1="300" y1="200" x2="100" y2="50" stroke="#FF9800" stroke-width="2" id="opt-line-13" />
+                </svg>
+
+                <div class="controls-panel">
+                    <h3>Optimizacija volumna magneta</h3>
+                    <p>Iz Alnico 5 grafa preberemo točko maksimalnega produkta:</p>
+                    <ul>
+                        <li>\(B_m = 1.0 \text{ T}\)</li>
+                        <li>\(H_m = -40 \text{ kA/m}\)</li>
+                        <li>Max produkt \((-B_m \cdot H_m) = 40 \text{ kJ/m}^3\)</li>
+                    </ul>
+                    <hr>
+                    <div class="result-box">
+                        <p>Izračunan prerez \(A_m\): <strong>1.6 cm²</strong></p>
+                        <p>Izračunana dolžina \(l_m\): <strong>31.8 mm</strong></p>
+                        <p>Minimalni volumen \(V_{m}\): <strong>5.09 cm³</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <details>
+                <summary>Poglej postopek reševanja</summary>
+
+                <div class="solution-step">
+                    <h4>1. Izračun potrebnega prereza magneta (\(A_m\))</h4>
+                    <p>Iz zakona o ohranitvi magnetnega pretoka vemo, da je pretok skozi zračno režo enak pretoku skozi magnet: \(\Phi = A_\delta \cdot B_\delta = A_m \cdot B_m\).</p>
+                    <p>Od tu lahko izrazimo prerez magneta \(A_m\):</p>
+                    <div class="formula-box">
+                        \[ A_m = A_\delta \cdot \frac{B_\delta}{B_m} \]
+                    </div>
+                    <p>Za dosego minimalnega volumna magneta moramo za delovno točko izbrati tisto, kjer je <strong>energijski produkt maksimalen</strong>. Iz grafa (Slika 1.1) preberemo, da je to pri \(B_m = 1.0 \text{ T}\) in \(H_m = -40 \text{ kA/m}\). Podano imamo zahtevo \(B_\delta = 0.8 \text{ T}\) in \(A_\delta = 2 \text{ cm}^2 = 2 \cdot 10^{-4} \text{ m}^2\).</p>
+                    <div class="formula-box">
+                        \[ A_m = 2 \cdot 10^{-4} \cdot \frac{0.8}{1.0} = 1.6 \cdot 10^{-4} \text{ m}^2 = 1.6 \text{ cm}^2 \]
+                    </div>
+                </div>
+
+                <div class="solution-step">
+                    <h4>2. Izračun potrebne dolžine magneta (\(l_m\))</h4>
+                    <p>Zopet uporabimo enačbo za magnetno napetost sklenjenega kroga, kjer je \(V_m = 0\):</p>
+                    <div class="formula-box">
+                        \[ 0 = H_\delta \cdot \delta + H_m \cdot l_m \quad \Rightarrow \quad l_m = - \delta \cdot \frac{H_\delta}{H_m} \]
+                    </div>
+                    <p>Ker poznamo zahtevan \(B_\delta\), lahko \(H_\delta\) izrazimo s pomočjo permeabilnosti zraka (\(H_\delta = \frac{B_\delta}{\mu_0}\)):</p>
+                    <div class="formula-box">
+                        \[ l_m = - \delta \cdot \frac{B_\delta}{\mu_0 \cdot H_m} \]
+                    </div>
+                    <p>Vstavimo vrednosti (\(\delta = 0.2 \cdot 10^{-2} \text{ m}\), \(H_m = -40 \cdot 10^3 \text{ A/m}\)):</p>
+                    <div class="formula-box">
+                        \[ l_m = - 0.002 \cdot \frac{0.8}{4\pi \cdot 10^{-7} \cdot (-40 \cdot 10^3)} = 0.0318 \text{ m} = 31.8 \text{ mm} \]
+                    </div>
+                </div>
+
+                <div class="solution-step">
+                    <h4>3. Končni volumen</h4>
+                    <p>Minimalni volumen izračunamo kot produkt prereza in dolžine:</p>
+                    <div class="formula-box">
+                        \[ V_{m} = l_m \cdot A_m = 0.0318 \text{ m} \cdot 1.6 \cdot 10^{-4} \text{ m}^2 = 5.09 \cdot 10^{-6} \text{ m}^3 = 5.09 \text{ cm}^3 \]
+                    </div>
+                    <p>Z optimizacijo delovne točke na B-H krivulji smo zagotovili, da s tem majhnim volumnom uspešno premagamo reluktanco zračne reže in ustvarimo polje 0.8 T!</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 1.13 -->
+        <section class="quiz-section">
+            <h3>Kviz 1.13: Maksimalni energijski produkt</h3>
+            <p>Kaj se zgodi, če ne bi izbrali delovne točke z maksimalnim energijskim produktom (\(-B_m \cdot H_m\)), temveč bi izbrali točko z manjšim \(B_m\) in manjšim \(H_m\)? Ali bi za doseganje istega polja v zračni reži potrebovali večji, manjši ali enak volumen magneta?</p>
+            <div class="input-group">
+                <input type="text" id="quiz113-input" placeholder="večji / manjši / enak" style="width: 200px;">
+                <button onclick="checkQuiz113()">Preveri</button>
+            </div>
+            <div id="quiz113-feedback" class="feedback"></div>
+        </section>
+
         <!-- Trdomagnetni materiali -->
         <section class="task-section" id="trdomagnetni">
             <h2>Magnetni krogi s trdomagnetnimi materiali (Histerezna zanka)</h2>
@@ -1875,6 +2114,7 @@
             updateTask7();
             updateTask8();
             updateTask9Hysteresis();
+            updateTask12();
         };
 
         function checkQuiz11() {
@@ -1988,6 +2228,48 @@
                 fb.className = "feedback success"; fb.innerText = "Tako je! Realno jedro pomeni večjo skupno magnetno upornost (reluktanco). Ker vzbujalni tok rine magnetni pretok skozi upornost, potrebujemo za ohranitev istega pretoka večjo gonilno silo – in s tem večji tok.";
             } else {
                 fb.className = "feedback error"; fb.innerText = "Ni povsem prav. Kaj se zgodi z imenovalcem v formuli R_mFe pri realnem jedru? Pomisli na reluktanco.";
+            }
+        }
+
+        function updateTask12() {
+            let elDelta = document.getElementById('slider-delta-12');
+            let elLm = document.getElementById('slider-lm-12');
+            if(!elDelta || !elLm) return;
+
+            let delta = parseFloat(elDelta.value);
+            let lm = parseFloat(elLm.value);
+
+            document.getElementById('val-delta-12').innerText = delta.toFixed(2);
+            document.getElementById('val-lm-12').innerText = lm.toFixed(1);
+
+            let a = 4 * Math.PI * 1e-7 * (lm / delta);
+            document.getElementById('res-a-12').innerText = (a * 1e6).toFixed(2);
+
+            // Approximation for B_m purely for visual interaction (not perfectly precise to the real BH curve)
+            // It just needs to show the inverse relationship with the slope
+            let bm_approx = 0.3 * (lm / delta) / (1.0 / 0.2); // scale by default ratio
+            if(bm_approx > 1.2) bm_approx = 1.2; // saturation
+
+            document.getElementById('res-b-12').innerText = "~" + bm_approx.toFixed(2);
+        }
+
+        function checkQuiz112() {
+            let input = document.getElementById('quiz112-input').value.trim().toLowerCase();
+            let fb = document.getElementById('quiz112-feedback');
+            if (input === 'bolj položna' || input === 'bolj polozna' || input === 'položna' || input === 'polozna') {
+                fb.className = "feedback success"; fb.innerText = "Pravilno! Naklon a je obratno sorazmeren z δ (a ~ 1/δ). Če povečamo zračno režo, se vrednost 'a' zmanjša, in ker premica poteka skozi izhodišče (0,0), postane bolj položna. Delovna točka se zato premakne nižje po H-osi.";
+            } else {
+                fb.className = "feedback error"; fb.innerText = "Napačno. Glej enačbo B_m = -a * H_m, kjer je a = µ_0 * (l_m / δ). Kaj se zgodi z vrednostjo 'a', če povečamo delitelja δ?";
+            }
+        }
+
+        function checkQuiz113() {
+            let input = document.getElementById('quiz113-input').value.trim().toLowerCase();
+            let fb = document.getElementById('quiz113-feedback');
+            if (input === 'večji' || input === 'vecji') {
+                fb.className = "feedback success"; fb.innerText = "Pravilno! Volumen je V_m = l_m * A_m. Ker je A_m obratno sorazmeren z B_m in l_m obratno sorazmeren s H_m, je V_m obratno sorazmeren s produktom (B_m * H_m). Manjši produkt pomeni, da bi za isto polje v reži potrebovali VEČJI volumen magneta.";
+            } else {
+                fb.className = "feedback error"; fb.innerText = "Ni prav. Volumen V_m je produkt A_m in l_m. Poglej formuli v rešitvi: A_m ima v imenovalcu B_m, l_m pa ima v imenovalcu H_m. Če sta B_m in H_m manjša, se celotna ulomka...";
             }
         }
     </script>
