@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avditorna vaja 02 - Interaktivni učbenik</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .task { background-color: #fcfcfc; border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        .solution-step { margin-top: 15px; border-left: 3px solid var(--primary-color); padding-left: 15px; background: #f4f7f6; margin-bottom: 15px; padding-bottom: 10px; padding-top: 10px;}
+        .formula-box { background-color: #f8f9fa; border-left: 4px solid var(--primary-color); padding: 1rem; margin: 1rem 0; font-family: monospace; font-size: 1.1rem; overflow-x: auto;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Avditorna vaja 02</h1>
+        <p>Enofazni transformator brez zračne reže ima jedro v obliki kvadratnega okvirja.</p>
+    </header>
+
+    <main class="container">
+        <a href="index.html" style="display:inline-block; margin-bottom: 20px; color: var(--primary-color); text-decoration: none;">&larr; Nazaj na zemljevid</a>
+
+        <section class="task">
+            <h3>Naloga: Dimenzioniranje enofaznega transformatorja</h3>
+            <p>Enofazni transformator brez zračne reže ima jedro v obliki kvadratnega okvirja. Faktor polnjenja železnega jedra je $f_{Fe} = 0,85$. Magnetilna karakteristika feromagnetne pločevine, iz katere je sestavljeno železno jedro transformatorja, je podana na diagramu $B = f(H)$.</p>
+
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="pdf_images/vaja02_p1_img1.jpeg" alt="Skica dimenzij jedra transformatorja" style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
+                <p style="font-size: 0.9em; color: #666; margin-top: 5px;">Slika 1: Dimenzije transformatorskega jedra iz feromagnetne pločevine.</p>
+            </div>
+
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="pdf_images/vaja02_p2_img5.jpeg" alt="Statična magnetilna krivulja" style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
+                <p style="font-size: 0.9em; color: #666; margin-top: 5px;">Slika 2: Statična magnetilna krivulja (B-H) feromagnetne pločevine.</p>
+            </div>
+
+            <ol type="a">
+                <li>Določite število primarnih ovojev $N_1$, da bo pri pritisnjeni napetosti $U_1 = 220 \text{ V}, f = 50 \text{ Hz}$ maksimalna gostota magnetnega pretoka v železnem jedru $B = 0,8 \text{ T}$.</li>
+                <li>Določite potrebno število ovojev sekundarnega navitja $N_2$, da bo v prostem teku sekundarna napetost na izhodnih sponkah transformatorja $U_2 = 380 \text{ V}$.</li>
+                <li>Določite nazivno moč transformatorja $S_n$, če je faktor polnjenja transformatorskega okna $f_{Cu} = 0,3$ pri navitju, ki je obremenjeno s specifično gostoto toka $j = 2 \cdot 10^6 \text{ A/m}^2$.</li>
+                <li>Za koliko se spremeni magnetilni tok transformatorja, če v železnem jedru naredimo zračno režo $\delta = 0,5 \text{ mm}$?</li>
+            </ol>
+            <div class="interactive-container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: flex-start; margin-top: 30px;">
+                <!-- Kvadratno jedro SVG -->
+                <div style="flex: 1; min-width: 300px; text-align: center;">
+                    <svg width="350" height="350" viewBox="0 0 350 350">
+                        <!-- Zunanje in notranje jedro (kvadrat) -->
+                        <path d="M 50 50 L 300 50 L 300 300 L 50 300 Z M 100 100 L 250 100 L 250 250 L 100 250 Z" fill="#cfd8dc" stroke="#607D8B" stroke-width="2" fill-rule="evenodd"/>
+
+                        <!-- Srednja silnica -->
+                        <path d="M 75 75 L 275 75 L 275 275 L 75 275 Z" fill="none" stroke="#E65100" stroke-width="2" stroke-dasharray="6,6"/>
+
+                        <!-- Primarno navitje (leva stran) -->
+                        <path d="M 30 120 Q 10 130 30 140 T 30 160 T 30 180 T 30 200 T 30 220" fill="none" stroke="#D84315" stroke-width="3"/>
+                        <path d="M 30 120 L 70 120 M 30 220 L 70 220" fill="none" stroke="#D84315" stroke-width="3"/>
+                        <text x="5" y="175" fill="#D84315" font-weight="bold">N1</text>
+
+                        <!-- Sekundarno navitje (desna stran) -->
+                        <path d="M 320 120 Q 340 130 320 140 T 320 160 T 320 180 T 320 200 T 320 220" fill="none" stroke="#1565C0" stroke-width="3"/>
+                        <path d="M 280 120 L 320 120 M 280 220 L 320 220" fill="none" stroke="#1565C0" stroke-width="3"/>
+                        <text x="325" y="175" fill="#1565C0" font-weight="bold">N2</text>
+
+                        <!-- Dimenzije -->
+                        <!-- Zunanja širina/višina (300) -->
+                        <path d="M 50 35 L 300 35" fill="none" stroke="#000" stroke-width="1" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+                        <text x="160" y="30" font-size="12">300 mm</text>
+
+                        <!-- Notranja širina/višina (150) -->
+                        <path d="M 100 115 L 250 115" fill="none" stroke="#000" stroke-width="1" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+                        <text x="150" y="130" font-size="12">200 mm</text>
+
+                        <!-- Presek (širina stebra) -->
+                        <path d="M 50 315 L 100 315" fill="none" stroke="#000" stroke-width="1" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+                        <text x="60" y="330" font-size="12">50 mm</text>
+
+                        <!-- Zračna reža (prikazana le, če je delta > 0) -->
+                        <path id="air-gap" d="M 270 270 L 305 270 L 305 280 L 270 280 Z" fill="#fff" stroke="none" style="display:none;"/>
+                        <text id="air-gap-text" x="310" y="280" font-size="12" fill="red" style="display:none;">δ</text>
+
+                        <defs>
+                            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="4" markerHeight="4" orient="auto-start-reverse">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"/>
+                            </marker>
+                        </defs>
+                    </svg>
+                    <p style="font-size: 0.9em; color: #666;">Poenostavljena skica jedra transformatorja</p>
+                </div>
+
+                <!-- Kontrole -->
+                <div class="interactive-controls" style="flex: 1; min-width: 300px; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                    <div class="control-group">
+                        <label for="u1-slider">Napetost primarja $U_1$ (V): <span id="u1-val">220</span></label>
+                        <input type="range" id="u1-slider" min="110" max="400" value="220" step="10">
+                    </div>
+                    <div class="control-group">
+                        <label for="u2-slider">Željena napetost sek. $U_2$ (V): <span id="u2-val">380</span></label>
+                        <input type="range" id="u2-slider" min="12" max="500" value="380" step="10">
+                    </div>
+                    <div class="control-group">
+                        <label for="f-slider">Frekvenca $f$ (Hz): <span id="f-val">50</span></label>
+                        <input type="range" id="f-slider" min="50" max="60" value="50" step="10">
+                    </div>
+                    <div class="control-group">
+                        <label for="delta-slider">Zračna reža $\delta$ (mm): <span id="delta-val">0</span></label>
+                        <input type="range" id="delta-slider" min="0" max="2" value="0" step="0.1">
+                    </div>
+
+                    <div class="interactive-results" style="margin-top: 20px; background: #f0f4f8; padding: 15px; border-radius: 5px;">
+                        <p><strong>Rezultati v živo:</strong></p>
+                        <p>Ovoji primarja $N_1 = $ <span id="res-n1" style="font-weight:bold; color:var(--primary-color)">583</span></p>
+                        <p>Ovoji sekundarja $N_2 = $ <span id="res-n2" style="font-weight:bold; color:var(--primary-color)">1007</span></p>
+                        <hr style="margin: 10px 0; border: 0; border-top: 1px solid #ccc;">
+                        <p>Tok za Fe $I_{\mu,Fe} = $ <span id="res-imu-fe" style="font-weight:bold; color:var(--primary-color)">0.17</span> A</p>
+                        <p>Tok za zrak $I_{\delta} = $ <span id="res-i-delta" style="font-weight:bold; color:var(--primary-color)">0.00</span> A</p>
+                        <p><strong>Skupni magnetilni tok $I_{\mu} = $ <span id="res-imu-total" style="font-weight:bold; color:var(--primary-color)">0.17</span> A</strong></p>
+                        <p id="delta-warning" style="color: red; font-size: 0.8em; display: none; margin-top: 5px;">Vidite, kako majhna reža močno poveča potreben magnetilni tok!</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="solution-step">
+                <h4>a) Izračun primarnih ovojev $N_1$</h4>
+                <p>Upoštevamo predpostavko, da imamo idealen transformator brez lastnih ohmskih in induktivnih upornosti. To pomeni, da je pritisnjeni napetosti na primarnem navitju enaka inducirana protinapetost $U_1 = E_1$.</p>
+                <p>Z uporabo Faradayovega zakona smo pri prvi vaji že izpeljali enačbo za inducirano napetost, ki se glasi:</p>
+                <div class="formula-box">
+                    \[ E_1 = 4,44 \cdot f \cdot N_1 \cdot \Phi = 4,44 \cdot f \cdot N_1 \cdot B \cdot S_{Fe} \]
+                </div>
+                <p>Pomemben detajl tu je razumevanje preseka. Prečni presek jedra $S$, ki vodi magnetni pretok $\Phi$, se efektivno zmanjša na $S_{Fe}$ z upoštevanjem faktorja polnjenja železnega jedra $f_{Fe}$.</p>
+
+                <div class="real-world-box" style="margin: 20px 0; background: #e8f4f8; padding: 15px; border-radius: 5px; border-left: 4px solid #0288D1;">
+                    <strong>Faktor polnjenja $f_{Fe}$:</strong>
+                    Železno jedro je izdelano iz tankih lamel transformatorske pločevine z namenom omejevanja neželenega vpliva vrtinčnih tokov. Lamele so na obeh straneh prevlečene s tanko plastjo oksida (izolacije). Ker izolacija ($\mu_r \approx 1$) ne prevaja magnetnega pretoka učinkovito, se efektivni presek jedra za magnetno polje navidezno zmanjša. Če imamo npr. faktor $f_{Fe} = 0,85$, to pomeni, da je v jedru 85% aktivnega železa in 15% izolacije oz. zraka.
+                </div>
+
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin: 20px 0;">
+                    <div style="text-align: center; flex: 1;">
+                        <img src="pdf_images/vaja02_p2_img1.jpeg" alt="E-I oblika jedra" style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 5px; border-radius: 5px;">
+                        <p style="font-size: 0.9em; color: #666; margin-top: 5px;">Slika 3: Primer E-I oblike transformatorskega jedra.</p>
+                    </div>
+                    <div style="text-align: center; flex: 1;">
+                        <img src="pdf_images/vaja02_p2_img2.jpeg" alt="C-I oblika jedra" style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 5px; border-radius: 5px;">
+                        <p style="font-size: 0.9em; color: #666; margin-top: 5px;">Slika 4: Primer C-I oblike transformatorskega jedra.</p>
+                    </div>
+                </div>
+
+                <div class="formula-box">
+                    \[ S_{Fe} = S \cdot f_{Fe} \]
+                </div>
+                <p>Sedaj lahko preuredimo zgornjo enačbo in izrazimo potrebno število ovojev $N_1$:</p>
+                <div class="formula-box">
+                    \[ N_1 = \frac{U_1}{4,44 \cdot f \cdot B \cdot S \cdot f_{Fe}} \]
+                    \[ N_1 = \frac{220}{4,44 \cdot 50 \cdot 0,8 \cdot (5 \cdot 5 \cdot 10^{-4}) \cdot 0,85} = 583 \text{ ovojev} \]
+                </div>
+                <p><em>Opomba:</em> Presek $S$ določimo iz skice kvadratnega jedra z dimenzijami stebra $50 \text{ mm} \times 50 \text{ mm}$, zato je $S = 50 \text{ mm} \cdot 50 \text{ mm} = 2500 \text{ mm}^2 = 25 \cdot 10^{-4} \text{ m}^2 = 5 \cdot 5 \cdot 10^{-4} \text{ m}^2$. Pretvornik za površino v metre si zapomnimo: $1 \text{ mm}^2 = (10^{-3} \text{ m})^2 = 10^{-6} \text{ m}^2$.</p>
+            </div>
+
+            <div class="solution-step">
+                <h4>b) Izračun sekundarnih ovojev $N_2$</h4>
+                <p>Prosti tek transformatorja pomeni, da je stroj magnetno polno vzbujen, na izhodnih sponkah pa nima priključenega zunanjega bremena. Zaradi predpostavke $U_1 \approx E_1$ in $U_2 \approx E_2$ velja prestavno razmerje:</p>
+                <div class="formula-box">
+                    \[ \frac{U_1}{U_2} \approx \frac{E_1}{E_2} = \frac{N_1}{N_2} \]
+                </div>
+                <p>Iz te relacije preprosto izrazimo in izračunamo $N_2$:</p>
+                <div class="formula-box">
+                    \[ N_2 = N_1 \cdot \frac{E_2}{E_1} = 583 \cdot \frac{380}{220} = 1007 \text{ ovojev} \]
+                </div>
+            </div>
+
+            <div class="solution-step">
+                <h4>c) Dimenzioniranje transformatorskega okna in nazivna moč $S_n$</h4>
+                <p>Dimenzije transformatorskega okna (odprtine znotraj jedra) določajo razpoložljivo površino $S_{ok}$ za namestitev navitij. Zaradi izolacije žice, tuljavnikov in praznega zraka med okroglimi žicami vpeljemo faktor polnjenja transformatorskega okna $f_{Cu}$.</p>
+
+                <div class="real-world-box" style="margin: 20px 0; background: #e8f4f8; padding: 15px; border-radius: 5px; border-left: 4px solid #0288D1;">
+                    <strong>Faktor polnjenja $f_{Cu}$ - Analogija pakiranja:</strong>
+                    Predstavljajte si, da pakirate pomaranče (okrogle žice) v pravokoten zaboj (okno transformatorja). Med pomarančami bo neizbežno ostal prazen prostor. Če dodamo še dejstvo, da ima vsaka žica lakirano izolacijo, ostane za čisti baker (kjer teče tok) razpoložljiva le določena površina. To razmerje je faktor polnjenja $f_{Cu}$, ki je tipično zelo nizek (npr. $0,3$).
+                </div>
+
+                <div style="text-align: center; margin: 20px 0;">
+                    <img src="pdf_images/vaja02_p4_img1.jpeg" alt="Faktor polnjenja transformatorskega okna" style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
+                    <p style="font-size: 0.9em; color: #666; margin-top: 5px;">Slika 5: Ilustracija polnilnega faktorja $f_{Cu}$ realnega transformatorja.</p>
+                </div>
+
+                <p>Površino transformatorskega okna $S_{ok}$ odčitamo iz podane geometrije (širina $150 \text{ mm}$ x višina $200 \text{ mm}$, pri čemer je iz skice višina okna $200$, širina $150$):</p>
+                <div class="formula-box">
+                    \[ S_{ok} = 0,15 \text{ m} \cdot 0,2 \text{ m} = 0,03 \text{ m}^2 \]
+                </div>
+                <p>Uporabna površina za baker $S_{Cu}$ (ker sta v oknu dve navitji, vzamemo polovico za primarno navitje):</p>
+                <div class="formula-box">
+                    \[ S_{Cu} = \frac{S_{ok}}{2} \cdot f_{Cu} \]
+                </div>
+                <p>Prerez enega samega vodnika (ovoja) primarnega navitja $S_{Cu1}$ je enak celotni razpoložljivi bakreni površini enega navitja, deljeni s številom ovojev $N_1$:</p>
+                <div class="formula-box">
+                    \[ S_{Cu1} = \frac{S_{ok}}{2 \cdot N_1} \cdot f_{Cu} = \frac{0,15 \cdot 0,20}{2 \cdot 583} \cdot 0,3 = 7,72 \cdot 10^{-6} \text{ m}^2 \approx 7,7 \text{ mm}^2 \]
+                </div>
+                <p><em>(Opomba: uradni PDF rešitev poenostavljeno vzame velikost okna $200 \times 200$, a po naši skici in logiki je širina okna $300 - 50 - 50 = 200 \text{ mm}$? V PDF rešitvi je zapisano $0,2 \cdot 0,2$. Vzemimo $200 \times 200 \text{ mm}$ za $S_{ok} = 0,04 \text{ m}^2$, kot podaja avtor.)</em></p>
+                <div class="formula-box">
+                    \[ S_{Cu1} = \frac{0,2 \cdot 0,2}{2 \cdot 583} \cdot 0,3 = 10 \cdot 10^{-6} \text{ m}^2 = 10 \text{ mm}^2 \]
+                </div>
+                <p>Z znano dovoljeno gostoto toka $j = 2 \text{ A/mm}^2$ ($2 \cdot 10^6 \text{ A/m}^2$) izračunamo nazivni primarni tok:</p>
+                <div class="formula-box">
+                    \[ I_1 = j \cdot S_{Cu1} = 2 \cdot 10^6 \cdot 10 \cdot 10^{-6} = 20 \text{ A} \]
+                </div>
+                <p>Nazivna moč (navidezna moč transformatorja v kVA):</p>
+                <div class="formula-box">
+                    \[ S_n = U_1 \cdot I_1 = 220 \cdot 20 = 4400 \text{ VA} = 4,4 \text{ kVA} \]
+                </div>
+            </div>
+
+            <div class="solution-step">
+                <h4>d) Vpliv zračne reže na magnetilni tok</h4>
+                <p>V prejšnji vaji smo se že spoznali z določitvijo magnetilnega toka z Amperovim zakonom (pot po feromagnetnem materialu in zračni reži). Srednja dolžina magnetne silnice lsr v jedru je:</p>
+                <div class="formula-box">
+                    \[ l_{sr} = 4 \cdot 0,25 = 1 \text{ m} \]
+                </div>
+                <p><strong>Brez zračne reže (samo feromagnetno jedro):</strong> Iz magnetilne krivulje pri željeni gostoti pretoka $B = 0,8 \text{ T}$ odčitamo $H_{max} = 140 \text{ A/m}$. Magnetilni tok $I_{\mu,Fe}$ je:</p>
+                <div class="formula-box">
+                    \[ I_{\mu,Fe} = \frac{H_{max} \cdot l_{sr}}{\sqrt{2} \cdot N_1} = \frac{140 \cdot 1}{\sqrt{2} \cdot 583} = 0,17 \text{ A} \]
+                </div>
+
+                <p><strong>Z zračno režo $\delta = 0,5 \text{ mm}$:</strong> K toku $I_{\mu,Fe}$ moramo prišteti še tok, ki premosti upornost zračne reže. Za zračno režo nimamo "izgubnega faktorja" polnjenja, zato gostota magnetnega polja pade v obratnem sorazmerju s prejšnjim faktorjem:</p>
+                <div class="formula-box">
+                    \[ B_\delta = B \cdot f_{Fe} \]
+                </div>
+                <p>Potrebni dodatni tok za zračno režo:</p>
+                <div class="formula-box">
+                    \[ I_\delta = \frac{B_\delta \cdot \delta}{\mu_0 \cdot \sqrt{2} \cdot N_1} = \frac{(0,8 \cdot 0,85) \cdot (0,5 \cdot 10^{-3})}{4\pi \cdot 10^{-7} \cdot \sqrt{2} \cdot 583} = 0,33 \text{ A} \]
+                </div>
+                <p>Skupni tok s prisotno zračno režo znese torej:</p>
+                <div class="formula-box">
+                    \[ I_\mu = I_{\mu,Fe} + I_\delta = 0,17 + 0,33 = 0,50 \text{ A} \]
+                </div>
+                <p>Ugotovimo, da mikroskopska reža velikosti pol milimetra poveča potrebno magnetilno moč za skoraj faktor 3 ($0,50 \text{ A}$ proti $0,17 \text{ A}$). V praksi se zato transformatorji sestavljajo zelo natančno z vmesnim "prepletanjem" lamel, da je teh rež čim manj.</p>
+            </div>
+
+            <section class="task">
+                <h3>Preveri svoje znanje</h3>
+
+                <div style="margin-bottom: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                    <p><strong>1. Kviz: Sprememba faktorja polnjenja bakra ($f_{Cu}$)</strong></p>
+                    <p>Če bi uporabili izboljšano tehniko navijanja in žice pravokotnega preseka namesto okroglih, bi lahko faktor polnjenja $f_{Cu}$ povečali na $0,45$ (namesto $0,30$). Ostali parametri in mere ostanejo enaki. Kolikšna bi bila nova nazivna moč transformatorja $S_n$ v kVA?</p>
+
+                    <div style="display: flex; gap: 10px; align-items: center; margin-top: 10px;">
+                        <input type="number" id="quiz1-input" step="0.1" style="padding: 5px; width: 100px;">
+                        <span>kVA</span>
+                        <button onclick="checkQuiz1()" style="padding: 5px 15px; background: var(--primary-color); color: white; border: none; border-radius: 4px; cursor: pointer;">Preveri</button>
+                    </div>
+                    <div id="quiz1-feedback" style="margin-top: 10px; font-weight: bold; display: none;"></div>
+                    <details style="margin-top: 15px; cursor: pointer;">
+                        <summary>Prikaži namig/rešitev</summary>
+                        <div class="solution-step">
+                            <p>Nazivna moč $S_n$ je premo sorazmerna s površino bakra $S_{Cu1}$. Če se faktor $f_{Cu}$ poveča za faktor $0,45 / 0,30 = 1,5$, se bo za enako gostoto toka $j$ tok povečal za faktor $1,5$, s tem pa tudi nazivna moč. Torej $S_{n,nov} = 4,4 \text{ kVA} \cdot 1,5 = 6,6 \text{ kVA}$.</p>
+                        </div>
+                    </details>
+                </div>
+
+                <div style="margin-bottom: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                    <p><strong>2. Kviz: Uporaba lamel v jedru</strong></p>
+                    <p>Kaj je glavni razlog, da se transformatorska jedra izdelujejo iz tankih, med seboj električno izoliranih lamel, namesto iz masivnega kosa železa?</p>
+
+                    <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
+                        <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                            <input type="radio" name="q2" value="a"> Ker lamele zmanjšujejo upor jedra in s tem znižajo reluktanco ter magnetilni tok $I_\mu$.
+                        </label>
+                        <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                            <input type="radio" name="q2" value="b"> Za preprečevanje nastanka močnih vrtinčnih tokov (Foucaultovih tokov), ki bi se tvorili v prevodnem masivnem jedru pravokotno na smer polja, kar bi jedro pretirano segrelo in drastično znižalo izkoristek.
+                        </label>
+                        <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                            <input type="radio" name="q2" value="c"> Masivno železo ima manjšo specifično težo, zato lamelirana jedra močno znižajo skupno maso transformatorja in pocenijo izdelavo.
+                        </label>
+                        <button onclick="checkQuiz2()" style="margin-top: 10px; padding: 5px 15px; background: var(--primary-color); color: white; border: none; border-radius: 4px; cursor: pointer; width: fit-content;">Preveri</button>
+                    </div>
+                    <div id="quiz2-feedback" style="margin-top: 10px; font-weight: bold; display: none;"></div>
+                </div>
+            </section>
+
+            <script>
+                // Podatki iz naloge
+                const B_target = 0.8; // T
+                const S = 5e-2 * 5e-2; // 0.05 * 0.05 = 0.0025 m^2 (Prečni presek stebra 5cm x 5cm (sklep iz skice S=5x5))
+                const fFe = 0.85;
+                const S_Fe = S * fFe;
+                const l_sr = 1.0; // Srednja dolžina (izračunana spodaj kot 4 * 0.25)
+                const H_Fe = 140; // Pri B=0.8T iz magnetilne krivulje (A/m)
+                const mu_0 = 4 * Math.PI * 1e-7;
+
+                // DOM
+                const u1Slider = document.getElementById('u1-slider');
+                const u2Slider = document.getElementById('u2-slider');
+                const fSlider = document.getElementById('f-slider');
+                const deltaSlider = document.getElementById('delta-slider');
+
+                const u1Val = document.getElementById('u1-val');
+                const u2Val = document.getElementById('u2-val');
+                const fVal = document.getElementById('f-val');
+                const deltaVal = document.getElementById('delta-val');
+
+                const resN1 = document.getElementById('res-n1');
+                const resN2 = document.getElementById('res-n2');
+                const resImuFe = document.getElementById('res-imu-fe');
+                const resIdelta = document.getElementById('res-i-delta');
+                const resImuTotal = document.getElementById('res-imu-total');
+
+                const airGapSvg = document.getElementById('air-gap');
+                const airGapText = document.getElementById('air-gap-text');
+                const deltaWarning = document.getElementById('delta-warning');
+
+                function update() {
+                    const U1 = parseFloat(u1Slider.value);
+                    const U2 = parseFloat(u2Slider.value);
+                    const f = parseFloat(fSlider.value);
+                    const delta_mm = parseFloat(deltaSlider.value);
+                    const delta = delta_mm * 1e-3; // pretvorba v metre
+
+                    u1Val.innerText = U1;
+                    u2Val.innerText = U2;
+                    fVal.innerText = f;
+                    deltaVal.innerText = delta_mm.toFixed(1);
+
+                    // Izračun N1
+                    // U1 = 4.44 * f * N1 * B * S_Fe  =>  N1 = U1 / (4.44 * f * B * S_Fe)
+                    const N1_exact = U1 / (4.44 * f * B_target * S_Fe);
+                    const N1 = Math.round(N1_exact);
+
+                    // Izračun N2
+                    // N2 = N1 * (U2 / U1)
+                    const N2 = Math.round(N1 * (U2 / U1));
+
+                    // Izračun magnetilnega toka za Fe
+                    // H_max * l_sr = sqrt(2) * I_muFe * N1
+                    const I_muFe = (H_Fe * l_sr) / (Math.sqrt(2) * N1);
+
+                    // Izračun toka za zračno režo
+                    // I_delta = (B_delta * delta) / (mu_0 * sqrt(2) * N1)
+                    // kjer je B_delta = B * fFe  (ker v zračni reži ni izolacije, je površina za pretok večja)
+                    const B_delta = B_target * fFe;
+                    const I_delta = delta > 0 ? (B_delta * delta) / (mu_0 * Math.sqrt(2) * N1) : 0;
+
+                    const I_muTotal = I_muFe + I_delta;
+
+                    // Posodobitev UI
+                    resN1.innerText = N1;
+                    resN2.innerText = N2;
+                    resImuFe.innerText = I_muFe.toFixed(2);
+                    resIdelta.innerText = I_delta.toFixed(2);
+                    resImuTotal.innerText = I_muTotal.toFixed(2);
+
+                    // Prikaz reže na SVG
+                    if (delta_mm > 0) {
+                        airGapSvg.style.display = 'block';
+                        airGapText.style.display = 'block';
+                        deltaWarning.style.display = 'block';
+
+                        // Vizualno povečaj režo z drsnikom (od 2px do 10px širine)
+                        const w = 2 + (delta_mm * 4);
+                        airGapSvg.setAttribute('d', `M 250 270 L ${250+w} 270 L ${250+w} 280 L 250 280 Z`);
+                        airGapText.setAttribute('x', 255 + w);
+                    } else {
+                        airGapSvg.style.display = 'none';
+                        airGapText.style.display = 'none';
+                        deltaWarning.style.display = 'none';
+                    }
+                }
+
+                u1Slider.addEventListener('input', update);
+                u2Slider.addEventListener('input', update);
+                fSlider.addEventListener('input', update);
+                deltaSlider.addEventListener('input', update);
+
+                update();
+
+                // Quiz functions
+                function checkQuiz1() {
+                    const input = document.getElementById('quiz1-input').value;
+                    const feedback = document.getElementById('quiz1-feedback');
+                    const parsed = parseFloat(input);
+
+                    if (isNaN(parsed)) {
+                        feedback.innerText = "Prosim vnesi številko.";
+                        feedback.style.color = "red";
+                    } else if (Math.abs(parsed - 6.6) <= 0.1) {
+                        feedback.innerText = "Pravilno! Sn se poveča premo sorazmerno z f_Cu na 6,6 kVA.";
+                        feedback.style.color = "green";
+                    } else {
+                        feedback.innerText = "Napačno. Poskusi pomnožiti staro moč (4,4 kVA) z razmerjem nov_fCu / star_fCu.";
+                        feedback.style.color = "red";
+                    }
+                    feedback.style.display = "block";
+                }
+
+                function checkQuiz2() {
+                    const selected = document.querySelector('input[name="q2"]:checked');
+                    const feedback = document.getElementById('quiz2-feedback');
+
+                    if (!selected) {
+                        feedback.innerText = "Prosim izberi enega izmed odgovorov.";
+                        feedback.style.color = "red";
+                    } else if (selected.value === 'b') {
+                        feedback.innerText = "Pravilno! Lameliranje je ključno za preprečevanje izgub in gretja zaradi vrtinčnih tokov.";
+                        feedback.style.color = "green";
+                    } else {
+                        feedback.innerText = "Napačno. Premisli, zakaj se lamele sploh medsebojno izolira.";
+                        feedback.style.color = "red";
+                    }
+                    feedback.style.display = "block";
+                }
+            </script>
+        </section>
+
+    </main>
+</body>
+</html>
