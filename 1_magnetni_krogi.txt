@@ -1,0 +1,1732 @@
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+1. MAGNETNI KROGI
+NALOGA 1.1:
+Magnetni krog – transformatorsko jedro z zračno režo ima dimenzije:
+AFe = 9 cm2 = 9 ⋅ 10 −4 m 2
+Aδ = 9 cm2 = 9 ⋅ 10 −4 m 2
+δ = 0.5 mm = 0.0005 m
+lFe = 30 cm = 0.3 m
+N = 500 ovojev
+µr = 70000
+a) Izračunajte magnetne upornosti (reluktance) RmFe in Rmδ , če je gostota magnetnega
+pretoka v jedru BFe= 1 T.
+b) Določite magnetni pretok Φ.
+c) Določite magnetilni tok iµ.
+lFe
+AFe
++
+
+i
+Aδ
+µ0
+N
+
+δ
+
+-
+
+µ
+
+a) Izhodiščne enačbe:
+
+ H ⋅ dl =  J ⋅ dA
+C
+
+A
+
+ B⋅d A = 0
+A
+
+Φ = B⋅ A
+Vm = N ⋅ i =  H ⋅ d l = H ⋅ l
+C
+
+BFe =
+
+Φ
+AFe
+
+Bδ =
+
+Φ
+Aδ
+
+Če zanemarimo stresanje magnetnih silnic ter robne pojave pri prehodu magnetnega
+polja iz železa v zračno režo, bo:
+BFe = Bδ
+B = µ⋅H
+
+
+
+AFe = Aδ
+µ = µrµ0
+
+1
+
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+Magnetna napetost sklenjenega magnetnega kroga je sestavljena iz magnetne napetosti
+železnega jedra in zračne reže:
+
+Vm = N ⋅ i = H Fe ⋅ l Fe + H δ ⋅ lδ =
+
+BFe
+B
+⋅ l Fe + δ ⋅ δ
+µ
+µ0
+
+Tu je lFe srednja pot magnetnih silnic po transformatorskem jedru in lδ pot silnic skozi
+zračno režo.
+Vm = Φ ⋅
+
+l Fe
+δ
++Φ⋅
+µ 0 ⋅ Aδ
+µ ⋅ AFe
+
+Magnetni upornosti - reluktanci sta:
+
+RmFe =
+Rmδ =
+
+l Fe
+l Fe
+0,3
+A
+=
+=
+= 3789
+−7
+−4
+µ ⋅ AFe µ r ⋅ µ 0 ⋅ AFe 70000 ⋅ 4π ⋅ 10 ⋅ 9 ⋅ 10
+Vs
+
+δ
+0,0005
+A
+=
+= 4.42 ⋅ 10 5
+−7
+−4
+µ 0 ⋅ Aδ 4 π ⋅ 10 ⋅ 9 ⋅ 10
+Vs
+
+b) Magnetni pretok:
+Φ = BFe ⋅ AFe = 1 ⋅ 0.0009 = 9 ⋅10 −4 Vs
+c) Magnetilni tok:
+iµ =
+
+Vm Φ ⋅ ( R Fe + R g ) 9 ⋅ 10 −4 ⋅ (3789 + 4.42 ⋅ 10 5 )
+=
+=
+= 0 .8 A
+N
+N
+500
+
+NALOGA 1.2:
+Magnetni krog sinhronskega stroja je skiciran na sliki. Predpostavimo, da ima rotorsko in
+statorsko železo neskončno permeabilnost µ → ∞. Kakšen je magnetni pretok v zračni reži
+in kolikšna je gostota magnetnega pretoka?
+I = 10 A
+N = 1000 ovojev
+δ = 1 cm = 10 -2 m
+Aδ = 2000 cm2 = 0,2 m2
+
+µ
+
+i
+N
+
+2
+
+Φ
+
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+Magnetni pretok, ki ga vzbuja rotorski elektromagnet, je ob zanemarjenem stresanju
+magnetnega polja:
+Φ≅
+
+µ ⋅A
+Vm Vm ⋅ µ 0 ⋅ Aδ
+4π ⋅10 −7 ⋅ 0,2
+=
+= N ⋅ i ⋅ 0 δ = 1000 ⋅10 ⋅
+= 0.126 Wb
+2⋅δ
+2⋅δ
+2 ⋅10 − 2
+Rδ
+
+Magnetna gostota pod polovim čevljem je:
+Bδ =
+
+Φ 0.126
+=
+= 0.63 T
+Aδ
+0 .2
+
+NALOGA 1.3:
+Magnetni krog po spodnji skici sestoji iz N ovojev na magnetnem jedru (µ → ∞) z dvema
+paralelnima zračnima režama dolžin δ1 in δ2 ter pripadajočima prerezoma A1 in A2.
+a) Izračunajte induktivnost navitja.
+b) Izračunajte magnetno gostoto v zračni reži δ1, ko po navitju teče tok i. Zanemarite
+stresanje magnetnega polja v zračni reži.
+
+i
++
+
+A2
+
+A1
+δ1
+
+N
+
+δ2
+
+-
+
+a) Ekvivalentno vezje:
+
+Φ
++
+
+Ni
+
+Φ1
+
+Φ2
+
+Rm1
+
+Rm2
+
+-
+
+Celotna nadomestna reluktanca Rm je paralelna kombinacija dveh paralelnih reluktanc
+zračnih rež.
+
+Φ=
+
+R + Rm 2
+N ⋅i
+= N ⋅ i ⋅ m1
+Rm
+Rm1 ⋅ Rm 2
+
+Rm1 =
+
+δ1
+µ 0 ⋅ A1
+
+Rm 2 =
+
+δ2
+µ 0 ⋅ A2
+
+3
+
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+Induktivnost navitja:
+
+L=
+
+ 1
+Ψ N ⋅ Φ N 2 ⋅ i Rm1 + Rm 2 N 2 ⋅ ( Rm1 + Rm 2 )
+1 
+
+=
+=
+⋅
+=
+= N 2 ⋅ 
++
+i
+i
+i
+Rm1 ⋅ Rm 2
+Rm1 ⋅ Rm 2
+R
+R
+m2 
+ m1
+
+A A 
+L = N 2 ⋅ µ 0 ⋅  1 + 2 
+ δ1 δ 2 
+b) Magnetni pretok po nadomestnem vezju:
+
+Φ1 =
+
+N ⋅ i µ 0 ⋅ A1 ⋅ N ⋅ i
+=
+Rm1
+δ1
+
+
+
+B=
+
+Φ1 µ 0 ⋅ N ⋅ i
+=
+A1
+δ1
+
+Splošni primer – magnetni krogi z več navitji
+
+i1
++
+
+i2
+δ
+
+N1
+
++
+N2
+
+-
+
+-
+
+lFe
+
+µ
+
+Celotna magnetna napetost:
+Vm = N ⋅ i = N1 ⋅ i1 + N 2 ⋅ i2
+Magnetni pretok v železnem jedru:
+Φ=
+
+µ ⋅A
+N 1 ⋅ i1 + N 2 ⋅ i 2
+= ( N 1 ⋅ i1 + N 2 ⋅ i 2 ) ⋅ 0 Fe ⋅ N 1
+Rm
+δ
+
+µ 0 ⋅ AFe
+µ ⋅A
+⋅ i1 + N 1 ⋅ N 2 ⋅ 0 Fe ⋅ i 2
+δ
+δ
+µ ⋅A
+µ ⋅A
+Ψ1 = L11 ⋅ i1 + L12 ⋅ i2
+L11 = N 12 ⋅ 0 Fe
+L12 = N 1 ⋅ N 2 ⋅ 0 Fe
+δ
+δ
+Ψ1 = N 1 ⋅ Φ = N 12 ⋅
+
+L11
+– lastna induktivnost prvega navitja
+L11⋅ i1 – magnetni sklep prvega navitja skozi katerega teče tok i1
+– medsebojna induktivnost med prvim in drugim navitjem
+L12
+L12⋅ i2 – magnetni sklep prvega navitja in toka i2 v drugem navitju
+
+4
+
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+Magnetni sklep drugega navitja:
+Φ=
+
+µ ⋅A
+N 1 ⋅ i1 + N 2 ⋅ i2
+= ( N 1 ⋅ i1 + N 2 ⋅ i2 ) ⋅ 0 Fe ⋅ N 2
+Rm
+δ
+µ 0 ⋅ AFe
+µ ⋅A
+⋅ i1 + N 22 ⋅ 0 Fe ⋅ i 2
+δ
+δ
+µ ⋅A
+L21 = N 1 ⋅ N 2 ⋅ 0 Fe
+δ
+
+Ψ2 = N 2 ⋅ Φ = N 1 ⋅ N 2 ⋅
+Ψ2 = L21 ⋅ i1 + L22 ⋅ i2
+
+L22 = N 22 ⋅
+
+L21
+– medsebojna induktivnost med drugim in prvim navitjem
+L21⋅ i1 – magnetni sklep drugega navitja in toka i1 v prvem navitju
+L22
+– lastna induktivnost drugega navitja
+L22· i2 – magnetni sklep drugega navitja skozi katerega teče tok i2
+Inducirana napetost:
+
+e=N
+
+dϕ d
+= ( L ⋅ i)
+dt dt
+
+
+
+
+di
+dt
+di
+dL
+L⋅ +i⋅
+dt
+dt
+
+L⋅
+
+L je konstantna
+L = f(t )
+
+Moč:
+p = i⋅e = i⋅
+
+dΨ
+dt
+
+Sprememba energije v magnetnem krogu:
+t2
+
+Ψ2
+
+t1
+
+Ψ1
+
+∆W =  p ⋅ d t =  i ⋅ d Ψ
+Primer: Magnetni krog z enim navitjem in konstantno induktivnostjo:
+Ψ2
+
+Ψ2
+
+Ψ
+1
+⋅dΨ =
+(Ψ22 − Ψ12 )
+L
+2⋅ L
+Ψ1
+
+∆W =  i ⋅ d Ψ = 
+Ψ1
+
+Totalna energija (ψ1 = 0, ψ2 = ψ):
+W=
+
+1
+L
+Ψ2 = i2
+2⋅ L
+2
+
+5
+
+µ 0 ⋅ AFe
+δ
+
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+NALOGA 1.4:
+Za magnetni krog po skici poiščite induktivnost L, magnetno energijo shranjeno pri
+BFe = 1 T in inducirano napetost e za f = 60 Hz in B Fe = 1 ⋅ sin(ωt ) .
+AFe = 9 cm2 = 9 ⋅ 10 −4 m 2
+Aδ = 9 cm2 = 9 ⋅ 10 −4 m 2
+δ = 0.5 mm = 0.0005 m
+lFe = 30 cm = 0.3 m
+N = 500 ovojev
+µr = 70000
+lFe
+i
+
++
+
+µ0
+N
+
+δ
+
+-
+
+µ
+
+i=
+
+Vm
+N
+
+a) Induktivnost izračunamo iz ovojev in reluktance magnetnega kroga:
+
+RmFe =
+Rmδ =
+L=
+
+l Fe
+l Fe
+0,3
+A
+=
+=
+= 3789
+−7
+−4
+µ ⋅ AFe µ r ⋅ µ 0 ⋅ AFe 70000 ⋅ 4π ⋅ 10 ⋅ 9 ⋅ 10
+Vs
+
+δ
+0,0005
+A
+=
+= 4.42 ⋅ 10 5
+−7
+−4
+µ 0 ⋅ Aδ 4π ⋅ 10 ⋅ 9 ⋅ 10
+Vs
+
+Ψ N ⋅Φ
+N2
+500 2
+=
+=
+=
+= 0.56 H
+i
+i
+RFe + Rδ 3789 + 4.42 ⋅ 10 5
+
+RmFe << Rmδ
+
+
+
+N2
+L≅
+Rmδ
+
+(če železo ni v nasičenju)
+
+b) BFe = 1 T, i = 0,8 A (iz naloge 1.1)
+W=
+
+1
+1
+⋅ L ⋅ i 2 = ⋅ 0.56 ⋅ 0.8 2 = 0.18 J
+2
+2
+
+c)
+
+dB
+dΨ
+dϕ
+=N⋅
+= N ⋅ AFe ⋅ Fe = N ⋅ AFe ⋅1.0 ⋅ cos(ωt ) ⋅ ω
+dt
+dt
+dt
+−4
+e = 500 ⋅ 9 ⋅10 ⋅ 2π ⋅ 60 ⋅1⋅ cos(2π ⋅ 60 ⋅ t ) = 170 ⋅ cos(377 ⋅ t ) V
+e=
+
+6
+
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+NALOGA 1.5:
+Poiščite magnetilni tok za transformatorsko jedro z zračno režo in navitjem (skica
+v Nalogi 1.1), če je magnetna gostota v jedru BFe = 1 T. Jedro je iz orientirane
+transformatorske pločevine debeline 0.3 mm in ima naslednjo magnetilnico:
+
+B[T]
+2
+1,5
+1
+
+12
+
+10
+
+BFe = 1 T → HFe= 12 A/m
+
+36
+
+100
+
+Bδ ⋅ δ 1 ⋅ 5 ⋅ 10 −4
+Vmδ = H δ ⋅ δ =
+=
+= 398 A
+µ0
+4π ⋅ 10 −7
+
+Magnetilni tok:
+VmFe + Vmδ 3.6 + 398
+=
+= 0.803 A
+N
+500
+
+Relativna permeabilnost:
+µr =
+
+µ
+µ0
+
+=
+
+H[A/m]
+
+.... odčitek iz magnetilne krivulje
+
+VmFe = H Fe ⋅ l Fe = 12 ⋅ 0.3 = 3.6 A
+
+iµ =
+
+1000
+
+BFe
+1
+=
+= 66314
+H Fe ⋅ µ 0 12 ⋅ 4π ⋅ 10 −7
+
+7
+
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+Izmenično vzbujanje
+ϕ(t ) = Φ ⋅ sin(ωt ) = AFe ⋅ Bmax ⋅ sin(ωt )
+d ϕ(t )
+= N ⋅ ω ⋅ Φ max ⋅ cos(ωt ) = Emax ⋅ cos(ωt )
+dt
+Emax = ω ⋅ N ⋅ Φ max = 2π ⋅ f ⋅ N ⋅ AFe ⋅ Bmax
+
+e(t ) = N ⋅
+
+2π
+4π
+⋅ f ⋅ N ⋅ AFe ⋅ Bmax =
+⋅ f ⋅ N ⋅ AFe ⋅ Bmax = 4 ⋅ f o ⋅ N ⋅ AFe ⋅ Bmax
+2
+2 2
+Eef = 4,44 ⋅ f ⋅ N ⋅ AFe ⋅ Bmax
+
+Eef =
+
+fo je faktor oblike signala – v našem primeru napetosti. Po definiciji je to razmerje med
+efektivno in srednjo vrednostjo električne veličine:
+fo =
+
+efektivna vrednost U ef
+=
+srednja vrednost
+U sr
+T
+
+1
+U sr =  u (ωt ) ⋅ d(ωt )
+T 0
+
+definicija srednje vrednosti periodičnega signala
+
+T
+
+1 2
+U ef =
+u (ωt ) ⋅ d(ωt )
+T 0
+
+definicija efektivne vrednosti periodičnega signala
+
+Primeri periodičnih signalov:
+a)
+u
+
+Um
+0
+
+2π
+
+π
+
+ωt
+
+u = U m ⋅ sin(ωt )
+2π
+
+2π
+
+U ef2 =
+
+U m2
+1
+1 U m2
+2
+2
+U
+⋅
+sin
+(
+ω
+t
+)
+⋅
+d
+(
+ω
+t
+)
+=
+⋅
+(
+1
+−
+cos(
+2
+ω
+t
+)
+⋅
+d
+(
+ω
+t
+)
+=
+m
+2π 0
+2π 2 0
+2
+
+U sr =
+
+2 ⋅U m
+1
+U m ⋅ sin(ωt ) ⋅ d (ωt ) =
+
+π0
+π
+
+π
+
+fo =
+
+Um / 2
+π
+=
+≅ 1.11
+2 ⋅U m / π 2 ⋅ 2
+
+8
+
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+b)
+u
+
+Um
+
+ Um
+u=
+− U m
+
+2π
+
+π
+
+0
+
+ωt
+
+: 0 ≤ ωt ≤ π
+: π ≤ ωt ≤ 2 π
+
+2π
+
+U ef2 =
+
+fo =
+
+π
+
+1
+U m2 ⋅ d (ωt ) = U m2
+
+2π 0
+
+U sr =
+
+1
+U m ⋅ d (ωt ) = U m
+π 0
+
+Um
+=1
+Um
+
+c)
+u
+
+Um
+0
+
+2π
+
+π
+
+ωt
+
+ωt
+
+: 0 ≤ ωt ≤ π / 2
+U m ⋅ π / 2
+
+ωt
+
+u = U m ⋅ (2 −
+) : π / 2 ≤ ωt ≤ 3π / 2
+π/ 2
+
+ωt
+
+U m ⋅ (−4 + π / 2 ) : 3π / 2 ≤ ωt ≤ 2π
+
+π/2
+
+2
+
+π/ 2
+
+1
+ωt 
+U m2
+
+U =
+Um ⋅
+⋅ d ( ωt ) =
+π / 2 0 
+π / 2 
+3
+
+U
+1
+ωt
+U sr =
+Um ⋅
+⋅ d ( ωt ) = m
+
+π/2 0
+π/2
+2
+
+2
+ef
+
+fo =
+
+Um / 3
+≅ 1.1547
+Um / 2
+
+9
+
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+ϕ
+e(t)
+ϕ(t)
+
+iµ
+
+t
+
+iµ(t)
+
+Efektivna vrednost magnetilnega toka:
+T
+
+1 2
+iµ (t ) ⋅ d (t )
+T 0
+
+I efµ =
+I efµ =
+
+l Fe ⋅ H ef
+N
+
+Moč:
+P = Eef ⋅ I efµ = 2π ⋅ f ⋅ N ⋅ AFe ⋅ Bmax ⋅
+
+l Fe ⋅ H ef
+N
+
+=
+
+= 2π ⋅ f ⋅ AFe ⋅ Bmax ⋅ l Fe ⋅ H ef
+Pri specifični gostoti materiala ρFe dobimo moč na enoto mase:
+mFe = AFe ⋅ l Fe ⋅ ρ Fe
+p=
+
+2π ⋅ f
+⋅ Bmax ⋅ H ef
+ρ Fe
+
+Vzbujalna navidezna moč je neodvisna od geometrije in števila ovojev.
+
+NALOGA 1.6:
+Feromagnetno jedro iz lamelirane transformatorske pločevine ima dimenzije po skici.
+Navitje je napajano z napetostjo, ki ustvari v jedru magnetno gostoto
+B Fe (t ) = 1.5 ⋅ sin(314 ⋅ t ) T. Polnilni faktor jedra je fFe = 0.94, specifična gostota je
+ρFe = 7.65 kg/dm3. Določite:
+a) napajalno napetost,
+b) maksimalni vzbujalni tok.
+
+10
+
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+20 c m
+
+5 cm
+i
+
++
+
+25 c m
+
+N= 200
+e
+-
+
+5 cm
+5 cm
+
+a) Inducirana napetost:
+
+d ϕ(t )
+d B (t )
+d B(t )
+= N ⋅ AFe ⋅
+= N ⋅ A ⋅ f Fe ⋅
+dt
+dt
+dt
+−4
+e = 200 ⋅ 5 ⋅ 5 ⋅10 ⋅ 0.94 ⋅ 314 ⋅1.5 ⋅ cos(314t )
+
+e=N⋅
+
+e = 221.4 ⋅ cos(314 ⋅ t ) V
+b) Iz magnetilnice (naloga 5): Bmax = 1.5 T → H = 36 A/m.
+µr =
+
+B
+= 33157
+µ0 ⋅ H
+
+Srednja pot po železnem jedru: lFe sr = 0.7 m.
+l ⋅ H max 0.7 ⋅ 36
+I max = Fesr
+=
+= 0.126 A
+N
+200
+
+11
+
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+NALOGA 1.7:
+Dve navitji sta sklopljeni preko železnega jedra: N1 = 50 ovojev, N2 = 100 ovojev,
+µr = 4000. Izračunajte L11 in L22. Stresanje zanemarite.
+300 mm
+
+l =1m
+AFe = 25 ⋅ 10 −4 m 2
+
+300 mm
+
+N1
+N2
+
+50 mm
+
+Ψ N ⋅Φ N2 ⋅Φ N2 N2 ⋅µ⋅ A
+=
+=
+=
+=
+i
+i
+N ⋅i
+Rm
+l
+V
+N ⋅i H ⋅l H ⋅l
+l
+Rm = m =
+=
+=
+=
+B⋅ A µ⋅ A
+Φ
+Φ
+Φ
+
+L=
+
+N12 ⋅ µ r ⋅ µ 0 ⋅ AFe 50 2 ⋅ 4000 ⋅ 4π ⋅10 −7 ⋅ 25 ⋅10 −4
+=
+= 31.4 mH
+l
+1
+N 2 ⋅µ ⋅µ ⋅ A
+100 2 ⋅ 4000 ⋅ 4π ⋅10 −7 ⋅ 25 ⋅10 −4
+L22 = 2 r 0 Fe =
+= 125.7 mH
+l
+1
+L11 =
+
+2
+
+Za linearni sistem brez stresanja velja:
+
+N 
+L22 =  1  L11
+ N2 
+
+NALOGA 1.8:
+Nalogo 1.7 izračunajte za primer zračne reže δ = 2.0 mm po celem prerezu jedra. Robne
+pojave zanemarite.
+
+N2
+L=
+Rmc
+Rmc = RmFe + Rmδ
+RmFe =
+
+l Fe
+0.998
+A
+=
+= 79.4 ⋅10 3
+−7
+−4
+Vs
+µ r ⋅ µ 0 ⋅ A 4000 ⋅ 4π ⋅10 ⋅ 25 ⋅10
+
+12
+
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+δ
+0.002
+A
+=
+= 636.62 ⋅ 10 3
+−7
+−4
+µ 0 ⋅ A 4π ⋅ 10 ⋅ 25 ⋅ 10
+Vs
+A
+Rmc = RmFe + Rmδ = 716.02 ⋅ 10 3
+Vs
+2
+2
+N
+50
+= 3.5 mH
+L11 = 1 =
+Rmc 716.02 ⋅ 10 3
+
+Rmδ =
+
+L22 =
+
+N 22
+100 2
+=
+= 14 mH
+Rmc 716.02 ⋅ 10 3
+
+NALOGA 1.9:
+Dve magnetno sklopljeni navitji imata naslednje parametre:
+
+L11 = 100 mH, N1 = 1000 ovojev, Lσ 1 = 0.1 ⋅ L11 , R1 = 10 Ω
+L22 = 25 mH,
+
+Lσ 2 = 0.1 ⋅ L22 , R2 = 2.5 Ω
+
+N2 = 500 ovojev,
+
+Izračunajte T-nadomestno vezje preračunano na prvo navitje. Izračun ponovite za preračun
+na drugo navitje.
+
+Φ1 = Φ σ1 + Φ m1 + Φ m 2 =
+
+N1 ⋅ i1 N1 ⋅ i1 N 2 ⋅ i2
++
++
+Rl1
+Rm
+Rm
+
+Φ 2 = Φ σ 2 + Φ m1 + Φ m 2 =
+
+N 2 ⋅ i2 N 2 ⋅ i2 N1 ⋅ i1
++
++
+Rl 2
+Rm
+Rm
+
+Ψ1 = N1 ⋅ Φ1 =
+
+N12 ⋅ i1 N12 ⋅ i1 N1 ⋅ N 2 ⋅ i2
++
++
+Rl1
+Rm
+Rm
+
+Ψ2 = N 2 ⋅ Φ 2 =
+
+N 22 ⋅ i2 N 22 ⋅ i2 N1 ⋅ N 2 ⋅ i1
++
++
+Rl 2
+Rm
+Rm
+
+magnetni upornosti
+(reluktanci) stresanega
+mag. pretoka
+Rl1 … magnetna upornost
+(reluktanca) glavnega
+mag. kroga
+R1 , R2 … ohmski upornosti
+navitij
+
+Rl1 
+ …
+Rl 2 
+
+N12 N12
++
+= Lσ1 + Lm1
+Rl1 Rm
+
+
+
+Lm1 = L11 − Lσ1 = 100 − 0.1 ⋅100 = 90 mH
+
+N 22 N 22
+L22 =
++
+= Lσ2 + Lm 2
+Rl 2 Rm
+
+
+
+Lm 2 = L22 − Lσ2 = 25 − 0.1 ⋅ 25 = 22.5 mH
+
+L11 =
+
+L12 =
+
+N1 ⋅ N 2
+Rm
+
+L21 =
+
+N 2 ⋅ N1
+Rm
+
+Rm =
+
+N12 N 22
+=
+Lm1 Lm 2
+
+
+
+Lm1 = Lm 2 ⋅
+
+N1 ⋅ N 2
+⋅ Lm1
+N 12
+N ⋅N
+L21 = 2 2 1 ⋅ Lm 2
+N2
+
+L12 =
+
+13
+
+N12
+N 22
+
+ELEKTRIČNI STROJI
+
+L12 =
+
+1. Magnetni krogi
+
+N 2 N 12
+⋅
+⋅ Lm 2 = L21
+N 1 N 22
+2
+
+N 
+Lσ 2 ' = Lσ 2 ⋅  1  = 2.5 ⋅ 2 2 = 10 mH
+ N2 
+2
+
+N 
+R2 ' = R2 ⋅  1  = 2.5 ⋅ 2 2 = 10 Ω
+ N2 
+R1
+
+Lσ1
+
+Lσ2 ’
+
+R2’
+
+Lm1= Lm2
+
+2
+
+N 
+1
+Lσ1 ' = Lσ1 ⋅  2  = 10 ⋅ 2 = 2.5 mH
+2
+ N1 
+2
+
+N 
+1
+R1 ' = R1 ⋅  2  = 10 ⋅ 2 = 2.5 Ω
+2
+ N1 
+R1’
+
+Lσ1’
+
+Lσ2
+
+R2
+
+Lm1= Lm2
+
+NALOGA 1.10:
+Magnetni krog z enojno zračno režo ima dimenzije in obliko po skici. S predpostavljeno
+µ → ∞, ter zanemarjenim stresanjem in robnimi pojavi, izračunajte za tok i = 1 A:
+a) magnetni pretok,
+b) magnetni sklep,
+c) induktivnost.
+
+lFe
+
+AFe = 1.5 ⋅ 10 −3 m 2
+l Fe = 0.7 m
+δ = 2.5 mm
+N = 75 ovojev
+
+N
+
+Vm = N ⋅ i = 75 ⋅ 1 = 75 A
+
+14
+
+δ
+
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+a) Zaradi µ → ∞ je reluktanca železa RmFe:
+RmFe =
+
+l Fe
+=0
+µ ⋅ AFe
+
+Rmδ =
+
+δ
+2.5 ⋅10 −3
+A
+=
+= 1.326 ⋅10 6
+−7
+−3
+Vs
+µ 0 ⋅ AFe 4π ⋅10 ⋅1.5 ⋅10
+
+Magnetni pretok je odvisen le od magnetne napetosti in reluktance zračne reže:
+
+Φ=
+
+Vm
+Vm
+V
+75
+=
+= m =
+= 5.65 ⋅ 10 -5 Vs = 5.65 ⋅ 10 -5 Wb
+6
+Rmc RmFe + Rmδ Rmδ 1.326 ⋅ 10
+
+b) Magnetni sklep:
+
+Ψ = N ⋅ Φ = 75 ⋅ 5.65 ⋅ 10 −5 = 4.24 ⋅ 10 −3 Vs = 4.24 ⋅ 10 −3 Wb
+c) Induktivnost izračunamo iz magnetnega sklepa in toka:
+Ψ = L⋅i
+
+L=
+
+Ψ 4.24 ⋅ 10 −3
+=
+= 4.24 mH
+i
+1
+
+Ponovite rešitev za µ = 1500 ⋅ µ 0 !
+Vm = N ⋅ i = 75 ⋅ 1 = 75 A
+l
+A
+0 .7
+= 0.247 ⋅ 10 6
+RmFe = Fe =
+−7
+−3
+µ ⋅ AFe 1500 ⋅ 4π ⋅ 10 ⋅ 1.5 ⋅ 10
+Vs
+a)
+
+Rmδ =
+Φ=
+
+δ
+2.5 ⋅ 10 −3
+A
+=
+= 1.326 ⋅ 10 6
+−7
+−3
+µ 0 ⋅ AFe 4π ⋅ 10 ⋅ 1.5 ⋅ 10
+Vs
+
+Vm
+Vm
+75
+=
+=
+= 4.77 ⋅ 10 −5 Vs = 4.77 ⋅ 10 −5 Wb
+Rmc RmFe + Rmδ 1.57 ⋅ 10 6
+
+b)
+
+Ψ = N ⋅ Φ = 75 ⋅ 4.77 ⋅ 10 −5 = 3.58 ⋅ 10 −3 Vs = 3.58 ⋅ 10 −3 Wb
+
+c)
+
+Ψ = L ⋅i
+
+L=
+
+Ψ
+= 3.58 mH
+i
+
+NALOGA 1.11:
+Magnetni krog po skici je toroid debeline d = 2 cm, Rz = 4 cm, Rn = 3 cm, δ = 5mm,
+µ → ∞, N = 75 ovojev. Izračunajte:
+a) srednjo dolžino jedra,
+b) reluktanco,
+c) induktivnost,
+d) magnetilni tok, pri katerem bo Bδ = 1.2 T
+e) ustrezen megnetni pretok in sklep znotraj tuljave.
+Izračun ponovi še za µr = 750!
+
+15
+
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+Rz
+Rn
+µ
+d
+
+Rz
+
+i
+N
+
+Rn
+
+δ
+
+a) Prerez toroidnega jedra:
+
+AFe = d ⋅ ( R z − Rn ) = 20 ⋅ (40 − 30) = 200 mm 2
+b) Reluktanca visoko permeabilnega feromagnetnega jedra:
+
+RmFe =
+
+l Fe
+=0
+µ Fe ⋅ AFe
+
+(µ = ∞ )
+
+Reluktanca zračne reže:
+
+Rmδ =
+
+δ
+5 ⋅ 10 −3
+A
+=
+= 19.9 ⋅ 10 6
+−7
+−6
+µ 0 ⋅ A 4π ⋅ 10 ⋅ 200 ⋅ 10
+Vs
+
+c) Induktivnost:
+L=
+
+N2
+75 2
+=
+= 0.283 mH
+Rm 19.9 ⋅ 10 6
+
+d) Magnetilni tok:
+iµ =
+
+Bδ ⋅ δ
+1,2 ⋅ 5 ⋅ 10 −3
+=
+= 63.7 A
+µ 0 ⋅ N 4π ⋅ 10 −7 ⋅ 75
+
+e) Magnetni pretok in magnetni sklep:
+
+N ⋅ i µ 0 ⋅ AFe ⋅ N ⋅ i 4π ⋅ 10 −7 ⋅ 200 ⋅ 10 −6 ⋅ 75 ⋅ 63.7
+Φ=
+=
+=
+= Bδ ⋅ A =
+Rm
+δ
+5 ⋅ 10 −3
+= 0.24 ⋅ 10 −3 Vs = 0.24 ⋅ 10 −3 Wb
+Ψ = 18 mVs = 18 mWb
+
+16
+
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+Magnetni krogi s trdomagnetnimi materiali
+Na sliki 1.1 je ponazorjen drugi kvadrant histerezne zanke trdomagnetnega materiala, ki je
+znan pod komercialnim imenom Alnico 5. Sliki 1.2 in 1.3 kažeta prav tako drugi kvadrant
+histerezne zanke mehkomagnetnega materiala pod komercialnim imenom M-5, pri čemer
+je na sliki 1.3 upodobljen le manjši del zanke za gostote magnetnega pretoka
+B < 4.5 ⋅ 10 −5 T .
+
+B[T]
+
+Tocka maksimalnega
+energijskega produkta
+(-Bm* Hm= 40 kJ/m3 )
+
+Br
+
+Bm
+
+Bremenska
+karakteristika
+
+Hc
+-50
+
+Hm
+-40
+
+-30
+
+H[kA/m ]
+
+-20
+
+-10
+
+1
+
+0.5
+
+0
+
+Slika 1.1
+
+B[T]
+B[T]
+
+Br
+
+3.8* 10
+
+-5
+
+4* 10
+
+-5
+
+1
+
+-5
+
+2* 10
+0.5
+
+Hc
+-10
+
+H[A/m]
+
+-5
+
+H[A/m ]
+
+0
+
+Slika 1.2
+
+-6
+
+0
+
+Slika 1.3
+
+Histerezno zanko trdomagnetnega materiala Alnico 5 karakterizira velika vrednost
+remanenčne gostote magnetnega pretoka Br (približno 1.22 T) in velika vrednost
+koercitivne jakosti magnetnega polja Hc (približno − 49 ⋅ 10 3 A/m). Remanenčna gostota
+magnetnega pretoka se nanaša na gostoto sklenjenega magnetnega kroga, izdelanega iz
+danega trdomagnetnega materiala, ko gonilna magnetna napetost in s tem celotna jakost
+magnetnega polja pade na nič.
+
+17
+
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+Pri mehkomagnetnem jeklu M-5 je remanenčna gostota magnetnega pretoka Br velika
+(približno 1.4 T), koercitivna jakost magnetnega polja Hc pa zelo majhna (približno
+–6 A/m), kar je okrog 8000 krat manj.
+Temeljna značilnost remanentnega magnetizma je obstoj magnetnega pretoka v sklenjenih
+magnetnih krogih tudi brez zunanjega vzbujanja v obliki elektromagneta.
+
+NALOGA 1.12:
+Magnetni krog po skici tvori jedro iz mehkomagnetnega materiala z veliko
+permeabilnostjo (µ → ∞), zračne reže dolžine δ in odseka iz trdomagnetnega materiala
+dolžine lm. Izračunajte gostoto magnetnega pretoka v zračni reži Bδ za oba magnetna
+materiala: Alnico 5 in M-5.
+lm = 1 cm
+δ = 0.2 cm
+Am = Aδ = 4 cm2
+
+Am
+
+Aδ
+
+µ
+
+8
+
+δ
+
+lm
+
+a) Permeabilnost jedra mehkomagnetnega materiala je zelo velika, zato je jakost
+magnetnega polja H zanemarljiva. Magnetna napetost sklenjenega kroga po skici je
+enaka nič:
+Vm = 0 = H δ ⋅ δ + H m ⋅ l m
+oziroma
+
+l 
+H δ = − m  ⋅ H m
+δ
+Hδ ... jakost magnetnega polja zračne reže
+Hm ... jakost magnetnega polja trdomagnetnega materiala
+Magnetni pretok, ki se sklene po magnetnem krogu je:
+Φ = Aδ ⋅ Bδ = Am ⋅ Bm
+oziroma
+
+18
+
+ELEKTRIČNI STROJI
+
+Bδ =
+
+1. Magnetni krogi
+
+Am
+⋅ Bm
+Aδ
+
+Bδ ... gostota magnetnega pretoka v zračni reži
+Aδ ... prerez zračne reže
+Bm ... gostota magnetnega pretoka v trdomagnetnem materialu
+Am ... prerez trdomagnetnega materiala
+V trdomagnetnem materialu bo gostota magnetnega pretoka:
+Bm =
+
+Aδ
+⋅ Bδ
+Am
+
+Ker je
+Bδ = µ 0 ⋅ H δ
+bo
+Bm = µ 0 ⋅
+
+Aδ
+A l
+⋅ H δ = −µ 0 ⋅ δ ⋅ m ⋅ H m
+Am
+Am lδ
+
+1 1
+Bm = −4π ⋅10 −7 ⋅ ⋅
+⋅ H m = −6.28 ⋅10 −6 ⋅ H m
+1 0 .2
+To je obremenilna karakteristika trdomagnetnega materiala. Iskano gostoto magnetnega
+pretoka Bm dobimo po grafični poti tako, da obremenilno karakteristiko Bm = − a ⋅ H m
+vrišemo v drugi kvadrant histerezne zanke pripadajočega materiala. V presečišču obeh
+karakteristik za material Alnico 5 je:
+
+B m = 0 .3 T
+Zaradi enakosti prereza je tudi:
+Bδ = B m = 0 .3 T
+b) Določanje gostote magnetnega pretoka Bδ za magnetni material M-5 poteka enako kot
+v predhodnem primeru. Bremenska karakteristika je odvisna zgolj od permeabilnosti,
+zračne reže in geometrije (volumna) magnetnega materiala!
+Bm = −6.28 ⋅10 −6 ⋅ H m
+Grafična rešitev za Bm je:
+
+Bm = 3.8 ⋅ 10 −5 T
+
+19
+
+ELEKTRIČNI STROJI
+
+1. Magnetni krogi
+
+NALOGA 1.13:
+Magnetni krog iz prejšnje vaje je modificiran tako, da je prerez zračne reže zmanjšan na
+Aδ = 2 cm2. Izračunajte minimalni volumen trdomagnetnega materiala Alnico 5 tako, da bo
+gostota magnetnega pretoka v zračni reži Bδ = 0.8 T.
+δ = 0.2 cm
+Aδ = 2 cm2
+lm = ?
+
+Am
+
+Aδ
+
+µ
+
+8
+
+δ
+
+lm
+
+Prerez trdomagnetnega materiala izračunamo iz magnetnega pretoka:
+Φ = Aδ ⋅ Bδ = Am ⋅ Bm
+B
+Am = Aδ ⋅ δ
+Bm
+Minimalni volumen trdomagnetnega materiala ustreza delovni točki maksimalnega
+energijskega produkta ( − Bm ⋅ H m ) na sliki 1.1. Maksimalni energijski produkt je dosežen
+pri gostoti magnetnega pretoka Bm = 1 T, ki ji ustreza jakost magnetnega polja H = -40
+kA/m.
+(− Bm ⋅ H m ) = 40 kJ/m 3
+Prerez trdomagnetnega materiala bo:
+
+Am = Aδ ⋅
+
+Bδ
+0.8
+= 2 ⋅ 10 − 4 ⋅
+= 1.6 ⋅ 10 − 4 m 2
+Bm
+1.0
+
+Dolžina:
+
+lm = δ ⋅
+
+Hδ
+Bδ
+0.8
+= −δ ⋅
+= −0.2 ⋅ 10 −2 ⋅
+= 0.0318 m = 31.8 mm
+−7
+Hm
+µ0 ⋅ H m
+4π ⋅ 10 ⋅ (−40 ⋅ 103 )
+
+Iskani volumen je:
+
+Vm = l m ⋅ Am = 3.18 ⋅ 10 −2 ⋅ 1.6 ⋅ 10 −4 = 5.09 ⋅ 10 −6 m 3
+
+20
+
+

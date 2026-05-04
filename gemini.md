@@ -16,7 +16,7 @@ Zaradi kompleksnosti in obsežnosti so PDF-ji razdeljeni na manjše, obvladljive
 - [x] **Korak 1:** Priprava strukture in pregled repozitorija
 - [x] **Korak 2:** Priprava moderne vizualne podobe in navigacije
 - [x] **Korak 3:** Obnova 1. dela - Naloge 1.1 do 1.3 (1_magnetni_krogi.html)
-- [x] **Korak 4:** Obnova 2. dela - Naloge 1.4 do 1.6
+- [x] **Korak 4:** POPRAVEK: Prave naloge 1.4, 1.5 in 1.6 z vsemi skicami, grafi in razlagami
 - [ ] **Korak 5:** Obnova 3. dela - Naloge 1.7 do 1.9
 - [ ] **Korak 6:** Obnova 4. dela - Naloge 1.10 do 1.11
 - [ ] **Korak 7:** Obnova 5. dela - Naloge 1.12 do 1.13 in trdomagnetni materiali
