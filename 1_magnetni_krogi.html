@@ -976,32 +976,37 @@
             <details>
                 <summary>Poglej postopek reševanja</summary>
                 <div class="solution-step">
-                    <h4>1. Izračun magnetne upornosti (reluktance) jedra</h4>
-                    <p>Za izračun induktivnosti potrebujemo najprej magnetno upornost jedra \(R_m\). Uporabimo podane vrednosti za železo.</p>
+                    <h4>1. Izpeljava formule za induktivnost in reluktanco</h4>
+                    <p>Induktivnost tuljave (\(L\)) nam pove, kolikšen magnetni sklep (\(\Psi\)) se ustvari za vsak amper vzbujalnega toka (\(i\)). Če celotno formulo razvijemo korak za korakom preko magnetnega pretoka (\(\Phi\)) in reluktance (\(R_m\)), dobimo:</p>
                     <div class="formula-box">
-                        \[ R_m = \frac{l}{\mu \cdot A} = \frac{l}{\mu_r \cdot \mu_0 \cdot A_{Fe}} \]
-                        \[ R_m = \frac{1}{4000 \cdot 4\pi \cdot 10^{-7} \cdot 25 \cdot 10^{-4}} = \frac{1}{0.012566} = 79577 \text{ A/Vs} \]
+                        \[ L = \frac{\Psi}{i} = \frac{N \cdot \Phi}{i} = \frac{N^2 \cdot \Phi}{N \cdot i} = \frac{N^2}{R_m} = \frac{N^2 \cdot \mu \cdot A}{l} \]
+                    </div>
+                    <p>Izpeljava za magnetno upornost (reluktanco) \(R_m\) izhaja iz Ohm-ovega zakona za magnetna vezja. Magnetno napetost (\(V_m\)) izrazimo s tokom, pretok z gostoto polja (\(B\)), napetost pa z jakostjo polja (\(H\)):</p>
+                    <div class="formula-box">
+                        \[ R_m = \frac{V_m}{\Phi} = \frac{N \cdot i}{\Phi} = \frac{H \cdot l}{\Phi} = \frac{H \cdot l}{B \cdot A} = \frac{l}{\mu \cdot A} \]
                     </div>
                 </div>
                 <div class="solution-step">
                     <h4>2. Izračun lastne induktivnosti \(L_{11}\)</h4>
-                    <p>Induktivnost posamezne tuljave pove, kolikšen magnetni sklep \(\Psi\) se ustvari za vsak amper toka (\(L = \Psi / i\)). S pomočjo reluktance jo zapišemo kot:</p>
+                    <p>Sedaj, ko imamo izpeljano končno formulo za induktivnost, vstavimo podane vrednosti za prvo navitje (\(N_1 = 50\)). Ne pozabimo, da je absolutna permeabilnost \(\mu = \mu_r \cdot \mu_0\).</p>
                     <div class="formula-box">
-                        \[ L = \frac{N^2}{R_m} \]
-                        \[ L_{11} = \frac{N_1^2}{R_m} = \frac{50^2}{79577} = \frac{2500}{79577} = 0.0314 \text{ H} = 31.4 \text{ mH} \]
+                        \[ L_{11} = \frac{N_1^2 \cdot \mu_r \cdot \mu_0 \cdot A_{Fe}}{l} \]
+                        \[ L_{11} = \frac{50^2 \cdot 4000 \cdot 4\pi \cdot 10^{-7} \cdot 25 \cdot 10^{-4}}{1} = 0.0314 \text{ H} = 31.4 \text{ mH} \]
                     </div>
                 </div>
                 <div class="solution-step">
                     <h4>3. Izračun lastne induktivnosti \(L_{22}\)</h4>
-                    <p>Podoben izračun ponovimo za drugo tuljavo z \(N_2\). Jedro je isto, torej je \(R_m\) enaka.</p>
+                    <p>Podoben izračun ponovimo za drugo tuljavo z \(N_2 = 100\). Geometrija jedra (\(l, A_{Fe}\)) in material (\(\mu_r\)) ostaneta nespremenjena.</p>
                     <div class="formula-box">
-                        \[ L_{22} = \frac{N_2^2}{R_m} = \frac{100^2}{79577} = \frac{10000}{79577} = 0.1257 \text{ H} = 125.7 \text{ mH} \]
+                        \[ L_{22} = \frac{N_2^2 \cdot \mu_r \cdot \mu_0 \cdot A_{Fe}}{l} \]
+                        \[ L_{22} = \frac{100^2 \cdot 4000 \cdot 4\pi \cdot 10^{-7} \cdot 25 \cdot 10^{-4}}{1} = 0.1257 \text{ H} = 125.7 \text{ mH} \]
                     </div>
-                    <p><strong>Alternativni način - sorazmernost:</strong> Ker je sistem linearen (brez stresanja in brez upoštevanja nelinearnosti železa), velja sorazmerje s kvadratom števila ovojev:</p>
+                    <p><strong>Zveza med induktivnostma:</strong> Za linearni sistem, kjer povsem zanemarimo stresanje magnetnega polja v zrak (ves pretok ostane ujet v železnem jedru), sta induktivnosti sorazmerni kvadratu števila ovojev:</p>
                     <div class="formula-box">
-                        \[ L_{22} = L_{11} \cdot \left(\frac{N_2}{N_1}\right)^2 = 31.4 \cdot \left(\frac{100}{50}\right)^2 = 31.4 \cdot 4 = 125.6 \text{ mH} \]
+                        \[ L_{22} = \left(\frac{N_2}{N_1}\right)^2 \cdot L_{11} \]
+                        \[ L_{22} = \left(\frac{100}{50}\right)^2 \cdot 31.4 \text{ mH} = 2^2 \cdot 31.4 \text{ mH} = 125.6 \text{ mH} \]
                     </div>
-                    <p>Razlika za 0.1 mH je zgolj posledica zaokroževanja.</p>
+                    <p>Manjša razlika v decimalkah nastane zgolj zaradi vmesnega zaokroževanja vrednosti \(L_{11}\).</p>
                 </div>
             </details>
         </section>
@@ -1075,31 +1080,35 @@
                 <summary>Poglej postopek reševanja</summary>
                 <div class="solution-step">
                     <h4>1. Izračun reluktance železa (\(R_{mFe}\))</h4>
-                    <p>Dolžina železa se zmanjša za velikost reže: \(l_{Fe} = l - \delta = 1 \text{ m} - 0.002 \text{ m} = 0.998 \text{ m}\).</p>
+                    <p>Dolžina železne poti se zmanjša za velikost zračne reže. Ker je skupna dolžina srednje poti \(l = 1 \text{ m}\) in reža \(\delta = 2 \text{ mm} = 0.002 \text{ m}\), je efektivna dolžina železa:</p>
+                    <div class="formula-box">
+                        \[ l_{Fe} = l - \delta = 1 - 0.002 = 0.998 \text{ m} \]
+                    </div>
+                    <p>Izračunamo magnetno upornost (reluktanco) železnega dela jedra z uporabo relativne permeabilnosti \(\mu_r = 4000\):</p>
                     <div class="formula-box">
                         \[ R_{mFe} = \frac{l_{Fe}}{\mu_r \cdot \mu_0 \cdot A} = \frac{0.998}{4000 \cdot 4\pi \cdot 10^{-7} \cdot 25 \cdot 10^{-4}} = 79.4 \cdot 10^3 \text{ A/Vs} \]
                     </div>
                 </div>
                 <div class="solution-step">
                     <h4>2. Izračun reluktance zračne reže (\(R_{m\delta}\))</h4>
-                    <p>V zračni reži je relativna permeabilnost zraka \(\mu_r = 1\). Prerez vzamemo enak kot pri železu, saj zanemarimo robne pojave (razširitev polja v zraku).</p>
+                    <p>V zračni reži ni železa, zato je relativna permeabilnost zraka \(\mu_r = 1\). Prerez vzamemo enak kot pri železu (\(A\)), ker je v navodilu izrecno zahtevano, da zanemarimo robne pojave (t.j. izbočenje magnetnega polja v zraku ob robu reže).</p>
                     <div class="formula-box">
                         \[ R_{m\delta} = \frac{\delta}{\mu_0 \cdot A} = \frac{0.002}{4\pi \cdot 10^{-7} \cdot 25 \cdot 10^{-4}} = 636.62 \cdot 10^3 \text{ A/Vs} \]
                     </div>
-                    <p>Opazimo, da je kljub temu, da je reža dolga le 2 mm, njena reluktanca kar <strong>8-krat večja</strong> od reluktance skoraj metra železa!</p>
+                    <p>Opazimo, da je kljub temu, da je reža dolga le 2 mm, njena reluktanca kar <strong>8-krat večja</strong> od reluktance skoraj enega metra železa! To je zaradi nizke prepustnosti zraka.</p>
                 </div>
                 <div class="solution-step">
                     <h4>3. Skupna reluktanca in induktivnosti</h4>
-                    <p>Skupna reluktanca je vsota obeh (zaporedna vezava).</p>
+                    <p>Železni del in zračna reža si sledita eden za drugim ob isti magnetni poti, zato sta magnetni upornosti vezani <strong>zaporedno</strong>. Skupno reluktanco celotnega vezja (\(R_{mc}\)) dobimo z njunim seštevkom:</p>
                     <div class="formula-box">
                         \[ R_{mc} = R_{mFe} + R_{m\delta} = 79.4 \cdot 10^3 + 636.62 \cdot 10^3 = 716.02 \cdot 10^3 \text{ A/Vs} \]
                     </div>
-                    <p>Izračunamo nove induktivnosti:</p>
+                    <p>S pomočjo skupne reluktance lahko sedaj izračunamo novo induktivnost (\(L = \frac{N^2}{R_{mc}}\)) za obe navitji:</p>
                     <div class="formula-box">
                         \[ L_{11} = \frac{N_1^2}{R_{mc}} = \frac{50^2}{716.02 \cdot 10^3} = 3.5 \text{ mH} \]
-                        \[ L_{22} = \frac{N_2^2}{R_{mc}} = \frac{100^2}{716.02 \cdot 10^3} = 14.0 \text{ mH} \]
+                        \[ L_{22} = \frac{N_2^2}{R_{mc}} = \frac{100^2}{716.02 \cdot 10^3} = 14 \text{ mH} \]
                     </div>
-                    <p>Induktivnost je padla iz 31.4 mH (brez reže) na komaj 3.5 mH!</p>
+                    <p>Induktivnost primarja je zaradi vstavljene reže padla iz 31.4 mH na komaj 3.5 mH!</p>
                 </div>
             </details>
         </section>
@@ -1188,49 +1197,64 @@
             <details>
                 <summary>Poglej postopek reševanja</summary>
                 <div class="solution-step">
-                    <h4>1. Razumevanje magnetnih pretokov</h4>
-                    <p>Skupni magnetni pretok vsakega navitja je sestavljen iz <strong>stresanega</strong> pretoka (\(\Phi_\sigma\)), ki gre po zraku okoli lastnega navitja in ne doseže drugega, ter <strong>glavnega</strong> (medsebojnega) pretoka (\(\Phi_m\)), ki gre po železnem jedru skozi obe navitji.</p>
-                    <p>Zato velja za induktivnosti:
-                    <br>\(L_{11} = L_{\sigma 1} + L_{m1}\)
-                    <br>\(L_{22} = L_{\sigma 2} + L_{m2}\)</p>
+                    <h4>1. Sistem enačb magnetnih pretokov in sklepov</h4>
+                    <p>Skupni magnetni pretok vsakega navitja (\(\Phi_1, \Phi_2\)) je sestavljen iz <strong>stresanega pretoka</strong> (ki se sklene le okoli lastnega navitja skozi zrak) in <strong>glavnega pretoka</strong> (ki se sklene skozi jedro in seka obe navitji). V enačbah uporabimo reluktance za zrak (\(R_{l1}, R_{l2}\)) in jedro (\(R_m\)):</p>
+                    <div class="formula-box">
+                        \[ \Phi_1 = \Phi_{\sigma 1} + \Phi_{m1} + \Phi_{m2} = \frac{N_1 \cdot i_1}{R_{l1}} + \frac{N_1 \cdot i_1}{R_m} + \frac{N_2 \cdot i_2}{R_m} \]
+                        \[ \Phi_2 = \Phi_{\sigma 2} + \Phi_{m1} + \Phi_{m2} = \frac{N_2 \cdot i_2}{R_{l2}} + \frac{N_2 \cdot i_2}{R_m} + \frac{N_1 \cdot i_1}{R_m} \]
+                    </div>
+                    <p>Iz pretokov lahko zapišemo enačbe za <strong>magnetne sklepe</strong> (\(\Psi = N \cdot \Phi\)):</p>
+                    <div class="formula-box">
+                        \[ \Psi_1 = N_1 \cdot \Phi_1 = \frac{N_1^2 \cdot i_1}{R_{l1}} + \frac{N_1^2 \cdot i_1}{R_m} + \frac{N_1 \cdot N_2 \cdot i_2}{R_m} \]
+                        \[ \Psi_2 = N_2 \cdot \Phi_2 = \frac{N_2^2 \cdot i_2}{R_{l2}} + \frac{N_2^2 \cdot i_2}{R_m} + \frac{N_1 \cdot N_2 \cdot i_1}{R_m} \]
+                    </div>
+                    <p>Zgornje enačbe nam neposredno podajo definicije posameznih induktivnosti. Koeficienti pri tokovih so ustrezne induktivnosti. Tako lahko lastno induktivnost zapišemo kot vsoto stresane in glavne induktivnosti:</p>
+                    <div class="formula-box">
+                        \[ L_{11} = \frac{N_1^2}{R_{l1}} + \frac{N_1^2}{R_m} = L_{\sigma 1} + L_{m1} \]
+                        \[ L_{22} = \frac{N_2^2}{R_{l2}} + \frac{N_2^2}{R_m} = L_{\sigma 2} + L_{m2} \]
+                    </div>
                 </div>
                 <div class="solution-step">
                     <h4>2. Izračun stresanih in glavnih induktivnosti</h4>
-                    <p>Za prvo navitje:</p>
+                    <p>Iz podanih podatkov izračunamo vrednosti glavnih magnetilnih induktivnosti (\(L_{m1}, L_{m2}\)) z odštevanjem stresanih vrednosti iz skupnih:</p>
                     <div class="formula-box">
-                        \[ L_{\sigma 1} = 0.1 \cdot L_{11} = 0.1 \cdot 100 \text{ mH} = 10 \text{ mH} \]
-                        \[ L_{m1} = L_{11} - L_{\sigma 1} = 100 - 10 = 90 \text{ mH} \]
-                    </div>
-                    <p>Za drugo navitje:</p>
-                    <div class="formula-box">
-                        \[ L_{\sigma 2} = 0.1 \cdot L_{22} = 0.1 \cdot 25 \text{ mH} = 2.5 \text{ mH} \]
-                        \[ L_{m2} = L_{22} - L_{\sigma 2} = 25 - 2.5 = 22.5 \text{ mH} \]
+                        \[ L_{\sigma 1} = 0.1 \cdot L_{11} = 0.1 \cdot 100 \text{ mH} = 10 \text{ mH} \quad \Rightarrow \quad L_{m1} = L_{11} - L_{\sigma 1} = 100 - 10 = 90 \text{ mH} \]
+                        \[ L_{\sigma 2} = 0.1 \cdot L_{22} = 0.1 \cdot 25 \text{ mH} = 2.5 \text{ mH} \quad \Rightarrow \quad L_{m2} = L_{22} - L_{\sigma 2} = 25 - 2.5 = 22.5 \text{ mH} \]
                     </div>
                 </div>
                 <div class="solution-step">
-                    <h4>3. Preračun na 1. navitje</h4>
-                    <p>Želimo imeti enotno vezje brez galvanske ločitve. Da lahko elemente z desne (2) prestavimo na levo (1), jih moramo pomnožiti s kvadratom prestavnega razmerja: \((N_1 / N_2)^2\).</p>
+                    <h4>3. Medsebojna induktivnost in zveza z glavno induktivnostjo</h4>
+                    <p>Iz enačb za magnetni sklep vidimo člene mešanih tokov (\(i_1, i_2\)). Koeficienti pred temi tokovi definirajo <strong>medsebojno induktivnost</strong> (\(L_{12}\) in \(L_{21}\)). Pri tem velja \(L_{12} = L_{21}\):</p>
                     <div class="formula-box">
-                        \[ \text{Prestavno razmerje: } \left(\frac{N_1}{N_2}\right)^2 = \left(\frac{1000}{500}\right)^2 = 2^2 = 4 \]
+                        \[ L_{12} = \frac{N_1 \cdot N_2}{R_m} = L_{21} \]
                     </div>
-                    <p>Preračunani elementi drugega navitja (označeni s črtico '):</p>
+                    <p>Reluktanca železa (\(R_m\)) je za obe navitji ista, zato lahko izrazimo povezavo med glavnimi induktivnostmi obeh strani. Preuredimo enačbe:</p>
                     <div class="formula-box">
+                        \[ R_m = \frac{N_1^2}{L_{m1}} = \frac{N_2^2}{L_{m2}} \quad \Rightarrow \quad L_{m1} = L_{m2} \cdot \left(\frac{N_1}{N_2}\right)^2 \]
+                    </div>
+                    <p>Prav tako lahko medsebojno induktivnost (\(L_{12}\)) izrazimo preko glavnih induktivnosti posameznih strani:</p>
+                    <div class="formula-box">
+                        \[ L_{12} = \frac{N_1 \cdot N_2}{N_1^2} \cdot L_{m1} = \frac{N_2}{N_1} \cdot L_{m1} \]
+                        \[ L_{21} = \frac{N_2 \cdot N_1}{N_2^2} \cdot L_{m2} = \frac{N_1}{N_2} \cdot L_{m2} \]
+                    </div>
+                </div>
+                <div class="solution-step">
+                    <h4>4. Preračun elementov na 1. navitje</h4>
+                    <p>Za risanje T-nadomestnega vezja (kjer ni galvanske ločitve) prestavimo vse parametre druge strani na primarno (1. stran). Elemente pomnožimo s kvadratom prestavnega razmerja \((N_1/N_2)^2\), kar smo matematično dokazali v prejšnjem koraku.</p>
+                    <div class="formula-box">
+                        \[ L_{\sigma 2}' = L_{\sigma 2} \cdot \left(\frac{N_1}{N_2}\right)^2 = 2.5 \cdot \left(\frac{1000}{500}\right)^2 = 2.5 \cdot 4 = 10 \text{ mH} \]
                         \[ R_2' = R_2 \cdot \left(\frac{N_1}{N_2}\right)^2 = 2.5 \cdot 4 = 10 \ \Omega \]
-                        \[ L_{\sigma 2}' = L_{\sigma 2} \cdot \left(\frac{N_1}{N_2}\right)^2 = 2.5 \cdot 4 = 10 \text{ mH} \]
                     </div>
-                    <p>Opazimo, da je po preračunu \(L_{m1} = 90 \text{ mH}\) enak preračunanemu \(L_{m2}'\): \((22.5 \cdot 4 = 90 \text{ mH})\). Zato v sredinski veji nadomestnega vezja pišemo samo eno vrednost, ki predstavlja glavno magnetilno induktivnost!</p>
+                    <p>S tem se \(L_{m2}\) preračuna v \(L_{m1}\), zato v T-vezju sredinska veja vsebuje le eno glavno induktivnost \(L_{m1} = L_{m2}' = 90 \text{ mH}\).</p>
                 </div>
                 <div class="solution-step">
-                    <h4>4. Preračun na 2. navitje</h4>
+                    <h4>5. Preračun na 2. navitje</h4>
                     <p>Če želimo elemente z leve (1) prestaviti na desno (2), množimo obratno: s kvadratom razmerja \((N_2 / N_1)^2\).</p>
                     <div class="formula-box">
-                        \[ \text{Prestavno razmerje: } \left(\frac{N_2}{N_1}\right)^2 = \left(\frac{500}{1000}\right)^2 = \left(\frac{1}{2}\right)^2 = 0.25 \]
-                    </div>
-                    <p>Preračunani elementi prvega navitja:</p>
-                    <div class="formula-box">
+                        \[ L_{\sigma 1}' = L_{\sigma 1} \cdot \left(\frac{N_2}{N_1}\right)^2 = 10 \cdot \left(\frac{500}{1000}\right)^2 = 10 \cdot 0.25 = 2.5 \text{ mH} \]
                         \[ R_1' = R_1 \cdot \left(\frac{N_2}{N_1}\right)^2 = 10 \cdot 0.25 = 2.5 \ \Omega \]
-                        \[ L_{\sigma 1}' = L_{\sigma 1} \cdot \left(\frac{N_2}{N_1}\right)^2 = 10 \cdot 0.25 = 2.5 \text{ mH} \]
                     </div>
+                    <p>Zdaj je sredinska veja enaka navidezni induktivnosti na strani sekundarja, torej \(L_{m2} = L_{m1}' = 22.5 \text{ mH}\).</p>
                 </div>
             </details>
         </section>
