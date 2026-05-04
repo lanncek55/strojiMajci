@@ -16,7 +16,7 @@ Zaradi kompleksnosti in obsežnosti so PDF-ji razdeljeni na manjše, obvladljive
 - [x] **Korak 1:** Priprava strukture in pregled repozitorija
 - [x] **Korak 2:** Priprava moderne vizualne podobe in navigacije
 - [x] **Korak 3:** Obnova 1. dela - Naloge 1.1 do 1.3 (1_magnetni_krogi.html)
-- [ ] **Korak 4:** Obnova 2. dela - Naloge 1.4 do 1.6
+- [x] **Korak 4:** Obnova 2. dela - Naloge 1.4 do 1.6
 - [ ] **Korak 5:** Obnova 3. dela - Naloge 1.7 do 1.9
 - [ ] **Korak 6:** Obnova 4. dela - Naloge 1.10 do 1.11
 - [ ] **Korak 7:** Obnova 5. dela - Naloge 1.12 do 1.13 in trdomagnetni materiali
@@ -30,3 +30,7 @@ Trenutno implementirano:
 * **Naloga 1.1:** Transformatorsko jedro z zračno režo (interaktivni drsnik, Real World uporaba v dušilkah, Kviz o razmerju reluktanc).
 * **Naloga 1.2:** Magnetni krog sinhronskega stroja (interaktivni drsnik za tok, Real World uporaba strojev, Kviz o vplivu permeabilnosti).
 * **Naloga 1.3:** Dve paralelni zračni reži (podroben postopek nadomestnih reluktanc, Kviz o paralelni vezavi).
+
+* **Naloga 1.4:** Toroidni magnetni krog z zračno režo (interaktivni SVG drsnik toroida, izračun poti iz polmera, kviz o stresanju).
+* **Naloga 1.5:** Uporaba magnetilnice (nelinearna analiza, branje B-H grafa, kviz o nasičenju in padcu permeabilnosti).
+* **Naloga 1.6:** Navitje s časovno spremenljivo napetostjo (Faradayev zakon, drsnik za frekvenco in izračun E_max, kviz o primerjavi 50Hz in 60Hz).

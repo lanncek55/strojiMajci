@@ -295,7 +295,255 @@
             <div id="quiz13-feedback" class="feedback"></div>
         </section>
 
-    </main>
+
+        <hr>
+
+        <!-- Naloga 1.4 -->
+        <section class="task">
+            <h3>NALOGA 1.4: Toroidni magnetni krog z zračno režo</h3>
+            <p>Toroidno jedro ima srednji polmer \( R_{sr} = 10 \text{ cm} = 0.1 \text{ m} \) in okrogel presek s polmerom \( r = 1 \text{ cm} = 0.01 \text{ m} \). V jedru je zračna reža \( \delta = 2 \text{ mm} = 0.002 \text{ m} \). Navitje ima \( N = 400 \) ovojev, skozenj pa teče tok \( i = 5 \text{ A} \). Relativna permeabilnost jedra je \( \mu_r = 1500 \).</p>
+            <p>Določite:</p>
+            <ol type="a">
+                <li>Magnetno napetost \( V_m \).</li>
+                <li>Reluktanco jedra \( R_{mFe} \) in zračne reže \( R_{m\delta} \).</li>
+                <li>Magnetni pretok \( \Phi \) in magnetno gostoto \( B \) v zračni reži.</li>
+            </ol>
+
+            <div class="real-world-box">
+                <div class="real-world-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    Uporaba v praksi
+                </div>
+                <p><strong>Toroidna jedra:</strong> Toroidni (okrogli, oblike krofa) transformatorji in dušilke so izjemno učinkoviti, ker se magnetni pretok idealno sklene in skoraj nič ne "pobegne" v okolico (stresanje je minimalno). Najdemo jih v avdio ojačevalcih visokega razreda, kjer bi stresano polje povzročalo motnje, in v medicinski opremi.</p>
+            </div>
+
+            <p><strong>Interaktivni preizkus:</strong> Spreminjaj srednji polmer jedra \( R_{sr} \) in opazuj, kako to vpliva na skupno dolžino jedra, reluktanco in končno gostoto polja \( B \).</p>
+
+            <div class="interactive-container">
+                <div class="interactive-controls">
+                    <div class="control-group">
+                        <label for="slider-rsr-4">Srednji polmer \( R_{sr} \) [cm]: <span id="val-rsr-4">10</span></label>
+                        <input type="range" id="slider-rsr-4" min="5" max="25" step="1" value="10" oninput="updateTask4()">
+                    </div>
+                    <div class="interactive-results">
+                        <div>Srednja dolžina (\( l_{sr} \)): <span id="res-lsr-4">0.628</span> m</div>
+                        <div>Skupni \( R_m \): <span id="res-rm-4">6.12e6</span> A/Vs</div>
+                        <div>Magnetni pretok \( \Phi \): <span id="res-phi-4">3.27e-4</span> Wb</div>
+                        <div style="margin-top:10px; font-weight:bold; color:var(--primary-color);">Gostota \( B_\delta \): <span id="res-b-4">1.04</span> T</div>
+                    </div>
+                </div>
+                <div class="interactive-svg-wrapper">
+                    <svg width="200" height="200" viewBox="0 0 200 200">
+                        <circle cx="100" cy="100" id="svg-toroid-ring-4" r="60" fill="none" stroke="#bdc3c7" stroke-width="20"/>
+                        <rect x="95" y="20" width="10" height="40" fill="#fafafa" />
+                        <text x="80" y="20" font-size="12" fill="#e74c3c">δ</text>
+                        <line x1="100" y1="100" id="svg-radius-line-4" x2="160" y2="100" stroke="#333" stroke-width="1" stroke-dasharray="4"/>
+                        <circle cx="100" cy="100" r="2" fill="#333"/>
+                        <text x="120" y="95" font-size="12" fill="#333">R_sr</text>
+                    </svg>
+                </div>
+            </div>
+
+            <details>
+                <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
+                <div class="solution-step">
+                    <h4>a) Magnetna napetost (\(V_m\)):</h4>
+                    <p>Kot smo se naučili, je magnetna napetost vir polja, enako kot baterija v električnem krogu. Odvisna je samo od števila ovojev in toka, ki teče skozi njih.</p>
+                    <div class="formula-box">
+                        \[ V_m = N \cdot i = 400 \cdot 5 = 2000 \text{ A} \]
+                    </div>
+                </div>
+                <div class="solution-step">
+                    <h4>b) Izračun reluktanc (magnetnih upornosti):</h4>
+                    <p>Za reluktanco (\(R_m = \frac{l}{\mu \cdot A}\)) nujno potrebujemo prerez (\(A\)) in dolžino poti (\(l\)).</p>
+                    <p><strong>Presek (ploščina kroga):</strong> Presek jedra je okrogel, zato uporabimo formulo za ploščino kroga \(A = \pi \cdot r^2\). Pazimo na pretvorbo polmera iz cm v metre! \(1 \text{ cm} = 0.01 \text{ m}\).</p>
+                    <div class="formula-box">
+                        \[ A_{Fe} = A_\delta = \pi \cdot r^2 = \pi \cdot (0.01)^2 = 3.14 \cdot 10^{-4} \text{ m}^2 \]
+                    </div>
+                    <p><strong>Dolžina poti (obseg kroga):</strong> Srednja pot magnetnih silnic pri toroidu gre točno po njegovi sredini, torej je obseg kroga s polmerom \( R_{sr} \). Formula za obseg kroga je \( 2 \cdot \pi \cdot r \).</p>
+                    <div class="formula-box">
+                        \[ l_{sr} = 2 \cdot \pi \cdot R_{sr} = 2 \cdot \pi \cdot 0.1 = 0.628 \text{ m} \]
+                    </div>
+                    <p>Ampak pazi! Celoten krog ni narejen iz železa, saj v njem zeva zračna reža \(\delta = 0.002 \text{ m}\). Dolžina samega železa je torej celotna dolžina minus reža.</p>
+                    <div class="formula-box">
+                        \[ l_{Fe} = l_{sr} - \delta = 0.628 - 0.002 = 0.626 \text{ m} \]
+                    </div>
+                    <p>Sedaj izračunamo magnetni upornosti (tako kot v 1.1):</p>
+                    <p>Reluktanca železa:</p>
+                    <div class="formula-box">
+                        \[ R_{mFe} = \frac{l_{Fe}}{\mu_r \cdot \mu_0 \cdot A_{Fe}} = \frac{0.626}{1500 \cdot 4\pi \cdot 10^{-7} \cdot 3.14 \cdot 10^{-4}} = 1.057 \cdot 10^6 \text{ A/Vs} \]
+                    </div>
+                    <p>Reluktanca zračne reže:</p>
+                    <div class="formula-box">
+                        \[ R_{m\delta} = \frac{\delta}{\mu_0 \cdot A_\delta} = \frac{0.002}{4\pi \cdot 10^{-7} \cdot 3.14 \cdot 10^{-4}} = 5.066 \cdot 10^6 \text{ A/Vs} \]
+                    </div>
+                    <p>Skupna reluktanca (zaporedna vezava):</p>
+                    <div class="formula-box">
+                        \[ R_{mc} = R_{mFe} + R_{m\delta} = 1.057 \cdot 10^6 + 5.066 \cdot 10^6 = 6.123 \cdot 10^6 \text{ A/Vs} \]
+                    </div>
+                </div>
+                <div class="solution-step">
+                    <h4>c) Magnetni pretok in gostota:</h4>
+                    <p>Po Ohmovem zakonu magnetno napetost \(V_m\) delimo z upornostjo \(R_{mc}\), da dobimo magnetni pretok (tako kot pri elektriki napetost delimo z uporom, da dobimo tok).</p>
+                    <div class="formula-box">
+                        \[ \Phi = \frac{V_m}{R_{mc}} = \frac{2000}{6.123 \cdot 10^6} = 3.266 \cdot 10^{-4} \text{ Wb} \]
+                    </div>
+                    <p>Gostoto pa dobimo tako, da pretok razdelimo na površino (presek):</p>
+                    <div class="formula-box">
+                        \[ B_\delta = \frac{\Phi}{A_\delta} = \frac{3.266 \cdot 10^{-4}}{3.14 \cdot 10^{-4}} = 1.04 \text{ T} \]
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 1.4 -->
+        <section class="quiz-section">
+            <h3>Kviz 1.4: Toroidi in stresanje</h3>
+            <p>S pomočjo drsnika zgoraj raziskuj obnašanje toroida. Kaj se zgodi z <strong>magnetno gostoto B</strong>, če velikost toroida močno povečamo (povečamo njegov srednji polmer \( R_{sr} \))?</p>
+            <div class="input-group">
+                <input type="text" id="quiz14-input" placeholder="poveča / zmanjša / ostane enaka" style="width: 250px;">
+                <button onclick="checkQuiz14()">Preveri</button>
+            </div>
+            <div id="quiz14-feedback" class="feedback"></div>
+        </section>
+
+        <hr>
+
+        <!-- Naloga 1.5 -->
+        <section class="task">
+            <h3>NALOGA 1.5: Uporaba magnetilnice (nelinearna analiza)</h3>
+            <p><strong>Naloga:</strong> Iz magnetilnice (krivulje magnetenja za določen material v PDF-ju) določite ustrezen parameter \( H \) za določeno vrednost \( B_{max} = 1.5 \text{ T} \) in izračunajte pripadajočo relativno permeabilnost \( \mu_r \).</p>
+
+            <div class="real-world-box">
+                <div class="real-world-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    Uporaba v praksi
+                </div>
+                <p><strong>Krivulja magnetenja in nasičenje:</strong> V realnosti prepustnost železa (\(\mu_r\)) sploh NI konstantna! Ko material magnetiziramo, se vsi njegovi notranji "mikro magnetki" (domene) obračajo v isto smer. Ko se obrnejo vsi, pridemo do "nasičenja" (saturation). Dodajanje toka po tej točki skoraj ne poveča več polja. Zato inženirji pri snovanju transformatorja berejo te grafe – ustaviti se morajo tik preden graf "leže" vodoravno, sicer zapravljajo energijo za ogrevanje.</p>
+            </div>
+
+            <details>
+                <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
+                <div class="solution-step">
+                    <p>Za razliko od prejšnjih nalog, kjer je bila podana številka za \(\mu_r\) ali je pisalo, da gremo proti neskončnosti, tu dobimo podatek z grafa, ki predstavlja obnašanje realnega materiala.</p>
+                    <p>Na y-osi grafa (gostota \( B \)) najdemo vrednost 1.5 T. Nato potegnemo vodoravno črto do krivulje in se spustimo dol do x-osi (jakost polja \( H \)). Iz grafa (tabela ali slika v magnetilnici) razberemo, da točki \( B_{max} = 1.5 \text{ T} \) ustreza abscisa:</p>
+                    <div class="formula-box">
+                        \[ H = 36 \text{ A/m} \]
+                    </div>
+                    <p>Ker po definiciji velja \( B = \mu_0 \cdot \mu_r \cdot H \), lahko to formulo obrnemo in izračunamo, kolikšna je dejanska (efektivna) relativna permeabilnost v tej točki:</p>
+                    <div class="formula-box">
+                        \[ \mu_r = \frac{B}{\mu_0 \cdot H} \]
+                    </div>
+                    <p>Vstavimo številke (pazi, \(\mu_0\) je konstanta \(4\pi \cdot 10^{-7}\)):</p>
+                    <div class="formula-box">
+                        \[ \mu_r = \frac{1.5}{4\pi \cdot 10^{-7} \cdot 36} = 33157 \]
+                    </div>
+                    <p>Ta material pri \(1.5 \text{ T}\) prepušča magnetno polje 33157-krat bolje kot zrak!</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 1.5 -->
+        <section class="quiz-section">
+            <h3>Kviz 1.5: Razumevanje B-H krivulje</h3>
+            <p>Pri močnem nasičenju materiala potrebujemo ogromno povečanje toka (in s tem jakosti polja H), da bi le malenkostno povečali gostoto magnetnega pretoka (B). Kaj se zgodi z efektivno relativno permeabilnostjo \(\mu_r\), ko železno jedro zelo močno nasitimo?</p>
+            <div class="input-group">
+                <input type="text" id="quiz15-input" placeholder="poveča / zmanjša / ostane enaka" style="width: 250px;">
+                <button onclick="checkQuiz15()">Preveri</button>
+            </div>
+            <div id="quiz15-feedback" class="feedback"></div>
+        </section>
+
+        <hr>
+
+        <!-- Naloga 1.6 -->
+        <section class="task">
+            <h3>NALOGA 1.6: Navitje s časovno spremenljivo napetostjo</h3>
+            <p>Navitje je napajano z izmenično napetostjo, ki ustvari v jedru časovno spremenljivo magnetno gostoto (opisan sinusni val):</p>
+            <div class="formula-box">\[ B_{Fe}(t) = 1.5 \cdot \sin(314 \cdot t) \text{ T} \]</div>
+            <p>Polnilni faktor jedra je \( f_{Fe} = 0.94 \), specifična gostota je \( \rho_{Fe} = 7.65 \text{ kg/dm}^3 \). Prerez celotnega jedra po sliki je \( A = 5 \text{ cm} \times 5 \text{ cm} \). Število ovojev \( N = 200 \).</p>
+            <p>Določite:</p>
+            <ol type="a">
+                <li>Napajalno napetost (ki je uravnotežena z inducirano napetostjo \( e \)).</li>
+                <li>Maksimalni vzbujalni tok.</li>
+            </ol>
+
+            <div class="real-world-box">
+                <div class="real-world-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    Uporaba v praksi
+                </div>
+                <p><strong>Izmenična omrežja in Faradayev zakon:</strong> Ta naloga predstavlja klasiko delovanja omrežnih transformatorjev! Omrežna napetost (50 Hz = krožna frekvenca 314 rad/s) povzroči sinusno spremenljiv magnetni pretok. Enačba inducirane napetosti (\( e = N \frac{d\Phi}{dt} \)) je razlog, zakaj transformatorji delujejo le na izmenični tok in ne na enosmernega (ker pri DC napetosti odvod pretoka po času odpade oz. postane 0, zato transformacije ni).</p>
+            </div>
+
+            <p><strong>Interaktivni preizkus:</strong> Spreminjaj frekvenco omrežja in opazuj, kako drastično to vpliva na maksimalno inducirano napetost.</p>
+
+            <div class="interactive-container">
+                <div class="interactive-controls">
+                    <div class="control-group">
+                        <label for="slider-freq-6">Frekvenca omrežja \( f \) [Hz]: <span id="val-freq-6">50</span></label>
+                        <input type="range" id="slider-freq-6" min="10" max="100" step="5" value="50" oninput="updateTask6()">
+                        <small style="color:#777">Krožna frekvenca: \(\omega = 2\pi f\)</small>
+                    </div>
+                    <div class="interactive-results">
+                        <div>Krožna frekvenca (\( \omega \)): <span id="res-omega-6">314.16</span> rad/s</div>
+                        <div style="margin-top:10px; font-weight:bold; color:var(--primary-color);">Maksimalna napetost \( E_{max} \): <span id="res-emax-6">221.4</span> V</div>
+                    </div>
+                </div>
+            </div>
+
+            <details>
+                <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
+                <div class="solution-step">
+                    <h4>a) Inducirana napetost (\(e\)):</h4>
+                    <p>Za izračun efektivnega prereza jedra uporabimo <em>polnilni faktor</em> (\(f_{Fe}\)). Transformatorska jedra namreč niso polni kosi železa, ampak zloženi iz tankih, izoliranih lamel (da preprečimo segrevanje zaradi vrtinčnih tokov). Izolacija zavzame nekaj prostora (tu 6%), zato je dejansko železo prisotno le na 94% površine.</p>
+
+                    <p>Najprej izračunamo osnovni presek: \(5 \text{ cm} = 0.05 \text{ m}\). Presek pravokotnika je \(0.05 \cdot 0.05 = 0.0025 \text{ m}^2 = 25 \cdot 10^{-4} \text{ m}^2\).</p>
+                    <div class="formula-box">
+                        \[ A_{Fe} = A \cdot f_{Fe} = 25 \cdot 10^{-4} \cdot 0.94 \]
+                    </div>
+                    <p>Faradayev induktivni zakon pravi, da je napetost premo sorazmerna odvodu magnetnega pretoka po času. Ker pa je pretok \(\Phi = B \cdot A\), kjer je \(A\) konstanten, lahko odvajamo samo gostoto polja \(B(t)\).</p>
+                    <div class="formula-box">
+                        \[ e = N \cdot \frac{d\Phi(t)}{dt} = N \cdot A_{Fe} \cdot \frac{dB(t)}{dt} \]
+                    </div>
+                    <p>Izvedemo odvod magnetne gostote po času (odvod sinusa je kosinus, pri čemer gre notranji člen \(\omega = 314\) ven):</p>
+                    <div class="formula-box">
+                        \[ \frac{d}{dt}(1.5 \cdot \sin(314 \cdot t)) = 1.5 \cdot 314 \cdot \cos(314 \cdot t) \]
+                    </div>
+                    <p>Združimo vse številke:</p>
+                    <div class="formula-box">
+                        \[ e = 200 \cdot (25 \cdot 10^{-4}) \cdot 0.94 \cdot 314 \cdot 1.5 \cdot \cos(314t) \]
+                        \[ e = 221.4 \cdot \cos(314 \cdot t) \text{ V} \]
+                    </div>
+                    <p>Vidimo, da imamo pri 50Hz (\(\omega=314\)) maksimalno (amplitudno) napetost 221.4 V.</p>
+                </div>
+                <div class="solution-step">
+                    <h4>b) Maksimalni vzbujalni tok (\(I_{max}\)):</h4>
+                    <p>Maksimalni tok vedno dosežemo takrat, ko je polje največje, torej na vrhuncu sinusa. Takrat je \(B_{max} = 1.5 \text{ T}\).</p>
+                    <p>Iz magnetilnice v nalogi 1.5 smo ugotovili, da v takem železu za dosego 1.5 T potrebujemo jakost polja \(H_{max} = 36 \text{ A/m}\).</p>
+                    <p>Srednja dolžina silnice za tisto jedro (izvirno podana v PDF-ju na skici, tu prevzeta) znaša \(l_{Fe\_sr} = 0.7 \text{ m}\). Zapišemo magnetno napetost in izrazimo tok:</p>
+                    <div class="formula-box">
+                        \[ V_m = I_{max} \cdot N = H_{max} \cdot l_{Fe\_sr} \]
+                        \[ I_{max} = \frac{l_{Fe\_sr} \cdot H_{max}}{N} = \frac{0.7 \cdot 36}{200} = 0.126 \text{ A} \]
+                    </div>
+                    <p>Da obdržimo to ogromno polje 1.5 T, transformator vleče "magnetilni" tok z amplitudo 126 mA.</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 1.6 -->
+        <section class="quiz-section">
+            <h3>Kviz 1.6: Inducirana napetost</h3>
+            <p>V električnem omrežju v ZDA uporabljajo frekvenco 60 Hz. Pri nas je 50 Hz. S pomočjo zgornjega drsnika ugotovi, ali je <strong>maksimalna inducirana napetost</strong> (E_max) pri 60 Hz (za enak transformator in isto gostoto polja B=1.5T) večja ali manjša kot pri nas (50 Hz)?</p>
+            <div class="input-group">
+                <input type="text" id="quiz16-input" placeholder="večja / manjša" style="width: 200px;">
+                <button onclick="checkQuiz16()">Preveri</button>
+            </div>
+            <div id="quiz16-feedback" class="feedback"></div>
+        </section>
+
+
+</main>
 
     <footer>
         <p>Ustvarjeno za učenje in utrjevanje znanja. <i>Korak 1: Popoln prepis nalog 1.1 - 1.3.</i></p>
@@ -310,14 +558,11 @@
             if(!el) return;
             let delta_mm = parseFloat(el.value);
             document.getElementById('val-delta-1').innerText = delta_mm.toFixed(2);
-
             let delta_m = delta_mm / 1000.0;
             let rm_fe = 3789;
             let A_delta = 9e-4;
-
             let rm_g = delta_m / (PI4e7 * A_delta);
             let rm_tot = rm_fe + rm_g;
-
             let phi = 9e-4;
             let n = 500;
             let i = (phi * rm_tot) / n;
@@ -336,11 +581,9 @@
             if(!el) return;
             let i = parseFloat(el.value);
             document.getElementById('val-tok-2').innerText = i;
-
             let N = 1000;
             let A = 0.2;
             let delta = 0.01;
-
             let Vm = N * i;
             let phi = (N * i * PI4e7 * A) / (2 * delta);
             let B = phi / A;
@@ -353,16 +596,67 @@
             document.getElementById('svg-b-arrows-2').setAttribute('stroke-width', strokeW);
         }
 
+        function updateTask4() {
+            let el = document.getElementById('slider-rsr-4');
+            if(!el) return;
+            let rsr_cm = parseFloat(el.value);
+            document.getElementById('val-rsr-4').innerText = rsr_cm;
+
+            let rsr_m = rsr_cm / 100.0;
+            let r_m = 0.01;
+            let delta = 0.002;
+            let N = 400;
+            let i = 5;
+            let mu_r = 1500;
+            let A = Math.PI * r_m * r_m;
+            let l_sr = 2 * Math.PI * rsr_m;
+            let l_fe = l_sr - delta;
+            let r_mfe = l_fe / (mu_r * PI4e7 * A);
+            let r_mg = delta / (PI4e7 * A);
+            let r_tot = r_mfe + r_mg;
+            let vm = N * i;
+            let phi = vm / r_tot;
+            let b = phi / A;
+
+            document.getElementById('res-lsr-4').innerText = l_sr.toFixed(3);
+            document.getElementById('res-rm-4').innerText = r_tot.toExponential(2);
+            document.getElementById('res-phi-4').innerText = phi.toExponential(2);
+            document.getElementById('res-b-4').innerText = b.toFixed(2);
+
+            let visualR = (rsr_cm / 10) * 60;
+            document.getElementById('svg-toroid-ring-4').setAttribute('r', visualR);
+            document.getElementById('svg-radius-line-4').setAttribute('x2', 100 + visualR);
+        }
+
+        function updateTask6() {
+            let el = document.getElementById('slider-freq-6');
+            if(!el) return;
+            let f = parseFloat(el.value);
+            document.getElementById('val-freq-6').innerText = f;
+
+            let omega = 2 * Math.PI * f;
+            let N = 200;
+            let A = 25e-4;
+            let fFe = 0.94;
+            let A_Fe = A * fFe;
+            let B_max = 1.5;
+            let e_max = N * A_Fe * omega * B_max;
+
+            document.getElementById('res-omega-6').innerText = omega.toFixed(2);
+            document.getElementById('res-emax-6').innerText = e_max.toFixed(1);
+        }
+
         window.onload = function() {
             updateTask1();
             updateTask2();
+            updateTask4();
+            updateTask6();
         };
 
         function checkQuiz11() {
             let input = parseInt(document.getElementById('quiz11-input').value);
             let fb = document.getElementById('quiz11-feedback');
             if (isNaN(input)) { fb.className = "feedback error"; fb.innerText = "Prosim vnesi številko."; return; }
-
             if (input >= 115 && input <= 118) {
                 fb.className = "feedback success"; fb.innerText = "Pravilno! (442000 / 3789) je približno 116. Zračna reža predstavlja 99% celotne magnetne upornosti!";
             } else {
@@ -384,11 +678,40 @@
             let input = parseInt(document.getElementById('quiz13-input').value);
             let fb = document.getElementById('quiz13-feedback');
             if (isNaN(input)) { fb.className = "feedback error"; fb.innerText = "Prosim vnesi številko."; return; }
-
             if (input === 5) {
                 fb.className = "feedback success"; fb.innerText = "Pravilno! Paralelna vezava dveh enakih upornosti njuno vrednost prepolovi: (10 * 10) / (10 + 10) = 5.";
             } else {
                 fb.className = "feedback error"; fb.innerText = "Ni prav. Uporabi formulo za paralelne upornosti: (R1 * R2) / (R1 + R2).";
+            }
+        }
+
+        function checkQuiz14() {
+            let input = document.getElementById('quiz14-input').value.trim().toLowerCase();
+            let fb = document.getElementById('quiz14-feedback');
+            if (input === 'zmanjša' || input === 'zmanjsa') {
+                fb.className = "feedback success"; fb.innerText = "Pravilno! Če povečamo srednji polmer, postane toroid obsegajoče večji. Dolžina poti l_fe se poveča, kar neposredno poveča magnetno upornost (reluktanco). Ker je upornost večja, je pretok in posledično B_delta manjši (pri istem toku).";
+            } else {
+                fb.className = "feedback error"; fb.innerText = "Poglej, kaj se dogaja z reluktanco. Večji polmer pomeni daljšo pot železa. Kaj pomeni daljša pot za upornost in pretok?";
+            }
+        }
+
+        function checkQuiz15() {
+            let input = document.getElementById('quiz15-input').value.trim().toLowerCase();
+            let fb = document.getElementById('quiz15-feedback');
+            if (input === 'zmanjša' || input === 'zmanjsa') {
+                fb.className = "feedback success"; fb.innerText = "Odlično! Ko je material nasičen, zelo velik prirastek toka (H) povzroči le mikro prirastek B. Ker je izračun \u03bc_r = B / (\u03bc_0 * H), imenovalec raste mnogo hitreje, zato se prepustnost močno zmanjša (bliža se prepustnosti zraka 1).";
+            } else {
+                fb.className = "feedback error"; fb.innerText = "Napačno. Enačba je \u03bc_r = B / (\u03bc_0 * H). Če H močno raste (imenovalec se veča), B pa se ustavi, se \u03bc_r matematčno...";
+            }
+        }
+
+        function checkQuiz16() {
+            let input = document.getElementById('quiz16-input').value.trim().toLowerCase();
+            let fb = document.getElementById('quiz16-feedback');
+            if (input === 'večja' || input === 'vecja') {
+                fb.className = "feedback success"; fb.innerText = "Pravilno! Večja frekvenca pomeni večjo krožno frekvenco (\u03c9). Ker pri odvajanju pride \u03c9 ven iz sinusa in pomnoži vrednost (Amplituda = ... * \u03c9), je pri 60 Hz inducirana napetost E_max večja kot pri 50 Hz (cca. 265 V v primerjavi s 221 V).";
+            } else {
+                fb.className = "feedback error"; fb.innerText = "Napačno. Uporabi drsnik za frekvenco in ga premakni iz 50 Hz na 60 Hz. Ali se napetost E_max pod njim poveča ali zmanjša?";
             }
         }
     </script>
