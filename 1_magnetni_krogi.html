@@ -667,60 +667,49 @@
                     <h4>Skica Magnetilnice (B-H graf)</h4>
                     <svg width="350" height="250" viewBox="0 0 350 250">
                         <!-- Osi -->
-                        <line x1="40" y1="210" x2="330" y2="210" stroke="#333" stroke-width="2"/> <!-- x os -->
-                        <line x1="40" y1="210" x2="40" y2="20" stroke="#333" stroke-width="2"/> <!-- y os -->
-                        <text x="320" y="230" font-size="12" font-family="sans-serif">H [A/m]</text>
-                        <text x="10" y="30" font-size="12" font-family="sans-serif">B [T]</text>
-
-                        <!-- Mreža in Oznake na X -->
-                        <line x1="120" y1="205" x2="120" y2="215" stroke="#333" stroke-width="2"/>
-                        <text x="110" y="230" font-size="12" font-family="sans-serif">12</text>
-                        <line x1="200" y1="205" x2="200" y2="215" stroke="#333" stroke-width="2"/>
-                        <text x="190" y="230" font-size="12" font-family="sans-serif">36</text>
-
-                        <!-- Mreža in Oznake na Y -->
-                        <line x1="35" y1="120" x2="45" y2="120" stroke="#333" stroke-width="2"/>
-                        <text x="15" y="125" font-size="12" font-family="sans-serif">1.0</text>
-                        <line x1="35" y1="50" x2="45" y2="50" stroke="#333" stroke-width="2"/>
-                        <text x="15" y="55" font-size="12" font-family="sans-serif">1.5</text>
-
-                        <!-- Krivulja magnetenja (aproksimacija) -->
-                        <path d="M 40,210 Q 50,150 120,120 T 200,50" fill="none" stroke="#2980b9" stroke-width="3"/>
+                        <line x1="40" y1="210" x2="315" y2="210" stroke="#000" stroke-width="1"/> <!-- x os -->
+                        <line x1="40" y1="210" x2="40" y2="20" stroke="#000" stroke-width="1"/> <!-- y os -->
+                        <text x="295" y="230" font-size="16" font-family="sans-serif">H[A/m]</text>
+                        <text x="10" y="25" font-size="16" font-family="sans-serif">B[T]</text>
 
                         <!-- Oznake osi in puščice -->
-                        <polygon points="330,210 320,205 320,215" fill="#333"/>
-                        <polygon points="40,20 35,30 45,30" fill="#333"/>
+                        <polygon points="325,210 315,205 315,215" fill="#000"/>
+                        <polygon points="40,10 35,20 45,20" fill="#000"/>
 
-                        <!-- Mreža in Oznake na X -->
-                        <line x1="150" y1="205" x2="150" y2="215" stroke="#333" stroke-width="1"/>
-                        <text x="140" y="230" font-size="10" font-family="sans-serif">10</text>
-                        <line x1="160" y1="205" x2="160" y2="215" stroke="#333" stroke-width="1"/>
-                        <text x="155" y="220" font-size="8" font-family="sans-serif">12</text>
-                        <line x1="180" y1="205" x2="180" y2="215" stroke="#333" stroke-width="1"/>
-                        <text x="175" y="220" font-size="8" font-family="sans-serif">36</text>
-                        <line x1="220" y1="205" x2="220" y2="215" stroke="#333" stroke-width="1"/>
-                        <text x="210" y="230" font-size="10" font-family="sans-serif">100</text>
-                        <line x1="280" y1="205" x2="280" y2="215" stroke="#333" stroke-width="1"/>
-                        <text x="270" y="230" font-size="10" font-family="sans-serif">1000</text>
+                        <!-- Mreža in Oznake na X (Logaritemska simulacija) -->
+                        <line x1="110" y1="210" x2="110" y2="215" stroke="#000" stroke-width="1"/>
+                        <text x="103" y="230" font-size="12" font-family="sans-serif">10</text>
+
+                        <line x1="120" y1="210" x2="120" y2="215" stroke="#000" stroke-width="1"/>
+                        <text x="115" y="222" font-size="9" font-family="sans-serif">12</text>
+
+                        <line x1="140" y1="210" x2="140" y2="215" stroke="#000" stroke-width="1"/>
+                        <text x="135" y="222" font-size="9" font-family="sans-serif">36</text>
+
+                        <line x1="190" y1="210" x2="190" y2="215" stroke="#000" stroke-width="1"/>
+                        <text x="180" y="230" font-size="12" font-family="sans-serif">100</text>
+
+                        <line x1="260" y1="210" x2="260" y2="215" stroke="#000" stroke-width="1"/>
+                        <text x="246" y="230" font-size="12" font-family="sans-serif">1000</text>
 
                         <!-- Mreža in Oznake na Y -->
-                        <line x1="35" y1="140" x2="45" y2="140" stroke="#333" stroke-width="1"/>
-                        <text x="25" y="145" font-size="10" font-family="sans-serif">1</text>
-                        <line x1="35" y1="80" x2="45" y2="80" stroke="#333" stroke-width="1"/>
-                        <text x="20" y="85" font-size="10" font-family="sans-serif">1,5</text>
-                        <line x1="35" y1="60" x2="45" y2="60" stroke="#333" stroke-width="1"/>
-                        <text x="25" y="65" font-size="10" font-family="sans-serif">2</text>
+                        <line x1="35" y1="140" x2="40" y2="140" stroke="#000" stroke-width="1"/>
+                        <text x="25" y="145" font-size="12" font-family="sans-serif">1</text>
+                        <line x1="35" y1="80" x2="40" y2="80" stroke="#000" stroke-width="1"/>
+                        <text x="18" y="85" font-size="12" font-family="sans-serif">1,5</text>
+                        <line x1="35" y1="40" x2="40" y2="40" stroke="#000" stroke-width="1"/>
+                        <text x="25" y="45" font-size="12" font-family="sans-serif">2</text>
 
                         <!-- Krivulja magnetenja -->
-                        <path d="M 40,210 Q 140,210 160,140 Q 180,80 230,70 T 310,50" fill="none" stroke="#000" stroke-width="1.5"/>
+                        <path d="M 40,210 Q 110,210 120,140 Q 130,80 160,70 T 290,50" fill="none" stroke="#000" stroke-width="2"/>
 
                         <!-- Prikaz branja vrednosti za 1T -->
-                        <line x1="40" y1="140" x2="160" y2="140" stroke="#666" stroke-width="1" stroke-dasharray="2,2"/>
-                        <line x1="160" y1="140" x2="160" y2="210" stroke="#666" stroke-width="1" stroke-dasharray="2,2"/>
+                        <line x1="40" y1="140" x2="120" y2="140" stroke="#000" stroke-width="0.8" stroke-dasharray="2,2"/>
+                        <line x1="120" y1="140" x2="120" y2="210" stroke="#000" stroke-width="0.8" stroke-dasharray="2,2"/>
 
-                        <!-- Prikaz branja vrednosti za 1.5T (za referenco, čeprav ni vprašano) -->
-                        <line x1="40" y1="80" x2="180" y2="80" stroke="#666" stroke-width="1" stroke-dasharray="2,2"/>
-                        <line x1="180" y1="80" x2="180" y2="210" stroke="#666" stroke-width="1" stroke-dasharray="2,2"/>
+                        <!-- Prikaz branja vrednosti za 1.5T -->
+                        <line x1="40" y1="80" x2="140" y2="80" stroke="#000" stroke-width="0.8" stroke-dasharray="2,2"/>
+                        <line x1="140" y1="80" x2="140" y2="210" stroke="#000" stroke-width="0.8" stroke-dasharray="2,2"/>
                     </svg>
                 </div>
             </div>
