@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avditorna vaja 01 - Interaktivni učbenik</title>
+    <link rel="stylesheet" href="style.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .task { background-color: #fcfcfc; border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        .solution-step { margin-top: 15px; border-left: 3px solid var(--primary-color); padding-left: 15px; background: #f4f7f6; margin-bottom: 15px; padding-bottom: 10px; padding-top: 10px;}
+        .formula-box { background-color: #f8f9fa; border-left: 4px solid var(--primary-color); padding: 1rem; margin: 1rem 0; font-family: monospace; font-size: 1.1rem; overflow-x: auto;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Avditorna vaja 01</h1>
+        <p>Magnetilni tok dušilke navite na toroidno jedro iz feromagnetnega materiala.</p>
+    </header>
+
+    <main class="container">
+        <a href="index.html" style="display:inline-block; margin-bottom: 20px; color: var(--primary-color); text-decoration: none;">&larr; Nazaj na zemljevid</a>
+
+        <section class="task">
+            <h3>Naloga: Določitev magnetilnega toka dušilke</h3>
+            <p>Določite magnetilni tok dušilke navite na toroidno jedro iz feromagnetnega materiala s podano magnetilno krivuljo. Dušilka je priključena na napetost efektivne vrednosti \(U = 230 \text{ V}\) in frekvence \(f = 50 \text{ Hz}\), na jedru je navitih \(N = 1200\) ovojev, srednji radij toroida je \(R_{sr} = 0,40 \text{ m}\).</p>
+
+            <div class="interactive-container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: flex-start;">
+                <!-- Toroid SVG -->
+                <div style="flex: 1; min-width: 300px; text-align: center;">
+                    <svg width="300" height="300" viewBox="0 0 300 300">
+                        <!-- Toroid core -->
+                        <path d="M 150 50 A 100 100 0 1 1 149.9 50 Z" fill="none" stroke="#607D8B" stroke-width="40"/>
+                        <!-- Mean radius dashed line -->
+                        <path d="M 150 50 A 100 100 0 1 1 149.9 50 Z" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="5,5"/>
+                        <!-- Center dot -->
+                        <circle cx="150" cy="150" r="3" fill="#000"/>
+                        <!-- Rsr line -->
+                        <path d="M 150 150 L 250 150" fill="none" stroke="#000" stroke-width="1.5"/>
+                        <text x="200" y="145" font-style="italic" font-size="14">R<tspan dy="5" font-size="10">sr</tspan></text>
+
+                        <!-- Coil winding (simplified representation) -->
+                        <path d="M 50 150 Q 30 130 50 110 T 50 70 T 70 30 T 110 30" fill="none" stroke="#E65100" stroke-width="3"/>
+                        <path d="M 50 150 Q 70 170 50 190 T 50 230 T 70 270 T 110 270" fill="none" stroke="#E65100" stroke-width="3"/>
+
+                        <text x="70" y="25" font-weight="bold" fill="#E65100">N ovojev</text>
+                        <!-- Dimensions -->
+                        <path d="M 270 110 L 290 110" fill="none" stroke="#000" stroke-width="1"/>
+                        <path d="M 270 190 L 290 190" fill="none" stroke="#000" stroke-width="1"/>
+                        <path d="M 280 110 L 280 190" fill="none" stroke="#000" stroke-width="1" marker-start="url(#arrow)" marker-end="url(#arrow)"/>
+                        <text x="285" y="155" font-size="14">a</text>
+                    </svg>
+                    <p style="font-size: 0.9em; color: #666;">Skica toroida</p>
+                </div>
+
+                <!-- Control Panel -->
+                <div class="interactive-controls" style="flex: 1; min-width: 300px; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                    <div class="control-group">
+                        <label for="u-slider">Napetost U (V): <span id="u-val">230</span></label>
+                        <input type="range" id="u-slider" min="50" max="400" value="230" step="10">
+                    </div>
+                    <div class="control-group">
+                        <label for="f-slider">Frekvenca f (Hz): <span id="f-val">50</span></label>
+                        <input type="range" id="f-slider" min="10" max="100" value="50" step="5">
+                    </div>
+                    <div class="control-group">
+                        <label for="n-slider">Število ovojev N: <span id="n-val">1200</span></label>
+                        <input type="range" id="n-slider" min="500" max="2000" value="1200" step="100">
+                    </div>
+                    <div class="interactive-results" style="margin-top: 20px;">
+                        <p><strong>Trenutni rezultati:</strong></p>
+                        <p>\(B_{max} = \) <span id="res-bmax" style="font-weight:bold; color:var(--primary-color)">0.86</span> T</p>
+                        <p>\(I_{\mu} (\text{Fe}) = \) <span id="res-ife" style="font-weight:bold; color:var(--primary-color)">0.38</span> A</p>
+                        <p>\(I_{\mu} (\text{Zrak}) = \) <span id="res-izrak" style="font-weight:bold; color:var(--primary-color)">1013.52</span> A</p>
+                        <div id="saturation-warning" style="color: red; font-weight: bold; display: none; margin-top: 10px;">
+                            ⚠ OPOZORILO: Jedro je v globokem nasičenju (\(B_{max} > 1.2 \text{ T}\)). Zveza ni več linearna, tok strmo narašča!
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- B-H and Time Graphs -->
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px;">
+                <!-- B-H Curve SVG -->
+                <div style="text-align: center;">
+                    <svg width="400" height="300" viewBox="-50 -50 400 350" style="background: #fafafa; border: 1px solid #ddd;">
+                        <!-- Axes -->
+                        <path d="M 0 250 L 320 250" fill="none" stroke="#000" stroke-width="1" marker-end="url(#arrow)"/>
+                        <path d="M 50 300 L 50 0" fill="none" stroke="#000" stroke-width="1" marker-end="url(#arrow)"/>
+                        <text x="310" y="270" font-size="14">H (A/m)</text>
+                        <text x="10" y="15" font-size="14">B (T)</text>
+
+                        <!-- B-H Curve (Approximation: linear then saturation) -->
+                        <path d="M 50 250 L 150 100 Q 200 50 300 40" fill="none" stroke="var(--primary-color)" stroke-width="3"/>
+
+                        <!-- Reference point (1T, 300A/m) -> SVG coords: 1T = 150px up, 300A/m = 100px right -->
+                        <path d="M 50 100 L 150 100 L 150 250" fill="none" stroke="#999" stroke-width="1" stroke-dasharray="4,4"/>
+                        <text x="25" y="105" font-size="12">1.0</text>
+                        <text x="140" y="265" font-size="12">300</text>
+
+                        <!-- Dynamic Operating Point -->
+                        <circle id="bh-point" cx="136" cy="121" r="6" fill="#E65100"/>
+                        <path id="bh-line-h" d="M 50 121 L 136 121" fill="none" stroke="#E65100" stroke-width="1" stroke-dasharray="3,3"/>
+                        <path id="bh-line-v" d="M 136 121 L 136 250" fill="none" stroke="#E65100" stroke-width="1" stroke-dasharray="3,3"/>
+                        <text id="bh-text" x="145" y="115" font-size="12" fill="#E65100" font-weight="bold">Delovna točka</text>
+                    </svg>
+                    <p style="font-size: 0.9em; color: #666;">Magnetilna krivulja (B-H)</p>
+                </div>
+
+                <!-- Time Waveforms SVG -->
+                <div style="text-align: center;">
+                    <svg width="400" height="300" viewBox="-50 -150 400 300" style="background: #fafafa; border: 1px solid #ddd;">
+                        <!-- Axes -->
+                        <path d="M 0 0 L 320 0" fill="none" stroke="#000" stroke-width="1" marker-end="url(#arrow)"/>
+                        <path d="M 50 120 L 50 -120" fill="none" stroke="#000" stroke-width="1" marker-end="url(#arrow)"/>
+                        <text x="310" y="20" font-size="14">ωt</text>
+
+                        <!-- Labels -->
+                        <text x="60" y="-130" font-size="14" fill="#000">u(t)</text>
+                        <text x="100" y="-130" font-size="14" fill="#607D8B">e(t)</text>
+                        <text x="140" y="-130" font-size="14" fill="#E65100">Φ(t)</text>
+
+                        <!-- u(t) Sine wave -->
+                        <path d="M 50 0 Q 80 -100 110 0 T 170 0 T 230 0 T 290 0" fill="none" stroke="#000" stroke-width="2"/>
+                        <!-- e(t) = -u(t) -->
+                        <path d="M 50 0 Q 80 100 110 0 T 170 0 T 230 0 T 290 0" fill="none" stroke="#607D8B" stroke-width="2" stroke-dasharray="5,5"/>
+                        <!-- Phi(t) = -cos wave (lags u by 90 deg -> max at u zero-crossing pos) -->
+                        <path d="M 50 50 Q 80 50 110 0 T 170 -50 T 230 0 T 290 50" fill="none" stroke="#E65100" stroke-width="2"/>
+
+                        <!-- Pi markers -->
+                        <text x="105" y="15" font-size="12">π</text>
+                        <text x="165" y="15" font-size="12">2π</text>
+                    </svg>
+                    <p style="font-size: 0.9em; color: #666;">Časovni poteki veličin</p>
+                </div>
+            </div>
+
+            <!-- SVG Definitions -->
+            <svg width="0" height="0">
+                <defs>
+                    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                        <path d="M 0 0 L 10 5 L 0 10 z" fill="#000"/>
+                    </marker>
+                </defs>
+            </svg>
+            <p><strong>Podatki geometrije jedra:</strong></p>
+            <ul>
+                <li>Širina (\(a\)) = \(25 \text{ mm} = 0,025 \text{ m}\)</li>
+                <li>Višina (\(b\)) = \(40 \text{ mm} = 0,040 \text{ m}\)</li>
+            </ul>
+
+            <div class="solution-step">
+                <h4>1. Enačba napetostnega ravnotežja</h4>
+                <p>V začetnih poenostavljenih izračunih, z namenom ponazoritve osnovne fizikalne slike, izgube v navitju in feromagnetnem jedru zanemarimo (\(P_{Cu} \doteq 0\); \(P_{Fe} \doteq 0\)). Predpostavimo <strong>idealno dušilko</strong>.</p>
+                <p>Za to enostavno vezje (brez upoštevanih izgub) velja Kirchoffova napetostna ravnotežna enačba:</p>
+                <div class="formula-box">
+                    \[ \sum u = 0 \quad \rightarrow \quad u + e = 0 \quad \rightarrow \quad u = -e \]
+                </div>
+                <p>Pritisnjeni (napajalni) napetosti na navitje (\(u\)) je enaka inducirana protinapetost v navitju (\(e\)). Po <strong>Lenzovem pravilu</strong> ima napetost lastne indukcije (\(e\)) enako efektivno vrednost kot napajalna napetost, vendar je nasprotnega predznaka.</p>
+                <p><strong>Opomba glede označevanja:</strong> Z malimi črkami označujemo trenutne poteke veličin (napetosti, tokove ... v odvisnosti od časa \(t\)), z velikimi črkami pa ob ustreznem indeksu njihove maksimalne (\(U_{max}\)), efektivne (\(U\)) ali srednje vrednosti. Če simbol nima indeksa, pri izmeničnih električnih veličinah to pomeni <strong>efektivno vrednost</strong>.</p>
+            </div>
+
+            <div class="solution-step">
+                <h4>2. Povezava med napetostjo in magnetnim pretokom (Faradayev zakon)</h4>
+                <p>V zgornjo enačbo vstavimo dejanske funkcijske poteke. Napajalna napetost je sinusna:</p>
+                <div class="formula-box">
+                    \[ u = U_{max} \cdot \sin(\omega t) = \sqrt{2} \cdot U \cdot \sin(\omega t) \]
+                    \[ e = - \frac{d\Psi(t)}{dt} = -N \cdot \frac{d\Phi(t)}{dt} \]
+                </div>
+                <p>Izraza vstavimo v enačbo napetostnega ravnotežja \(u + e = 0\):</p>
+                <div class="formula-box">
+                    \[ \sqrt{2} \cdot U \cdot \sin(\omega t) - N \cdot \frac{d\Phi(t)}{dt} = 0 \]
+                </div>
+                <p>Iščemo funkcijski potek magnetnega pretoka \(\Phi(t)\), zato enačbo preuredimo in izrazimo diferencial pretoka \(d\Phi(t)\):</p>
+                <div class="formula-box">
+                    \[ N \cdot \frac{d\Phi(t)}{dt} = \sqrt{2} \cdot U \cdot \sin(\omega t) \]
+                    \[ d\Phi(t) = \frac{\sqrt{2} \cdot U}{N} \cdot \sin(\omega t) \cdot dt \]
+                </div>
+                <p>Magnetni pretok dobimo z integracijo. Ne pozabimo, da je integral sinusa negativni kosinus (\(\int \sin(kx)dx = -\frac{1}{k}\cos(kx)\)):</p>
+                <div class="formula-box">
+                    \[ \Phi(t) = \int \frac{\sqrt{2} \cdot U}{N} \cdot \sin(\omega t) \cdot dt = - \frac{\sqrt{2} \cdot U}{N \cdot \omega} \cdot \cos(\omega t) \]
+                </div>
+                <p>Iz tega sledi zelo pomembno dejstvo: <strong>Magnetni pretok ima \((-\cos)\) funkcijski potek ob sinusnem poteku napajalne napetosti.</strong> To pomeni, da magnetni pretok fazno zaostaja za napetostjo za \(90^{\circ}\) električnih.</p>
+            </div>
+
+            <div class="solution-step">
+                <h4>3. Izpeljava enačbe za inducirano napetost (Efektivna vrednost)</h4>
+                <p>Amplitudna (maksimalna) vrednost magnetnega pretoka \(\Phi_{max}\) iz zgornje enačbe (kjer je \(\cos(\omega t) = 1\)) je:</p>
+                <div class="formula-box">
+                    \[ \Phi_{max} = \frac{\sqrt{2} \cdot U}{\omega \cdot N} \]
+                </div>
+                <p>Vstavimo krožno frekvenco \(\omega = 2\pi \cdot f\):</p>
+                <div class="formula-box">
+                    \[ \Phi_{max} = \frac{\sqrt{2} \cdot U}{2\pi \cdot f \cdot N} \]
+                </div>
+                <p>Iz te relacije izrazimo efektivno vrednost napetosti \(U\) (ki je enaka efektivni vrednosti inducirane napetosti \(E\)):</p>
+                <div class="formula-box">
+                    \[ U = \frac{2\pi}{\sqrt{2}} \cdot f \cdot N \cdot \Phi_{max} = E \]
+                </div>
+                <p>Da pridemo do uveljavljenega splošnega izraza za inducirano napetost \(E\), zgornjo enačbo pomnožimo in delimo z \(2\). To je matematični trik (množenje z \(\frac{2}{2}\)), ki ne spremeni vrednosti, nam pa omogoči preoblikovanje:</p>
+                <div class="formula-box">
+                    \[ E = 4 \cdot \frac{\pi}{2\sqrt{2}} \cdot f \cdot N \cdot \Phi_{max} = 4 \cdot f_o \cdot f \cdot N \cdot \Phi_{max} \]
+                </div>
+                <p>Pri čemer je \(f_o = \frac{\pi}{2\sqrt{2}} = 1,11\) <strong>faktor oblike</strong> (kvocient med efektivno in srednjo vrednostjo izmeničnega signala) za harmonično (sinusno) vzbujanje. Ker pretok \(\Phi_{max}\) lahko zapišemo kot produkt gostote magnetnega pretoka \(B_{max}\) in površine jedra \(S\) (\(\Phi = B \cdot S\)), dobimo končno in zelo pomembno enačbo za inducirano napetost v transformatorjih in dušilkah:</p>
+                <div class="formula-box">
+                    \[ E = 4,44 \cdot f \cdot N \cdot \Phi_{max} = 4,44 \cdot f \cdot N \cdot B_{max} \cdot S \]
+                </div>
+                <p><em>Opomba:</em> Če napajalna napetost nima harmoničnega poteka (npr. je pravokotna), faktor oblike ni \(1,11\). Splošna enačba je \(E = 4 \cdot f_o \cdot f \cdot N \cdot B_{max} \cdot S\).</p>
+            </div>
+
+            <div class="real-world-box" style="margin-top: 30px; margin-bottom: 30px;">
+                <div class="real-world-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    Uporaba v praksi: Zakaj potrebujemo železna jedra?
+                </div>
+                <p>Primerjava rezultatov med železno in zračno dušilko v tej nalogi (\(0,38 \text{ A}\) vs \(1013 \text{ A}\)) nazorno prikazuje, zakaj se v močnostni elektrotehniki uporablja feromagnetne materiale.</p>
+                <p><strong>Feromagnetna (železna) jedra</strong> delujejo kot "avtocesta" za magnetni pretok. Zaradi visoke permeabilnosti (\(\mu_r \gg 1\)) za ustvarjanje enakega magnetnega polja potrebujemo več tisočkrat manjši tok. To omogoča izdelavo kompaktnih in učinkovitih transformatorjev ter dušilk (npr. v napajalnikih, filtrih za glajenje toka, varilnih aparatih in elektromotorjih).</p>
+                <p><strong>Kdaj pa se uporabljajo zračne dušilke?</strong> Kljub slabši prepustnosti so zračne dušilke nepogrešljive pri <strong>visokih in radijskih frekvencah (RF)</strong> (npr. v radijskih oddajnikih, kretnicah zvočnikov in antenah). Pri zelo visokih frekvencah bi jedro iz železa povzročilo prevelike izgube (vrtinčni tokovi in histereza), hkrati pa zračno jedro nikoli ne more preiti v nasičenje, kar zagotavlja popolno linearnost ne glede na velikost toka.</p>
+            </div>
+
+            <div class="solution-step">
+                <h4>4. Izračun magnetilnega toka z uporabo Amperovega zakona</h4>
+                <p>Zdaj, ko poznamo pretok oziroma gostoto pretoka \(B\), lahko z Amperovim zakonom (1. Maxwellova enačba) izračunamo potreben magnetilni tok. Za homogeno integracijsko pot (krog) brez zračne reže velja:</p>
+                <div class="formula-box">
+                    \[ \oint_C \vec{H} \cdot d\vec{s} = \sum i_\mu \quad \rightarrow \quad H_{max} \cdot l_{sr} = I_{\mu max} \cdot N \]
+                </div>
+                <p>Ker efektivno vrednost toka zapišemo kot \(I_{\mu} = \frac{I_{\mu max}}{\sqrt{2}}\), sledi:</p>
+                <div class="formula-box">
+                    \[ H_{max} \cdot l_{sr} = \sqrt{2} \cdot I_{\mu} \cdot N \]
+                </div>
+                <p>Izrazimo efektivno vrednost magnetilnega toka \(I_\mu\), upoštevajoč zvezo \(B = \mu \cdot H\):</p>
+                <div class="formula-box">
+                    \[ I_\mu = \frac{H_{max} \cdot l_{sr}}{\sqrt{2} \cdot N} = \frac{B_{max} \cdot l_{sr}}{\mu \cdot \sqrt{2} \cdot N} \]
+                </div>
+                <p>Vstavimo konkretne podatke za našo dušilko. Najprej izračunamo maksimalni magnetni pretok \(\Phi_{max}\) iz enačbe za inducirano napetost:</p>
+                <div class="formula-box">
+                    \[ \Phi_{max} = \frac{U}{4,44 \cdot f \cdot N} = \frac{230}{4,44 \cdot 50 \cdot 1200} = 0,00086 \text{ Vs} \]
+                </div>
+                <p>Površina prečnega prereza jedra (\(S_{Fe}\)):</p>
+                <div class="formula-box">
+                    \[ S_{Fe} = a \cdot b = 0,025 \text{ m} \cdot 0,040 \text{ m} = 0,001 \text{ m}^2 \]
+                </div>
+                <p>Maksimalna gostota magnetnega pretoka (\(B_{max}\)):</p>
+                <div class="formula-box">
+                    \[ B_{max} = \frac{\Phi_{max}}{S_{Fe}} = \frac{0,00086}{0,001} = 0,86 \text{ T} \]
+                </div>
+                <p>Dolžina srednje magnetne silnice (\(l_{sr}\)) pri srednjem radiju \(R_{sr} = 0,40 \text{ m}\):</p>
+                <div class="formula-box">
+                    \[ l_{sr} = 2 \cdot \pi \cdot R_{sr} = 2 \cdot \pi \cdot 0,40 \approx 2,513 \text{ m} \]
+                    \[ \text{(V navodilih je privzeta poenostavitev } l_{sr} = 0,8 \cdot \pi \text{ m}) \]
+                </div>
+                <p><strong>Določitev permeabilnosti \(\mu\) iz magnetilne krivulje:</strong> Za material pri \(B = 1 \text{ T}\) je \(H = 300 \text{ A/m}\). Ker smo v nenasičenem (linearnem) področju (ker je naša izračunana \(B_{max} = 0,86 \text{ T} < 1 \text{ T}\)), lahko direktno izračunamo permeabilnost iz te točke:</p>
+                <div class="formula-box">
+                    \[ \mu = \frac{B}{H} = \frac{1 \text{ T}}{300 \text{ A/m}} \text{ (Vs/Am)} \]
+                </div>
+                <p>Končni izračun magnetilnega toka (efektivna vrednost):</p>
+                <div class="formula-box">
+                    \[ I_{\mu} = \frac{B_{max} \cdot l_{sr}}{\mu \cdot \sqrt{2} \cdot N} = \frac{0,86 \cdot (0,8 \cdot \pi)}{\frac{1}{300} \cdot \sqrt{2} \cdot 1200} = 0,382 \text{ A} \]
+                </div>
+                <p><strong>Zračna dušilka (Primerjava):</strong><br>
+                Če bi feromagnetno jedro nadomestili z neferomagnetnim materialom (npr. zrak, les, plastika), bi veljalo \(\mu_r \approx 1\), torej \(\mu = \mu_0 = 4\pi \cdot 10^{-7} \text{ Vs/Am}\). Potreben magnetilni tok za enake magnetne razmere (\(B_{max} = 0,86 \text{ T}\)) bi bil:</p>
+                <div class="formula-box">
+                    \[ I_{\mu_0} = \frac{0,86 \cdot (0,8 \cdot \pi)}{4\pi \cdot 10^{-7} \cdot \sqrt{2} \cdot 1200} = 1013,52 \text{ A} \]
+                </div>
+            </div>
+        </section>
+
+        <section class="task">
+            <h3>Preveri svoje znanje</h3>
+
+            <div style="margin-bottom: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                <p><strong>1. Kviz: Sprememba frekvence</strong></p>
+                <p>Predpostavimo, da dušilko iz naloge (\(U = 230 \text{ V}\), \(N = 1200\)) priključimo na ameriško omrežje s frekvenco <strong>\(f = 60 \text{ Hz}\)</strong> (namesto \(50 \text{ Hz}\)). Kakšna bo nova maksimalna gostota magnetnega pretoka \(B_{max}\) v jedru? (Rezultat zaokroži na dve decimalni mesti.)</p>
+
+                <div style="display: flex; gap: 10px; align-items: center; margin-top: 10px;">
+                    <input type="number" id="quiz1-input" step="0.01" style="padding: 5px; width: 100px;">
+                    <span>T</span>
+                    <button onclick="checkQuiz1()" style="padding: 5px 15px; background: var(--primary-color); color: white; border: none; border-radius: 4px; cursor: pointer;">Preveri</button>
+                </div>
+                <div id="quiz1-feedback" style="margin-top: 10px; font-weight: bold; display: none;"></div>
+                <details style="margin-top: 15px; cursor: pointer;">
+                    <summary>Prikaži rešitev in postopek</summary>
+                    <div class="solution-step">
+                        <p>Iz Faradayovega zakona vemo, da je \(B_{max}\) obratno sorazmerna s frekvenco:</p>
+                        <div class="formula-box">
+                            \[ B_{max} = \frac{U}{4,44 \cdot f \cdot N \cdot S_{Fe}} \]
+                        </div>
+                        <p>Če se frekvenca poveča s \(50\) na \(60 \text{ Hz}\), se bo pretok ustrezno zmanjšal. Vstavimo številke:</p>
+                        <div class="formula-box">
+                            \[ B_{max} = \frac{230}{4,44 \cdot 60 \cdot 1200 \cdot 0,001} \approx 0,72 \text{ T} \]
+                        </div>
+                    </div>
+                </details>
+            </div>
+
+            <div style="margin-bottom: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                <p><strong>2. Kviz: Nasičenje jedra</strong></p>
+                <p>Kaj se zgodi s feromagnetnim jedrom transformatorja ali dušilke, če ga priključimo na napetost, ki je precej višja od nazivne (in hkrati ohranimo enako frekvenco)?</p>
+
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
+                    <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                        <input type="radio" name="q2" value="a"> Pretok ostane isti, saj je odvisen samo od frekvence, poveča se le upor tuljave.
+                    </label>
+                    <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                        <input type="radio" name="q2" value="b"> Gostota pretoka \(B_{max}\) se poveča in jedro preide v nasičenje. Zaradi tega drastično pade permeabilnost (\(\mu\)), magnetilni tok pa strmo in nelinearno naraste.
+                    </label>
+                    <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                        <input type="radio" name="q2" value="c"> Jedro začne delovati kot zračna dušilka, tok se zmanjša, izkoristek pa se poveča.
+                    </label>
+                    <button onclick="checkQuiz2()" style="margin-top: 10px; padding: 5px 15px; background: var(--primary-color); color: white; border: none; border-radius: 4px; cursor: pointer; width: fit-content;">Preveri</button>
+                </div>
+                <div id="quiz2-feedback" style="margin-top: 10px; font-weight: bold; display: none;"></div>
+            </div>
+
+        </section>
+
+        <script>
+            // Constants
+            const mu0 = 4 * Math.PI * 1e-7;
+            const Sfe = 0.001; // m^2
+            const lsr = 0.8 * Math.PI; // m
+            const mu_lin = 1 / 300; // Permeability in linear region
+
+            // DOM elements
+            const uSlider = document.getElementById('u-slider');
+            const fSlider = document.getElementById('f-slider');
+            const nSlider = document.getElementById('n-slider');
+
+            const uVal = document.getElementById('u-val');
+            const fVal = document.getElementById('f-val');
+            const nVal = document.getElementById('n-val');
+
+            const resBmax = document.getElementById('res-bmax');
+            const resIfe = document.getElementById('res-ife');
+            const resIzrak = document.getElementById('res-izrak');
+            const warningBox = document.getElementById('saturation-warning');
+
+            // SVG elements for B-H curve
+            const bhPoint = document.getElementById('bh-point');
+            const bhLineH = document.getElementById('bh-line-h');
+            const bhLineV = document.getElementById('bh-line-v');
+            const bhText = document.getElementById('bh-text');
+
+            // B-H curve interpolation function
+            function getH_from_B(B) {
+                // Linear region: H = B * 300 (up to B = 1.0 T, H = 300)
+                // Knee region approximation:
+                // Let's create a custom curve to match the visual SVG curve
+                if (B <= 1.0) {
+                    return B * 300;
+                } else if (B <= 1.2) {
+                    // Smooth transition into saturation
+                    // At B=1.0, H=300
+                    // At B=1.2, let's say H=800
+                    return 300 + Math.pow((B - 1.0) * 5, 2) * 500;
+                } else {
+                    // Deep saturation, H shoots up quickly
+                    return 800 + Math.pow((B - 1.2) * 2, 3) * 5000;
+                }
+            }
+
+            function updateCalculations() {
+                const U = parseFloat(uSlider.value);
+                const f = parseFloat(fSlider.value);
+                const N = parseFloat(nSlider.value);
+
+                uVal.innerText = U;
+                fVal.innerText = f;
+                nVal.innerText = N;
+
+                // Calculate Bmax
+                const Phi_max = U / (4.44 * f * N);
+                const Bmax = Phi_max / Sfe;
+
+                // Calculate currents
+                const Hmax = getH_from_B(Bmax);
+                const Ife = (Hmax * lsr) / (Math.sqrt(2) * N);
+
+                // Air core current (linear)
+                const Hmax_air = Bmax / mu0;
+                const Iair = (Hmax_air * lsr) / (Math.sqrt(2) * N);
+
+                // Update UI
+                resBmax.innerText = Bmax.toFixed(2);
+                resIfe.innerText = Ife.toFixed(2);
+                resIzrak.innerText = Iair.toFixed(0);
+
+                if (Bmax > 1.2) {
+                    warningBox.style.display = 'block';
+                    resBmax.style.color = 'red';
+                    resIfe.style.color = 'red';
+                } else {
+                    warningBox.style.display = 'none';
+                    resBmax.style.color = 'var(--primary-color)';
+                    resIfe.style.color = 'var(--primary-color)';
+                }
+
+                updateBHGraph(Bmax, Hmax);
+            }
+
+            function updateBHGraph(B, H) {
+                // Map B and H to SVG coordinates
+                // B: 0 to 1.6T maps to Y: 250 to 50 (range 200, scale = 200/1.6 = 125 px/T)
+                // H: 0 to 1500 A/m maps to X: 50 to 300 (range 250, scale = 250/1500 = 0.166 px/(A/m))
+
+                const scaleB = 150; // 1T = 150px
+                const scaleH = 100 / 300; // 300 A/m = 100px
+
+                let svgY = 250 - (B * scaleB);
+                let svgX = 50 + (H * scaleH);
+
+                // Clamp visually to SVG box to avoid breaking out
+                svgY = Math.max(30, svgY);
+                svgX = Math.min(310, svgX);
+
+                bhPoint.setAttribute('cx', svgX);
+                bhPoint.setAttribute('cy', svgY);
+
+                bhLineH.setAttribute('d', `M 50 ${svgY} L ${svgX} ${svgY}`);
+                bhLineV.setAttribute('d', `M ${svgX} ${svgY} L ${svgX} 250`);
+
+                bhText.setAttribute('x', svgX + 10);
+                bhText.setAttribute('y', svgY - 10);
+            }
+
+            // Event listeners
+            uSlider.addEventListener('input', updateCalculations);
+            fSlider.addEventListener('input', updateCalculations);
+            nSlider.addEventListener('input', updateCalculations);
+
+            // Initial render
+            updateCalculations();
+
+            // Quiz functions
+            function checkQuiz1() {
+                const input = document.getElementById('quiz1-input').value;
+                const feedback = document.getElementById('quiz1-feedback');
+                const parsed = parseFloat(input);
+
+                if (isNaN(parsed)) {
+                    feedback.innerText = "Prosim vnesi številko.";
+                    feedback.style.color = "red";
+                } else if (Math.abs(parsed - 0.72) < 0.02) {
+                    feedback.innerText = "Pravilno! Bmax se zmanjša na 0.72 T.";
+                    feedback.style.color = "green";
+                } else {
+                    feedback.innerText = "Napačno. Poskusi znova (uporabi formulo Bmax = U / (4.44*f*N*Sfe)).";
+                    feedback.style.color = "red";
+                }
+                feedback.style.display = "block";
+            }
+
+            function checkQuiz2() {
+                const selected = document.querySelector('input[name="q2"]:checked');
+                const feedback = document.getElementById('quiz2-feedback');
+
+                if (!selected) {
+                    feedback.innerText = "Prosim izberi enega izmed odgovorov.";
+                    feedback.style.color = "red";
+                } else if (selected.value === 'b') {
+                    feedback.innerText = "Pravilno! Enačba E = 4.44 * f * N * Bmax * S nakazuje, da je Bmax direktno sorazmeren z napetostjo (E ≈ U). Višja napetost povzroči višji pretok in posledično nasičenje, če gremo čez linearno območje.";
+                    feedback.style.color = "green";
+                } else {
+                    feedback.innerText = "Napačno. Premisli, kaj se zgodi z enačbo Faradayovega zakona, če povečamo U ob enakem f.";
+                    feedback.style.color = "red";
+                }
+                feedback.style.display = "block";
+            }
+        </script>
+    </main>
+</body>
+</html>

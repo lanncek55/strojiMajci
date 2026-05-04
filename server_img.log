@@ -1,0 +1,11 @@
+127.0.0.1 - - [04/May/2026 19:54:35] code 404, message File not found
+127.0.0.1 - - [04/May/2026 19:54:35] "GET /robots.txt HTTP/1.1" 404 -
+127.0.0.1 - - [04/May/2026 19:54:41] "GET /pdf_images/vaja01/page_01.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/May/2026 19:56:07] code 404, message File not found
+127.0.0.1 - - [04/May/2026 19:56:07] "GET /robots.txt HTTP/1.1" 404 -
+127.0.0.1 - - [04/May/2026 19:56:13] "GET /pdf_images/vaja01/page_02.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/May/2026 19:56:53] code 404, message File not found
+127.0.0.1 - - [04/May/2026 19:56:53] "GET /robots.txt HTTP/1.1" 404 -
+127.0.0.1 - - [04/May/2026 19:56:59] "GET /pdf_images/vaja01/page_03.png HTTP/1.1" 200 -
+127.0.0.1 - - [04/May/2026 20:23:02] "GET /vaja_01.html HTTP/1.1" 200 -
+127.0.0.1 - - [04/May/2026 20:23:02] "GET /style.css HTTP/1.1" 200 -
