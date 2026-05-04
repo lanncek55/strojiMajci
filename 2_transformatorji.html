@@ -616,6 +616,360 @@
 
         <hr>
 
+        <!-- Naloga 2.6 -->
+        <section class="task">
+            <h3>NALOGA 2.6: Kappov diagram in padec napetosti</h3>
+            <p>Trifazni transformator nazivne moči \(1 \text{ MVA}\), \(U_{1n} = 10 \text{ kV}\), \(U_{2n} = 0.4 \text{ kV}\), \(f_n = 50 \text{ Hz}\), \(P_{Cun} = 15 \text{ kW}\), \(P_0 = 5 \text{ kW}\), \(u_K = 6 \%\) obratuje na napajalnem omrežju \(U_1' = 11 \text{ kV}\), \(f' = 60 \text{ Hz}\). Po sekundarnem navitju teče tok \(I_2 = 1000 \text{ A}\) pri \(\cos\phi_2 = 0.5 \text{ ind}\). Za ta obratovalni primer izračunajte izgube v bakru in železu ter točno sekundarno napetost \(U_2'\)!</p>
+
+            <div class="real-world-box">
+                <div class="real-world-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    Uporaba v praksi
+                </div>
+                <p><strong>Padec napetosti pod obremenitvijo:</strong> V idealnem transformatorju je izhodna napetost točno določena s prestavnim razmerjem. V realnosti pa imajo navitja ohmsko upornost (\(R\)) in stresano induktivnost (\(X\)). Ko priklopimo breme, skozi navitja steče tok in povzroči padec napetosti (\(I \cdot Z\)). Izhodna napetost pri porabniku (npr. v vašem gospodinjstvu) zato <strong>pade</strong> (če je breme induktivno) ali celo <strong>naraste</strong> (če je močno kapacitivno). Kappov diagram je geometrijska in matematična metoda za natančen izračun tega pojava, kar inženirjem omogoča pravilno dimenzioniranje transformatorjev, da napetost na koncu voda ne pade pod zakonsko mejo.</p>
+            </div>
+
+            <div class="interactive-container">
+                <div class="interactive-controls">
+                    <div class="control-group">
+                        <label for="slider-i2-26">Sekundarni tok \(I_2\) [A]: <span id="val-i2-26">1000</span></label>
+                        <input type="range" id="slider-i2-26" min="100" max="2000" step="100" value="1000" oninput="updateTask26()">
+                    </div>
+                    <div class="control-group">
+                        <label for="slider-cos-26">Faktor moči (\(\cos\phi_2\)) [induktivno]: <span id="val-cos-26">0.5</span></label>
+                        <input type="range" id="slider-cos-26" min="0.1" max="1.0" step="0.1" value="0.5" oninput="updateTask26()">
+                    </div>
+                    <div class="interactive-results">
+                        <div>Padec napetosti \(\Delta U\): <span id="res-du-26">17.6</span> V</div>
+                        <div style="margin-top:10px; font-weight:bold; color:var(--primary-color);">Končna napetost \(U_2'\): <span id="res-u2-26">422.4</span> V</div>
+                    </div>
+                </div>
+                <div class="interactive-svg-wrapper">
+                    <!-- Kappov Trikotnik Prikaz -->
+                    <svg id="svg-kapp-26" width="300" height="250" viewBox="0 -50 300 250">
+                        <defs>
+                            <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#333" />
+                            </marker>
+                            <marker id="arrow-red" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c" />
+                            </marker>
+                        </defs>
+
+                        <!-- U2 kazalec -->
+                        <line x1="20" y1="180" x2="250" y2="180" stroke="#3498db" stroke-width="3" marker-end="url(#arrow)"/>
+                        <text x="130" y="195" font-size="12" fill="#3498db">U_2' (Cilj)</text>
+
+                        <!-- Tok I2 (pod kotom phi) -->
+                        <line id="svg-kapp-i2" x1="20" y1="180" x2="150" y2="230" stroke="#f1c40f" stroke-dasharray="4" stroke-width="2" marker-end="url(#arrow)"/>
+                        <text id="svg-kapp-i2-text" x="140" y="245" font-size="12" fill="#f39c12">I_2</text>
+
+                        <!-- Padci napetosti -->
+                        <line id="svg-kapp-ur" x1="250" y1="180" x2="280" y2="120" stroke="#e67e22" stroke-width="2" marker-end="url(#arrow)"/>
+                        <text id="svg-kapp-ur-text" x="275" y="160" font-size="10" fill="#e67e22">I*R</text>
+
+                        <line id="svg-kapp-ux" x1="280" y1="120" x2="220" y2="90" stroke="#9b59b6" stroke-width="2" marker-end="url(#arrow)"/>
+                        <text id="svg-kapp-ux-text" x="250" y="100" font-size="10" fill="#9b59b6">I*X</text>
+
+                        <!-- Povezava za U1 (E) -->
+                        <line id="svg-kapp-u1" x1="20" y1="180" x2="220" y2="90" stroke="#e74c3c" stroke-width="3" marker-end="url(#arrow-red)"/>
+                        <text id="svg-kapp-u1-text" x="100" y="125" font-size="12" fill="#e74c3c">U_1' (Izvor)</text>
+                    </svg>
+                </div>
+            </div>
+
+            <details>
+                <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
+
+                <div class="solution-step">
+                    <h4>1. Nazivni tokovi in izgube:</h4>
+                    <p>Nazivna tokova primarja in sekundarja pri nazivni moči (\(S_n = 1 \text{ MVA} = 10^6 \text{ VA}\)):</p>
+                    <div class="formula-box">
+                        \[ I_{1n} = \frac{S_n}{\sqrt{3} \cdot U_{1n}} = \frac{1 \cdot 10^6}{\sqrt{3} \cdot 10 \cdot 10^3} = 57.34 \text{ A} \]
+                        \[ I_{2n} = \frac{S_n}{\sqrt{3} \cdot U_{2n}} = \frac{1 \cdot 10^6}{\sqrt{3} \cdot 0.4 \cdot 10^3} = 1443.4 \text{ A} \]
+                    </div>
+                    <p>Izgube v navitju pri novem toku (\(I_2 = 1000 \text{ A}\)). Izgube rastejo s kvadratom toka:</p>
+                    <div class="formula-box">
+                        \[ P_{Cu}' = P_{Cun} \cdot \left(\frac{I_2}{I_{2n}}\right)^2 = 15 \cdot 10^3 \cdot \left(\frac{1000}{1443.4}\right)^2 = \underline{\underline{7200 \text{ W}}} \]
+                    </div>
+                    <p>Izgube v železu so odvisne od frekvence in kvadrata magnetne gostote (\(P_{Fe} \propto f \cdot B^2\)). Nazivne izgube v železu so enake meritvam v prostem teku (\(P_{Fen} = P_0 = 5 \text{ kW}\)). Zveza med napetostjo, frekvenco in pretokom iz prejšnjih nalog nam da:</p>
+                    <div class="formula-box">
+                        \[ \frac{B'}{B_n} = \frac{U_1' \cdot f_n}{U_{1n} \cdot f'} = 1.1 \cdot \frac{f_n}{f'} \]
+                    </div>
+                    <p>Vstavimo to v enačbo za izgube v železu:</p>
+                    <div class="formula-box">
+                        \[ P_{Fe}' = P_{Fen} \cdot \left(\frac{f'}{f_n}\right) \cdot \left(1.1 \cdot \frac{f_n}{f'}\right)^2 = P_{Fen} \cdot \left(\frac{f'}{f_n}\right) \cdot 1.21 \cdot \left(\frac{f_n}{f'}\right)^2 = 1.21 \cdot P_{Fen} \cdot \left(\frac{f_n}{f'}\right) \]
+                        \[ P_{Fe}' = 1.21 \cdot 5000 \cdot \left(\frac{50}{60}\right) = \underline{\underline{5042 \text{ W}}} \]
+                    </div>
+                </div>
+
+                <div class="solution-step">
+                    <h4>2. Elementi Kappovega trikotnika (kratkostične napetosti):</h4>
+                    <p>Relativne kratkostične napetosti nam povedo, kolikšen % nazivne napetosti se porabi za padec na upornosti (\(R\)) in reaktanci (\(X\)) navitja pri nazivnem toku.</p>
+                    <div class="formula-box">
+                        \[ u_R\% = p_{Cu}\% = \frac{P_{Cun}}{S_n} \cdot 100\% = \frac{15 \cdot 10^3}{1 \cdot 10^6} \cdot 100\% = 1.5\% \]
+                        \[ u_X\% = \sqrt{u_K\%^2 - u_R\%^2} = \sqrt{6^2 - 1.5^2} = 5.81\% \]
+                    </div>
+                    <p>Pri novi obremenitvi (\(I_2 = 1000 \text{ A}\)) te napetosti linearno padejo z razmerjem toka (\(1000 / 1443.4 = 0.6928\)):</p>
+                    <div class="formula-box">
+                        \[ u_R'\% = 1.5 \cdot 0.6928 = 1.039\% \]
+                        \[ u_X'\% = 5.81 \cdot 0.6928 = 4.025\% \]
+                        \[ u_K'\% = 6 \cdot 0.6928 = 4.157\% \]
+                    </div>
+                </div>
+
+                <div class="solution-step">
+                    <h4>3. Padec napetosti iz Kappovega diagrama:</h4>
+                    <p>Končna izpeljana enačba za relativni padec napetosti obteženega transformatorja (upoštevajoč \(\cos\phi_2 = 0.5\), od koder je \(\sin\phi_2 = \sqrt{1 - 0.5^2} = 0.866\)):</p>
+                    <div class="formula-box">
+                        \[ \Delta u'\% \approx u_R'\% \cdot \cos\phi_2 + u_X'\% \cdot \sin\phi_2 + \left( \dots \text{zanemarljiv člen } U_1 - \dots \right) \]
+                        \[ \Delta u'\% = 1.039 \cdot 0.5 + 4.025 \cdot 0.866 + \dots = 0.520 + 3.485 = 4\% \]
+                    </div>
+                    <p>Sekundarna napetost neobremenjenega transformatorja je sledila primarni napetosti (\(11 \text{ kV} = 1.1 \cdot 10 \text{ kV}\)):</p>
+                    <div class="formula-box">
+                        \[ E_2' = 1.1 \cdot U_{2n} = 1.1 \cdot 400 = 440 \text{ V} \]
+                    </div>
+                    <p>Padec napetosti na sekundarju in končna napetost:</p>
+                    <div class="formula-box">
+                        \[ \Delta U = \Delta u'\% \cdot E_2' = 0.04 \cdot 440 = 17.6 \text{ V} \]
+                        \[ U_2' = E_2' - \Delta U = 440 - 17.6 = \underline{\underline{422.4 \text{ V}}} \]
+                    </div>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 2.6 -->
+        <section class="quiz-section">
+            <h3>Kviz 2.6: Izgube in frekvenca</h3>
+            <p>V nalogi 2.6 smo opazili formulo za izgube v železu pri spremenjeni frekvenci. Če transformator priključimo na omrežje z <strong>višjo frekvenco</strong> (pri isti napetosti), ali bodo po tej formuli izgube v železu večje ali manjše od nazivnih?</p>
+            <div class="input-group">
+                <label><input type="radio" name="quiz26" value="vecje"> Večje</label><br>
+                <label><input type="radio" name="quiz26" value="manjse"> Manjše</label><br>
+                <button onclick="checkQuiz26()" style="margin-top: 10px;">Preveri</button>
+            </div>
+            <div id="quiz26-feedback" class="feedback"></div>
+        </section>
+
+        <hr>
+
+        <!-- Naloga 2.7 -->
+        <section class="task">
+            <h3>NALOGA 2.7: Paralelno obratovanje in neenakomerna obremenitev</h3>
+            <p>Dva transformatorja z enako nazivno močjo \(S_{n1} = S_{n2} = 100 \text{ kVA}\), \(20 \text{ kV}/0.4 \text{ kV}\) obratujeta paralelno. Prvi ima relativno kratkostično napetost \(u_{K1} = 5 \%\) in drugi \(u_{K2} = 6 \%\). Nazivno razmerje izgub \(P_{Cun}/P_{Fen} = \xi_n = 5\). Pri ločenem obratovanju z nazivno močjo bi se oba segrela na \(\Theta = 65^\circ\text{C}\) nadtemperature. V paralelnem obratovanju sta že nekaj dni obremenjena s skupno močjo \(210 \text{ kVA}\). Do kakšne nadtemperature se segreje prvi oziroma drugi transformator (\(\Theta_{max1} = ?, \Theta_{max2} = ?\)), če smatramo, da je transformator homogeno telo?</p>
+
+            <div class="real-world-box">
+                <div class="real-world-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    Uporaba v praksi
+                </div>
+                <p><strong>Paralelno delovanje:</strong> Ko se poraba v omrežju poveča čez zmogljivost enega transformatorja, pogosto vzporedno dodajo še enega. Zdi se logično, da si bosta moč razdelila natanko na pol. VENDAR, ker imata lahko transformatorja minimalno različno notranjo upornost (kar se kaže v vrednosti \(u_K\)), si toka ne razdelita enako! Transformator z manjšim \(u_K\) (manjši notranji upor) bo prevzel večji del bremena. Zato se v praksi transformatorjev z različnimi \(u_K\) (če razlika presega ~10%) sploh ne sme vezati vzporedno, saj bo eden pregorel, medtem ko bo drugi še na pol prazen.</p>
+            </div>
+
+            <div class="interactive-container" style="justify-content: center; background: #fafafa;">
+                <div style="text-align: center; padding: 10px;">
+                    <h4>Skica paralelne vezave in porazdelitve moči</h4>
+                    <svg width="400" height="250" viewBox="0 0 400 250">
+                        <!-- Zbiralke VN -->
+                        <line x1="50" y1="30" x2="350" y2="30" stroke="#e74c3c" stroke-width="4"/>
+                        <text x="200" y="20" font-size="14" fill="#e74c3c" text-anchor="middle">Zbiralke VN (20 kV)</text>
+
+                        <!-- Transformator 1 -->
+                        <line x1="120" y1="30" x2="120" y2="70" stroke="#333" stroke-width="2"/>
+                        <circle cx="120" cy="90" r="20" fill="none" stroke="#333" stroke-width="2"/>
+                        <circle cx="120" cy="110" r="20" fill="none" stroke="#333" stroke-width="2"/>
+                        <line x1="120" y1="130" x2="120" y2="170" stroke="#333" stroke-width="2"/>
+                        <text x="70" y="100" font-size="12" font-weight="bold">TR 1</text>
+                        <text x="60" y="115" font-size="10">u_K1 = 5%</text>
+
+                        <!-- Transformator 2 -->
+                        <line x1="280" y1="30" x2="280" y2="70" stroke="#333" stroke-width="2"/>
+                        <circle cx="280" cy="90" r="20" fill="none" stroke="#333" stroke-width="2"/>
+                        <circle cx="280" cy="110" r="20" fill="none" stroke="#333" stroke-width="2"/>
+                        <line x1="280" y1="130" x2="280" y2="170" stroke="#333" stroke-width="2"/>
+                        <text x="310" y="100" font-size="12" font-weight="bold">TR 2</text>
+                        <text x="310" y="115" font-size="10">u_K2 = 6%</text>
+
+                        <!-- Zbiralke NN -->
+                        <line x1="50" y1="170" x2="350" y2="170" stroke="#3498db" stroke-width="4"/>
+                        <text x="200" y="160" font-size="14" fill="#3498db" text-anchor="middle">Zbiralke NN (0.4 kV)</text>
+
+                        <!-- Skupno breme -->
+                        <line x1="200" y1="170" x2="200" y2="210" stroke="#333" stroke-width="2"/>
+                        <rect x="170" y="210" width="60" height="30" fill="#7f8c8d"/>
+                        <text x="200" y="230" font-size="12" fill="#fff" text-anchor="middle">S_B = 210</text>
+
+                        <!-- Tokovi / Obremenitve -->
+                        <path d="M 110 140 L 110 160" fill="none" stroke="#f39c12" stroke-width="2" marker-end="url(#arrow)"/>
+                        <text x="80" y="155" font-size="12" fill="#f39c12">x1 = 1.14</text>
+
+                        <path d="M 290 140 L 290 160" fill="none" stroke="#f39c12" stroke-width="2" marker-end="url(#arrow)"/>
+                        <text x="300" y="155" font-size="12" fill="#f39c12">x2 = 0.95</text>
+                    </svg>
+                </div>
+            </div>
+
+            <details>
+                <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
+
+                <div class="solution-step">
+                    <h4>1. Porazdelitev moči med transformatorjema:</h4>
+                    <p>Pri paralelnem obratovanju sta transformatorja priključena na iste zbiralke na primarni in sekundarni strani. Posledično je padec napetosti od primarnih do sekundarnih zbiralk za <strong>oba</strong> transformatorja absolutno enak (\(\Delta U_1 = \Delta U_2\)).</p>
+                    <p>Iz tega pogoja sledi razmerje obremenitev (\(x_1\) in \(x_2\), kjer je \(x = S / S_n\)):</p>
+                    <div class="formula-box">
+                        \[ x_1 \cdot u_{K1} = x_2 \cdot u_{K2} \]
+                    </div>
+                    <p>Vsota obeh prenesenih moči mora biti enaka celotnemu bremenu (\(S_B = 210 \text{ kVA}\)):</p>
+                    <div class="formula-box">
+                        \[ x_1 \cdot S_{n1} + x_2 \cdot S_{n2} = S_B \]
+                    </div>
+                    <p>Ker imata oba enako nazivno moč (\(S_{n1} = S_{n2} = 100\)), v to enačbo vstavimo razmerje (\(x_2 = x_1 \cdot \frac{u_{K1}}{u_{K2}}\)):</p>
+                    <div class="formula-box">
+                        \[ x_1 \cdot 100 + \left(x_1 \cdot \frac{5}{6}\right) \cdot 100 = 210 \]
+                        \[ x_1 \cdot 100 \cdot \left(1 + \frac{5}{6}\right) = 210 \]
+                        \[ x_1 \cdot 100 \cdot 1.833 = 210 \quad \Rightarrow \quad x_1 = \frac{210}{183.33} = \underline{1.145} \]
+                    </div>
+                    <p>Stopnja obremenitve drugega transformatorja:</p>
+                    <div class="formula-box">
+                        \[ x_2 = x_1 \cdot \frac{5}{6} = 1.145 \cdot \frac{5}{6} = \underline{0.955} \]
+                    </div>
+                    <p>Prvi transformator (z manjšim uK) je torej obremenjen 14.5% preko svoje nazivne vrednosti (\(114.5 \text{ kVA}\)), medtem ko drugi dela le s 95.5% zmogljivosti (\(95.5 \text{ kVA}\)).</p>
+                </div>
+
+                <div class="solution-step">
+                    <h4>2. Segrevanje strojev (Nadtemperature):</h4>
+                    <p>Iz prejšnjih nalog vemo, da celotne izgube (in s tem sproščena toplota) sestojijo iz konstantnih izgub v železu in kvadratično naraščajočih izgub v bakru. Pri nazivni obremenitvi (\(x=1\)) se transformator segreje na \(\Theta_{maxn} = 65^\circ\text{C}\).</p>
+                    <p>Formula za novo maksimalno nadtemperaturo ob spremenjeni obremenitvi \(x\) in nazivnem razmerju izgub \(\xi_n\):</p>
+                    <div class="formula-box">
+                        \[ \Theta_{max} = \Theta_{maxn} \cdot \frac{1 + \xi_n \cdot x^2}{1 + \xi_n} \]
+                    </div>
+                    <p>Izračun za prvi (preobremenjen) transformator:</p>
+                    <div class="formula-box">
+                        \[ \Theta_{max1} = 65 \cdot \frac{1 + 5 \cdot (1.145)^2}{1 + 5} = 65 \cdot \frac{1 + 6.555}{6} = 65 \cdot 1.259 = \underline{\underline{82^\circ\text{C}}} \]
+                    </div>
+                    <p>Izračun za drugi (manj obremenjen) transformator:</p>
+                    <div class="formula-box">
+                        \[ \Theta_{max2} = 65 \cdot \frac{1 + 5 \cdot (0.955)^2}{1 + 5} = 65 \cdot \frac{1 + 4.56}{6} = 65 \cdot 0.926 = \underline{\underline{60^\circ\text{C}}} \]
+                    </div>
+                    <p>Vidimo, da je razlika v temperaturi drastična (22 stopinj!), čeprav sta to nazivno enaka transformatorja in je skupno breme "samo" 5% višje od njune skupne zmogljivosti.</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 2.7 -->
+        <section class="quiz-section">
+            <h3>Kviz 2.7: Pravilo vzporedne vezave</h3>
+            <p>V zgornjem primeru sta si transformatorja razdelila breme neenakomerno. Kateri izmed njiju je prevzel <strong>večji delež</strong> toka in posledično postal bolj obremenjen?</p>
+            <div class="input-group">
+                <label><input type="radio" name="quiz27" value="mali"> Tisti z manjšim u_K (u_K1 = 5%)</label><br>
+                <label><input type="radio" name="quiz27" value="veliki"> Tisti z večjim u_K (u_K2 = 6%)</label><br>
+                <button onclick="checkQuiz27()" style="margin-top: 10px;">Preveri</button>
+            </div>
+            <div id="quiz27-feedback" class="feedback"></div>
+        </section>
+
+        <hr>
+
+        <!-- Naloga 2.8 -->
+        <section class="task">
+            <h3>NALOGA 2.8: Segrevanje stroja in časovna konstanta</h3>
+            <p>Transformator s časovno konstanto segrevanja \(T = 3.5 \text{ h}\) obratuje na nazivnem omrežju in je nazivno obremenjen. V kolikem času \(t\) bo dosegel 75% končne nadtemperature \(\Theta(t) = 0.75 \cdot \Theta_{maxn}\), če je nazivno obremenjen iz hladnega stanja (\(\Theta(0) = 0\))? Transformator obravnavamo kot homogeno telo.</p>
+
+            <div class="real-world-box">
+                <div class="real-world-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    Uporaba v praksi
+                </div>
+                <p><strong>Toplotna vztrajnost in preobremenitev:</strong> Železo in baker ter olje v transformatorjih imajo veliko maso, zato se segrevajo zelo počasi. Časovna konstanta (\(T\)) reda velikosti več ur pomeni, da lahko transformator za kratek čas (npr. eno uro v času konice porabe) močno preobremenimo (npr. na 150%), pa ne bo pregorel, saj se v tistem kratkem času fizično ne bo utegnil segreti do uničujoče temperature. Poznavanje te eksponentne krivulje je temelj varnega in optimalnega obratovanja v distribuciji.</p>
+            </div>
+
+            <div class="interactive-container">
+                <div class="interactive-controls">
+                    <div class="control-group">
+                        <label for="slider-perc-28">Želeni % končne temperature: <span id="val-perc-28">75</span>%</label>
+                        <input type="range" id="slider-perc-28" min="10" max="99" step="1" value="75" oninput="updateTask28()">
+                    </div>
+                    <div class="control-group">
+                        <label for="slider-t-28">Časovna konstanta \(T\) [h]: <span id="val-t-28">3.5</span></label>
+                        <input type="range" id="slider-t-28" min="1.0" max="10.0" step="0.5" value="3.5" oninput="updateTask28()">
+                    </div>
+                    <div class="interactive-results">
+                        <div style="margin-top:10px; font-weight:bold; color:var(--primary-color);">Potreben čas \(t\): <span id="res-time-28">4.85</span> ur</div>
+                    </div>
+                </div>
+                <div class="interactive-svg-wrapper">
+                    <svg id="svg-heat-28" width="300" height="200" viewBox="0 -20 300 220">
+                        <!-- Os X in Y -->
+                        <line x1="30" y1="180" x2="280" y2="180" stroke="#333" stroke-width="2"/>
+                        <line x1="30" y1="0" x2="30" y2="180" stroke="#333" stroke-width="2"/>
+                        <text x="260" y="195" font-size="12">Čas t [h]</text>
+                        <text x="5" y="10" font-size="12">Θ(t)</text>
+
+                        <!-- Maksimalna temperatura (asimptota) -->
+                        <line x1="30" y1="20" x2="280" y2="20" stroke="#e74c3c" stroke-width="1" stroke-dasharray="4,4"/>
+                        <text x="5" y="25" font-size="10" fill="#e74c3c">Θ_max</text>
+
+                        <!-- Segrevalna krivulja -->
+                        <path id="svg-heat-curve-28" d="" fill="none" stroke="#e67e22" stroke-width="3"/>
+
+                        <!-- Prikaz presečišča -->
+                        <line id="svg-target-y-28" x1="30" y1="100" x2="150" y2="100" stroke="#2980b9" stroke-width="1" stroke-dasharray="2,2"/>
+                        <line id="svg-target-x-28" x1="150" y1="100" x2="150" y2="180" stroke="#2980b9" stroke-width="1" stroke-dasharray="2,2"/>
+                        <circle id="svg-target-pt-28" cx="150" cy="100" r="4" fill="#2980b9"/>
+
+                        <!-- T oznaka -->
+                        <line id="svg-const-t-28" x1="100" y1="180" x2="100" y2="185" stroke="#333" stroke-width="2"/>
+                        <text id="svg-const-t-text-28" x="95" y="200" font-size="10">T</text>
+                    </svg>
+                </div>
+            </div>
+
+            <details>
+                <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
+
+                <div class="solution-step">
+                    <h4>Segrevalna krivulja in reševanje eksponentne enačbe</h4>
+                    <p>Začetna predpostavka je, da se transformator obnaša kot homogeno telo z eno samo časovno konstanto. Eksponentna enačba za naraščanje temperature se glasi:</p>
+                    <div class="formula-box">
+                        \[ \Theta(t) = \Theta_{maxn} \cdot \left(1 - e^{-\frac{t}{T}}\right) \]
+                    </div>
+                    <p>Vemo, da iščemo čas, pri katerem bo temperatura enaka 75% maksimalne, kar zapišemo kot \(\Theta(t) = 0.75 \cdot \Theta_{maxn}\). To vstavimo v enačbo:</p>
+                    <div class="formula-box">
+                        \[ 0.75 \cdot \Theta_{maxn} = \Theta_{maxn} \cdot \left(1 - e^{-\frac{t}{T}}\right) \]
+                    </div>
+                    <p>Zaradi \(\Theta_{maxn}\) na obeh straneh lahko ta člen pokrajšamo (delimo z \(\Theta_{maxn}\)). To dokazuje preprosto dejstvo: <em>čas, da dosežemo določen % maksimalne temperature, ni čisto nič odvisen od tega, koliko dejansko znaša ta temperatura v absolutnih stopinjah!</em></p>
+                    <div class="formula-box">
+                        \[ 0.75 = 1 - e^{-\frac{t}{T}} \]
+                    </div>
+                    <p>Eksponentni člen prenesemo na levo, številko pa na desno:</p>
+                    <div class="formula-box">
+                        \[ e^{-\frac{t}{T}} = 1 - 0.75 = 0.25 \]
+                    </div>
+                    <p>Za reševanje enačbe, kjer je neznanka v eksponentu, moramo celotno enačbo logaritmirati (uporabimo naravni logaritem \(\ln\), ki nevtralizira naravno osnovo \(e\)):</p>
+                    <div class="formula-box">
+                        \[ \ln\left(e^{-\frac{t}{T}}\right) = \ln(0.25) \quad \Rightarrow \quad -\frac{t}{T} = \ln(0.25) \]
+                    </div>
+                    <p>Od tod končno izrazimo čas \(t\) (in ker je \(\ln(0.25)\) negativen, bo rezultat pozitiven):</p>
+                    <div class="formula-box">
+                        \[ t = - T \cdot \ln(0.25) = 3.5 \cdot (-\ln(0.25)) = 3.5 \cdot 1.386 = \underline{\underline{4.85 \text{ ur}}} \]
+                    </div>
+                    <p><em>(Opomba iz skripte: v izvirniku je formula izpeljana nekoliko drugače z upoštevanjem logaritma kvocienta \(\ln(\frac{\Theta_{maxn}}{\Theta_{maxn} - \Theta(t)})\), kar privede do popolnoma istega rezultata: \(3.5 \cdot \ln(\frac{1}{1 - 0.75}) = 3.5 \cdot \ln(4) = 4.85 \text{ h}\)).</em></p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 2.8 -->
+        <section class="quiz-section">
+            <h3>Kviz 2.8: Časovna konstanta</h3>
+            <p>Z drsnikom (ali iz matematičnega znanja) preveri: kolikšen odstotek maksimalne temperature (približno) doseže stroj natanko po času, ki je enak eni časovni konstanti (\(t = T\))?</p>
+            <div class="input-group">
+                <input type="number" id="quiz28-input" placeholder="npr. 50"> %
+                <button onclick="checkQuiz28()">Preveri</button>
+            </div>
+            <div id="quiz28-feedback" class="feedback"></div>
+        </section>
+
+        <hr>
+
     </main>
 
     <footer>
@@ -864,10 +1218,178 @@
             }
         }
 
+        function updateTask26() {
+            let i2 = parseFloat(document.getElementById('slider-i2-26').value);
+            let cos_phi = parseFloat(document.getElementById('slider-cos-26').value);
+
+            document.getElementById('val-i2-26').innerText = i2;
+            document.getElementById('val-cos-26').innerText = cos_phi;
+
+            let I2_n = 1443.4;
+            let ratio = i2 / I2_n;
+
+            let uR_n = 1.5;
+            let uX_n = 5.81;
+
+            let uR_curr = uR_n * ratio;
+            let uX_curr = uX_n * ratio;
+
+            let sin_phi = Math.sqrt(1 - Math.pow(cos_phi, 2));
+
+            let delta_u_perc = (uR_curr * cos_phi) + (uX_curr * sin_phi);
+            let E2 = 440; // 1.1 * 400
+
+            let delta_U = (delta_u_perc / 100.0) * E2;
+            let U2_koncna = E2 - delta_U;
+
+            document.getElementById('res-du-26').innerText = delta_U.toFixed(1);
+            document.getElementById('res-u2-26').innerText = U2_koncna.toFixed(1);
+
+            // Posodobitev Kappovega diagrama (vizualizacija)
+            // Osnovna linija U2 je fiksna
+            let base_len = 230; // za U2
+
+            // Skaliramo padce, da so vizualno opazni
+            let scale_drop = delta_u_perc * 5;
+
+            // Kot iz cos_phi
+            let angle_rad = Math.acos(cos_phi);
+            let angle_deg = angle_rad * (180 / Math.PI);
+
+            // I2 vektor
+            let i2_len = 60;
+            let i2_x = 20 + i2_len * cos_phi;
+            let i2_y = 180 + i2_len * sin_phi;
+            document.getElementById('svg-kapp-i2').setAttribute('x2', i2_x);
+            document.getElementById('svg-kapp-i2').setAttribute('y2', i2_y);
+            document.getElementById('svg-kapp-i2-text').setAttribute('x', i2_x - 10);
+            document.getElementById('svg-kapp-i2-text').setAttribute('y', i2_y + 15);
+
+            // Padci (na koncu vektorja U2)
+            // uR je vzporeden z I2
+            let ur_x = 250 + (scale_drop * (uR_curr / delta_u_perc)) * cos_phi;
+            let ur_y = 180 - (scale_drop * (uR_curr / delta_u_perc)) * sin_phi;
+            document.getElementById('svg-kapp-ur').setAttribute('x2', ur_x);
+            document.getElementById('svg-kapp-ur').setAttribute('y2', ur_y);
+            document.getElementById('svg-kapp-ur-text').setAttribute('x', ur_x + 5);
+            document.getElementById('svg-kapp-ur-text').setAttribute('y', ur_y);
+
+            // uX je pravokoten na uR (+90 stopinj)
+            let ux_x = ur_x - (scale_drop * (uX_curr / delta_u_perc)) * sin_phi;
+            let ux_y = ur_y - (scale_drop * (uX_curr / delta_u_perc)) * cos_phi;
+            document.getElementById('svg-kapp-ux').setAttribute('x1', ur_x);
+            document.getElementById('svg-kapp-ux').setAttribute('y1', ur_y);
+            document.getElementById('svg-kapp-ux').setAttribute('x2', ux_x);
+            document.getElementById('svg-kapp-ux').setAttribute('y2', ux_y);
+            document.getElementById('svg-kapp-ux-text').setAttribute('x', ux_x + 5);
+            document.getElementById('svg-kapp-ux-text').setAttribute('y', ux_y - 5);
+
+            // Rezultanta (U1 oziroma E)
+            document.getElementById('svg-kapp-u1').setAttribute('x2', ux_x);
+            document.getElementById('svg-kapp-u1').setAttribute('y2', ux_y);
+        }
+
+        function checkQuiz26() {
+            let selected = document.querySelector('input[name="quiz26"]:checked');
+            if (!selected) {
+                let fb = document.getElementById('quiz26-feedback');
+                fb.className = "feedback error"; fb.innerText = "Prosim izberite odgovor."; return;
+            }
+            let input = selected.value;
+            let fb = document.getElementById('quiz26-feedback');
+            if (input === 'manjse') {
+                fb.className = "feedback success";
+                fb.innerText = "Pravilno! Po izpeljani formuli izgube v železu P_Fe' padejo na vrednost P_Fen * (f_n / f'). Torej, ker je nova frekvenca f' (v imenovalcu) večja od nazivne f_n, je ulomek manjši od 1, in izgube se ZMANJŠAJO. Razlog je, da pri višji frekvenci (in isti napetosti) magnetna gostota B precej pade, in ker izgube rastejo z B na kvadrat, tisti padec prevlada nad linearnim povečanjem zaradi frekvence.";
+            } else {
+                fb.className = "feedback error";
+                fb.innerText = "Napačno. Poglej formulo: P_Fe' = 1.21 * P_Fen * (f_n / f'). (Faktor 1.21 je tam zaradi višje napetosti, a fokusirajmo se na frekvenco). Nova frekvenca f' je v imenovalcu. Če delitelj povečamo, se rezultat...";
+            }
+        }
+
+        function checkQuiz27() {
+            let selected = document.querySelector('input[name="quiz27"]:checked');
+            if (!selected) {
+                let fb = document.getElementById('quiz27-feedback');
+                fb.className = "feedback error"; fb.innerText = "Prosim izberite odgovor."; return;
+            }
+            let input = selected.value;
+            let fb = document.getElementById('quiz27-feedback');
+            if (input === 'mali') {
+                fb.className = "feedback success";
+                fb.innerText = "Pravilno! Transformator z manjšim u_K ima v bistvu manjšo notranjo upornost. Ker sta vezana paralelno (imata isto napetost na sponkah), bo po poti manjše upornosti steklo več toka in tako bo ta transformator prevzel nesorazmerno velik del bremena.";
+            } else {
+                fb.className = "feedback error";
+                fb.innerText = "Napačno. Razmisli z analogijo: u_K predstavlja notranjo upornost. Če imaš dve vzporedni cevi za vodo, ena je široka (majhen upor) in druga ožja (velik upor). Po kateri bo teklo več vode?";
+            }
+        }
+
+        function updateTask28() {
+            let perc = parseFloat(document.getElementById('slider-perc-28').value);
+            let T = parseFloat(document.getElementById('slider-t-28').value);
+
+            document.getElementById('val-perc-28').innerText = perc;
+            document.getElementById('val-t-28').innerText = T.toFixed(1);
+
+            // t = -T * ln(1 - perc/100)
+            let ratio = perc / 100.0;
+            let time = -T * Math.log(1 - ratio);
+
+            document.getElementById('res-time-28').innerText = time.toFixed(2);
+
+            // Risanje krivulje y = 1 - e^(-x/T)
+            let path = "M 30,180 ";
+            // X os je do 280, kar pomeni 250px širine. Skaliramo tako, da je recimo 5*T pri x=280
+            let max_time = 5 * T;
+            for (let t_val = 0; t_val <= max_time; t_val += max_time / 50.0) {
+                let y_val = 1 - Math.exp(-t_val / T);
+                let svgX = 30 + (t_val / max_time) * 250;
+                let svgY = 180 - (y_val * 160); // 160px visoko do asimptote (od y=180 do y=20)
+                path += `L ${svgX},${svgY} `;
+            }
+            document.getElementById('svg-heat-curve-28').setAttribute('d', path);
+
+            // Premik točk
+            let targetX = 30 + (time / max_time) * 250;
+            let targetY = 180 - (ratio * 160);
+
+            document.getElementById('svg-target-y-28').setAttribute('y1', targetY);
+            document.getElementById('svg-target-y-28').setAttribute('y2', targetY);
+            document.getElementById('svg-target-y-28').setAttribute('x2', targetX);
+
+            document.getElementById('svg-target-x-28').setAttribute('x1', targetX);
+            document.getElementById('svg-target-x-28').setAttribute('x2', targetX);
+            document.getElementById('svg-target-x-28').setAttribute('y1', targetY);
+
+            document.getElementById('svg-target-pt-28').setAttribute('cx', targetX);
+            document.getElementById('svg-target-pt-28').setAttribute('cy', targetY);
+
+            // Konstanta T oznaka na osi X
+            let constTx = 30 + (T / max_time) * 250;
+            document.getElementById('svg-const-t-28').setAttribute('x1', constTx);
+            document.getElementById('svg-const-t-28').setAttribute('x2', constTx);
+            document.getElementById('svg-const-t-text-28').setAttribute('x', constTx - 5);
+        }
+
+        function checkQuiz28() {
+            let input = parseFloat(document.getElementById('quiz28-input').value);
+            let fb = document.getElementById('quiz28-feedback');
+            if (isNaN(input)) { fb.className = "feedback error"; fb.innerText = "Prosim vnesi številko."; return; }
+            if (input >= 62 && input <= 64) {
+                fb.className = "feedback success";
+                fb.innerText = "Odlično! Ko je t = T, je vrednost v oklepaju (1 - e^-1). Ker je e^-1 približno 0.368, doseže sistem približno 63% svoje končne vrednosti v času ene časovne konstante.";
+            } else {
+                fb.className = "feedback error";
+                fb.innerText = "Ni povsem prav. Vstavi v enačbo t = T. Dobiš 1 - e^(-1). Koliko znaša ta matematični izraz v odstotkih (približno)?";
+            }
+        }
+
         window.onload = function() {
+            updateTask25();
+            updateTask26();
             updateTask21();
             updateTask22();
             updateTask23();
+            updateTask28();
         };
     </script>
 </body>
