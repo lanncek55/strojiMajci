@@ -17,12 +17,14 @@ Zaradi kompleksnosti in obsežnosti so PDF-ji razdeljeni na manjše, obvladljive
 - [x] **Korak 2:** Priprava moderne vizualne podobe in navigacije
 - [x] **Korak 3:** Obnova 1. dela - Naloge 1.1 do 1.3 (1_magnetni_krogi.html)
 - [x] **Korak 4:** POPRAVEK: Prave naloge 1.4, 1.5 in 1.6 z vsemi skicami, grafi in razlagami
-- [ ] **Korak 5:** Obnova 3. dela - Naloge 1.7 do 1.9
-- [ ] **Korak 6:** Obnova 4. dela - Naloge 1.10 do 1.11
-- [ ] **Korak 7:** Obnova 5. dela - Naloge 1.12 do 1.13 in trdomagnetni materiali
-- [ ] **Korak 8:** Obdelava in implementacija **2. Transformatorji** (`2-Transformatorji 2021.pdf`)
-- [ ] **Korak 9:** Obdelava in implementacija **3. Sinhronski stroji** (`3-Sinhronski_stroji 2021_Brez navitij.pdf`)
-- [ ] **Korak 10:** Obdelava vaj.
+- [ ] **Korak 5:** Obdelava PDF strani 12 do 15 (Naloga 1.7 in 1.8 z vsemi detajli in grafi)
+- [ ] **Korak 6:** Obdelava PDF strani 16 do 18 (Naloga 1.9, Histerezna zanka in vpeljava trdomagnetnih materialov)
+- [ ] **Korak 7:** Obdelava PDF strani 19 do 21 (Naloge 1.10 - 1.11, Sila magnetnega polja)
+- [ ] **Korak 8:** Obdelava PDF strani 22 do konca poglavja (Naloge 1.12 - 1.13 in zaključek 1. poglavja)
+- [ ] **Korak 9:** Implementacija **2. Transformatorji** (`2-Transformatorji 2021.pdf`) - stran po stran (od str. 1 do 5)
+- [ ] **Korak 10:** Implementacija **2. Transformatorji** (`2-Transformatorji 2021.pdf`) - stran po stran (od str. 6 do 10)
+- [ ] **Korak 11:** Implementacija **2. Transformatorji** (`2-Transformatorji 2021.pdf`) - stran po stran (od str. 11 naprej)
+- [ ] **Korak 12:** Implementacija **3. Sinhronski stroji** (`3-Sinhronski_stroji 2021_Brez navitij.pdf`) - po podobnem sistemu branja strani
 
 ### 1. Magnetni krogi (Datoteka: `1_magnetni_krogi.html`)
 Trenutno implementirano:
