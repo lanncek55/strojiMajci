@@ -87,30 +87,40 @@
                 </div>
             </div>
 
-            <details>
-                <summary>Prikaži uradno rešitev in postopek za 1.1</summary>
+                        <details>
+                <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
                 <div class="solution-step">
-                    <p>Magnetna napetost sklenjenega magnetnega kroga je sestavljena iz magnetne napetosti železnega jedra in zračne reže:</p>
+                    <h4>a) Izračun reluktanc (magnetnih upornosti)</h4>
+                    <p><strong>Predstavljaj si:</strong> Magnetni krog deluje zelo podobno kot električni krog. Baterija predstavlja vir napetosti, tukaj pa imamo <em>magnetno napetost</em> (\(V_m\)), ki jo ustvari tuljava s tokom (\(N \cdot i\)). Električni tok potuje po žici, tu pa <em>magnetni pretok</em> (\(\Phi\)) potuje po železnem jedru. Tako kot ima žica električni upor, ima železo (in zrak) <em>magnetno upornost ali reluktanco</em> (\(R_m\)). Ohmov zakon za magnetne kroge je torej: \(V_m = \Phi \cdot R_{m\_skupni}\).</p>
+
+                    <p><strong>Pretvorba enot (zelo pomembno!):</strong> V fiziki moramo vse računati v osnovnih enotah (metri, kilogrami, sekunde).<br>
+                    - \(1 \text{ cm} = 10^{-2} \text{ m} = 0.01 \text{ m}\)<br>
+                    - \(1 \text{ cm}^2 = (10^{-2} \text{ m})^2 = 10^{-4} \text{ m}^2\)<br>
+                    - Zato je presek \(9 \text{ cm}^2\) enak \(9 \cdot 10^{-4} \text{ m}^2\).<br>
+                    - Zračna reža je \(0.5 \text{ mm} = 0.0005 \text{ m}\).</p>
+
+                    <p>Magnetna napetost sklenjenega magnetnega kroga se razdeli na padec napetosti na železnem jedru in na zračni reži (kot dva zaporedno vezana upora):</p>
                     <div class="formula-box">
-                        \[ V_m = N \cdot i = H_{Fe} \cdot l_{Fe} + H_\delta \cdot l_\delta = \frac{B_{Fe}}{\mu} \cdot l_{Fe} + \frac{B_\delta}{\mu_0} \cdot \delta \]
+                        \[ V_m = N \cdot i = H_{Fe} \cdot l_{Fe} + H_\delta \cdot l_\delta = \Phi \cdot R_{mFe} + \Phi \cdot R_{m\delta} \]
                     </div>
-                    <p>Tu je \( l_{Fe} \) srednja pot magnetnih silnic po transformatorskem jedru in \( \delta \) pot silnic skozi zračno režo. Izraz lahko zapišemo z reluktancami:</p>
-                    <div class="formula-box">
-                        \[ V_m = \Phi \cdot \frac{l_{Fe}}{\mu \cdot A_{Fe}} + \Phi \cdot \frac{\delta}{\mu_0 \cdot A_\delta} \]
-                    </div>
-                    <h4>a) Izračun reluktanc:</h4>
-                    <p>Reluktanca železa:</p>
+
+                    <p><strong>Reluktanca železa (\(R_{mFe}\)):</strong> Formula je \(\frac{\text{dolžina}}{\text{prepustnost} \cdot \text{presek}}\). Prepustnost železa je sestavljena iz prepustnosti vakuuma (\(\mu_0\)) in relativne prepustnosti materiala (\(\mu_r = 70000\), kar pomeni, da železo 70.000-krat bolje prevaja magnetno polje kot zrak).</p>
                     <div class="formula-box">\[ R_{mFe} = \frac{l_{Fe}}{\mu_r \cdot \mu_0 \cdot A_{Fe}} = \frac{0.3}{70000 \cdot 4\pi \cdot 10^{-7} \cdot 9 \cdot 10^{-4}} = 3789 \text{ A/Vs} \]</div>
-                    <p>Reluktanca zračne reže:</p>
+
+                    <p><strong>Reluktanca zračne reže (\(R_{m\delta}\)):</strong> Za zrak je \(\mu_r = 1\), zato uporabimo samo \(\mu_0\).</p>
                     <div class="formula-box">\[ R_{m\delta} = \frac{\delta}{\mu_0 \cdot A_\delta} = \frac{0.0005}{4\pi \cdot 10^{-7} \cdot 9 \cdot 10^{-4}} = 4.42 \cdot 10^5 \text{ A/Vs} \]</div>
+                    <p><em>Pazi to:</em> Čeprav je zračna reža dolga samo pol milimetra (medtem ko je železo dolgo 30 centimetrov!), je njena magnetna upornost več kot 100-krat večja od železa! Zrak je zelo "slab prevodnik" za magnetno polje.</p>
                 </div>
                 <div class="solution-step">
-                    <h4>b) Magnetni pretok:</h4>
-                    <div class="formula-box">\[ \Phi = B_{Fe} \cdot A_{Fe} = 1 \cdot 0.0009 = 9 \cdot 10^{-4} \text{ Vs} \]</div>
+                    <h4>b) Magnetni pretok (\(\Phi\)):</h4>
+                    <p>Vemo, da je gostota polja v železu \(B_{Fe} = 1 \text{ T}\). Gostota pomeni "koliko magnetnega pretoka gre skozi določen presek". Formulo preuredimo iz \(B = \Phi / A\) v \(\Phi = B \cdot A\).</p>
+                    <div class="formula-box">\[ \Phi = B_{Fe} \cdot A_{Fe} = 1 \cdot (9 \cdot 10^{-4}) = 9 \cdot 10^{-4} \text{ Vs (ali Wb)} \]</div>
                 </div>
                 <div class="solution-step">
-                    <h4>c) Magnetilni tok:</h4>
+                    <h4>c) Magnetilni tok (\(i_\mu\)):</h4>
+                    <p>Zdaj, ko imamo pretok (\(\Phi\)) in obe upornosti (\(R_{mFe}\) in \(R_{m\delta}\)), uporabimo magnetni Ohmov zakon, da izračunamo potrebno "gonilno silo" (magnetno napetost \(V_m\)) in iz nje potreben tok.</p>
                     <div class="formula-box">\[ i_\mu = \frac{V_m}{N} = \frac{\Phi \cdot (R_{mFe} + R_{m\delta})}{N} = \frac{9 \cdot 10^{-4} \cdot (3789 + 4.42 \cdot 10^5)}{500} = 0.8 \text{ A} \]</div>
+                    <p>Potrebujemo torej 0.8 Ampera toka skozi 500 ovojev, da premagamo ogromno upornost zračne reže in ustvarimo polje 1 Tesle.</p>
                 </div>
             </details>
         </section>
@@ -180,15 +190,27 @@
                 </div>
             </div>
 
-            <details>
-                <summary>Prikaži uradno rešitev in postopek za 1.2</summary>
+                        <details>
+                <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
                 <div class="solution-step">
-                    <p>Magnetni pretok, ki ga vzbuja rotorski elektromagnet, je ob zanemarjenem stresanju magnetnega polja podan z enačbo, ki upošteva dve zaporedni reži (zato imenovalec \( 2 \cdot \delta \)):</p>
+                    <h4>Kaj pomeni \(\mu \to \infty\)?</h4>
+                    <p>To je teoretična predpostavka. Pomeni, da ima železo <em>neskončno veliko</em> permeabilnost. V formuli \(R_m = \frac{l}{\mu \cdot A}\) delimo z neskončnostjo, kar pomeni, da je <strong>reluktanca železa enaka točno 0</strong> (\(R_{mFe} = 0\)). Vsa "električna moč" (magnetna napetost) se tako porabi izključno na premagovanje zračne reže.</p>
+
+                    <h4>Zračne reže v sinhronskem stroju:</h4>
+                    <p>Kot vidiš na skici, mora pretok iti iz sredine (rotorja) skozi zrak v stator in potem spet iz statorja nazaj skozi zrak v rotor, da se sklene v zanko. Zato imamo v naši enačbi <strong>dve zaporedni zračni reži</strong>. Dolžino ene reže \(\delta\) moramo pomnožiti z 2.</p>
+
+                    <h4>Izračun magnetnega pretoka:</h4>
+                    <p>Ohmov zakon \(V_m = \Phi \cdot R_{m\_skupni}\). Ker je upornost železa 0, je upornost enaka le seštevku obeh zračnih rež: \(R_\delta = \frac{2 \cdot \delta}{\mu_0 \cdot A_\delta}\).</p>
                     <div class="formula-box">
                         \[ \Phi \cong \frac{V_m}{R_\delta} = \frac{N \cdot i}{\frac{2 \cdot \delta}{\mu_0 \cdot A_\delta}} = N \cdot i \cdot \frac{\mu_0 \cdot A_\delta}{2 \cdot \delta} \]
+                    </div>
+                    <p>Vstavimo številke (ne pozabi na osnovne enote: tok 10A, 1000 ovojev, \(\mu_0 = 4\pi \cdot 10^{-7}\), presek \(\text{cm}^2\) je že podan kot \(0.2 \text{ m}^2\), razdalja pa je \(1 \text{ cm} = 10^{-2} \text{ m}\)):</p>
+                    <div class="formula-box">
                         \[ \Phi = 1000 \cdot 10 \cdot \frac{4\pi \cdot 10^{-7} \cdot 0.2}{2 \cdot 10^{-2}} = 0.126 \text{ Wb} \]
                     </div>
-                    <p>Magnetna gostota pod polovim čevljem je:</p>
+
+                    <h4>Magnetna gostota pod polovim čevljem:</h4>
+                    <p>Magnetna gostota (\(B\)) pove, kako skoncentriran je ta pretok na določeni površini (\(A_\delta\)). Zgolj delimo ju med sabo:</p>
                     <div class="formula-box">
                         \[ B_\delta = \frac{\Phi}{A_\delta} = \frac{0.126}{0.2} = 0.63 \text{ T} \]
                     </div>
@@ -224,25 +246,38 @@
                 <p><strong>Paralelni magnetni krogi:</strong> Paralelne reže najdemo v večpolnih motorjih ali v kompleksnih transformatorjih (E-I jedra), kjer se glavni pretok razcepi v več paralelnih vej (tako kot se električni tok razcepi v več vej). Kirchoffova pravila veljajo tudi za magnetne kroge!</p>
             </div>
 
-            <details>
-                <summary>Prikaži uradno rešitev in postopek za 1.3</summary>
+                        <details>
+                <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
                 <div class="solution-step">
-                    <h4>Ekvivalentno vezje:</h4>
-                    <p>Celotna nadomestna reluktanca \( R_m \) je paralelna kombinacija dveh paralelnih reluktanc zračnih rež:</p>
+                    <h4>Ekvivalentno vezje (Paralelna vezava):</h4>
+                    <p>Zopet uporabimo logiko električnih vezij. Če bi imeli dva električna upora vezana vzporedno, bi bila formula za skupni upor \(R = \frac{R_1 \cdot R_2}{R_1 + R_2}\). Ker so tukaj magnetne silnice "prisiljene" izbirati med dvema zračnima režama (ki sta postavljeni ena zraven druge), govorimo o paralelni magnetni vezavi.</p>
+                    <p>Zaradi \(\mu \to \infty\) je reluktanca železa ponovno 0. Imamo samo dve vzporedni zračni reži. Skupna reluktanca je torej:</p>
                     <div class="formula-box">
-                        \[ \Phi = \frac{N \cdot i}{R_m} = N \cdot i \cdot \left(\frac{R_{m1} + R_{m2}}{R_{m1} \cdot R_{m2}}\right) \]
+                        \[ R_m = \frac{R_{m1} \cdot R_{m2}}{R_{m1} + R_{m2}} \]
                         \[ R_{m1} = \frac{\delta_1}{\mu_0 \cdot A_1}, \quad R_{m2} = \frac{\delta_2}{\mu_0 \cdot A_2} \]
                     </div>
-                    <h4>a) Induktivnost:</h4>
-                    <p>Induktivnost navitja je podana z razmerjem med magnetnim sklepom in tokom:</p>
+                    <p>Po Ohmovem zakonu je celoten magnetni pretok enak \( \Phi = \frac{N \cdot i}{R_m} \). Če vstavimo formulo za \(R_m\) iz prejšnje vrstice (pazimo na ulomke s skupnim imenovalcem), dobimo:</p>
                     <div class="formula-box">
-                        \[ L = \frac{\Psi}{i} = \frac{N \cdot \Phi}{i} = \frac{N^2 \cdot i \cdot (R_{m1} + R_{m2})}{i \cdot R_{m1} \cdot R_{m2}} = N^2 \cdot \left( \frac{1}{R_{m1}} + \frac{1}{R_{m2}} \right) \]
-                        \[ L = \mu_0 \cdot N^2 \cdot \left( \frac{A_1}{\delta_1} + \frac{A_2}{\delta_2} \right) \]
+                        \[ \Phi = N \cdot i \cdot \left(\frac{R_{m1} + R_{m2}}{R_{m1} \cdot R_{m2}}\right) \]
                     </div>
-                    <h4>b) Gostota magnetnega pretoka v \( \delta_1 \):</h4>
-                    <p>Magnetna napetost preko obeh paralelnih vej je ista in enaka \( V_m = N \cdot i \). V zračni reži 1 velja:</p>
+
+                    <h4>a) Induktivnost (\(L\)):</h4>
+                    <p><strong>Kaj sploh je induktivnost?</strong> Induktivnost je parameter, ki nam pove, kako "močan" magnetni učinek (magnetni sklep \(\Psi\)) dobimo za 1 Amper toka. Formula je \(L = \frac{\Psi}{i}\), kjer je \(\Psi = N \cdot \Phi\).</p>
                     <div class="formula-box">
-                        \[ \Phi_1 = \frac{V_m}{R_{m1}} = N \cdot i \cdot \frac{\mu_0 \cdot A_1}{\delta_1} \]
+                        \[ L = \frac{\Psi}{i} = \frac{N \cdot \Phi}{i} = \frac{N \cdot \left[N \cdot i \cdot \left(\frac{R_{m1} + R_{m2}}{R_{m1} \cdot R_{m2}}\right)\right]}{i} \]
+                    </div>
+                    <p>Tok \(i\) se pokrajša, in ostane nam (za preprostost uporabimo obratne vrednosti reluktanc, ki se pri vzporedni vezavi enostavno seštevajo: \(\frac{1}{R_m} = \frac{1}{R_{m1}} + \frac{1}{R_{m2}}\)):</p>
+                    <div class="formula-box">
+                        \[ L = N^2 \cdot \left( \frac{1}{R_{m1}} + \frac{1}{R_{m2}} \right) = \mu_0 \cdot N^2 \cdot \left( \frac{A_1}{\delta_1} + \frac{A_2}{\delta_2} \right) \]
+                    </div>
+
+                    <h4>b) Gostota magnetnega pretoka v \( \delta_1 \):</h4>
+                    <p>V električnem vzporednem vezju je napetost na vseh vejah enaka! Isto velja tu: magnetna napetost \(V_m = N \cdot i\) je enaka tako preko prve kot preko druge zračne reže. Pretok čez prvo režo (\(\Phi_1\)) torej izračunamo samo iz njenih podatkov:</p>
+                    <div class="formula-box">
+                        \[ \Phi_1 = \frac{V_m}{R_{m1}} = \frac{N \cdot i}{R_{m1}} = N \cdot i \cdot \frac{\mu_0 \cdot A_1}{\delta_1} \]
+                    </div>
+                    <p>Gostoto pa dobimo z deljenjem s presekom (\(B = \Phi / A\)):</p>
+                    <div class="formula-box">
                         \[ B_1 = \frac{\Phi_1}{A_1} = \frac{N \cdot i \cdot \mu_0}{\delta_1} \]
                     </div>
                 </div>

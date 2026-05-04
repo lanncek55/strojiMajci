@@ -1,3 +1,11 @@
+
+## Pravila za pisanje vsebine (Slog za začetnike)
+Da bo učbenik maksimalno razumljiv, se je pri vsaki nalogi potrebno držati naslednjih pravil:
+1. **Analogoije:** Uporabljaj analogije z električnimi krogi (magnetna napetost = električna napetost, reluktanca = upor, pretok = tok).
+2. **Pretvorbe enot:** Jasno razloži, kako pretvarjamo enote (npr. zakaj je $1 	ext{ cm}^2 = 10^{-4} 	ext{ m}^2$, zakaj mm v m).
+3. **Pomen predpostavk:** Kadar je v nalogi podano $\mu 	o \infty$ ali "zanemarite stresanje", točno razloži, kaj to pomeni v fizikalnem in matematičnem smislu.
+4. **Razlaga po korakih:** Ne preskakuj matematičnih korakov in vedno z besedami opiši, zakaj uporabimo določeno formulo in kaj vsak člen v njej pomeni.
+
 # Zemljevid interaktivnega učbenika (Električni stroji)
 
 To je glavno kazalo in seznam vseh PDF gradiv, ki jih je potrebno pretvoriti v interaktivni učbenik, da se zagotovi, da ni izgubljena nobena informacija.
