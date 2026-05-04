@@ -1,0 +1,1635 @@
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+2. TRANSFORMATORJI
+NALOGA 2.1:
+Enofazni transformator ima na primarni (visokonapetostni) strani N1 = 4800 ovojev. Grajen
+je za napajalno napetost U1 = 2400 V frekvence f = 50 Hz. Izračunajte:
+a) Glavni magnetni pretok Φm.
+b) Število ovojev sekundarnega navitja, tako da bo sekundarna inducirana napetost
+neobremenjenega transformatorja E2 = 230 V.
+c) Enako transformatorsko jedro uporabimo za transformator, ki ima na primarni strani
+N1' = 1320 in N2' = 46 ovojev na sekundarju. Izračunajte inducirano napetost
+primarnega in sekundarnega navitja neobremenjenega transformatorja, če je temenska
+vrednost glavnega magnetnega pretoka Φm = 0.045 Wb pri frekvenci f = 50 Hz.
+a) Magnetni pretok izračunamo iz inducirane napetosti. V prostem teku je ta enaka
+napajalni napetosti:
+
+E1 = U 1 = 4 ⋅ f o ⋅ f ⋅ N 1 ⋅ Φ m
+Φm =
+
+
+
+Φm =
+
+U1
+,
+4 ⋅ f o ⋅ f ⋅ N1
+
+2400
+= 0.00225 Wb .
+4 ⋅ 1.11 ⋅ 50 ⋅ 4800
+
+b) Število ovojev sekundarnega navitja:
+
+E2 = 4 ⋅ f o ⋅ f ⋅ N 2 ⋅ Φ m
+N2 =
+
+
+
+N2 =
+
+E2
+,
+4 ⋅ fo ⋅ f ⋅ Φm
+
+230
+= 460 ovojev .
+4 ⋅ 1.11 ⋅ 50 ⋅ 0.00225
+
+c) Inducirana napetost:
+E1 ' = 4 ⋅ f o ⋅ f ⋅ N 1 '⋅Φ m ' = 4 ⋅ 1.11 ⋅ 50 ⋅ 1320 ⋅ 0.045 ,
+E1 ' = 13197 V = 13.2 kV ,
+E 2 ' = 4 ⋅ f o ⋅ f ⋅ N 2 '⋅Φ m ' = 4 ⋅ 1.11 ⋅ 50 ⋅ 46 ⋅ 0.045 ,
+E 2 ' = 460 V .
+
+21
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+NALOGA 2.2:
+Transformator ima N1 = 200 ovojev na primarni strani. Priključen je na napajalno napetost
+u (t ) = 100 ⋅ sin(ω1t ) − 20 ⋅ sin(ω5 t ) . Izračunajte magnetni pretok v jedru transformatorja.
+Transformator je neobremenjen, stresanje magnetnega polja in upornost navitja
+zanemarimo.
+
+Magnetni pretok izračunamo iz inducirane napetosti, ki je pri danih obratovalnih pogojih
+(I2 = 0, Φσ1 = 0) enaka napajalni:
+e(t ) = u (t ) .
+Napajalna napetost poleg osnovne harmonske vsebuje tudi peto harmonsko komponento:
+
+ω1 = 2 ⋅ π ⋅ f1 = 314 s-1 , ω5 = 5 ⋅ ω1 = 1571 s-1.
+Po Faraday-evem zakonu je inducirana napetost v tuljavi z N ovoji in časovno
+spremenljivim magnetnim pretokom:
+e1 (t ) = −
+
+dΨ (t )
+dΦ (t )
+= − N1 ⋅
+,
+dt
+dt
+
+oziroma:
+
+ e (t ) ⋅ dt = − N ⋅ Φ(t ) ,
+1
+
+1
+
+ali
+
+Φ(t ) = −
+
+1
+1
+⋅  e1 (t ) ⋅ dt = −
+⋅ [100 ⋅ sin(ω1t ) − 20 ⋅ sin(ω5 t )] ⋅ dt ,
+N1
+N1 
+
+Φ(t ) = −
+
+
+1  100
+20
+⋅ −
+⋅ cos(ω1 ⋅ t ) +
+⋅ cos(ω5 ⋅ t )  ,
+N1  ω1
+ω5
+
+
+Φ(t ) = −
+
+1  100
+20
+
+⋅ −
+⋅ cos(314 ⋅ t ) +
+⋅ cos(1571 ⋅ t )  ,
+200  314
+1571
+
+
+Φ(t ) = 0.0016 ⋅ cos(314 ⋅ t ) − 0.0000636 ⋅ cos(1571 ⋅ t ) Wb .
+
+22
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+NALOGA 2.3:
+Transformator s podatki Sn = 100 kVA, 10 kV/0.4 kV, 50 Hz ima izgube v prostem teku
+P0 = 600 W, nazivni izkoristek ηn = 0.97, gostoto toka v navitju pri nazivni obremenitvi
+Γn = 3 A/mm2, magnetno gostoto v železnem jedru BFe = 1.3 T ter prerez železnega jedra
+AFe = 150 cm2. Določite:
+a) N2 ... število ovojev nizkonapetostnega navitja,
+b) N1 ... število ovojev visokonapetostnega navitja,
+c) mCu ...skupno maso navitja iz bakrene žice.
+V prostem teku transformatorja v sekundarnem navitju ni toka, tok prostega teka na
+primarnem navitju (VN) povzroča zanemarljivo majhne padce napetosti. Zato: U2 = E2 in
+U 1 = E1 !
+a)
+
+N2 =
+
+E2
+U2
+400
+=
+=
+= 92.4
+4.44 ⋅ f ⋅ BFe ⋅ AFe 4.44 ⋅ f ⋅ BFe ⋅ AFe 4.44 ⋅ 50 ⋅ 1.3 ⋅150 ⋅ 10 − 4
+
+N 2 = 93 ovojev
+
+b)
+
+N1 =
+
+E1
+U1
+10000
+=
+=
+= 2310
+4.44 ⋅ f ⋅ BFe ⋅ AFe 4.44 ⋅ f ⋅ BFe ⋅ AFe 4.44 ⋅ 50 ⋅ 1.3 ⋅150 ⋅ 10 −4
+
+N 1 = 2310 ovojev
+c) Izgube prostega teka transformatorja običajno ugotavljamo s preizkusom prostega teka
+pri nazivni napetosti nazivne frekvence. Ker je tok prostega teka normalnega
+napetostnega transformatorja I0 mnogo manjši v primerjavi z nazivnim tokom (I0<<In),
+so tudi izgube v bakru (navitju) PCu v primerjavi z izgubami v železu PFe
+zanemarljive:
+PCu 0 = I 02 ⋅ R1 << PFe .
+Sledi torej:
+P0 = PFe = PFen .
+Ker je preizkus prostega teka opravljen pri nazivni napetosti nazivne frekvence, so to
+nazivne izgube v železu PFen.
+Med nazivno obremenitvijo transformator obratuje na ''nazivnem'' omrežju, torej pri
+nazivni napetosti nazivne frekvence. Celotne izgube so:
+Pizn = S n ⋅ (1 − η n ) = PCun + PFen .
+Nazivne izgube v navitju so:
+
+23
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+PCun = Pizn − PFen = S n ⋅ (1 − η n ) − PFen = 100 ⋅ 10 3 (1 − 0.97) − 600 = 2400 W .
+Izgube v navitju nastajajo v primarnem (VN) in v sekundarnem (NN) navitju:
+PCun = PCu1n + PCu 2 n = I 12n ⋅ R1 + I 22n ⋅ R2 .
+Ohmska upornost bakrenega navitja je:
+l
+R = ρ ⋅ Cu .
+q
+lCu ... dolžina vodnika v [m]
+q ... prerez vodnika v [m2]
+ρ ... specifična električna upornost bakrenega vodnika
+ρ Cu = 0.0175 ⋅ 10 −6 Ωm 2 /m pri 293 K (20 0C).
+Nazivne izgube v bakrenem navitju so tudi:
+l
+PCun = I n2 ⋅ R = (Γn ⋅ q ) 2 ⋅ ρ Cu ⋅ Cu .
+q
+Ker je masa bakrene žice:
+mCu = γ Cu ⋅ lCu ⋅ q ,
+so izgube
+
+ρ Cu
+ρ
+2
+= Γn ⋅ mCu ⋅ Cu .
+γ Cu ⋅ q
+γ Cu
+γ ... specifična masa bakra
+2
+
+PCun = Γn ⋅ γ Cu ⋅ lCu ⋅ q ⋅ q ⋅
+
+γ Cu = 8.92 ⋅ 10 3 kg/m 3 .
+Končno je ocenjena masa bakra:
+
+mCu =
+
+PCun ⋅ γ Cu
+2
+
+Γn ⋅ ρ Cu
+
+=
+
+2400 ⋅ 8.92 ⋅ 10 3
+= 136 kg
+(3 ⋅ 10 6 ) 2 ⋅ 0.0175 ⋅ 10 −6
+
+24
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+NALOGA 2.4:
+Izračunajte število ovojev visokonapetostnega (VN) in nizkonapetostnega (NN) navitja
+trifaznega transformatorja 6 kV/0.4 kV, 50 Hz, vezave Yz 5, katerega jedro je kvadratnega
+prereza 95x95 mm2 s faktorjem polnitve fFe = 0.92, če predpostavimo, da je gostota v
+železnem jedru BFe = 1.6 T. Pri izračunu upoštevajte vezavo transformatorja!
+Vezava Yz5:
+A
+
+A
+
+B
+
+C
+U1f
+
+N1
+
+a
+
+b
+
+U1=6 kV
+
+a
+
+c
+
+U1 f =
+
+U1
+3
+
+b
+c
+C
+
+a
+2
+
+N2
+2
+
+B
+
+c
+2
+
+b
+2
+
+c
+2
+
+U2 f =
+
+N2
+2
+
+a
+2
+
+3
+n
+
+c
+2
+
+b
+2
+
+a
+2
+
+U2
+
+b
+2
+
+c
+2
+
+U2=0.4 kV
+
+a
+
+b
+
+b
+2
+
+a
+2
+
+U ( N 2 / 2) =
+
+c
+=
+
+U2 f
+3
+
+U2
+= 133 V
+3
+
+Število ovojev primarnega navitja:
+N1 =
+
+U1 f
+4.44 ⋅ f ⋅ B Fe ⋅ AFe ⋅ f Fe
+
+=
+
+U1 / 3
+3464
+=
+4.44 ⋅ f ⋅ B Fe ⋅ AFe 4.44 ⋅ 50 ⋅ 1.6 ⋅ 95 ⋅ 95 ⋅ 10 −6 ⋅ 0.92
+
+N 1 = 1175 ovojev .
+
+Število ovojev sekundarnega navitja:
+U ( N 2 / 2)
+U1 f
+E1 f
+N2
+N1
+=
+ali
+=
+=
+2
+4.44 ⋅ f ⋅ B Fe ⋅ AFe ⋅ f Fe
+U ( N 2 / 2 ) E ( N 2 / 2) N 2 / 2
+N 2 U ( N 2 / 2)
+133
+=
+⋅ N1 =
+⋅ 1175 = 45 ovojev .
+2
+U1 f
+3464
+
+25
+
+=
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+NALOGA 2.5:
+Trifazni transformator Sn = 400 kVA, 5 kV/0.4 kV, Yd 5, fn = 42 Hz ima izgube v železu na
+nazivnem omrežju PFen = 1800 W, ohmsko upornost med visokonapetostnima priključnima
+sponkama R1sp = 0.7 Ω ter med nizkonapetostnima sponkama R2sp = 0.0046 Ω. Določite:
+a) Nazivno razmerje izgub PCun/PFen = ξn.
+b) Razmerje izgub v bakru in železu, če je transformator priključen na omrežje U 1 ' = 6 kV
+enake frekvence (f' = fn) in je pri tem obremenjen z nazivnim tokom (upoštevajte, da so
+izgube PFe ∝ f ⋅ B 2 ).
+c) Moč iz omrežja, pri kateri transformator doseže maksimalni izkoristek med
+obratovanjem na nazivnem omrežju in pri spremenjenih pogojih.
+
+Ohmske upornosti trifaznih navitij običajno merimo kot upornosti med dvema
+priključnima sponkama. Pri trifaznih strojih je namreč ničlišče le izjemoma dostopno (pri
+zvezdiščnih vezavah).
+
+A
+I
+
+Ω
+Rsp
+
+B
+
+C
+I
+
+I
+
+RB
+RA
+
+RC
+
+Ohmska upornost navitja v stiku zvezda merjena med dvema priključkoma je enaka
+upornosti dveh zaporednih tuljav:
+R AB = Rsp = R A + R B
+R BC = R sp = R B + RC
+RCA = Rsp = RC + R A
+1
+⋅ ( R AB + RCA − R BC )
+2
+1
+R B = ⋅ ( R BC + R AB − RCA )
+2
+1
+RC = ⋅ ( RCA + R BC − R AB )
+2
+
+RA =
+
+Ker so vse tuljave enake ( R A = R B = RC = R f , R AB = R BC = RCA = R sp ), je upornost faznega
+navitja:
+Rf =
+
+1
+⋅ Rsp ali Rsp = 2 ⋅ R f .
+2
+
+26
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+Vezava trikot:
+A
+
+Ω
+Rsp
+
+I
+
+B
+
+C
+I
+
+I
+I
+I∆ =
+3
+
+RA
+
+RB
+
+I∆
+RC
+
+I∆
+
+R A ⋅ ( RB + RC )
+R A + RB + RC
+R ⋅ ( RC + R A )
+RBC = B
+R A + RB + RC
+R ⋅ ( R A + RB )
+RCA = C
+R A + RB + RC
+R AB =
+
+Ker je R A = R B = RC = R f in R AB = R BC = RCA = R sp , je:
+Rsp =
+
+2
+3
+⋅ R f ali R f = ⋅ Rsp .
+3
+2
+
+Ohmske upornosti trifaznih navitij potrebujemo za izračun izgubne moči PCu, ko po navitju
+teče tok. Ne zanima nas namreč vezava navitja temveč le ohmska upornost, ki jo izmerimo
+med dvema priključkoma (n.p.r. A in B, ali a in b), kar dokazujemo z naslednjim
+izračunom. Moč pri vezavi zvezda je:
+PCu = 3 ⋅ I Y2 ⋅ R f = 3 ⋅ I Y2 ⋅
+
+Rsp
+2
+
+=
+
+3 2
+⋅ I Y ⋅ R sp ,
+2
+
+ali
+
+PCu = 1.5 ⋅ I Y2 ⋅ Rsp .
+Tu je IY tok v navitju, ki je enak toku v faznem dovodu I:
+IY = I.
+Do enake moči pridemo, če računamo moč izgub za trikotno vezavo:
+
+PCu = 3 ⋅ I ∆2 ⋅ R f
+I∆ je tok v enem navitju.Tok v dovodu je I = 3 ⋅ I ∆ . R f =
+
+27
+
+3
+⋅ Rsp
+2
+
+ELEKTRIČNI STROJI
+
+PCu = 3 ⋅ (
+
+2. Transformatorji
+
+3
+3
+) 2 ⋅ ⋅ Rsp = ⋅ I 2 ⋅ R sp
+2
+2
+3
+
+I
+
+Torej je moč izgub pri trifaznih navitjih neglede na vezavo:
+
+PCu = 1.5 ⋅ I 2 ⋅ Rsp .
+I
+... tok v dovodu,
+Rsp ... ohmska upornost med dvema priključnima sponkama,
+PCu ... celotna trifazna moč izgub v navitju.
+a) Nazivno razmerje izgub:
+
+ξn =
+
+PCun
+.
+PFen
+
+Nazivne izgube v bakru:
+
+PCun = 1.5 ⋅ I 12n ⋅ R1sp + 1.5 ⋅ I 22n ⋅ R2 sp .
+Nazivna tokova:
+S1n
+
+400 ⋅ 10 3
+
+= 46.2 A ,
+3 ⋅ 5 ⋅ 10 3
+5
+I 2 n = pu ⋅ I 1n =
+⋅ 46.2 = 577.5 A .
+0 .4
+I 1n =
+
+3 ⋅ U1
+
+=
+
+pu ... napetostna prestava
+PCun = 1.5 ⋅ 46.2 2 ⋅ 0.7 + 1.5 ⋅ 577.5 2 ⋅ 0.0046 = 4542 W ,
+ξn =
+
+4542
+= 2.52 .
+1800
+
+b) Če je transformator obremenjen z enakim tokom I=In, so izgube v bakru
+nespremenjene PCu = PCun. S spremembo napajalne napetosti se spremeni magnetna
+gostota v jedru BFe:
+U 1 = E1 = 4.44 ⋅ f n ⋅ N 1 ⋅ B Fen ⋅ AFe
+U 1 ' = E1 ' = 4.44 ⋅ f '⋅ N 1 ⋅ B Fe '⋅ AFe
+
+
+
+f B
+U1
+= n ⋅ Fen
+U 1 ' f ' BFe '
+
+oziroma
+
+28
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+B Fe ' U 1 ' f n 6 ⋅ 10 3 42
+=
+⋅
+=
+⋅
+= 1 .2
+B Fen U 1 f ' 5 ⋅ 10 3 42
+Izgube v železu:
+2
+
+f'  B '
+PFe ' = PFen ⋅ ⋅  Fe  = 1800 ⋅ 1 ⋅ (1.2) 2 = 2592 W
+f n  B Fen 
+Novo razmerje izgub:
+
+ξ' =
+
+PCun 4546
+=
+= 1.75
+PFe ' 2592
+
+c) Izkoristek transformatorja je razmerje oddane in sprejete moči:
+2
+
+ S1  
+
+S1 − PFen + PCun ⋅  
+
+ S n  
+oddana moč S1 − Piz S1 − (PFen + PCu )
+
+=
+η=
+=
+=
+=
+S1
+S1
+S1
+sprejeta moč
+
+
+
+P
+ PFen + Cun2 ⋅ S1 2 
+
+
+Sn
+,
+= 1− 
+S1
+
+kjer so PCu = PCun⋅(I/In)2 = PCun⋅(S1/Sn)2 (izgube v bakru so odvisne od kvadrata toka
+oziroma moči).
+Maksimalni izkoristek bo:
+
+dη PFen PCun
+=
+− 2 =0
+dS1
+S1
+Sn
+
+
+
+S1 = S n ⋅
+
+PFen
+1
+= Sn ⋅
+.
+PCun
+ξn
+
+Če je ξ n = 2.52 , je
+
+η max
+
+pri
+
+S1 = 400 ⋅ 10 3 ⋅
+
+1
+= 252 kVA .
+2.52
+
+V primeru, ko je ξ' = 1.75 , je
+
+η max '
+
+pri
+
+S1 ' = 400 ⋅ 10 3 ⋅
+
+1
+= 302 kVA .
+1.75
+
+29
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+NALOGA 2.6:
+Trifazni transformator nazivne moči 1 MVA, U1n = 10 kV, U2n = 0,4 kV, fn = 50 Hz,
+PCun = 15 kW, P0 = 5 kW, uK = 6 % obratuje na napajalnem omrežju U1' = 11 kV,
+f' = 60 Hz. Po sekundarnem navitju teče tok I2 = 1000 A pri cosϕ2 = 0.5ind. Za ta
+obratovalni primer izračunajte izgube v bakru in železu ter točno sekundarno napetost U2'!
+Nazivna tokova I1n in I2n izračunamo iz nazivne moči in napetosti:
+I1n =
+
+Sn
+3 ⋅U 1
+
+=
+
+1 ⋅10 6
+= 57.34 A ,
+3 ⋅10 ⋅10 3
+
+1 ⋅10 6
+I 2n =
+=
+= 1443.4 A .
+3 ⋅U 2
+3 ⋅ 0.4 ⋅10 3
+Sn
+
+Izgube v navitju se spreminjajo s kvadratom toka:
+2
+
+2
+
+ I 
+ 1000 
+PCu ' = PCun ⋅  2  = 15 ⋅ 10 3 ⋅ 
+ = 7200 W .
+ 1443.4 
+ I 2n 
+Izgube v železu se spreminjajo približno linearno s frekvenco in s kvadratom magnetne
+gostote:
+2
+
+ f '   B' 
+PFe ' = PFen ⋅   ⋅   .
+ f n   Bn 
+Nazivne izgube v železu so enake izgubam v prostem teku pri nazivnem omrežju (tok
+prostega teka I0 << In, zato so tudi izgube v prostem teku PCu0 zanemarljive):
+PFen = P0 ,
+U 1n = E n1 = 4.44 ⋅ f n ⋅ N1 ⋅ BFen ⋅ AFe ,
+U 1 ' = E1 ' = 4.44 ⋅ f '⋅ N1 ⋅ B '⋅ AFe ,
+U 1 ' = 1.1 ⋅ U 1n .
+Sledi:
+f '⋅B ' = 1.1 ⋅ f n ⋅ Bn
+
+
+
+f
+B'
+= 1 .1 ⋅ n .
+Bn
+f'
+
+Torej so izgube v železu pri novih obratovalnih pogojih:
+2
+
+ f' 
+f 
+f
+PFe ' = PFen ⋅   ⋅ 1.1 ⋅ n  = 1.21 ⋅ PFen ⋅ n ,
+f'
+f'
+ fn  
+PFe ' = 1.21 ⋅ 5000 ⋅
+
+50
+= 5042 W .
+60
+
+30
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+Sekundarna napetost neobremenjenega transformatorja na novem omrežju (U1' = 11 kV, f' =
+60 Hz) se prav tako poveča za 10 %:
+
+E2′ = 1.1⋅ E2 n = 440 V (= U 2′ v prostem teku!)
+Transformator obremenimo na nizkonapetostni strani tako, da po navitju teče tok
+I2 = 1000 A pri cosϕ2 = 0.5ind. V transformatorju nastane padec napetosti, ki ga izračunamo
+na osnovi Kappovega diagrama. Pred tem izračunamo elemente Kappovega trikotnika
+uR' %, uX' % in uK' %. Pri nazivni obremenitvi (I1n, U1n, fn) je ohmski padec napetosti uR %
+številsko enak procentualnim izgubam v navitju (bakru):
+
+I = I1n :
+u R % = pCu % =
+
+PCun
+⋅100 % = 1.5 % ,
+Sn
+
+uK % = 6 % ,
+u X % = uK2 % − uR2 % = 62 − 1.52 = 5.81 % ,
+Vsi napetostni padci se spreminjajo linearno s tokom:
+1000
+⋅ I 2 n = 0.6928 ⋅ I 2 n ,
+1443.4
+I 1 = 0.6928 ⋅ I 1n :
+
+I2 =
+
+u R ' % = 1.039 % ,
+u X ' % = 4.025 % ,
+u K ' % = 4.157 % .
+Celotni padec napetosti ∆U je enak:
+
+AH = AE + EF + FH = ∆U .
+Pri tem je:
+AE = u R ' % ⋅ cos ϕ 2
+
+EF = BG = u X ' % ⋅ sin ϕ2
+FH = OH − OF = U 1 − U 12 − (CF ) 2 = U 1 − U 12 − (CG − GF ) 2
+= U1 − U12 − (CG − EB) 2 U1 − U12 − (u X ' % ⋅ cos φ2 − u R ' % ⋅ sin φ2 ) 2
+ali
+
+∆u ' % = uR ' % ⋅ cos φ2 + u X ' % ⋅ sin φ2 + U1 − U12 − (u X ' % ⋅ cos φ2 − uR ' % ⋅ sin φ2 )2
+= 1.039 ⋅ 0.5 + 4.025 ⋅ 0.866 + 110 − 110 2 − (4.025 ⋅ 0.5 − 1.039 ⋅ 0.866) 2
+= 0.520 + 3.485 + 110 − 109.995 = 4 %
+∆U = ∆u ' % ⋅ U 2′ = 0.04 ⋅ 440 = 17.6 V
+
+31
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+Dejanska medfazna napetost na sekundarnih sponkah je:
+
+U 2 ' = E 2 '− ∆U = 440 − 17.6 = 422.4 V
+
+G
+H
+
+C
+
+EB = FG = u R '⋅ sin ϕ 2
+
+F
+
+BG = EF = u x '⋅ sin ϕ 2
+
+ϕ2 ux'
+
+U1'
+
+uK '
+
+E ϕ2
+
+OC = OH = U 1
+
+B
+uR'
+
+CG = u x '⋅ cos ϕ 2
+
+A
+U2 '
+D
+I2
+ϕ2
+
+O
+
+NALOGA 2.7:
+Dva transformatorja z enako nazivno močjo Sn1 = Sn2 = 100 kVA, 20 kV/0.4 kV obratujeta
+paralelno. Prvi ima relativno kratkostično napetost uK1 = 5 % in drugi uK2 = 6 %. Nazivno
+razmerje izgub PCun/PFen = ξn = 5. Pri ločenem obratovanju z nazivno močjo bi se oba
+segrela na Θ = 65 0C nadtemperature. V paralelnem obratovanju sta že nekaj dni
+obremenjena s skupno močjo 210 kVA. Do kakšne nadtemperature se segreje prvi oziroma
+drugi transformator (Θmax1 = ?, Θmax2 = ?), če smatramo, da je transformator homogeno
+telo?
+Pri paralelnem obratovanju sta transformatorja priključena na skupne zbiralke na VN in
+NN strani. Zato sta celotna napetostna padca na prvem in na drugem transformatorju
+enaka:
+
+∆U 1 = ∆U 2 .
+
+32
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+uK1
+max 1
+
+5%
+
+uK 2
+
+?
+
+max 2
+
+SB
+
+6%
+?
+
+210 kVA
+
+Če je x1 stopnja obremenitve prvega in x2 stopnja obremenitve drugega transformatorja z
+ozirom na njihovo nazivno moč, bosta napetostna padca:
+
+x1 ⋅ u K 1 = x2 ⋅ u K 2 .
+Vsota obeh moči, ki ju transformatorja prenašata, je enaka bremenski moči:
+
+x1 ⋅ S n1 + x 2 ⋅ S n 2 = x1 ⋅ S n1 + x1 ⋅ S n 2 ⋅
+
+u k1
+= SB .
+uk 2
+
+Zato je
+SB
+
+210
+
+= 1.145 ,
+uK1
+5
+100 + 100 ⋅
+S n1 + S n 2 ⋅
+6
+uK 2
+SB
+210
+=
+= 0.955 .
+x2 =
+uK 2
+6
++ S n 2 100 ⋅ + 100
+S n1 ⋅
+5
+u K1
+x1 =
+
+=
+
+To pomeni, da prvi transformator prenaša moč
+S1 = x1 ⋅ S n1 = 114.5 kVA
+in drugi
+S 2 = x2 ⋅ S n 2 = 95.5 kVA .
+S B = S n1 + S n 2 = 210 kVA .
+Prvi bolj obremenjen transformator se segreje na maksimalno nadtemperaturo:
+Θ max 1 = Θ max n ⋅
+
+1 + ξ n ⋅ x12
+1 + 5 ⋅1.145 2
+= 65 ⋅
+= 82 0C .
+1+ ξn
+1+ 5
+
+33
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+To je 26 % višja nadtemperatura od nazivne. Manj obremenjen transformator se segreje na
+maksimalno nadtemperaturo:
+Θ max 2 = Θ max n ⋅
+
+1 + ξ n ⋅ x22
+1 + 5 ⋅ 0.955 2
+= 65 ⋅
+= 62 0 C .
+1 + ξn
+1+ 5
+
+To je le 92.6 % nazivne nadtemperature.
+
+Θ
+Θmax1
+Θmaxn
+Θmax2
+
+t
+
+0
+NALOGA 2.8:
+
+Transformator s časovno konstanto segrevanja T = 3.5 h obratuje na nazivnem omrežju in
+je nazivno obremenjen. V kolikem času t bo dosegel 75 % končne nadtemperature
+Θ(t ) = 0.75 ⋅ Θ max n , če je nazivno obremenjen iz hladnega stanja (Θ(0) = 0) . Transformator
+obravnavamo kot homogeno telo.
+Segrevalna krivulja transformatorja kot homogenega telesa pri nazivni obremenitvi:
+−
+
+t
+
+Θ (t ) = Θ max n ⋅ (1 − e T ) ,
+−
+
+t
+
+Θ max n − Θ (t ) = Θ max n ⋅ e T ,
+t
+T
+
+Θ max n
+,
+Θ max n − Θ (t )
+Θ max n
+t = T ⋅ ln
+,
+Θ max n − Θ (t )
+e =
+
+t = 3.5 ⋅ ln
+
+Θ max n
+,
+Θ max n − 0.75 ⋅ Θmax n
+
+t = 4.85 h .
+
+34
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+NALOGA 2.9:
+Trije transformatorji enake nazivne moči Sn, ki imajo različne kratkostične napetosti in
+sicer: uK1 = 5 %, uK2 = 5.5 % in uK3 = 6 %, obratujejo paralelno. Kolikšna je skupna
+prenesena moč, če se noben transformator ne sme pregreti (noben transformator ne sme
+biti preobremenjen)?
+VN
+
+Sn
+uK1
+x1
+
+Sn
+uK2
+x2
+
+Sn
+uK3
+x3
+
+NN
+
+SB
+Skupna moč:
+S B = S1 + S 2 + S 3 = x1 ⋅ S n1 + x2 ⋅ S n 2 + x3 ⋅ S n3 .
+Noben izmed transformatorjev ne sme biti preobremenjen. Torej sme transformator z
+najmanjšim uK (TR1) prevzeti obremenitev, ki je kvečjemu enaka nazivni moči. To
+pomeni, da stopnja obremenitve ne sme biti večja kot x1 = 1. Napetostni padci so enaki:
+x1 ⋅ u K 1 = x2 ⋅ u K 2 = x3 ⋅ u K 3 .
+Iz tega sledi:
+
+x 2 = x1 ⋅
+
+u K1
+5
+= 1⋅
+= 0.909
+uK2
+5.5
+
+x3 = x 2 ⋅
+
+uK 2
+u
+u
+u
+5
+= x1 ⋅ K 1 ⋅ K 2 = x1 ⋅ K 1 = 1 ⋅ = 0.833 .
+uK3
+uK2 uK3
+uK 3
+6
+
+in
+
+Skupna moč je:
+S B = S n + 0.909 ⋅ S n + 0.833 ⋅ S n = 2.742 ⋅ S n .
+
+35
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+NALOGA 2.10:
+Transformator, ki je ohlajen na temperaturo okolice, obratuje na nazivnem omrežju (U1n,
+fn) in je pri tem obremenjen z I = 1.5In. Koliko časa sme obratovati pod temi pogoji, ne da
+bi se pregrel preko dopustne temperature? Časovna konstanta segrevanja je T = 5 h,
+nazivno razmerje izgub je PCun / PFen = ξn = 3. Transformator obravnavamo kot homogeno
+telo!
+
+Θ
+Θmax'
+
+T=5 h
+
+x=1.5, preobremenitev
+
+Θmaxn
+nazivna obremenitev
+
+ϑok
+
+t
+
+t
+
+Če bi transformator trajno obratoval z I = 1.5 ⋅ I n = x ⋅ I n , bi se segrel na maksimalno
+nadtemperaturo:
+Θ max ' = Θ max n ⋅
+
+1 + ξn ⋅ x2
+1 + 3 ⋅ 1 .5 2
+= Θ max n ⋅
+= 1.9375 ⋅ Θ max n
+1 + ξn
+1+ 3
+
+Po času t se transformator segreje do dopustne nadtemperature Θdop= Θmaxn:
+Θ' (t ) = Θ max n
+−
+
+t
+
+Θ max n = Θ max '⋅(1 − e T )
+t
+
+−
+Θ
+1 − max n = e T
+Θ max '
+t
+
+eT =
+
+Θ max '
+Θ max '−Θ max n
+
+t = T ⋅ ln
+
+Θ max '
+1.9375 ⋅ Θ max n
+= 5 ⋅ ln
+= 3.63 h
+Θ max '−Θ max n
+1.9375 ⋅ Θ max n − Θ max n
+
+36
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+NALOGA 2.11:
+Transformator 10 kV/0.4 kV, 50 Hz, PCun = 5900, PFen = 1475 W se pri trajni nazivni
+obremenitvi segreje za Θmaxn = 60 0C pri temperaturi okolice ϑok = 40 0C (313 K).
+a) Koliko smemo transformator trajno obremeniti, če je postavljen v prostor, kjer je
+temperatura okolice ϑok' = 60 0C (333 K)?
+b) Transformator priključimo na 6 kV, f = 60 Hz. Kolikšno je razmerje izgub na novem
+omrežju, če je obremenjen z nazivnim tokom? Do katere nadtemperature se bo segrel
+(ϑok = 40 0C )?
+Transformator obravnavamo kot homogeno telo!
+a)
+
+Θ max n = 60 0 C
+
+→
+
+I = In ,
+
+torej je srednja temperatura transformatorja:
+ϑ max n = ϑ ok + Θ max n = 100 0 C (373 K) .
+Prirastek temperature v novih temperaturnih pogojih:
+Θ max ' 1 + ξ n ⋅ x 2
+=
+,
+Θ max n
+1 + ξn
+40 1 + 4 ⋅ x 2
+=
+60
+1+ 4
+
+x 2 = 0.5833 .
+
+
+
+Stopnja obremenitve:
+x=
+
+I'
+= 0.5833 = 0.764 .
+In
+
+Transformator lahko trajno obremenimo s tokom: I ' = 0.764 ⋅ I n .
+b)
+
+Na omrežju U', f' se spremenijo izgube v železu, izgube v bakru ostanejo
+nespremenjene pri nazivnem toku!
+2
+
+ f '   B' 
+PFe ' = PFen ⋅   ⋅   .
+ f   Bn 
+Razmerje magnetnih gostot B'/Bn poiščemo iz inducirane napetosti:
+E1 ' = 4.44 ⋅ N 1 ⋅ f '⋅B '⋅ AFe ,
+E1 = 4.44 ⋅ N 1 ⋅ f ⋅ B ⋅ AFe .
+
+37
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+V prostem teku transformatorja z zadostno natančnostjo velja, da sta inducirani
+napetosti enaki pritisnjenima, E1' =U1' in En = U1 . Zato je :
+
+U1 '
+f '⋅B'
+=
+U1
+f n ⋅ Bn
+
+ali
+
+B' U 1 '⋅ f n
+6000 ⋅ 50 1
+=
+=
+= .
+Bn U 1 ⋅ f ' 10000 ⋅ 60 2
+
+Torej so izgube v železu:
+2
+
+ 60   1 
+PFe ' = 1475 ⋅   ⋅   = 442.5 W .
+ 50   2 
+Ker je PCu' = PCun bo razmerje toplot Q'/Q:
+
+Q' Θ max '
+=
+Q Θ max n
+
+
+
+Θ max ' Piz '
+P '+ P '
+442.5 + 5900
+=
+= Fe Cu =
+= 0.86 ,
+Θ max n Pizn PFen + PCun 1475 + 5900
+
+Θ max ' = 0.86 ⋅ Θ max n = 51.6 0 C .
+
+NALOGA 2.12:
+Trifazni transformator 35 kV / 0.4 kV, Yy = 0 želimo uporabiti na omrežju 20 kV, zato
+navitje prevežemo. Narišite vezalno shemo transformatorja za:
+a) vezavo Yy0,
+b) vezavo Dy11,
+c) vezavo Dy5.
+Vsa navitja so navita v isto smer navijanja.
+a)
+A
+
+B
+
+b
+
+a
+
+primar(VN)
+
+C
+
+A
+
+c
+a
+
+a
+
+b
+
+c
+
+b
+
+n
+c
+C
+
+a
+
+b
+
+B
+
+c
+
+sekundar(NN)
+a
+
+a
+
+Yy0
+
+n
+c
+
+38
+
+c
+
+b
+b
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+b)
+
+primar(VN)
+A
+
+B
+
+b
+
+a
+
+C
+
+A
+
+c
+c
+
+a
+
+UAf
+UCf
+
+a
+
+b
+
+c
+
+UBf
+
+n
+C
+
+b
+
+a
+
+c
+
+B
+
+b
+sekundar(NN)
+a
+
+UAf
+Uaf
+
+Dy11
+
+a
+330
+
+n
+
+b
+
+b
+
+0
+
+c
+c
+
+c) Za 6 manjše fazno število (11-6 = 5) dobimo s prevezavo nizkonapetostnega navitja.
+primar(VN)
+A
+
+B
+
+b
+
+a
+
+C
+
+A
+
+c
+c
+
+a
+
+UAf
+UCf
+
+UBf
+
+C
+b
+
+a
+
+c
+
+B
+
+b
+sekundar(NN)
+UAf
+
+a
+
+b
+
+c
+
+c
+
+n
+
+Dy5
+
+-c
+
+-b
+b
+
+150 0
+
+n
+-a
+
+Uaf
+a
+
+39
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+NALOGA 2.13:
+Transformator je na nizkonapetostni (sekundarni) strani napačno zvezan (skica). Kakšne so
+napetosti med nizkonapetostnimi priključnimi sponkami a, b in c, če je pri pravilni cik-cak
+(lomljena zvezda) vezavi medfazna napetost U2= Ua-b= Ub-c= Uc-a = 400 V?
+A
+
+B
+
+C
+
+a
+
+b
+
+c
+
+a
+2
+
+b
+2
+
+c
+2
+
+a
+2
+
+b
+2
+
+c
+2
+
+a
+
+b
+
+c
+
+Če je vezava pravilna, je fazna napetost:
+U2f =
+
+U2
+3
+
+=
+
+400
+3
+
+= 231 V.
+
+Napetost, ki se inducira na polovici sekundarnega navitja oziroma na eni sekundarni
+tuljavi, je:
+
+U 2( N 2 / 2 ) =
+
+U2f
+3
+
+=
+
+U 2 400
+=
+= 133 V .
+3
+3
+
+Po kazalčnem diagramu napačno zvezanega transformatorja so napetosti:
+U a −c = U 2 f =
+
+U2
+3
+
+=
+
+400
+3
+2
+
+= 231 V
+2
+
+U c −b = U 2 f ( N 72 ) + U 2 f + U 2 f ( N 72) = 133 + 2312 + 133 2 = 400 V
+2
+
+2
+
+U a −b = U 2 f + U c −b = 2312 + 400 2 = 462 V
+
+40
+
+ELEKTRIČNI STROJI
+
+2. Transformatorji
+
+c
+
+U2=400 V
+
+U2f
+
+b
+
+U2(N /2)=133 V
+2
+
+a
+primar(VN)
+A
+
+a
+b
+c
+C
+
+B
+
+sekundar(NN)
+c
+2
+
+c
+
+b
+2
+
+c
+2
+
+b
+2
+
+a
+2
+
+a
+2
+a
+
+b
+
+41
+
+
