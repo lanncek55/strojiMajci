@@ -32,8 +32,9 @@ Zaradi kompleksnosti in obsežnosti so PDF-ji razdeljeni na manjše, obvladljive
 - [x] **Korak 12:** Naloge 2.9, 2.10 in 2.11 (Segrevanje stroja, časovna konstanta in dopustna preobremenitev) - *Strani 14-16 v PDF-ju*.
 - [x] **Korak 13:** Naloge 2.12 in 2.13 (Prevezave navitij, urni koti, asimetrične in napačne vezave - vektorski diagrami) - *Strani 17-21 v PDF-ju*.
 
-**3. POGLAVJE: SINHRONSKI STROJI**
-- [ ] **Korak 14:** Implementacija **3. Sinhronski stroji** (`3-Sinhronski_stroji 2021_Brez navitij.pdf`) - razdelitev nalog bo narejena naknadno.
+**3. POGLAVJE: SINHRONSKI STROJI (`3-Sinhronski_stroji 2021_Brez navitij.pdf` in `3_sinhronski_stroji.html`)**
+- [x] **Korak 14:** Naloge 3.2, 3.3 in 3.4 (Sinhronski generator s cilindričnim rotorjem, kratek stik in V-krivulje) - *Osnove obratovanja turbo generatorjev in kompenzacija*.
+- [ ] **Korak 15:** Implementacija preostalih nalog 3. poglavja (Naloge 3.5 dalje) - razdelitev bo narejena naknadno.
 
 ### 1. Magnetni krogi (Datoteka: `1_magnetni_krogi.html`)
 Trenutno implementirano:
