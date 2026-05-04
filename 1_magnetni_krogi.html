@@ -22,13 +22,13 @@
         <a href="index.html" style="display:inline-block; margin-bottom: 20px; color: var(--primary-color); text-decoration: none;">&larr; Nazaj na zemljevid</a>
 
         <section class="content-section">
-            <h2>Uvodne Enačbe in Koncepti</h2>
+                        <h2>Uvodne Enačbe in Koncepti</h2>
             <p>Izhodiščne enačbe za računanje magnetnih krogov temeljijo na Maxwellovih enačbah:</p>
             <div class="formula-box">
-                \[ \oint_C H \cdot dl = \int_A J \cdot dA \]
-                \[ \oint_A B \cdot dA = 0 \]
+                \[ \oint_C \vec{H} \cdot d\vec{l} = \oint_A \vec{J} \cdot d\vec{A} \]
+                \[ \oint_A \vec{B} \cdot d\vec{A} = 0 \]
                 \[ \Phi = B \cdot A \]
-                \[ V_m = N \cdot i = \oint_C H \cdot dl = H \cdot l \]
+                \[ V_m = N \cdot i = \oint_C \vec{H} \cdot d\vec{l} = H \cdot l \]
             </div>
             <p>Če zanemarimo stresanje magnetnih silnic ter robne pojave pri prehodu magnetnega polja iz železa v zračno režo, bo:</p>
             <div class="formula-box">
@@ -62,7 +62,7 @@
             </div>
 
             <p><strong>Interaktivni preizkus:</strong> Opazuj, kako dolžina zračne reže \( \delta \) vpliva na reluktanco in potreben tok za \( B = 1 \text{ T} \).</p>
-
+            
             <div class="interactive-container">
                 <div class="interactive-controls">
                     <div class="control-group">
@@ -92,7 +92,7 @@
                 <div class="solution-step">
                     <h4>a) Izračun reluktanc (magnetnih upornosti)</h4>
                     <p><strong>Predstavljaj si:</strong> Magnetni krog deluje zelo podobno kot električni krog. Baterija predstavlja vir napetosti, tukaj pa imamo <em>magnetno napetost</em> (\(V_m\)), ki jo ustvari tuljava s tokom (\(N \cdot i\)). Električni tok potuje po žici, tu pa <em>magnetni pretok</em> (\(\Phi\)) potuje po železnem jedru. Tako kot ima žica električni upor, ima železo (in zrak) <em>magnetno upornost ali reluktanco</em> (\(R_m\)). Ohmov zakon za magnetne kroge je torej: \(V_m = \Phi \cdot R_{m\_skupni}\).</p>
-
+                    
                     <p><strong>Pretvorba enot (zelo pomembno!):</strong> V fiziki moramo vse računati v osnovnih enotah (metri, kilogrami, sekunde).<br>
                     - \(1 \text{ cm} = 10^{-2} \text{ m} = 0.01 \text{ m}\)<br>
                     - \(1 \text{ cm}^2 = (10^{-2} \text{ m})^2 = 10^{-4} \text{ m}^2\)<br>
@@ -103,10 +103,10 @@
                     <div class="formula-box">
                         \[ V_m = N \cdot i = H_{Fe} \cdot l_{Fe} + H_\delta \cdot l_\delta = \Phi \cdot R_{mFe} + \Phi \cdot R_{m\delta} \]
                     </div>
-
+                    
                     <p><strong>Reluktanca železa (\(R_{mFe}\)):</strong> Formula je \(\frac{\text{dolžina}}{\text{prepustnost} \cdot \text{presek}}\). Prepustnost železa je sestavljena iz prepustnosti vakuuma (\(\mu_0\)) in relativne prepustnosti materiala (\(\mu_r = 70000\), kar pomeni, da železo 70.000-krat bolje prevaja magnetno polje kot zrak).</p>
                     <div class="formula-box">\[ R_{mFe} = \frac{l_{Fe}}{\mu_r \cdot \mu_0 \cdot A_{Fe}} = \frac{0.3}{70000 \cdot 4\pi \cdot 10^{-7} \cdot 9 \cdot 10^{-4}} = 3789 \text{ A/Vs} \]</div>
-
+                    
                     <p><strong>Reluktanca zračne reže (\(R_{m\delta}\)):</strong> Za zrak je \(\mu_r = 1\), zato uporabimo samo \(\mu_0\).</p>
                     <div class="formula-box">\[ R_{m\delta} = \frac{\delta}{\mu_0 \cdot A_\delta} = \frac{0.0005}{4\pi \cdot 10^{-7} \cdot 9 \cdot 10^{-4}} = 4.42 \cdot 10^5 \text{ A/Vs} \]</div>
                     <p><em>Pazi to:</em> Čeprav je zračna reža dolga samo pol milimetra (medtem ko je železo dolgo 30 centimetrov!), je njena magnetna upornost več kot 100-krat večja od železa! Zrak je zelo "slab prevodnik" za magnetno polje.</p>
@@ -195,10 +195,10 @@
                 <div class="solution-step">
                     <h4>Kaj pomeni \(\mu \to \infty\)?</h4>
                     <p>To je teoretična predpostavka. Pomeni, da ima železo <em>neskončno veliko</em> permeabilnost. V formuli \(R_m = \frac{l}{\mu \cdot A}\) delimo z neskončnostjo, kar pomeni, da je <strong>reluktanca železa enaka točno 0</strong> (\(R_{mFe} = 0\)). Vsa "električna moč" (magnetna napetost) se tako porabi izključno na premagovanje zračne reže.</p>
-
+                    
                     <h4>Zračne reže v sinhronskem stroju:</h4>
                     <p>Kot vidiš na skici, mora pretok iti iz sredine (rotorja) skozi zrak v stator in potem spet iz statorja nazaj skozi zrak v rotor, da se sklene v zanko. Zato imamo v naši enačbi <strong>dve zaporedni zračni reži</strong>. Dolžino ene reže \(\delta\) moramo pomnožiti z 2.</p>
-
+                    
                     <h4>Izračun magnetnega pretoka:</h4>
                     <p>Ohmov zakon \(V_m = \Phi \cdot R_{m\_skupni}\). Ker je upornost železa 0, je upornost enaka le seštevku obeh zračnih rež: \(R_\delta = \frac{2 \cdot \delta}{\mu_0 \cdot A_\delta}\).</p>
                     <div class="formula-box">
@@ -208,7 +208,7 @@
                     <div class="formula-box">
                         \[ \Phi = 1000 \cdot 10 \cdot \frac{4\pi \cdot 10^{-7} \cdot 0.2}{2 \cdot 10^{-2}} = 0.126 \text{ Wb} \]
                     </div>
-
+                    
                     <h4>Magnetna gostota pod polovim čevljem:</h4>
                     <p>Magnetna gostota (\(B\)) pove, kako skoncentriran je ta pretok na določeni površini (\(A_\delta\)). Zgolj delimo ju med sabo:</p>
                     <div class="formula-box">
@@ -235,42 +235,117 @@
         <section class="task">
             <h3>NALOGA 1.3: Dve paralelni zračni reži</h3>
             <p>Magnetni krog po spodnji skici sestoji iz \( N \) ovojev na magnetnem jedru (\( \mu \to \infty \)) z dvema <strong>paralelnima</strong> zračnima režama dolžin \( \delta_1 \) in \( \delta_2 \) ter pripadajočima prerezoma \( A_1 \) in \( A_2 \).</p>
-
-            <div class="interactive-container" style="justify-content: center; background: #fafafa;">
+            
+            <div class="interactive-container" style="justify-content: center; background: #fff;">
                 <div style="text-align: center; padding: 10px;">
                     <h4>Skica magnetnega kroga z dvema režama</h4>
-                    <svg width="250" height="200" viewBox="0 0 250 200">
-                        <path d="M 30,30 L 220,30 L 220,170 L 30,170 Z" fill="none" stroke="#ccc" stroke-width="30"/>
-                        <path d="M 125,30 L 125,170" fill="none" stroke="#ccc" stroke-width="30"/>
-                        <rect x="110" y="80" width="30" height="8" fill="#fafafa" stroke="#333" stroke-width="1"/>
-                        <text x="145" y="88" font-size="12" fill="#333">δ1</text>
-                        <rect x="205" y="80" width="30" height="15" fill="#fafafa" stroke="#333" stroke-width="1"/>
-                        <text x="238" y="93" font-size="12" fill="#333">δ2</text>
-                        <rect x="15" y="60" width="30" height="80" fill="#e67e22" rx="5"/>
-                        <text x="20" y="105" font-size="14" fill="white">N, i</text>
+                    <svg width="300" height="220" viewBox="0 0 300 220">
+                        <defs>
+                            <pattern id="hatch" patternUnits="userSpaceOnUse" width="10" height="10">
+                                <path d="M-1,1 l2,-2 M0,10 l10,-10 M9,11 l2,-2" stroke="#ddd" stroke-width="1"/>
+                            </pattern>
+                        </defs>
+                        <!-- Core -->
+                        <path d="M 50,20 L 250,20 L 250,200 L 50,200 Z" fill="none" stroke="#333" stroke-width="40"/>
+                        <path d="M 150,20 L 150,200" fill="none" stroke="#333" stroke-width="40"/>
+                        <!-- Gaps -->
+                        <rect x="128" y="105" width="44" height="10" fill="#fff" />
+                        <rect x="228" y="105" width="44" height="10" fill="#fff" />
+                        <!-- Outlines for 3D/clarity (just drawing the borders) -->
+                        <path d="M 30,0 L 270,0 L 270,220 L 30,220 Z" fill="none" stroke="#000" stroke-width="2"/>
+                        <path d="M 70,40 L 130,40 L 130,200 L 70,200 Z" fill="none" stroke="#000" stroke-width="2"/>
+                        <path d="M 170,40 L 230,40 L 230,200 L 170,200 Z" fill="none" stroke="#000" stroke-width="2"/>
+                        
+                        <!-- Middle gap outline -->
+                        <line x1="130" y1="105" x2="170" y2="105" stroke="#000" stroke-width="2"/>
+                        <line x1="130" y1="115" x2="170" y2="115" stroke="#000" stroke-width="2"/>
+                        <!-- Right gap outline -->
+                        <line x1="230" y1="105" x2="270" y2="105" stroke="#000" stroke-width="2"/>
+                        <line x1="230" y1="115" x2="270" y2="115" stroke="#000" stroke-width="2"/>
+
+                        <!-- Labels for gaps -->
+                        <!-- delta1 -->
+                        <line x1="150" y1="90" x2="150" y2="102" stroke="#000" stroke-width="1" marker-end="url(#arrow)"/>
+                        <line x1="150" y1="130" x2="150" y2="118" stroke="#000" stroke-width="1" marker-end="url(#arrow)"/>
+                        <text x="156" y="113" font-size="14" font-family="serif">δ₁</text>
+                        <text x="180" y="100" font-size="14" font-family="serif">A₁</text>
+
+                        <!-- delta2 -->
+                        <line x1="250" y1="90" x2="250" y2="102" stroke="#000" stroke-width="1" marker-end="url(#arrow)"/>
+                        <line x1="250" y1="130" x2="250" y2="118" stroke="#000" stroke-width="1" marker-end="url(#arrow)"/>
+                        <text x="256" y="113" font-size="14" font-family="serif">δ₂</text>
+                        <text x="275" y="100" font-size="14" font-family="serif">A₂</text>
+
+                        <!-- Coil on left leg -->
+                        <!-- Wire coming in -->
+                        <line x1="5" y1="80" x2="30" y2="80" stroke="#000" stroke-width="2"/>
+                        <circle cx="5" cy="80" r="3" fill="#fff" stroke="#000" stroke-width="1"/>
+                        <text x="-10" y="84" font-size="12">+</text>
+                        <text x="15" y="75" font-size="12">i</text>
+                        <!-- Wraps -->
+                        <path d="M 30,80 Q 50,75 70,85" fill="none" stroke="#000" stroke-width="2"/>
+                        <path d="M 30,100 Q 50,95 70,105" fill="none" stroke="#000" stroke-width="2"/>
+                        <path d="M 30,120 Q 50,115 70,125" fill="none" stroke="#000" stroke-width="2"/>
+                        <path d="M 30,140 Q 50,135 70,145" fill="none" stroke="#000" stroke-width="2"/>
+                        
+                        <text x="10" y="115" font-size="14" font-family="serif">N</text>
+                        
+                        <!-- Wire going out -->
+                        <line x1="5" y1="140" x2="30" y2="140" stroke="#000" stroke-width="2"/>
+                        <circle cx="5" cy="140" r="3" fill="#fff" stroke="#000" stroke-width="1"/>
+                        <text x="-10" y="144" font-size="12">-</text>
+                        
+                        <defs>
+                            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000" />
+                            </marker>
+                        </defs>
                     </svg>
                 </div>
                 <div style="text-align: center; padding: 10px;">
-                    <h4>Ekvivalentno električno vezje</h4>
-                    <svg width="250" height="200" viewBox="0 0 250 200">
-                        <path d="M 40,50 L 200,50 L 200,150 L 40,150 Z" fill="none" stroke="#34495e" stroke-width="2"/>
-                        <line x1="120" y1="50" x2="120" y2="150" stroke="#34495e" stroke-width="2"/>
-                        <circle cx="40" cy="100" r="15" fill="white" stroke="#e74c3c" stroke-width="2"/>
-                        <text x="32" y="104" font-size="12" fill="#e74c3c">V_m</text>
-                        <rect x="110" y="80" width="20" height="40" fill="white" stroke="#2980b9" stroke-width="2"/>
-                        <text x="135" y="105" font-size="12" fill="#2980b9">R_m1</text>
-                        <rect x="190" y="80" width="20" height="40" fill="white" stroke="#2980b9" stroke-width="2"/>
-                        <text x="215" y="105" font-size="12" fill="#2980b9">R_m2</text>
-                        <text x="70" y="40" font-size="12" fill="#27ae60">Φ</text>
-                        <text x="125" y="65" font-size="12" fill="#27ae60">Φ1</text>
-                        <text x="180" y="65" font-size="12" fill="#27ae60">Φ2</text>
+                    <h4>a) Ekvivalentno vezje</h4>
+                    <svg width="250" height="220" viewBox="0 0 250 220">
+                        <!-- Wires -->
+                        <path d="M 60,60 L 200,60 L 200,100" fill="none" stroke="#000" stroke-width="1"/>
+                        <path d="M 60,180 L 200,180 L 200,140" fill="none" stroke="#000" stroke-width="1"/>
+                        <line x1="60" y1="60" x2="60" y2="100" stroke="#000" stroke-width="1"/>
+                        <line x1="60" y1="140" x2="60" y2="180" stroke="#000" stroke-width="1"/>
+                        <line x1="130" y1="60" x2="130" y2="100" stroke="#000" stroke-width="1"/>
+                        <line x1="130" y1="140" x2="130" y2="180" stroke="#000" stroke-width="1"/>
+                        
+                        <!-- Voltage source -->
+                        <circle cx="60" cy="120" r="20" fill="#fff" stroke="#000" stroke-width="1"/>
+                        <text x="52" y="125" font-size="14" font-family="serif">Ni</text>
+                        <text x="35" y="100" font-size="14">+</text>
+                        <text x="35" y="145" font-size="14">-</text>
+
+                        <!-- Resistors -->
+                        <rect x="115" y="100" width="30" height="40" fill="#fff" stroke="#000" stroke-width="1"/>
+                        <text x="150" y="125" font-size="14" font-family="serif">R<tspan dy="5" font-size="10">m1</tspan></text>
+                        
+                        <rect x="185" y="100" width="30" height="40" fill="#fff" stroke="#000" stroke-width="1"/>
+                        <text x="220" y="125" font-size="14" font-family="serif">R<tspan dy="5" font-size="10">m2</tspan></text>
+
+                        <!-- Flux arrows -->
+                        <line x1="80" y1="45" x2="100" y2="45" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <text x="85" y="35" font-size="14" font-family="serif">Φ</text>
+
+                        <line x1="120" y1="75" x2="120" y2="90" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <text x="135" y="85" font-size="14" font-family="serif">Φ<tspan dy="5" font-size="10">1</tspan></text>
+                        <circle cx="130" cy="60" r="2" fill="#000"/>
+
+                        <line x1="190" y1="75" x2="190" y2="90" stroke="#000" stroke-width="1.5" marker-end="url(#arrow)"/>
+                        <text x="205" y="85" font-size="14" font-family="serif">Φ<tspan dy="5" font-size="10">2</tspan></text>
+                        <circle cx="200" cy="60" r="2" fill="#000"/>
+                        <circle cx="130" cy="180" r="2" fill="#000"/>
+                        <circle cx="200" cy="180" r="2" fill="#000"/>
                     </svg>
                 </div>
             </div>
 
-<p>a) Izračunajte induktivnost navitja.</p>
+            <p>a) Izračunajte induktivnost navitja.</p>
             <p>b) Izračunajte magnetno gostoto v zračni reži \( \delta_1 \), ko po navitju teče tok \( i \). Zanemarite stresanje magnetnega polja v zračni reži.</p>
-
+            
             <div class="real-world-box">
                 <div class="real-world-title">
                     <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
@@ -293,30 +368,26 @@
                     <div class="formula-box">
                         \[ \Phi = N \cdot i \cdot \left(\frac{R_{m1} + R_{m2}}{R_{m1} \cdot R_{m2}}\right) \]
                     </div>
-
+                    
                     <h4>a) Induktivnost (\(L\)):</h4>
                     <p><strong>Kaj sploh je induktivnost?</strong> Induktivnost je parameter, ki nam pove, kako "močan" magnetni učinek (magnetni sklep \(\Psi\)) dobimo za 1 Amper toka. Formula je \(L = \frac{\Psi}{i}\), kjer je \(\Psi = N \cdot \Phi\).</p>
                     <div class="formula-box">
-                        \[ L = \frac{\Psi}{i} = \frac{N \cdot \Phi}{i} = \frac{N \cdot \left[N \cdot i \cdot \left(\frac{R_{m1} + R_{m2}}{R_{m1} \cdot R_{m2}}\right)\right]}{i} \]
+                        \[ L = \frac{\Psi}{i} = \frac{N \cdot \Phi}{i} = \frac{N^2 \cdot i}{i} \cdot \frac{R_{m1} + R_{m2}}{R_{m1} \cdot R_{m2}} = \frac{N^2 \cdot (R_{m1} + R_{m2})}{R_{m1} \cdot R_{m2}} = N^2 \cdot \left( \frac{1}{R_{m1}} + \frac{1}{R_{m2}} \right) \]
                     </div>
-                    <p>Tok \(i\) se pokrajša, in ostane nam (za preprostost uporabimo obratne vrednosti reluktanc, ki se pri vzporedni vezavi enostavno seštevajo: \(\frac{1}{R_m} = \frac{1}{R_{m1}} + \frac{1}{R_{m2}}\)):</p>
+                    <p>Z vstavitvijo izrazov za reluktanci dobimo:</p>
                     <div class="formula-box">
-                        \[ L = N^2 \cdot \left( \frac{1}{R_{m1}} + \frac{1}{R_{m2}} \right) = \mu_0 \cdot N^2 \cdot \left( \frac{A_1}{\delta_1} + \frac{A_2}{\delta_2} \right) \]
+                        \[ L = N^2 \cdot \mu_0 \cdot \left( \frac{A_1}{\delta_1} + \frac{A_2}{\delta_2} \right) \]
                     </div>
-
-                    <h4>b) Gostota magnetnega pretoka v \( \delta_1 \):</h4>
+                    
+                    <h4>b) Magnetni pretok po nadomestnem vezju (\( \Phi_1 \)) in gostota \( B_1 \):</h4>
                     <p>V električnem vzporednem vezju je napetost na vseh vejah enaka! Isto velja tu: magnetna napetost \(V_m = N \cdot i\) je enaka tako preko prve kot preko druge zračne reže. Pretok čez prvo režo (\(\Phi_1\)) torej izračunamo samo iz njenih podatkov:</p>
                     <div class="formula-box">
-                        \[ \Phi_1 = \frac{V_m}{R_{m1}} = \frac{N \cdot i}{R_{m1}} = N \cdot i \cdot \frac{\mu_0 \cdot A_1}{\delta_1} \]
-                    </div>
-                    <p>Gostoto pa dobimo z deljenjem s presekom (\(B = \Phi / A\)):</p>
-                    <div class="formula-box">
-                        \[ B_1 = \frac{\Phi_1}{A_1} = \frac{N \cdot i \cdot \mu_0}{\delta_1} \]
+                        \[ \Phi_1 = \frac{N \cdot i}{R_{m1}} = \frac{\mu_0 \cdot A_1 \cdot N \cdot i}{\delta_1} \quad \Rightarrow \quad B = \frac{\Phi_1}{A_1} = \frac{\mu_0 \cdot N \cdot i}{\delta_1} \]
                     </div>
                 </div>
             </details>
         </section>
-
+        
         <!-- Kviz 1.3 -->
         <section class="quiz-section">
             <h3>Kviz 1.3: Paralelne reluktance</h3>
@@ -328,19 +399,100 @@
             <div id="quiz13-feedback" class="feedback"></div>
         </section>
 
-
+    
         <hr>
 
-
+        
         <hr>
         <section class="content-section">
             <h2>Splošni primer – magnetni krogi z več navitji</h2>
-            <p>Pri analizi kompleksnejših vezij z več navitji (N1, N2...) in zračnimi režami ter različnimi prerezi, lahko uporabimo posplošen pristop, ki obravnava vezje kot matrični sistem reluktanc in tokov.</p>
-            <div class="formula-box">
-                \[ \Phi = \frac{\sum (N \cdot i)}{R_m} \]
-                \[ L_{ij} = \frac{N_i \cdot \Phi_j}{i_j} \]
+            
+            <div style="text-align: center; margin: 20px 0;">
+                <svg width="350" height="250" viewBox="0 0 350 250">
+                    <!-- Outer core boundary -->
+                    <path d="M 50,20 L 300,20 L 300,220 L 50,220 Z" fill="none" stroke="#000" stroke-width="2"/>
+                    <!-- Inner core boundary -->
+                    <path d="M 120,60 L 230,60 L 230,180 L 120,180 Z" fill="none" stroke="#000" stroke-width="2"/>
+                    <!-- 3D perspective lines -->
+                    <path d="M 40,10 L 290,10 L 290,210 L 40,210 Z" fill="none" stroke="#000" stroke-width="1"/>
+                    <line x1="40" y1="10" x2="50" y2="20" stroke="#000" stroke-width="1"/>
+                    <line x1="290" y1="10" x2="300" y2="20" stroke="#000" stroke-width="1"/>
+                    <line x1="290" y1="210" x2="300" y2="220" stroke="#000" stroke-width="1"/>
+                    <line x1="40" y1="210" x2="50" y2="220" stroke="#000" stroke-width="1"/>
+                    <path d="M 110,50 L 220,50 L 220,170 L 110,170 Z" fill="none" stroke="#000" stroke-width="1"/>
+                    <line x1="110" y1="50" x2="120" y2="60" stroke="#000" stroke-width="1"/>
+                    <line x1="220" y1="50" x2="230" y2="60" stroke="#000" stroke-width="1"/>
+                    <line x1="220" y1="170" x2="230" y2="180" stroke="#000" stroke-width="1"/>
+                    <line x1="110" y1="170" x2="120" y2="180" stroke="#000" stroke-width="1"/>
+                    
+                    <!-- Air gap (delta) -->
+                    <rect x="170" y="20" width="10" height="40" fill="#fff" stroke="#000" stroke-width="1"/>
+                    <!-- Flux path -->
+                    <path d="M 85,120 L 85,40 L 265,40 L 265,200 L 85,200 Z" fill="none" stroke="#666" stroke-width="1" stroke-dasharray="4,4"/>
+                    
+                    <line x1="175" y1="70" x2="175" y2="90" stroke="#000" stroke-width="1" marker-end="url(#arrow)"/>
+                    <text x="180" y="85" font-size="14" font-family="serif">δ</text>
+                    
+                    <text x="280" y="210" font-size="14" font-family="serif">μ</text>
+                    <text x="100" y="210" font-size="12" font-family="serif">l<tspan dy="2" font-size="10">Fe</tspan></text>
+
+                    <!-- Coil 1 -->
+                    <path d="M 30,100 Q 50,95 70,105" fill="none" stroke="#000" stroke-width="2"/>
+                    <path d="M 30,115 Q 50,110 70,120" fill="none" stroke="#000" stroke-width="2"/>
+                    <path d="M 30,130 Q 50,125 70,135" fill="none" stroke="#000" stroke-width="2"/>
+                    <path d="M 30,145 Q 50,140 70,150" fill="none" stroke="#000" stroke-width="2"/>
+                    <line x1="10" y1="100" x2="30" y2="100" stroke="#000" stroke-width="2"/>
+                    <line x1="10" y1="145" x2="30" y2="145" stroke="#000" stroke-width="2"/>
+                    <circle cx="10" cy="100" r="2" fill="#fff" stroke="#000"/>
+                    <circle cx="10" cy="145" r="2" fill="#fff" stroke="#000"/>
+                    <text x="-5" y="105" font-size="12">+</text>
+                    <text x="-5" y="150" font-size="12">-</text>
+                    <text x="5" y="85" font-size="12">i₁</text>
+                    <text x="15" y="125" font-size="14" font-family="serif">N₁</text>
+
+                    <!-- Coil 2 -->
+                    <path d="M 280,110 Q 300,105 320,115" fill="none" stroke="#000" stroke-width="2"/>
+                    <path d="M 280,125 Q 300,120 320,135" fill="none" stroke="#000" stroke-width="2"/>
+                    <path d="M 280,140 Q 300,135 320,150" fill="none" stroke="#000" stroke-width="2"/>
+                    <line x1="320" y1="115" x2="340" y2="115" stroke="#000" stroke-width="2"/>
+                    <line x1="320" y1="150" x2="340" y2="150" stroke="#000" stroke-width="2"/>
+                    <circle cx="340" cy="115" r="2" fill="#fff" stroke="#000"/>
+                    <circle cx="340" cy="150" r="2" fill="#fff" stroke="#000"/>
+                    <text x="345" y="120" font-size="12">+</text>
+                    <text x="345" y="155" font-size="12">-</text>
+                    <text x="335" y="100" font-size="12">i₂</text>
+                    <text x="305" y="135" font-size="14" font-family="serif">N₂</text>
+
+                </svg>
             </div>
-            <p>Za linearen sistem je pogosto v pomoč preurediti sistem s T-nadomestnim vezjem (kar srečamo v kasnejših nalogah o sklopljenih navitjih).</p>
+            
+            <p>Celotna magnetna napetost:</p>
+            <div class="formula-box">
+                \[ V_m = N \cdot i = N_1 \cdot i_1 + N_2 \cdot i_2 \]
+            </div>
+            
+            <p>Magnetni pretok v železnem jedru:</p>
+            <div class="formula-box" style="font-size: 1.1em;">
+                \[ \Phi = \frac{N_1 \cdot i_1 + N_2 \cdot i_2}{R_m} = (N_1 \cdot i_1 + N_2 \cdot i_2) \cdot \frac{\mu_0 \cdot A_{Fe}}{\delta} \]
+            </div>
+            
+            <p>Magnetna sklepa in induktivnosti (ob upoštevanju \( R_{mFe} \approx 0 \)):</p>
+            <div class="formula-box" style="font-size: 1.1em; line-height: 2;">
+                \[ \Psi_1 = N_1 \cdot \Phi = N_1^2 \cdot \frac{\mu_0 \cdot A_{Fe}}{\delta} \cdot i_1 + N_1 \cdot N_2 \cdot \frac{\mu_0 \cdot A_{Fe}}{\delta} \cdot i_2 \]
+                <br>
+                \[ \Psi_1 = L_{11} \cdot i_1 + L_{12} \cdot i_2 \]
+                <br>
+                \[ L_{11} = N_1^2 \cdot \frac{\mu_0 \cdot A_{Fe}}{\delta} \]
+                <br>
+                \[ L_{12} = N_1 \cdot N_2 \cdot \frac{\mu_0 \cdot A_{Fe}}{\delta} \]
+            </div>
+            
+            <ul style="list-style-type: none; padding-left: 20px;">
+                <li><strong>\( L_{11} \)</strong> – lastna induktivnost prvega navitja</li>
+                <li><strong>\( L_{11} \cdot i_1 \)</strong> – magnetni sklep prvega navitja skozi katerega teče tok \( i_1 \)</li>
+                <li><strong>\( L_{12} \)</strong> – medsebojna induktivnost med prvim in drugim navitjem</li>
+                <li><strong>\( L_{12} \cdot i_2 \)</strong> – magnetni sklep prvega navitja in toka \( i_2 \) v drugem navitju</li>
+            </ul>
         </section>
 
 <!-- Naloga 1.4 -->
@@ -352,7 +504,7 @@
                 <li>Magnetno energijo \( W \), shranjeno pri \( B_{Fe} = 1 \text{ T} \).</li>
                 <li>Inducirano napetost \( e \), če je zunanje vzbujanje izmenično pri \( f = 60 \text{ Hz} \) in je gostota \( B_{Fe}(t) = 1 \cdot \sin(\omega t) \).</li>
             </ol>
-
+            
             <div class="real-world-box">
                 <div class="real-world-title">
                     <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
@@ -420,22 +572,22 @@
                         <line x1="40" y1="210" x2="40" y2="20" stroke="#333" stroke-width="2"/> <!-- y os -->
                         <text x="320" y="230" font-size="12" font-family="sans-serif">H [A/m]</text>
                         <text x="10" y="30" font-size="12" font-family="sans-serif">B [T]</text>
-
+                        
                         <!-- Mreža in Oznake na X -->
                         <line x1="120" y1="205" x2="120" y2="215" stroke="#333" stroke-width="2"/>
                         <text x="110" y="230" font-size="12" font-family="sans-serif">12</text>
                         <line x1="200" y1="205" x2="200" y2="215" stroke="#333" stroke-width="2"/>
                         <text x="190" y="230" font-size="12" font-family="sans-serif">36</text>
-
+                        
                         <!-- Mreža in Oznake na Y -->
                         <line x1="35" y1="120" x2="45" y2="120" stroke="#333" stroke-width="2"/>
                         <text x="15" y="125" font-size="12" font-family="sans-serif">1.0</text>
                         <line x1="35" y1="50" x2="45" y2="50" stroke="#333" stroke-width="2"/>
                         <text x="15" y="55" font-size="12" font-family="sans-serif">1.5</text>
-
+                        
                         <!-- Krivulja magnetenja (aproksimacija) -->
                         <path d="M 40,210 Q 50,150 120,120 T 200,50" fill="none" stroke="#2980b9" stroke-width="3"/>
-
+                        
                         <!-- Prikaz branja vrednosti za 1T -->
                         <line x1="40" y1="120" x2="120" y2="120" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5"/>
                         <line x1="120" y1="120" x2="120" y2="210" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5"/>
@@ -464,7 +616,7 @@
                     <div class="formula-box">
                         \[ V_{mFe} = H_{Fe} \cdot l_{Fe} = 12 \cdot 0.3 = 3.6 \text{ A} \]
                     </div>
-
+                    
                     <h4>b) Magnetna napetost v zračni reži:</h4>
                     <p>Zrak nima krivulje nasičenja; zrak je idealno linearen. Za \( B_\delta = 1 \text{ T} \) lahko \( H_\delta \) izračunamo iz linearne formule \( H = \frac{B}{\mu_0} \).</p>
                     <div class="formula-box">
@@ -501,7 +653,7 @@
 
         <hr>
 
-
+        
         <hr>
         <section class="content-section">
             <h2>Izmenično vzbujanje</h2>
@@ -542,16 +694,16 @@
                     <svg width="300" height="250" viewBox="0 0 300 250">
                         <path d="M 25,25 L 275,25 L 275,225 L 25,225 Z" fill="#7f8c8d" />
                         <path d="M 75,75 L 225,75 L 225,175 L 75,175 Z" fill="#fafafa" />
-
+                        
                         <line x1="25" y1="15" x2="275" y2="15" stroke="#e74c3c" stroke-width="2"/>
                         <text x="135" y="10" font-size="12" fill="#e74c3c">25 cm</text>
                         <line x1="15" y1="25" x2="15" y2="225" stroke="#e74c3c" stroke-width="2"/>
                         <text x="20" y="130" font-size="12" fill="#e74c3c" transform="rotate(-90 15,130)">20 cm</text>
                         <line x1="25" y1="235" x2="75" y2="235" stroke="#e74c3c" stroke-width="2"/>
                         <text x="35" y="248" font-size="12" fill="#e74c3c">5 cm</text>
-
+                        
                         <path d="M 50,50 L 250,50 L 250,200 L 50,200 Z" fill="none" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5"/>
-
+                        
                         <rect x="10" y="80" width="80" height="90" fill="none" stroke="#f39c12" stroke-width="4" rx="5"/>
                         <text x="35" y="125" font-size="14" fill="#d35400" font-weight="bold">N=200</text>
                     </svg>
@@ -615,9 +767,9 @@
             </div>
             <div id="quiz16-feedback" class="feedback"></div>
         </section>
-
+        
     </main>
-
+    
     <footer>
         <p>Ustvarjeno za učenje in utrjevanje znanja. <i>Korak 2: Popoln prepis nalog 1.4 - 1.6.</i></p>
     </footer>
@@ -639,12 +791,12 @@
             let phi = 9e-4;
             let n = 500;
             let i = (phi * rm_tot) / n;
-
+            
             document.getElementById('res-rmg-1').innerText = rm_g.toExponential(2);
             document.getElementById('res-rmt-1').innerText = rm_tot.toExponential(2);
             document.getElementById('res-i-1').innerText = i.toFixed(2);
 
-            let gapHeight = Math.max(1, delta_mm * 10);
+            let gapHeight = Math.max(1, delta_mm * 10); 
             document.getElementById('svg-gap-1').setAttribute('height', gapHeight);
             document.getElementById('svg-gap-1').setAttribute('y', 100 - gapHeight/2);
         }
@@ -660,7 +812,7 @@
             let Vm = N * i;
             let phi = (N * i * PI4e7 * A) / (2 * delta);
             let B = phi / A;
-
+            
             document.getElementById('res-vm-2').innerText = Vm;
             document.getElementById('res-phi-2').innerText = phi.toFixed(3);
             document.getElementById('res-b-2').innerText = B.toFixed(3);
@@ -674,7 +826,7 @@
             if(!el) return;
             let f = parseFloat(el.value);
             document.getElementById('val-freq-6').innerText = f;
-
+            
             let omega = 2 * Math.PI * f;
             let N = 200;
             let A = 25e-4;
@@ -682,7 +834,7 @@
             let A_Fe = A * fFe;
             let B_max = 1.5;
             let e_max = N * A_Fe * omega * B_max;
-
+            
             document.getElementById('res-omega-6').innerText = omega.toFixed(2);
             document.getElementById('res-emax-6').innerText = e_max.toFixed(1);
         }
@@ -713,7 +865,7 @@
                 fb.className = "feedback error"; fb.innerText = "Ni prav. Pomisli na Ohmov zakon: če se upornost (reluktanca) poveča, moramo za isti pretok ('tok') povečati napetost, torej vzbujalni tok.";
             }
         }
-
+        
         function checkQuiz13() {
             let input = parseInt(document.getElementById('quiz13-input').value);
             let fb = document.getElementById('quiz13-feedback');
@@ -724,7 +876,7 @@
                 fb.className = "feedback error"; fb.innerText = "Ni prav. Uporabi formulo za paralelne upornosti: (R1 * R2) / (R1 + R2).";
             }
         }
-
+        
         function checkQuiz14() {
             let input = document.getElementById('quiz14-input').value.trim().toLowerCase();
             let fb = document.getElementById('quiz14-feedback');
@@ -734,7 +886,7 @@
                 fb.className = "feedback error"; fb.innerText = "Ni prav. Razmisli: v kateri komponenti magnetnega vezja je koncentrirana skoraj vsa magnetna napetost zaradi njene slabe prepustnosti?";
             }
         }
-
+        
         function checkQuiz15() {
             let input = document.getElementById('quiz15-input').value.trim().toLowerCase();
             let fb = document.getElementById('quiz15-feedback');
