@@ -46,3 +46,26 @@ Trenutno implementirano:
 * **Naloga 1.4:** Toroidni magnetni krog z zračno režo (interaktivni SVG drsnik toroida, izračun poti iz polmera, kviz o stresanju).
 * **Naloga 1.5:** Uporaba magnetilnice (nelinearna analiza, branje B-H grafa, kviz o nasičenju in padcu permeabilnosti).
 * **Naloga 1.6:** Navitje s časovno spremenljivo napetostjo (Faradayev zakon, drsnik za frekvenco in izračun E_max, kviz o primerjavi 50Hz in 60Hz).
+
+## AVDITORNE VAJE (`ES_AV - Vaja XX.pdf`)
+Dopolnitev gradiv z dodatnimi zunanjimi vajami. Za vsako vajo je potrebno narediti pripadajočo `.html` datoteko, dodati vsa matematična izvajanja, ustvariti interaktivne SVG skice, kvize in "Real World Uses".
+
+- [x] **Korak 16:** Vaja 00 (Uvodne informacije o tematiki in področju električnih strojev) - `vaja_00.html`
+- [ ] **Korak 17:** Vaja 01 (Magnetilni tok dušilke navite na toroidno jedro iz feromagnetnega materiala) - `vaja_01.html`
+- [ ] **Korak 18:** Vaja 02 (Enofazni transformator brez zračne reže, jedro v obliki kvadratnega okvirja) - `vaja_02.html`
+- [ ] **Korak 19:** Vaja 03 (Transformator podatki Sn=50kVA, p=6, reševanje napetosti/izgub) - `vaja_03.html`
+- [ ] **Korak 20:** Vaja 04 (Enofazni transformator Sn=50kVA, U1n=2400V, nadomestno vezje in tokovi) - `vaja_04.html`
+- [ ] **Korak 21:** Vaja 05 (Razvoj kazalčnega diagrama transformatorja) - `vaja_05.html`
+- [ ] **Korak 22:** Vaja 06 (Transformator Sn=100kVA z določenim izkoristkom in uK) - `vaja_06.html`
+- [ ] **Korak 23:** Vaja 07 (Trifazni transformator splošne lastnosti in naloge) - `vaja_07.html`
+- [ ] **Korak 24:** Vaja 08 (Trifazni transformator Yzn5, kratki stiki ali nesimetrije) - `vaja_08.html`
+- [ ] **Korak 25:** Vaja 09 (Paralelno obratovanje transformatorjev) - `vaja_09.html`
+- [ ] **Korak 26:** Vaja 10 (Segrevanje transformatorja, razmerje izgub ξ=3) - `vaja_10.html`
+- [ ] **Korak 27:** Vaja 11 (Načrtovanje max nadtemperature transformatorja) - `vaja_11.html`
+- [ ] **Korak 28:** Vaja 12 (Časovna konstanta segrevanja T=1h, ciklično obratovanje) - `vaja_12.html`
+- [ ] **Korak 29:** Vaja 13 (Sinhronski generator uvodne naloge) - `vaja_13.html`
+- [ ] **Korak 30:** Vaja 14 (Sinhronski generator 6.3MVA, 10kV, cosφ=0.7) - `vaja_14.html`
+- [ ] **Korak 31:** Vaja 15 (Nadaljevanje vaj SG 6.3MVA s spremenjenimi pogoji) - `vaja_15.html`
+- [ ] **Korak 32:** Vaja 16 (Trifazni SG 25MVA, 10kV, cosφ=0.8) - `vaja_16.html`
+- [ ] **Korak 33:** Vaja 17 (Asinhronski stroj uvod in lastnosti) - `vaja_17.html`
+- [ ] **Korak 34:** Vaja 18 (Energijska bilanca trifaznega, 4-polnega AM s kratkostično kletko) - `vaja_18.html`
