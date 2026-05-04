@@ -19,7 +19,7 @@ Zaradi kompleksnosti in obsežnosti so PDF-ji razdeljeni na manjše, obvladljive
 - [x] **Korak 4:** POPRAVEK: Prave naloge 1.4, 1.5 in 1.6 z vsemi skicami, grafi in razlagami
 - [x] **Korak 5:** Obdelava PDF strani 12 do 15 (Naloga 1.7 in 1.8 z vsemi detajli in grafi)
 - [x] **Korak 6:** Obdelava PDF strani 16 do 18 (Naloga 1.9, Histerezna zanka in vpeljava trdomagnetnih materialov)
-- [ ] **Korak 7:** Obdelava PDF strani 19 do 21 (Naloge 1.10 - 1.11, Sila magnetnega polja)
+- [x] **Korak 7:** Obdelava PDF strani 19 do 21 (Naloge 1.10 - 1.11, Sila magnetnega polja)
 - [ ] **Korak 8:** Obdelava PDF strani 22 do konca poglavja (Naloge 1.12 - 1.13 in zaključek 1. poglavja)
 - [ ] **Korak 9:** Implementacija **2. Transformatorji** (`2-Transformatorji 2021.pdf`) - stran po stran (od str. 1 do 5)
 - [ ] **Korak 10:** Implementacija **2. Transformatorji** (`2-Transformatorji 2021.pdf`) - stran po stran (od str. 6 do 10)

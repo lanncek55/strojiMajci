@@ -1270,6 +1270,253 @@
             <div id="quiz19-feedback" class="feedback"></div>
         </section>
 
+        <!-- Naloga 1.10 -->
+        <section class="task-section" id="naloga-1-10">
+            <h2>Naloga 1.10: Idealno vs. realno železno jedro</h2>
+            <p><strong>Besedilo naloge:</strong> Magnetni krog z enojno zračno režo ima naslednje parametre:
+            <br>\(A_{Fe} = 1.5 \cdot 10^{-3} \text{ m}^2\), \(l_{Fe} = 0.7 \text{ m}\), \(\delta = 2.5 \text{ mm}\), \(N = 75 \text{ ovojev}\).
+            <br>S predpostavljeno \(\mu \to \infty\), ter zanemarjenim stresanjem in robnimi pojavi, izračunajte za tok \(i = 1 \text{ A}\):
+            <br>a) magnetni pretok (\(\Phi\)), b) magnetni sklep (\(\Psi\)), c) induktivnost (\(L\)).
+            <br>Nato izračun ponovite za realno permeabilnost \(\mu_r = 1500\)!</p>
+
+            <div class="real-world-box">
+                <strong>🌍 Real World Use:</strong> V praksi pogosto najprej izračunamo lastnosti vezja s predpostavko "idealnega" železa (\(\mu \to \infty\)), ker je to matematično zelo preprosto (upornost železa je nič, ostane samo zrak). To nam da hitro oceno. Kasneje naredimo še točen izračun z dejansko permeabilnostjo. Ker ima zrak ogromno reluktanco, razlika med "idealnim" in "realnim" železom pogosto sploh ni velika, če je v vezju prisotna zračna reža!
+            </div>
+
+            <!-- Interactive SVG for Task 1.10 -->
+            <div class="interactive-container">
+                <svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="magnetic-core-svg">
+                    <defs>
+                        <pattern id="iron-pattern-10" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <line x1="0" y1="10" x2="10" y2="0" stroke="#B0BEC5" stroke-width="1" />
+                        </pattern>
+                    </defs>
+
+                    <!-- C-Core -->
+                    <path d="M 100 50 L 300 50 L 300 135 L 250 135 L 250 100 L 150 100 L 150 200 L 250 200 L 250 165 L 300 165 L 300 250 L 100 250 Z" fill="url(#iron-pattern-10)" stroke="#607D8B" stroke-width="4" />
+
+                    <!-- Air Gap Visualization -->
+                    <rect x="250" y="135" width="50" height="30" fill="#ffffff" />
+                    <text x="320" y="155" font-size="16" font-weight="bold">δ = 2.5 mm</text>
+
+                    <!-- Coil -->
+                    <g stroke="#FF5722" stroke-width="4" fill="none">
+                        <path d="M 80 100 Q 125 90 125 110 Q 80 120 80 100" />
+                        <path d="M 80 120 Q 125 110 125 130 Q 80 140 80 120" />
+                        <path d="M 80 140 Q 125 130 125 150 Q 80 160 80 140" />
+                        <path d="M 80 160 Q 125 150 125 170 Q 80 180 80 160" />
+                        <path d="M 80 180 Q 125 170 125 190 Q 80 200 80 180" />
+                    </g>
+                    <text x="60" y="150" font-size="18" fill="#FF5722" font-weight="bold">N=75</text>
+                </svg>
+
+                <!-- Interactive Controls -->
+                <div class="controls-panel">
+                    <h3>Vpliv permeabilnosti jedra</h3>
+                    <div style="margin-bottom: 20px;">
+                        <button onclick="setPermeability10('ideal')" id="btn-mu-ideal" class="active-btn" style="padding: 10px 20px; font-size: 14px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">Idealno jedro (\(\mu \to \infty\))</button>
+                        <button onclick="setPermeability10('real')" id="btn-mu-real" style="padding: 10px 20px; font-size: 14px; background-color: #ccc; color: black; border: none; border-radius: 4px; cursor: pointer;">Realno jedro (\(\mu_r = 1500\))</button>
+                    </div>
+
+                    <div class="result-box">
+                        <p>Magnetna napetost \(V_m\): <strong>75 A</strong></p>
+                        <p>Reluktanca železa \(R_{mFe}\): <strong><span id="res-rmfe-10">0</span> A/Vs</strong></p>
+                        <p>Skupna reluktanca \(R_{mc}\): <strong><span id="res-rmc-10">1.326 · 10⁶</span> A/Vs</strong></p>
+                        <hr>
+                        <p>Magnetni pretok \(\Phi\): <strong><span id="res-phi-10">56.5</span> µVs (ali µWb)</strong></p>
+                        <p>Induktivnost \(L\): <strong><span id="res-l-10">4.24</span> mH</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rešitev -->
+            <details>
+                <summary>Poglej postopek reševanja</summary>
+
+                <p>Ne glede na tip jedra je gonilna sila – magnetna napetost \(V_m\) – enaka, saj je odvisna le od števila ovojev in toka:</p>
+                <div class="formula-box">
+                    \[ V_m = N \cdot i = 75 \cdot 1 = 75 \text{ A} \]
+                </div>
+
+                <div class="solution-step">
+                    <h4>Del 1: Predpostavka idealnega jedra (\(\mu \to \infty\))</h4>
+                    <p>Fizikalni pomen predpostavke \(\mu \to \infty\) je, da material jedra ne nudi absolutno <strong>nobenega upora</strong> magnetnemu polju. Matematično to pomeni, da gre imenovalec v formuli za reluktanco proti neskončnosti, celoten ulomek pa proti 0:</p>
+                    <div class="formula-box">
+                        \[ R_{mFe} = \frac{l_{Fe}}{\mu \cdot A_{Fe}} = 0 \]
+                    </div>
+                    <p>Reluktanca zračne reže je:</p>
+                    <div class="formula-box">
+                        \[ R_{m\delta} = \frac{\delta}{\mu_0 \cdot A_{Fe}} = \frac{2.5 \cdot 10^{-3}}{4\pi \cdot 10^{-7} \cdot 1.5 \cdot 10^{-3}} = 1.326 \cdot 10^6 \text{ A/Vs} \]
+                    </div>
+                    <p>Skupna reluktanca je tako samo reluktanca zraka: \(R_{mc} = R_{m\delta}\). Zdaj lahko izračunamo zahtevane količine:</p>
+                    <div class="formula-box">
+                        \[ \text{a) } \Phi = \frac{V_m}{R_{mc}} = \frac{75}{1.326 \cdot 10^6} = 5.65 \cdot 10^{-5} \text{ Wb} \]
+                        \[ \text{b) } \Psi = N \cdot \Phi = 75 \cdot 5.65 \cdot 10^{-5} = 4.24 \cdot 10^{-3} \text{ Wb} \]
+                        \[ \text{c) } L = \frac{\Psi}{i} = \frac{4.24 \cdot 10^{-3}}{1} = 4.24 \text{ mH} \]
+                    </div>
+                </div>
+
+                <div class="solution-step">
+                    <h4>Del 2: Realno jedro (\(\mu_r = 1500\))</h4>
+                    <p>Sedaj jedro ponuja nekaj upora, zato moramo \(R_{mFe}\) dejansko izračunati:</p>
+                    <div class="formula-box">
+                        \[ R_{mFe} = \frac{l_{Fe}}{\mu_r \cdot \mu_0 \cdot A_{Fe}} = \frac{0.7}{1500 \cdot 4\pi \cdot 10^{-7} \cdot 1.5 \cdot 10^{-3}} = 0.247 \cdot 10^6 \text{ A/Vs} \]
+                    </div>
+                    <p>Skupna reluktanca (\(R_{mc}\)) je vsota upornosti železa in zraka:</p>
+                    <div class="formula-box">
+                        \[ R_{mc} = R_{mFe} + R_{m\delta} = 0.247 \cdot 10^6 + 1.326 \cdot 10^6 = 1.57 \cdot 10^6 \text{ A/Vs} \]
+                    </div>
+                    <p>Zdaj ponovno izračunamo vse količine z novo skupno reluktanco:</p>
+                    <div class="formula-box">
+                        \[ \text{a) } \Phi = \frac{V_m}{R_{mc}} = \frac{75}{1.57 \cdot 10^6} = 4.77 \cdot 10^{-5} \text{ Wb} \]
+                        \[ \text{b) } \Psi = N \cdot \Phi = 75 \cdot 4.77 \cdot 10^{-5} = 3.58 \cdot 10^{-3} \text{ Wb} \]
+                        \[ \text{c) } L = \frac{\Psi}{i} = \frac{3.58 \cdot 10^{-3}}{1} = 3.58 \text{ mH} \]
+                    </div>
+                    <p><strong>Ugotovitev:</strong> Čeprav nismo upoštevali upornosti 0.7 metra železa, se je rezultat pri idealnem primeru (4.24 mH) zmotil le za majhen delež v primerjavi z realnim izračunom (3.58 mH). To nam pove, da reluktanca majhne zračne reže popolnoma dominira nad reluktanco masivnega kosa železa.</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 1.10 -->
+        <section class="quiz-section">
+            <h3>Kviz 1.10: Idealno vs. realno jedro</h3>
+            <p>Pri izračunu induktivnosti smo prešli iz idealnega (\(\mu \to \infty\)) v realno jedro (\(\mu_r = 1500\)). Ali se je zaradi tega induktivnost tuljave povečala ali zmanjšala?</p>
+            <div class="input-group">
+                <input type="text" id="quiz110-input" placeholder="povečala / zmanjšala" style="width: 200px;">
+                <button onclick="checkQuiz110()">Preveri</button>
+            </div>
+            <div id="quiz110-feedback" class="feedback"></div>
+        </section>
+
+        <!-- Naloga 1.11 -->
+        <section class="task-section" id="naloga-1-11">
+            <h2>Naloga 1.11: Toroid z zračno režo</h2>
+            <p><strong>Besedilo naloge:</strong> Magnetni krog po skici je toroid debeline \(d = 2 \text{ cm}\), zunanji radij \(R_z = 4 \text{ cm}\), notranji radij \(R_n = 3 \text{ cm}\), zračna reža \(\delta = 5 \text{ mm}\), z idealnim jedrom \(\mu \to \infty\), in \(N = 75 \text{ ovojev}\).
+            <br>Izračunajte:
+            <br>a) srednjo dolžino jedra in prerez,
+            <br>b) reluktanco,
+            <br>c) induktivnost,
+            <br>d) magnetilni tok, pri katerem bo \(B_\delta = 1.2 \text{ T}\),
+            <br>e) ustrezen magnetni pretok in sklep znotraj tuljave.
+            <br>Izračun ponovite še za \(\mu_r = 750\)!</p>
+
+            <div class="real-world-box">
+                <strong>🌍 Real World Use:</strong> Toroidi se pogosto uporabljajo za filtrirne dušilke, ker zaradi svoje oblike skoraj ne sevajo magnetnega polja v okolico. Če dodamo zračno režo, se seveda ta prednost nekoliko izgubi, vendar s tem preprečimo nasičenje jedra ob visokih tokovih. Izračun preseka pri toroidu pravokotnega preseka (ki ga nakazuje "debelina d") zahteva množenje širine \((R_z - R_n)\) z višino (debelino \(d\)).
+            </div>
+
+            <!-- Interactive SVG for Task 1.11 -->
+            <div class="interactive-container">
+                <svg width="400" height="300" viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" class="magnetic-core-svg">
+                    <defs>
+                        <pattern id="iron-pattern-11" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <line x1="0" y1="10" x2="10" y2="0" stroke="#B0BEC5" stroke-width="1" />
+                        </pattern>
+                    </defs>
+
+                    <!-- Toroid (Outer and Inner circles) -->
+                    <path d="M 200 50 A 100 100 0 1 1 199.9 50 Z M 200 90 A 60 60 0 1 0 200.1 90 Z" fill="url(#iron-pattern-11)" stroke="#607D8B" stroke-width="2" fill-rule="evenodd" />
+
+                    <!-- Air Gap -->
+                    <rect x="195" y="48" width="10" height="44" fill="#ffffff" />
+                    <text x="215" y="70" font-size="14" font-weight="bold">δ = 5 mm</text>
+
+                    <!-- Center and radii -->
+                    <circle cx="200" cy="150" r="3" fill="#333" />
+                    <line x1="200" y1="150" x2="260" y2="150" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
+                    <text x="230" y="145" font-size="12">Rn</text>
+                    <line x1="200" y1="150" x2="270" y2="220" stroke="#333" stroke-width="1" marker-end="url(#arrow-end)"/>
+                    <text x="245" y="195" font-size="12">Rz</text>
+
+                    <!-- Coil (Simplified representation) -->
+                    <path d="M 120 150 Q 100 130 120 110 Q 140 130 120 150" fill="none" stroke="#FF5722" stroke-width="3" />
+                    <path d="M 110 170 Q 90 150 110 130 Q 130 150 110 170" fill="none" stroke="#FF5722" stroke-width="3" />
+                    <path d="M 100 190 Q 80 170 100 150 Q 120 170 100 190" fill="none" stroke="#FF5722" stroke-width="3" />
+                    <text x="70" y="160" font-size="16" fill="#FF5722" font-weight="bold">N=75</text>
+                </svg>
+
+                <!-- Interactive Controls -->
+                <div class="controls-panel">
+                    <h3>Vpliv permeabilnosti jedra (Toroid)</h3>
+                    <div style="margin-bottom: 20px;">
+                        <button onclick="setPermeability11('ideal')" id="btn-mu-ideal-11" class="active-btn" style="padding: 10px 20px; font-size: 14px; background-color: #4CAF50; color: white; border: none; border-radius: 4px; cursor: pointer;">Idealno jedro (\(\mu \to \infty\))</button>
+                        <button onclick="setPermeability11('real')" id="btn-mu-real-11" style="padding: 10px 20px; font-size: 14px; background-color: #ccc; color: black; border: none; border-radius: 4px; cursor: pointer;">Realno jedro (\(\mu_r = 750\))</button>
+                    </div>
+
+                    <div class="result-box">
+                        <p>Reluktanca železa \(R_{mFe}\): <strong><span id="res-rmfe-11">0</span> A/Vs</strong></p>
+                        <p>Skupna reluktanca \(R_{mc}\): <strong><span id="res-rmc-11">19.9 · 10⁶</span> A/Vs</strong></p>
+                        <hr>
+                        <p>Induktivnost \(L\): <strong><span id="res-l-11">0.283</span> mH</strong></p>
+                        <p>Magnetilni tok \(i_\mu\) za 1.2 T: <strong><span id="res-i-11">63.7</span> A</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rešitev -->
+            <details>
+                <summary>Poglej postopek reševanja</summary>
+
+                <div class="solution-step">
+                    <h4>a) Geometrija: Prerez in srednja dolžina</h4>
+                    <p>Izrisani toroid ima pravokoten prerez. Njegova širina je razlika med zunanjim in notranjim radijem, višina pa je podana debelina \(d\).</p>
+                    <div class="formula-box">
+                        \[ A_{Fe} = d \cdot (R_z - R_n) = 20 \text{ mm} \cdot (40 \text{ mm} - 30 \text{ mm}) = 20 \cdot 10 = 200 \text{ mm}^2 = 200 \cdot 10^{-6} \text{ m}^2 \]
+                    </div>
+                    <p>Srednjo dolžino silnice toroida izračunamo iz srednjega polmera \(r_{sr} = \frac{R_n + R_z}{2} = 35 \text{ mm}\). Obseg srednje silnice je \(l_{tot} = 2\pi r_{sr} = 2\pi \cdot 35 = 219.9 \text{ mm}\). Zaradi zračne reže je dolžina samega železa malenkost manjša (čeprav naloga eksplicitno ni zahtevala \(l_{Fe}\) v prvi točki, jo potrebujemo kasneje).</p>
+                </div>
+
+                <div class="solution-step">
+                    <h4>Del 1: Predpostavka idealnega jedra (\(\mu \to \infty\))</h4>
+                    <p>Pri \(\mu \to \infty\) je reluktanca železa zopet enaka nič (\(R_{mFe} = 0\)).</p>
+                    <div class="formula-box">
+                        \[ \text{b) } R_m = R_{m\delta} = \frac{\delta}{\mu_0 \cdot A_{Fe}} = \frac{5 \cdot 10^{-3}}{4\pi \cdot 10^{-7} \cdot 200 \cdot 10^{-6}} = 19.89 \cdot 10^6 \text{ A/Vs} \]
+                    </div>
+                    <p>Iz reluktance takoj izračunamo induktivnost:</p>
+                    <div class="formula-box">
+                        \[ \text{c) } L = \frac{N^2}{R_m} = \frac{75^2}{19.89 \cdot 10^6} = 0.283 \cdot 10^{-3} \text{ H} = 0.283 \text{ mH} \]
+                    </div>
+                    <p>Želimo doseči \(B_\delta = 1.2 \text{ T}\). Ker je zrak in železo zaporedno, je to tudi pretok v zraku. Sledi tok iz \(V_m = H_\delta \cdot \delta\):</p>
+                    <div class="formula-box">
+                        \[ \text{d) } i_\mu = \frac{H_\delta \cdot \delta}{N} = \frac{B_\delta \cdot \delta}{\mu_0 \cdot N} = \frac{1.2 \cdot 5 \cdot 10^{-3}}{4\pi \cdot 10^{-7} \cdot 75} = 63.66 \text{ A} \]
+                    </div>
+                    <p>Za konec izračunamo pretok in sklep iz toka:</p>
+                    <div class="formula-box">
+                        \[ \text{e) } \Phi = \frac{N \cdot i_\mu}{R_m} = \frac{75 \cdot 63.66}{19.89 \cdot 10^6} = 0.24 \cdot 10^{-3} \text{ Wb} \quad \text{(kar je enako tudi } B_\delta \cdot A \text{)} \]
+                        \[ \Psi = N \cdot \Phi = 75 \cdot 0.24 \cdot 10^{-3} = 18 \cdot 10^{-3} \text{ Wb} = 18 \text{ mVs} \]
+                    </div>
+                </div>
+
+                <div class="solution-step">
+                    <h4>Del 2: Realno jedro (\(\mu_r = 750\))</h4>
+                    <p>V praksi železo prispeva k upornosti. Izračunamo \(l_{Fe} = 219.9 \text{ mm} - 5 \text{ mm} = 214.9 \text{ mm} = 0.2149 \text{ m}\).</p>
+                    <div class="formula-box">
+                        \[ R_{mFe} = \frac{l_{Fe}}{\mu_r \cdot \mu_0 \cdot A_{Fe}} = \frac{0.2149}{750 \cdot 4\pi \cdot 10^{-7} \cdot 200 \cdot 10^{-6}} = 1.14 \cdot 10^6 \text{ A/Vs} \]
+                    </div>
+                    <p>Skupna reluktanca je vsota (zaporedna vezava):</p>
+                    <div class="formula-box">
+                        \[ R_{mc} = R_{mFe} + R_{m\delta} = 1.14 \cdot 10^6 + 19.89 \cdot 10^6 = 21.03 \cdot 10^6 \text{ A/Vs} \]
+                    </div>
+                    <p>Z novo skupno reluktanco izračunamo popravljene vrednosti:</p>
+                    <div class="formula-box">
+                        \[ L = \frac{N^2}{R_{mc}} = \frac{75^2}{21.03 \cdot 10^6} = 0.267 \text{ mH} \]
+                        \[ i_\mu = \frac{\Phi \cdot R_{mc}}{N} = \frac{(1.2 \cdot 200 \cdot 10^{-6}) \cdot 21.03 \cdot 10^6}{75} = \frac{2.4 \cdot 10^{-4} \cdot 21.03 \cdot 10^6}{75} = 67.3 \text{ A} \]
+                    </div>
+                    <p><strong>Ugotovitev:</strong> Zaradi upoštevanja realnega železa se je induktivnost nekoliko zmanjšala, za doseganje istega gostote polja (1.2 T) pa zdaj potrebujemo nekoliko večji tok (67.3 A namesto 63.7 A).</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 1.11 -->
+        <section class="quiz-section">
+            <h3>Kviz 1.11: Magnetilni tok in realno jedro</h3>
+            <p>V nalogi 1.11 smo za doseganje 1.2 T polja v zračni reži z realnim jedrom (\(\mu_r = 750\)) potrebovali približno 67 A toka, pri idealnem pa 64 A. Zakaj pri realnem jedru potrebujemo večji vzbujalni tok za isti pretok?</p>
+            <div class="input-group">
+                <input type="text" id="quiz111-input" placeholder="npr. zaradi upornosti" style="width: 300px;">
+                <button onclick="checkQuiz111()">Preveri</button>
+            </div>
+            <div id="quiz111-feedback" class="feedback"></div>
+        </section>
+
         <!-- Trdomagnetni materiali -->
         <section class="task-section" id="trdomagnetni">
             <h2>Magnetni krogi s trdomagnetnimi materiali (Histerezna zanka)</h2>
@@ -1575,6 +1822,52 @@
             }
         }
 
+        function setPermeability10(type) {
+            let btnIdeal = document.getElementById('btn-mu-ideal');
+            let btnReal = document.getElementById('btn-mu-real');
+
+            if (type === 'ideal') {
+                btnIdeal.className = "active-btn"; btnIdeal.style.backgroundColor = "#4CAF50"; btnIdeal.style.color = "white";
+                btnReal.className = ""; btnReal.style.backgroundColor = "#ccc"; btnReal.style.color = "black";
+
+                document.getElementById('res-rmfe-10').innerText = "0";
+                document.getElementById('res-rmc-10').innerText = "1.326 · 10⁶";
+                document.getElementById('res-phi-10').innerText = "56.5";
+                document.getElementById('res-l-10').innerText = "4.24";
+            } else {
+                btnReal.className = "active-btn"; btnReal.style.backgroundColor = "#4CAF50"; btnReal.style.color = "white";
+                btnIdeal.className = ""; btnIdeal.style.backgroundColor = "#ccc"; btnIdeal.style.color = "black";
+
+                document.getElementById('res-rmfe-10').innerText = "0.247 · 10⁶";
+                document.getElementById('res-rmc-10').innerText = "1.57 · 10⁶";
+                document.getElementById('res-phi-10').innerText = "47.7";
+                document.getElementById('res-l-10').innerText = "3.58";
+            }
+        }
+
+        function setPermeability11(type) {
+            let btnIdeal = document.getElementById('btn-mu-ideal-11');
+            let btnReal = document.getElementById('btn-mu-real-11');
+
+            if (type === 'ideal') {
+                btnIdeal.className = "active-btn"; btnIdeal.style.backgroundColor = "#4CAF50"; btnIdeal.style.color = "white";
+                btnReal.className = ""; btnReal.style.backgroundColor = "#ccc"; btnReal.style.color = "black";
+
+                document.getElementById('res-rmfe-11').innerText = "0";
+                document.getElementById('res-rmc-11').innerText = "19.89 · 10⁶";
+                document.getElementById('res-l-11').innerText = "0.283";
+                document.getElementById('res-i-11').innerText = "63.7";
+            } else {
+                btnReal.className = "active-btn"; btnReal.style.backgroundColor = "#4CAF50"; btnReal.style.color = "white";
+                btnIdeal.className = ""; btnIdeal.style.backgroundColor = "#ccc"; btnIdeal.style.color = "black";
+
+                document.getElementById('res-rmfe-11').innerText = "1.14 · 10⁶";
+                document.getElementById('res-rmc-11').innerText = "21.03 · 10⁶";
+                document.getElementById('res-l-11').innerText = "0.267";
+                document.getElementById('res-i-11').innerText = "67.3";
+            }
+        }
+
         window.onload = function() {
             updateTask1();
             updateTask2();
@@ -1675,6 +1968,26 @@
                 fb.className = "feedback success"; fb.innerText = "Odlično! Prestavno razmerje je N1/N2 = 10. Kvadrat tega je 100. Če upornost R2 (2 Ω) preračunamo na primar, jo pomnožimo s 100, torej R2' = 2 * 100 = 200 Ω.";
             } else {
                 fb.className = "feedback error"; fb.innerText = "Ni prav. Najprej izračunaj razmerje N1/N2. Nato to vrednost kvadriraj. Na koncu pomnoži z 2 Ω.";
+            }
+        }
+
+        function checkQuiz110() {
+            let input = document.getElementById('quiz110-input').value.trim().toLowerCase();
+            let fb = document.getElementById('quiz110-feedback');
+            if (input === 'zmanjšala' || input === 'zmanjsala') {
+                fb.className = "feedback success"; fb.innerText = "Pravilno! Realno jedro doda nekaj magnetne upornosti (R_mFe > 0), s čimer se poveča skupna reluktanca. Ker je induktivnost L obratno sorazmerna z reluktanco (L = N^2 / R_m), se z večjo reluktanco induktivnost zmanjša.";
+            } else {
+                fb.className = "feedback error"; fb.innerText = "Ni prav. Premisli: realno železo ima večjo upornost od idealnega (kjer je bila nič). Če se upornost v imenovalcu poveča, se celoten ulomek...";
+            }
+        }
+
+        function checkQuiz111() {
+            let input = document.getElementById('quiz111-input').value.trim().toLowerCase();
+            let fb = document.getElementById('quiz111-feedback');
+            if (input.includes('upornost') || input.includes('reluktanc') || input.includes('permeabilnost') || input.includes('večja') || input.includes('vecja')) {
+                fb.className = "feedback success"; fb.innerText = "Tako je! Realno jedro pomeni večjo skupno magnetno upornost (reluktanco). Ker vzbujalni tok rine magnetni pretok skozi upornost, potrebujemo za ohranitev istega pretoka večjo gonilno silo – in s tem večji tok.";
+            } else {
+                fb.className = "feedback error"; fb.innerText = "Ni povsem prav. Kaj se zgodi z imenovalcem v formuli R_mFe pri realnem jedru? Pomisli na reluktanco.";
             }
         }
     </script>
