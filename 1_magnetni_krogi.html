@@ -647,7 +647,7 @@
         <!-- Kviz 1.4 -->
         <section class="quiz-section">
             <h3>Kviz 1.4: Kje je energija?</h3>
-            <p>V nalogi 1.4 je bila izračunana skupna energija. Ker se večina napetosti porabi na zračni reži (zaradi njene ogromne reluktance), kje je fizično shranjena velika večina teh 0.1792 Joula energije?</p>
+            <p>V nalogi 1.4 je bila izračunana skupna energija. Ker se večina napetosti porabi na zračni reži (zaradi njene ogromne reluktance), kje je fizično shranjena velika večina teh 0.18 Joula energije?</p>
             <div class="input-group">
                 <input type="text" id="quiz14-input" placeholder="v železu / v zračni reži / v žici" style="width: 250px;">
                 <button onclick="checkQuiz14()">Preveri</button>
@@ -687,10 +687,40 @@
                         <!-- Krivulja magnetenja (aproksimacija) -->
                         <path d="M 40,210 Q 50,150 120,120 T 200,50" fill="none" stroke="#2980b9" stroke-width="3"/>
                         
+                        <!-- Oznake osi in puščice -->
+                        <polygon points="330,210 320,205 320,215" fill="#333"/>
+                        <polygon points="40,20 35,30 45,30" fill="#333"/>
+                        
+                        <!-- Mreža in Oznake na X -->
+                        <line x1="150" y1="205" x2="150" y2="215" stroke="#333" stroke-width="1"/>
+                        <text x="140" y="230" font-size="10" font-family="sans-serif">10</text>
+                        <line x1="160" y1="205" x2="160" y2="215" stroke="#333" stroke-width="1"/>
+                        <text x="155" y="220" font-size="8" font-family="sans-serif">12</text>
+                        <line x1="180" y1="205" x2="180" y2="215" stroke="#333" stroke-width="1"/>
+                        <text x="175" y="220" font-size="8" font-family="sans-serif">36</text>
+                        <line x1="220" y1="205" x2="220" y2="215" stroke="#333" stroke-width="1"/>
+                        <text x="210" y="230" font-size="10" font-family="sans-serif">100</text>
+                        <line x1="280" y1="205" x2="280" y2="215" stroke="#333" stroke-width="1"/>
+                        <text x="270" y="230" font-size="10" font-family="sans-serif">1000</text>
+                        
+                        <!-- Mreža in Oznake na Y -->
+                        <line x1="35" y1="140" x2="45" y2="140" stroke="#333" stroke-width="1"/>
+                        <text x="25" y="145" font-size="10" font-family="sans-serif">1</text>
+                        <line x1="35" y1="80" x2="45" y2="80" stroke="#333" stroke-width="1"/>
+                        <text x="20" y="85" font-size="10" font-family="sans-serif">1,5</text>
+                        <line x1="35" y1="60" x2="45" y2="60" stroke="#333" stroke-width="1"/>
+                        <text x="25" y="65" font-size="10" font-family="sans-serif">2</text>
+                        
+                        <!-- Krivulja magnetenja -->
+                        <path d="M 40,210 Q 140,210 160,140 Q 180,80 230,70 T 310,50" fill="none" stroke="#000" stroke-width="1.5"/>
+                        
                         <!-- Prikaz branja vrednosti za 1T -->
-                        <line x1="40" y1="120" x2="120" y2="120" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5"/>
-                        <line x1="120" y1="120" x2="120" y2="210" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5"/>
-                        <circle cx="120" cy="120" r="4" fill="#e74c3c"/>
+                        <line x1="40" y1="140" x2="160" y2="140" stroke="#666" stroke-width="1" stroke-dasharray="2,2"/>
+                        <line x1="160" y1="140" x2="160" y2="210" stroke="#666" stroke-width="1" stroke-dasharray="2,2"/>
+                        
+                        <!-- Prikaz branja vrednosti za 1.5T (za referenco, čeprav ni vprašano) -->
+                        <line x1="40" y1="80" x2="180" y2="80" stroke="#666" stroke-width="1" stroke-dasharray="2,2"/>
+                        <line x1="180" y1="80" x2="180" y2="210" stroke="#666" stroke-width="1" stroke-dasharray="2,2"/>
                     </svg>
                 </div>
             </div>
@@ -705,36 +735,31 @@
 
             <details>
                 <summary>Prikaži uradno rešitev in postopek (razloženo za začetnike)</summary>
+                
                 <div class="solution-step">
-                    <h4>a) Odčitek iz krivulje in magnetna napetost v železu:</h4>
-                    <p>Za gostoto \( B_{Fe} = 1 \text{ T} \) iz zgornjega grafa odčitamo ustrezno vrednost \( H_{Fe} \) na x-osi:</p>
                     <div class="formula-box">
-                        \[ \text{Odčitek: } H_{Fe} = 12 \text{ A/m} \]
+                        \[ B_{Fe} = 1 \text{ T} \quad \rightarrow \quad H_{Fe} = 12 \text{ A/m} \quad \text{.... odčitek iz magnetilne krivulje} \]
                     </div>
-                    <p>To pomeni, da jedro rabi 12 Amperov na vsak meter svoje dolžine, da zadrži 1T. Magnetna napetost (padec) samo na železnem delu (\( l_{Fe} = 0.3 \text{ m} \)) je zato:</p>
+                    <p>Izračun magnetnih napetosti po posameznih odsekih:</p>
                     <div class="formula-box">
-                        \[ V_{mFe} = H_{Fe} \cdot l_{Fe} = 12 \cdot 0.3 = 3.6 \text{ A} \]
+                        \[ V_{mFe} = H_{Fe} \cdot l_{Fe} = 12 \cdot 0.3 = \underline{\underline{3.6 \text{ A}}} \]
+                        <br>
+                        \[ V_{m\delta} = H_\delta \cdot \delta = \frac{B_\delta \cdot \delta}{\mu_0} = \frac{1 \cdot 5 \cdot 10^{-4}}{4\pi \cdot 10^{-7}} = \underline{\underline{398 \text{ A}}} \]
                     </div>
-                    
-                    <h4>b) Magnetna napetost v zračni reži:</h4>
-                    <p>Zrak nima krivulje nasičenja; zrak je idealno linearen. Za \( B_\delta = 1 \text{ T} \) lahko \( H_\delta \) izračunamo iz linearne formule \( H = \frac{B}{\mu_0} \).</p>
-                    <div class="formula-box">
-                        \[ V_{m\delta} = H_\delta \cdot \delta = \frac{B_\delta}{\mu_0} \cdot \delta = \frac{1 \cdot 0.0005}{4\pi \cdot 10^{-7}} = 398 \text{ A} \]
-                    </div>
-                    <p>Poglejte to razliko: Železo (30 cm) porabi samo 3.6 A gonilne sile, zračna reža (0.5 mm) pa 398 A!</p>
+                </div>
 
-                    <h4>c) Skupni magnetilni tok:</h4>
-                    <p>Po drugem Kirchoffovem zakonu (za mag. vezja) je vsota padcev enaka izvoru \( N \cdot i_\mu \):</p>
+                <div class="solution-step">
+                    <h4>Magnetilni tok:</h4>
                     <div class="formula-box">
-                        \[ N \cdot i_\mu = V_{mFe} + V_{m\delta} \quad \implies \quad i_\mu = \frac{V_{mFe} + V_{m\delta}}{N} = \frac{3.6 + 398}{500} = 0.803 \text{ A} \]
+                        \[ i_\mu = \frac{V_{mFe} + V_{m\delta}}{N} = \frac{3.6 + 398}{500} = \underline{\underline{0.803 \text{ A}}} \]
                     </div>
+                </div>
 
-                    <h4>d) Nova relativna permeabilnost v tej točki:</h4>
-                    <p>Čeprav \(\mu_r\) ni konstanta, jo lahko efektivno izračunamo za to specifično delovno točko iz razmerja \( \mu_r = \frac{B}{\mu_0 H} \):</p>
+                <div class="solution-step">
+                    <h4>Relativna permeabilnost v tej točki:</h4>
                     <div class="formula-box">
-                        \[ \mu_r = \frac{1}{12 \cdot 4\pi \cdot 10^{-7}} = 66314 \]
+                        \[ \mu_r = \frac{\mu}{\mu_0} = \frac{B_{Fe}}{H_{Fe} \cdot \mu_0} = \frac{1}{12 \cdot 4\pi \cdot 10^{-7}} = \underline{\underline{66314}} \]
                     </div>
-                    <p>Opazimo, da je ta vrednost precej blizu idealiziranim 70000 iz naloge 1.1!</p>
                 </div>
             </details>
         </section>
