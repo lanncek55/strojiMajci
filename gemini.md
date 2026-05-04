@@ -17,7 +17,7 @@ Zaradi kompleksnosti in obsežnosti so PDF-ji razdeljeni na manjše, obvladljive
 - [x] **Korak 2:** Priprava moderne vizualne podobe in navigacije
 - [x] **Korak 3:** Obnova 1. dela - Naloge 1.1 do 1.3 (1_magnetni_krogi.html)
 - [x] **Korak 4:** POPRAVEK: Prave naloge 1.4, 1.5 in 1.6 z vsemi skicami, grafi in razlagami
-- [ ] **Korak 5:** Obdelava PDF strani 12 do 15 (Naloga 1.7 in 1.8 z vsemi detajli in grafi)
+- [x] **Korak 5:** Obdelava PDF strani 12 do 15 (Naloga 1.7 in 1.8 z vsemi detajli in grafi)
 - [ ] **Korak 6:** Obdelava PDF strani 16 do 18 (Naloga 1.9, Histerezna zanka in vpeljava trdomagnetnih materialov)
 - [ ] **Korak 7:** Obdelava PDF strani 19 do 21 (Naloge 1.10 - 1.11, Sila magnetnega polja)
 - [ ] **Korak 8:** Obdelava PDF strani 22 do konca poglavja (Naloge 1.12 - 1.13 in zaključek 1. poglavja)

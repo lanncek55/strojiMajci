@@ -918,6 +918,203 @@
             <div id="quiz16-feedback" class="feedback"></div>
         </section>
 
+        <!-- Naloga 1.7 -->
+        <section class="task-section" id="naloga-1-7">
+            <h2>Naloga 1.7: Dve navitji na železnem jedru</h2>
+            <p><strong>Besedilo naloge:</strong> Dve navitji sta sklopljeni preko železnega jedra: \(N_1 = 50 \text{ ovojev}\), \(N_2 = 100 \text{ ovojev}\), \(\mu_r = 4000\). Srednja dolžina magnetne poti \(l = 1 \text{ m}\), prerez \(A_{Fe} = 25 \cdot 10^{-4} \text{ m}^2\). Izračunajte induktivnosti \(L_{11}\) in \(L_{22}\). Stresanje zanemarite.</p>
+
+            <div class="real-world-box">
+                <strong>🌍 Real World Use:</strong> To je osnovni model transformatorja. Dve navitji si na istem jedru delita magnetni pretok. Dobra magnetna sklopitev (visok \(\mu_r\)) omogoča učinkovit prenos energije od primarja do sekundarja. Zanemariti stresanje pomeni, da predpostavljamo idealen primer, kjer ves pretok potuje zgolj po železu in se ne izgubi v okoliški zrak.
+            </div>
+
+            <!-- Interactive SVG for Task 7 -->
+            <div class="interactive-container">
+                <svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="magnetic-core-svg">
+                    <defs>
+                        <!-- Pattern for iron material -->
+                        <pattern id="iron-pattern-7" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <line x1="0" y1="10" x2="10" y2="0" stroke="#B0BEC5" stroke-width="1" />
+                        </pattern>
+                    </defs>
+                    <!-- Jedro -->
+                    <rect x="50" y="50" width="300" height="300" fill="url(#iron-pattern-7)" stroke="#607D8B" stroke-width="50" />
+                    <!-- Srednja pot -->
+                    <rect x="75" y="75" width="250" height="250" fill="none" stroke="#f44336" stroke-width="2" stroke-dasharray="10 5"/>
+                    <!-- Kote -->
+                    <text x="200" y="20" text-anchor="middle" font-size="14" fill="#333">zunanja mera: 300 mm</text>
+                    <line x1="50" y1="25" x2="350" y2="25" stroke="#333" stroke-width="1" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)"/>
+                    <text x="200" y="370" text-anchor="middle" font-size="14" fill="#333">debelina: 50 mm</text>
+                    <line x1="50" y1="355" x2="100" y2="355" stroke="#333" stroke-width="1" marker-start="url(#arrow-start)" marker-end="url(#arrow-end)"/>
+
+                    <!-- Navitje N1 (levo) -->
+                    <g id="svg-coil-n1-7" stroke="#FF5722" stroke-width="4" fill="none"></g>
+                    <text x="20" y="200" text-anchor="end" font-size="18" fill="#FF5722" font-weight="bold">N₁</text>
+
+                    <!-- Navitje N2 (desno) -->
+                    <g id="svg-coil-n2-7" stroke="#2196F3" stroke-width="4" fill="none"></g>
+                    <text x="380" y="200" text-anchor="start" font-size="18" fill="#2196F3" font-weight="bold">N₂</text>
+                </svg>
+
+                <!-- Interactive Controls -->
+                <div class="controls-panel">
+                    <h3>Induktivnost navitij</h3>
+                    <label for="slider-n1-7">Število ovojev \(N_1\): <span id="val-n1-7">50</span></label>
+                    <input type="range" id="slider-n1-7" min="10" max="150" step="10" value="50" oninput="updateTask7()">
+
+                    <label for="slider-n2-7">Število ovojev \(N_2\): <span id="val-n2-7">100</span></label>
+                    <input type="range" id="slider-n2-7" min="10" max="300" step="10" value="100" oninput="updateTask7()">
+
+                    <div class="result-box">
+                        <p>Magnetna upornost jedra \(R_m\): <strong><span id="res-rm-7"></span> A/Vs</strong></p>
+                        <p>Induktivnost \(L_{11}\) (za \(N_1\)): <strong><span id="res-l11-7"></span> mH</strong></p>
+                        <p>Induktivnost \(L_{22}\) (za \(N_2\)): <strong><span id="res-l22-7"></span> mH</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rešitev -->
+            <details>
+                <summary>Poglej postopek reševanja</summary>
+                <div class="solution-step">
+                    <h4>1. Izračun magnetne upornosti (reluktance) jedra</h4>
+                    <p>Za izračun induktivnosti potrebujemo najprej magnetno upornost jedra \(R_m\). Uporabimo podane vrednosti za železo.</p>
+                    <div class="formula-box">
+                        \[ R_m = \frac{l}{\mu \cdot A} = \frac{l}{\mu_r \cdot \mu_0 \cdot A_{Fe}} \]
+                        \[ R_m = \frac{1}{4000 \cdot 4\pi \cdot 10^{-7} \cdot 25 \cdot 10^{-4}} = \frac{1}{0.012566} = 79577 \text{ A/Vs} \]
+                    </div>
+                </div>
+                <div class="solution-step">
+                    <h4>2. Izračun lastne induktivnosti \(L_{11}\)</h4>
+                    <p>Induktivnost posamezne tuljave pove, kolikšen magnetni sklep \(\Psi\) se ustvari za vsak amper toka (\(L = \Psi / i\)). S pomočjo reluktance jo zapišemo kot:</p>
+                    <div class="formula-box">
+                        \[ L = \frac{N^2}{R_m} \]
+                        \[ L_{11} = \frac{N_1^2}{R_m} = \frac{50^2}{79577} = \frac{2500}{79577} = 0.0314 \text{ H} = 31.4 \text{ mH} \]
+                    </div>
+                </div>
+                <div class="solution-step">
+                    <h4>3. Izračun lastne induktivnosti \(L_{22}\)</h4>
+                    <p>Podoben izračun ponovimo za drugo tuljavo z \(N_2\). Jedro je isto, torej je \(R_m\) enaka.</p>
+                    <div class="formula-box">
+                        \[ L_{22} = \frac{N_2^2}{R_m} = \frac{100^2}{79577} = \frac{10000}{79577} = 0.1257 \text{ H} = 125.7 \text{ mH} \]
+                    </div>
+                    <p><strong>Alternativni način - sorazmernost:</strong> Ker je sistem linearen (brez stresanja in brez upoštevanja nelinearnosti železa), velja sorazmerje s kvadratom števila ovojev:</p>
+                    <div class="formula-box">
+                        \[ L_{22} = L_{11} \cdot \left(\frac{N_2}{N_1}\right)^2 = 31.4 \cdot \left(\frac{100}{50}\right)^2 = 31.4 \cdot 4 = 125.6 \text{ mH} \]
+                    </div>
+                    <p>Razlika za 0.1 mH je zgolj posledica zaokroževanja.</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 1.7 -->
+        <section class="quiz-section">
+            <h3>Kviz 1.7: Odvisnost induktivnosti od števila ovojev</h3>
+            <p>V nalogi 1.7 ima drugo navitje (\(N_2 = 100\)) dvakrat več ovojev kot prvo (\(N_1 = 50\)). Kolikokrat večja je njegova induktivnost \(L_{22}\) v primerjavi z \(L_{11}\)? Vnesite samo številko.</p>
+            <div class="input-group">
+                <input type="number" id="quiz17-input" placeholder="npr. 2">
+                <button onclick="checkQuiz17()">Preveri</button>
+            </div>
+            <div id="quiz17-feedback" class="feedback"></div>
+        </section>
+
+        <!-- Naloga 1.8 -->
+        <section class="task-section" id="naloga-1-8">
+            <h2>Naloga 1.8: Železno jedro z zračno režo</h2>
+            <p><strong>Besedilo naloge:</strong> Nalogo 1.7 izračunajte za primer zračne reže \(\delta = 2.0 \text{ mm}\) po celem prerezu jedra. Robne pojave zanemarite.</p>
+
+            <div class="real-world-box">
+                <strong>🌍 Real World Use:</strong> Zračna reža se namerno dodaja v jedra dušilk (induktorjev), ki morajo shranjevati energijo ali prenašati enosmerni tok (DC) brez nasičenja jedra. Čeprav zračna reža drastično zmanjša induktivnost, prepreči, da bi \(\mu_r\) padel na 1 zaradi premočnega magnetnega polja. To se uporablja v <i>flyback</i> transformatorjih in stikalnih napajalnikih.
+            </div>
+
+            <!-- Interactive SVG for Task 8 -->
+            <div class="interactive-container">
+                <svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg" class="magnetic-core-svg">
+                    <defs>
+                        <!-- Pattern for iron material -->
+                        <pattern id="iron-pattern-8" width="10" height="10" patternUnits="userSpaceOnUse">
+                            <line x1="0" y1="10" x2="10" y2="0" stroke="#B0BEC5" stroke-width="1" />
+                        </pattern>
+                    </defs>
+                    <!-- Jedro - levo in desno polovico razdelimo -->
+                    <path d="M 50 50 L 350 50 L 350 350 L 50 350 Z" fill="url(#iron-pattern-8)" stroke="#607D8B" stroke-width="50" />
+                    <!-- Zračna reža v desnem kraku -->
+                    <rect x="325" y="195" width="50" height="10" fill="#ffffff" id="svg-gap-8" />
+                    <!-- Srednja pot -->
+                    <rect x="75" y="75" width="250" height="250" fill="none" stroke="#f44336" stroke-width="2" stroke-dasharray="10 5"/>
+
+                    <!-- Navitje N1 (levo) -->
+                    <g id="svg-coil-n1-8" stroke="#FF5722" stroke-width="4" fill="none"></g>
+                    <text x="20" y="200" text-anchor="end" font-size="18" fill="#FF5722" font-weight="bold">N₁</text>
+
+                    <!-- Navitje N2 (desno) -->
+                    <g id="svg-coil-n2-8" stroke="#2196F3" stroke-width="4" fill="none"></g>
+                    <text x="380" y="200" text-anchor="start" font-size="18" fill="#2196F3" font-weight="bold">N₂</text>
+
+                    <text x="310" y="205" text-anchor="end" font-size="16" fill="#000" font-weight="bold">δ</text>
+                </svg>
+
+                <!-- Interactive Controls -->
+                <div class="controls-panel">
+                    <h3>Vpliv zračne reže</h3>
+                    <label for="slider-delta-8">Zračna reža \(\delta\) [mm]: <span id="val-delta-8">2.0</span></label>
+                    <input type="range" id="slider-delta-8" min="0" max="10" step="0.5" value="2" oninput="updateTask8()">
+
+                    <div class="result-box">
+                        <p>Reluktanca železa \(R_{mFe}\): <strong><span id="res-rmfe-8"></span> A/Vs</strong></p>
+                        <p>Reluktanca zraka \(R_{m\delta}\): <strong><span id="res-rmg-8"></span> A/Vs</strong></p>
+                        <p>Skupna reluktanca \(R_{mc}\): <strong><span id="res-rmc-8"></span> A/Vs</strong></p>
+                        <hr>
+                        <p>Nova induktivnost \(L_{11}\): <strong><span id="res-l11-8"></span> mH</strong></p>
+                        <p>Nova induktivnost \(L_{22}\): <strong><span id="res-l22-8"></span> mH</strong></p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Rešitev -->
+            <details>
+                <summary>Poglej postopek reševanja</summary>
+                <div class="solution-step">
+                    <h4>1. Izračun reluktance železa (\(R_{mFe}\))</h4>
+                    <p>Dolžina železa se zmanjša za velikost reže: \(l_{Fe} = l - \delta = 1 \text{ m} - 0.002 \text{ m} = 0.998 \text{ m}\).</p>
+                    <div class="formula-box">
+                        \[ R_{mFe} = \frac{l_{Fe}}{\mu_r \cdot \mu_0 \cdot A} = \frac{0.998}{4000 \cdot 4\pi \cdot 10^{-7} \cdot 25 \cdot 10^{-4}} = 79.4 \cdot 10^3 \text{ A/Vs} \]
+                    </div>
+                </div>
+                <div class="solution-step">
+                    <h4>2. Izračun reluktance zračne reže (\(R_{m\delta}\))</h4>
+                    <p>V zračni reži je relativna permeabilnost zraka \(\mu_r = 1\). Prerez vzamemo enak kot pri železu, saj zanemarimo robne pojave (razširitev polja v zraku).</p>
+                    <div class="formula-box">
+                        \[ R_{m\delta} = \frac{\delta}{\mu_0 \cdot A} = \frac{0.002}{4\pi \cdot 10^{-7} \cdot 25 \cdot 10^{-4}} = 636.62 \cdot 10^3 \text{ A/Vs} \]
+                    </div>
+                    <p>Opazimo, da je kljub temu, da je reža dolga le 2 mm, njena reluktanca kar <strong>8-krat večja</strong> od reluktance skoraj metra železa!</p>
+                </div>
+                <div class="solution-step">
+                    <h4>3. Skupna reluktanca in induktivnosti</h4>
+                    <p>Skupna reluktanca je vsota obeh (zaporedna vezava).</p>
+                    <div class="formula-box">
+                        \[ R_{mc} = R_{mFe} + R_{m\delta} = 79.4 \cdot 10^3 + 636.62 \cdot 10^3 = 716.02 \cdot 10^3 \text{ A/Vs} \]
+                    </div>
+                    <p>Izračunamo nove induktivnosti:</p>
+                    <div class="formula-box">
+                        \[ L_{11} = \frac{N_1^2}{R_{mc}} = \frac{50^2}{716.02 \cdot 10^3} = 3.5 \text{ mH} \]
+                        \[ L_{22} = \frac{N_2^2}{R_{mc}} = \frac{100^2}{716.02 \cdot 10^3} = 14.0 \text{ mH} \]
+                    </div>
+                    <p>Induktivnost je padla iz 31.4 mH (brez reže) na komaj 3.5 mH!</p>
+                </div>
+            </details>
+        </section>
+
+        <!-- Kviz 1.8 -->
+        <section class="quiz-section">
+            <h3>Kviz 1.8: Posledice zračne reže</h3>
+            <p>Ko smo vstavili majhno 2 mm zračno režo v 1 meter dolgo jedro, se je induktivnost zelo zmanjšala. Kaj je glavni razlog za to?</p>
+            <div class="input-group">
+                <input type="text" id="quiz18-input" placeholder="npr. reluktanca zraka je velika" style="width: 300px;">
+                <button onclick="checkQuiz18()">Preveri</button>
+            </div>
+            <div id="quiz18-feedback" class="feedback"></div>
+        </section>
+
     </main>
 
     <footer>
@@ -989,10 +1186,108 @@
             document.getElementById('res-emax-6').innerText = e_max.toFixed(1);
         }
 
+        function updateTask7() {
+            let elN1 = document.getElementById('slider-n1-7');
+            let elN2 = document.getElementById('slider-n2-7');
+            if(!elN1 || !elN2) return;
+
+            let N1 = parseFloat(elN1.value);
+            let N2 = parseFloat(elN2.value);
+
+            document.getElementById('val-n1-7').innerText = N1;
+            document.getElementById('val-n2-7').innerText = N2;
+
+            let l = 1.0;
+            let A = 25e-4;
+            let mu_r = 4000;
+            let Rm = l / (mu_r * PI4e7 * A);
+
+            let L11 = (N1 * N1) / Rm;
+            let L22 = (N2 * N2) / Rm;
+
+            document.getElementById('res-rm-7').innerText = Rm.toFixed(0);
+            document.getElementById('res-l11-7').innerText = (L11 * 1000).toFixed(1);
+            document.getElementById('res-l22-7').innerText = (L22 * 1000).toFixed(1);
+
+            // Update SVG Coils conceptually (just showing density)
+            let coil1 = document.getElementById('svg-coil-n1-7');
+            let coil2 = document.getElementById('svg-coil-n2-7');
+
+            let drawCoil = (N, startX, startY) => {
+                let path = '';
+                let turns = Math.min(20, Math.max(5, Math.floor(N / 10)));
+                let spacing = 200 / turns;
+                for(let i=0; i<turns; i++) {
+                    let y = startY + i*spacing;
+                    path += `M ${startX-20} ${y} Q ${startX+25} ${y-10} ${startX+25} ${y+10} Q ${startX-20} ${y+20} ${startX-20} ${y} `;
+                }
+                return path;
+            };
+
+            if(coil1) coil1.setAttribute('d', drawCoil(N1, 75, 100));
+            if(coil2) coil2.setAttribute('d', drawCoil(N2, 325, 100));
+        }
+
+        function updateTask8() {
+            let elDelta = document.getElementById('slider-delta-8');
+            if(!elDelta) return;
+
+            let delta_mm = parseFloat(elDelta.value);
+            document.getElementById('val-delta-8').innerText = delta_mm.toFixed(1);
+
+            let delta_m = delta_mm / 1000.0;
+            let l_tot = 1.0;
+            let l_fe = l_tot - delta_m;
+            let A = 25e-4;
+            let mu_r = 4000;
+
+            let RmFe = l_fe / (mu_r * PI4e7 * A);
+            let RmDelta = delta_m / (PI4e7 * A);
+            let Rmc = RmFe + RmDelta;
+
+            let N1 = 50;
+            let N2 = 100;
+
+            let L11 = (N1 * N1) / Rmc;
+            let L22 = (N2 * N2) / Rmc;
+
+            document.getElementById('res-rmfe-8').innerText = (RmFe / 1000).toFixed(1) + " · 10³";
+            document.getElementById('res-rmg-8').innerText = (RmDelta / 1000).toFixed(1) + " · 10³";
+            document.getElementById('res-rmc-8').innerText = (Rmc / 1000).toFixed(1) + " · 10³";
+            document.getElementById('res-l11-8').innerText = (L11 * 1000).toFixed(2);
+            document.getElementById('res-l22-8').innerText = (L22 * 1000).toFixed(2);
+
+            // Update SVG Gap conceptually
+            let gap = document.getElementById('svg-gap-8');
+            if(gap) {
+                let gapHeight = delta_mm * 5; // Visual multiplier
+                gap.setAttribute('height', gapHeight);
+                gap.setAttribute('y', 200 - gapHeight/2);
+            }
+
+            // Draw coils for 8
+            let coil1 = document.getElementById('svg-coil-n1-8');
+            let coil2 = document.getElementById('svg-coil-n2-8');
+            let drawCoil = (N, startX, startY) => {
+                let path = '';
+                let turns = Math.min(20, Math.max(5, Math.floor(N / 10)));
+                let spacing = 200 / turns;
+                for(let i=0; i<turns; i++) {
+                    let y = startY + i*spacing;
+                    path += `M ${startX-20} ${y} Q ${startX+25} ${y-10} ${startX+25} ${y+10} Q ${startX-20} ${y+20} ${startX-20} ${y} `;
+                }
+                return path;
+            };
+            if(coil1) coil1.setAttribute('d', drawCoil(N1, 75, 100));
+            if(coil2) coil2.setAttribute('d', drawCoil(N2, 325, 100));
+        }
+
         window.onload = function() {
             updateTask1();
             updateTask2();
             updateTask6();
+            updateTask7();
+            updateTask8();
         };
 
         function checkQuiz11() {
@@ -1054,6 +1349,27 @@
                 fb.className = "feedback success"; fb.innerText = "Pravilno! Večja frekvenca pomeni večjo krožno frekvenco (\u03c9). Ker po Faradayem zakonu frekvenca pomnoži ampltudo (E = ... * \u03c9), je pri 60 Hz inducirana napetost E_max seveda višja kot pri 50 Hz. To je zelo pomembno pri snovanju transformatorjev!";
             } else {
                 fb.className = "feedback error"; fb.innerText = "Napačno. Uporabi drsnik za frekvenco in ga premakni iz 50 Hz na 60 Hz. Kaj se zgodi z napetostjo E_max?";
+            }
+        }
+
+        function checkQuiz17() {
+            let input = parseFloat(document.getElementById('quiz17-input').value);
+            let fb = document.getElementById('quiz17-feedback');
+            if (isNaN(input)) { fb.className = "feedback error"; fb.innerText = "Prosim vnesi številko."; return; }
+            if (input === 4) {
+                fb.className = "feedback success"; fb.innerText = "Pravilno! Ker je induktivnost sorazmerna s kvadratom števila ovojev (L ~ N^2), dvakrat večje število ovojev (2N) pomeni (2^2) = 4-krat večjo induktivnost!";
+            } else {
+                fb.className = "feedback error"; fb.innerText = "Napačno. Pomisli na formulo L = N^2 / R_m. Če podvojiš N, kaj se zgodi z vrednostjo N^2?";
+            }
+        }
+
+        function checkQuiz18() {
+            let input = document.getElementById('quiz18-input').value.trim().toLowerCase();
+            let fb = document.getElementById('quiz18-feedback');
+            if (input.includes('reluktanc') || input.includes('zrak') || input.includes('upornost') || input.includes('permeabilnost')) {
+                fb.className = "feedback success"; fb.innerText = "Pravilno! Zrak ima drastično manjšo permeabilnost (okoli 4000-krat manjšo od železa v tem primeru). Zato kljub majhni dolžini 2 mm povzroči ogromno povečanje reluktance, kar drastično zmanjša induktivnost.";
+            } else {
+                fb.className = "feedback error"; fb.innerText = "Poskusi ponovno. Razmisli, zakaj imenovalec v formuli za induktivnost tako zelo zraste. Kaj ima zrak, česar železo nima (ali obratno)?";
             }
         }
     </script>
