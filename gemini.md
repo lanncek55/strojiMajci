@@ -54,7 +54,7 @@ Dopolnitev gradiv z dodatnimi zunanjimi vajami. Za vsako vajo je potrebno naredi
 - [x] **Korak 17:** Vaja 01 (Magnetilni tok dušilke navite na toroidno jedro iz feromagnetnega materiala) - `vaja_01.html`
 - [x] **Korak 18:** Vaja 02 (Enofazni transformator brez zračne reže, jedro v obliki kvadratnega okvirja) - `vaja_02.html`
 - [x] **Korak 19:** Vaja 03 (Transformator podatki Sn=50kVA, p=6, reševanje napetosti/izgub) - `vaja_03.html`
-- [ ] **Korak 20:** Vaja 04 (Enofazni transformator Sn=50kVA, U1n=2400V, nadomestno vezje in tokovi) - `vaja_04.html`
+- [x] **Korak 20:** Vaja 04 (Enofazni transformator Sn=50kVA, U1n=2400V, nadomestno vezje in tokovi) - `vaja_04.html`
 - [ ] **Korak 21:** Vaja 05 (Razvoj kazalčnega diagrama transformatorja) - `vaja_05.html`
 - [ ] **Korak 22:** Vaja 06 (Transformator Sn=100kVA z določenim izkoristkom in uK) - `vaja_06.html`
 - [ ] **Korak 23:** Vaja 07 (Trifazni transformator splošne lastnosti in naloge) - `vaja_07.html`
