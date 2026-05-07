@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="sl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enofazni transformator - Avditorne vaje 02</title>
+    <link rel="stylesheet" href="style.css">
+    <script>
+        MathJax = {
+            tex: {
+                inlineMath: [["$", "$"], ["\\(", "\\)"]]
+            }
+        };
+    </script>
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <style>
+        .task { background-color: #fcfcfc; border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        .solution-step { margin-top: 15px; border-left: 3px solid var(--primary-color); padding-left: 15px; background: #f4f7f6; margin-bottom: 15px; padding-bottom: 10px; padding-top: 10px;}
+        .formula-box { background-color: #f8f9fa; border-left: 4px solid var(--primary-color); padding: 1rem; margin: 1rem 0; font-family: monospace; font-size: 1.1rem; overflow-x: auto;}
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Električni stroji - Vaja 02</h1>
+        <p>Enofazni transformator brez zračne reže z jedrom v obliki kvadratnega okvirja.</p>
+    </header>
+
+    <main class="container">
+        <a href="index.html" style="display:inline-block; margin-bottom: 20px; color: var(--primary-color); text-decoration: none;">&larr; Nazaj na zemljevid</a>
+
+        <section class="task">
+            <h2>NALOGA 02: Izračun enofaznega transformatorja</h2>
+            <p>Enofazni transformator brez zračne reže ima jedro v obliki kvadratnega okvirja. Faktor polnjenja železnega jedra je \(f_{Fe} = 0.85\). Magnetilna karakteristika feromagnetne pločevine, iz katere je sestavljeno železno jedro transformatorja, je podana (v nadaljevanju uporabljena za odčitavanje vrednosti, npr. \(B=0.8 \text{ T} \rightarrow H=140 \text{ A/m}\)).</p>
+            <div class="image-grid">
+                <div class="image-box">
+                    <img src="pdf_images/vaja_02_page1_img0.jpeg" alt="Oblika jedra">
+                </div>
+            </div>
+
+
+            <ol type="a">
+                <li>Določite število primarnih ovojev \(N_1\), da bo pri pritisnjeni napetosti \(U_1 = 220 \text{ V}\), \(f = 50 \text{ Hz}\) maksimalna gostota magnetnega pretoka v železnem jedru \(B = 0.8 \text{ T}\).</li>
+                <li>Določite potrebno število ovojev sekundarnega navitja \(N_2\), da bo v prostem teku sekundarna napetost na izhodnih sponkah transformatorja \(U_2 = 380 \text{ V}\).</li>
+                <li>Določite nazivno moč transformatorja \(S_n\), če je faktor polnjenja transformatorskega okna \(f_{Cu} = 0.3\) pri navitju, ki je obremenjeno s specifično gostoto toka \(j = 2 \cdot 10^6 \text{ A/m}^2\).</li>
+                <li>Za koliko se spremeni magnetilni tok transformatorja, če v železnem jedru naredimo zračno režo \(\delta = 0.5 \text{ mm}\)?</li>
+            </ol>
+
+            <div class="interactive-container" style="justify-content: center; background: #fafafa;">
+                <div style="text-align: center; padding: 10px;">
+                    <h4>Geometrija transformatorskega jedra</h4>
+                    <svg width="300" height="300" viewBox="0 0 300 300">
+                        <!-- Zunanji okvir: kvadrat 300x300 (v merilu, realno l_z=300mm) -->
+                        <rect x="25" y="25" width="250" height="250" fill="#bdc3c7" stroke="#7f8c8d" stroke-width="4"/>
+                        <!-- Notranje okno (okno za baker) -->
+
+                <p>Železno jedro je izdelano iz tankih lamel transformatorske pločevine za omejevanje neželenega vpliva vrtinčnih tokov, ki se tvorijo v električno prevodnem jedru pravokotno na smer kroženja izmeničnega magnetnega polja. Lamele pločevine so na obeh straneh s tanko plastjo oksida električno izolirane in ko jih sestavimo v transformatorsko jedro nameščene tesno skupaj, je upornost v prečni smeri (smer kroženja vrtinčnih tokov) zelo povečana. Lamele (feromagnetni material) imajo zaradi visoke relativne permeabilnosti (\(\mu_r \gg 1\)) odlično prevodnost za magnetni pretok, medtem ko izolacijska plast med njimi (\(\mu_r \approx 1\)) zelo slabo vodi magnetni pretok. Praktično ves \(\Phi\) poteka le znotraj feromagnetnega materiala, kar fizično dimenzijo debeline transformatorskega jedra “zmanjša” na takšno, ki jo upoštevamo pri izračunu magnetnih razmer.</p>
+                <p>To definira podan faktor polnjenja železnega jedra \(f_{Fe}\) – kolikšen delež izdelanega jedra sestavlja feromagnetna pločevina (v konkretnem primeru 85 %) in kolikšen delež debeline jedra predstavlja izolacija lamel (v konkretnem primeru 15 %). Zaželeni so seveda polnilni faktorji čim bliže 100 %.</p>
+                <p>Lamele transformatorskega jedra so vedno deljene (najmanj iz dveh delov), da je omogočena enostavnejša izdelava in namestitev navitij. Navitje se najprej navije na tuljavnik in se šele nato namesti na steber železnega jedra ter jarem skrbno sklene v zaključen magnetni krog brez nepotrebnih zračnih rež. Pri transformatorjih manjših moči so najpogostejša t.i. E-I in C-I jedra.</p>
+                <p>Vodilo pri oblikovanju lamel (naloga načrtovalca električnega stroja) je tudi čim boljši izkoristek materiala, brez nepotrebnega odpadka. To je možno zagotoviti najbolje ravno pri pravokotnih transformatorskih jedrih, manj pri rotacijskih strojih zaradi krožnih oblik lamel.</p>
+                <p>Podana statična magnetilna krivulja feromagnetnega materiala, iz katerega so izdelane lamele železnega jedra z značilnimi tremi področji: strmo in linearno nenasičeno področje, izrazito nelinearno področje kolena, položno in linearno nasičeno področje.</p>
+
+                <p>Železno jedro je izdelano iz tankih lamel transformatorske pločevine za omejevanje neželenega vpliva vrtinčnih tokov, ki se tvorijo v električno prevodnem jedru pravokotno na smer kroženja izmeničnega magnetnega polja. Lamele pločevine so na obeh straneh s tanko plastjo oksida električno izolirane in ko jih sestavimo v transformatorsko jedro nameščene tesno skupaj, je upornost v prečni smeri (smer kroženja vrtinčnih tokov) zelo povečana. Lamele (feromagnetni material) imajo zaradi visoke relativne permeabilnosti (\(\mu_r \gg 1\)) odlično prevodnost za magnetni pretok, medtem ko izolacijska plast med njimi (\(\mu_r pprox 1\)) zelo slabo vodi magnetni pretok. Praktično ves \(\Phi\) poteka le znotraj feromagnetnega materiala, kar fizično dimenzijo debeline transformatorskega jedra “zmanjša” na takšno, ki jo upoštevamo pri izračunu magnetnih razmer.</p>
+                <p>To definira podan faktor polnjenja železnega jedra \(f_{Fe}\) – kolikšen delež izdelanega jedra sestavlja feromagnetna pločevina (v konkretnem primeru 85 %) in kolikšen delež debeline jedra predstavlja izolacija lamel (v konkretnem primeru 15 %). Zaželeni so seveda polnilni faktorji čim bliže 100 %.</p>
+                <p>Lamele transformatorskega jedra so vedno deljene (najmanj iz dveh delov), da je omogočena enostavnejša izdelava in namestitev navitij. Navitje se najprej navije na tuljavnik in se šele nato namesti na steber železnega jedra ter jarem skrbno sklene v zaključen magnetni krog brez nepotrebnih zračnih rež. Pri transformatorjih manjših moči so najpogostejša t.i. E-I in C-I jedra.</p>
+                <p>Vodilo pri oblikovanju lamel (naloga načrtovalca električnega stroja) je tudi čim boljši izkoristek materiala, brez nepotrebnega odpadka. To je možno zagotoviti najbolje ravno pri pravokotnih transformatorskih jedrih, manj pri rotacijskih strojih zaradi krožnih oblik lamel.</p>
+                <p>Podana statična magnetilna krivulja feromagnetnega materiala, iz katerega so izdelane lamele železnega jedra z značilnimi tremi področji: strmo in linearno nenasičeno področje, izrazito nelinearno področje kolena, položno in linearno nasičeno področje.</p>
+
+            <div class="image-grid">
+                <div class="image-box">
+                    <img src="pdf_images/vaja_02_page2_img0.jpeg" alt="E-I oblika jedra">
+                    <div class="image-caption">E-I oblika trans. jedra</div>
+                </div>
+                <div class="image-box">
+                    <img src="pdf_images/vaja_02_page2_img1.jpeg" alt="C-I oblika jedra">
+                    <div class="image-caption">C-I oblika trans. jedra</div>
+                </div>
+                <div class="image-box" style="grid-column: span 2;">
+                    <img src="pdf_images/vaja_02_page2_img4.jpeg" alt="Statična magnetilna krivulja">
+                    <div class="image-caption">Statična magnetilna krivulja</div>
+                </div>
+            </div>
+
+                        <rect x="75" y="75" width="150" height="150" fill="#fff" stroke="#7f8c8d" stroke-width="4"/>
+
+                        <!-- Prikaz srednje silnice -->
+                        <path d="M 50 50 L 250 50 L 250 250 L 50 250 Z" fill="none" stroke="#e74c3c" stroke-width="2" stroke-dasharray="5"/>
+                        <text x="150" y="45" font-size="12" fill="#e74c3c" text-anchor="middle">Srednja silnica (lsr)</text>
+
+                        <!-- Mere stebra/jarma: 50mm (merilo) -->
+                        <line x1="25" y1="15" x2="75" y2="15" stroke="#333" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <text x="50" y="10" font-size="12" text-anchor="middle">50 mm</text>
+
+                        <!-- Mere okna: 200mm -->
+                        <line x1="75" y1="150" x2="225" y2="150" stroke="#333" stroke-width="1" marker-end="url(#arrow)" marker-start="url(#arrow)"/>
+                        <text x="150" y="145" font-size="12" text-anchor="middle">Okno (S_ok) = 200 mm</text>
+
+                        <!-- Debelina (globina) = 50 mm -->
+                        <text x="150" y="180" font-size="12" text-anchor="middle">Globina jedra = 50 mm</text>
+
+                        <defs>
+                            <marker id="arrow" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                                <path d="M 0 0 L 10 5 L 0 10 z" fill="#000" />
+                            </marker>
+                        </defs>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="real-world-box">
+                <div class="real-world-title">
+                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
+                    Uporaba v praksi
+                </div>
+                <p><strong>Faktor polnjenja železa (\(f_{Fe}\)) in bakra (\(f_{Cu}\)):</strong> Železno jedro ni nikoli narejeno iz enega masivnega kosa železa, ampak iz <em>lamel</em> (tankih lističev). Vsaka lamela je premazana z izolacijo (zato da se preprečijo vrtinčni tokovi in pregrevanje). Zato "fizična" debelina jedra ni enaka "magnetni" debelini. Faktor \(f_{Fe} = 0.85\) pomeni, da je v 100 mm debelem jedru dejansko le 85 mm čistega železa, ostalo pa so prazni prostori in izolacija. Enako velja za navitja: zaradi okrogle oblike žice, debeline laka (izolacije) na žici in vmesnega papirja, faktor \(f_{Cu} = 0.3\) pomeni, da je zgolj 30% površine "okna" dejansko napolnjene s čistim bakrom, ki prenaša tok.</p>
+            </div>
+
+            <h3>Potek reševanja (Korak za korakom)</h3>
+
+            <div class="solution-step">
+                <h4>a) Izračun števila primarnih ovojev (\(N_1\))</h4>
+                <p>Upoštevamo predpostavko, da imamo idealen transformator brez lastnih ohmskih upornosti (torej \(R=0\)). Pritisnjeni napetosti je enaka inducirana protinapetost: \(U_1 = E_1\). Uporabimo že znano splošno enačbo za inducirano napetost za harmonično vzbujanje:</p>
+                <div class="formula-box">
+                    \[ U_1 \approx E_1 = 4.44 \cdot f \cdot N_1 \cdot \Phi_{max} = 4.44 \cdot f \cdot N_1 \cdot B \cdot S_{Fe} \]
+                </div>
+                <p>Izračunati moramo dejanski presek železa (\(S_{Fe}\)). Geometrijski presek (\(S\)) je podan kot produkt širine stebra (5 cm) in globine jedra (5 cm). Zaradi lamel moramo to množiti s faktorjem polnjenja:</p>
+                <div class="formula-box">
+                    \[ S_{Fe} = S \cdot f_{Fe} = (0.05 \text{ m} \cdot 0.05 \text{ m}) \cdot 0.85 = 0.0025 \cdot 0.85 = 0.002125 \text{ m}^2 \]
+                </div>
+                <p>Iz glavne enačbe izrazimo število ovojev \(N_1\) in vstavimo vrednosti:</p>
+                <div class="formula-box">
+                    \[ N_1 = \frac{U_1}{4.44 \cdot f \cdot B \cdot S_{Fe}} \]
+                    \[ N_1 = \frac{220}{4.44 \cdot 50 \cdot 0.8 \cdot 0.002125} = \frac{220}{0.3774} = 582.9 \approx 583 \text{ ovojev} \]
+                </div>
+            </div>
+
+            <div class="solution-step">
+                <h4>b) Število sekundarnih ovojev v prostem teku (\(N_2\))</h4>
+                <p>Prosti tek transformatorja pomeni, da je stroj na primarni strani priključen, na sekundarnih sponkah pa nima priključenega nobenega bremena (\(I_2 = 0\)). Ker ni toka na sekundarni strani, ni nobenega padca napetosti na upornosti žice, kar pomeni \(U_2 = E_2\). Enačba transformacije napetosti se glasi:</p>
+                <div class="formula-box">
+                    \[ \frac{E_1}{E_2} = \frac{N_1}{N_2} \quad \Rightarrow \quad \frac{U_1}{U_2} \approx \frac{N_1}{N_2} \]
+                </div>
+                <p>Iz te relacije izrazimo neznanko \(N_2\):</p>
+                <div class="formula-box">
+                    \[ N_2 = N_1 \cdot \frac{U_2}{U_1} = 583 \cdot \frac{380}{220} = 583 \cdot 1.727 = 1007 \text{ ovojev} \]
+                </div>
+            </div>
+
+            <div class="solution-step">
+                <h4>c) Nazivna moč transformatorja (\(S_n\))</h4>
+                <p>Da izračunamo moč (\(S_n = U_1 \cdot I_1\)), moramo najprej najti nazivni tok (\(I_1\)). Nazivni tok je definiran s prečnim presekom bakrene žice in <i>dopustno tokovno gostoto</i> (\(j = 2 \cdot 10^6 \text{ A/m}^2\)).</p>
+                <p>Najprej preverimo, koliko prostora sploh imamo v "oknu". Okno je notranja luknja v jedru (iz skice razvidno kot kvadrat širine in višine: \(300 \text{ mm} - 2 \cdot 50 \text{ mm} = 200 \text{ mm} = 0.2 \text{ m}\)).</p>
+                <div class="formula-box">
+                    \[ S_{ok} = 0.2 \text{ m} \cdot 0.2 \text{ m} = 0.04 \text{ m}^2 \]
+                </div>
+                <p>V to okno moramo namestiti primarno in sekundarno navitje. Običajno se prostor razdeli na polovico (eno okno je v bistvu že sestavljeno iz dveh polovic stebrov za primar/sekundar, tako da za eno navitje vzamemo polovico celotnega preseka bakra). Celotna površina, namenjena zgolj bakru (zaradi polnilnega faktorja \(f_{Cu}=0.3\)), je:</p>
+                <div class="formula-box">
+                    \[ S_{Cu\_skupni} = S_{ok} \cdot f_{Cu} = 0.04 \cdot 0.3 = 0.012 \text{ m}^2 \]
+                </div>
+                <p>Ker sta v oknu dve navitji (primarno in sekundarno), je površina namenjena čistemu bakru <i>prvega</i> navitja:</p>
+                <div class="formula-box">
+                    \[ S_{Cu1} = \frac{S_{Cu\_skupni}}{2} = 0.006 \text{ m}^2 \]
+                </div>
+                <p>To je površina vseh 583 ovojev skupaj! Prerez <i>enega samega</i> vodnika (žice) prvega navitja je torej:</p>
+                <div class="formula-box">
+                    \[ A_{Cu1} = \frac{S_{Cu1}}{N_1} = \frac{0.006}{583} = 10.29 \cdot 10^{-6} \text{ m}^2 \approx 10 \text{ mm}^2 \]
+                </div>
+                <p>Sedaj iz tokovne gostote izračunamo tok, ki ga takšna žica varno prenese (brez pregretja izolacije):</p>
+                <div class="formula-box">
+                    \[ I_1 = j \cdot A_{Cu1} = (2 \cdot 10^6 \text{ A/m}^2) \cdot (10 \cdot 10^{-6} \text{ m}^2) = 20 \text{ A} \]
+                </div>
+                <p>Nazivna navidezna moč transformatorja je:</p>
+                <div class="formula-box">
+                    \[ S_n = U_1 \cdot I_1 = 220 \text{ V} \cdot 20 \text{ A} = 4400 \text{ VA} = 4.4 \text{ kVA} \]
+                </div>
+            </div>
+
+            <div class="solution-step">
+                <h4>d) Vpliv zračne reže na magnetilni tok (\(\Delta I_\mu\))</h4>
+                <p>Zanima nas, kako močno se poveča tok za vzpostavitev magnetnega polja (\(B=0.8 \text{ T}\)), če jedro prežagamo in ustvarimo zračno režo \(\delta = 0.5 \text{ mm} = 0.0005 \text{ m}\).</p>
+
+                <p><b>Korak 1: Tok za polno jedro (brez reže)</b></p>
+                <p>Izračunamo srednjo dolžino silnice jedra (\(l_{sr}\)). Zunanja mera je 30 cm, širina stebra 5 cm, silnica potuje po sredini. Dolžina ene stranice srednje silnice je torej \(30 \text{ cm} - \frac{5}{2} - \frac{5}{2} = 25 \text{ cm}\). Ker je okvir kvadraten z vsemi štirimi enakimi stranicami:</p>
+                <div class="formula-box">
+                    \[ l_{sr} = 4 \cdot 0.25 \text{ m} = 1.0 \text{ m} \]
+                </div>
+                <p>Iz magnetilnice (podatek) odčitamo, da za \(B=0.8 \text{ T}\) material potrebuje magnetilno poljsko jakost \(H = 140 \text{ A/m}\). Amperov zakon nam da prvotni magnetilni tok (\(I_{\mu\_Fe}\)):</p>
+                <div class="formula-box">
+                    \[ H \cdot l_{sr} = \sqrt{2} \cdot I_{\mu\_Fe} \cdot N_1 \]
+                    \[ I_{\mu\_Fe} = \frac{H \cdot l_{sr}}{\sqrt{2} \cdot N_1} = \frac{140 \cdot 1.0}{\sqrt{2} \cdot 583} = \frac{140}{824.5} = 0.1698 \text{ A} \approx 0.17 \text{ A} \]
+                </div>
+
+                <p><b>Korak 2: Tok za premagovanje zračne reže</b></p>
+                <p>Ko se polje širi iz lamel v zračno režo, se <i>površina</i> zračne reže "razleze" čez celoten geometrijski prerez jedra (v lamelah namreč teče samo po 85% površine zaradi izolacije). Da se ohrani pretok \(\Phi\) konstantno zaprt, mora zaradi povečane površine \((S)\) pasti gostota polja v reži \((B_\delta)\):</p>
+                <div class="formula-box">
+                    \[ \Phi_{Fe} = \Phi_\delta \quad \Rightarrow \quad B_{Fe} \cdot S_{Fe} = B_\delta \cdot S \]
+                    \[ B_\delta = B_{Fe} \cdot \frac{S_{Fe}}{S} = B_{Fe} \cdot f_{Fe} = 0.8 \text{ T} \cdot 0.85 = 0.68 \text{ T} \]
+                </div>
+                <p>Jakost polja v zraku je definirana s permeabilnostjo vakuuma (\(\mu_0\)):</p>
+                <div class="formula-box">
+                    \[ H_\delta = \frac{B_\delta}{\mu_0} = \frac{0.68}{4\pi \cdot 10^{-7}} \]
+                </div>
+                <p>Zopet uporabimo Amperov zakon (sedaj samo za zračno režo, saj za železo že poznamo tok, ki ga reža zgolj doda k obstoječemu):</p>
+                <div class="formula-box">
+                    \[ I_{\mu\_\delta} = \frac{H_\delta \cdot \delta}{\sqrt{2} \cdot N_1} = \frac{B_\delta \cdot \delta}{\mu_0 \cdot \sqrt{2} \cdot N_1} \]
+                    \[ I_{\mu\_\delta} = \frac{0.68 \cdot 0.0005}{4\pi \cdot 10^{-7} \cdot \sqrt{2} \cdot 583} = \frac{0.00034}{0.001036} = 0.328 \text{ A} \approx 0.33 \text{ A} \]
+                </div>
+
+                <p><b>Korak 3: Novi skupni tok in povečanje</b></p>
+                <p>Pri izračunu smo zanemarili, da se je železna pot zaradi zračne reže minimalno skrajšala (\(1 \text{ m} \rightarrow 0.9995 \text{ m}\)), ker pri naši natančnosti to ne spremeni končnega rezultata. Novi skupni magnetilni tok je seštevek obeh:</p>
+                <div class="formula-box">
+                    \[ I_{\mu\_skupni} = I_{\mu\_Fe} + I_{\mu\_\delta} = 0.17 + 0.33 = 0.50 \text{ A} \]
+                </div>
+                <p><i>Odgovor:</i> Z uvedbo majhne, komaj pol-milimetrske zračne reže se je magnetilni tok transformatorja drastično povečal iz 0.17 A na 0.50 A, torej <strong>za faktor 2.94</strong> (skoraj trikrat!). Zato transformatorji (za razliko od dušilk) NIKOLI ne smejo imeti zračne reže, jedra se strojno stiskajo in prepletajo (overlap) z izjemno natančnostjo.</p>
+            </div>
+        </section>
+
+        <!-- Kviz 02 -->
+        <section class="quiz-section">
+            <h3>Kviz 02: Faktor polnjenja</h3>
+            <p>Pri izračunu v zadnjem koraku je ugotovljeno, da je gostota pretoka v zračni reži (\(B_\delta\)) MANJŠA kot v samem železnem jedru (\(B_{Fe}\)), in sicer točno za faktor \(f_{Fe}\). Če bi bil faktor polnjenja železa popoln (1.0 ali 100%), kakšna bi bila potem gostota pretoka v reži \(B_\delta\) glede na \(B_{Fe}\)?</p>
+            <div class="input-group">
+                <input type="text" id="quiz02-input" placeholder="večja / manjša / enaka" style="width: 250px;">
+                <button onclick="checkQuiz02()">Preveri</button>
+            </div>
+            <div id="quiz02-feedback" class="feedback"></div>
+        </section>
+
+    </main>
+
+    <footer>
+        <p>Ustvarjeno za učenje in utrjevanje znanja.</p>
+    </footer>
+
+    <script>
+        function checkQuiz02() {
+            let input = document.getElementById('quiz02-input').value.trim().toLowerCase();
+            let fb = document.getElementById('quiz02-feedback');
+            if (input === 'enaka' || input === 'enak') {
+                fb.className = "feedback success"; fb.innerText = "Pravilno! Če bi bilo jedro popolnoma masivno železo brez vmesne izolacije (f_Fe = 1), se presek med prehodom v zrak ne bi spremenil. Torej bi bila po enačbi Φ = B*S tudi magnetna gostota v obeh materialih popolnoma enaka.";
+            } else {
+                fb.className = "feedback error"; fb.innerText = "Napačno. Enačba pravi B_δ = B_Fe * f_Fe. Če vstaviš f_Fe = 1, kakšen bo rezultat?";
+            }
+        }
+    </script>
+</body>
+</html>

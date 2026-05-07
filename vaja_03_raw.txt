@@ -1,0 +1,410 @@
+--- PAGE 1 ---
+1
+
+Električni stroji
+Avditorne vaje | VAJA 3
+
+Transformator ima naslednje podatke podatke: Sn = 50 kVA; p = N1/N2 = 6; U1n = 2400 V; fn = 42 Hz;
+P0 = 300 W; R1 = 0,76 Ω; R2 = 0,006 Ω.
+a) Določite razmerje izgub PCun/PFen pri nazivnem obratovalnem stanju.
+b) Določite razmerje izgub PCu/PFe pri spremenjenih napajalnih razmerah - nespremenjeni efektivni
+vrednosti napetosti U1’ = U1n, vendar povišani frekvenci f ’ = 50 Hz.
+
+Rešitev
+p = N1/N2 = U1/U2
+…
+prestavno razmerje transformatorja,
+P0
+
+
+…
+izgube v prostem teku transformatorja (ni bremena na sekundarnih sponkah),
+R1, R2
+
+…
+ohmski upornosti primarnega in sekundarnega navitja – podane vrednosti veljajo
+za toplo stanje navitij pri 75°C.
+Tok prostega teka je mnogo manjši od nazivnega toka transformatorja I0 << In, zato lahko izgube v prostem
+teku merjene pri nazivni napetosti in frekvenci aproksimiramo z izgubami v feromagnetnem (železnem)
+jedru transformatorja (P0 ≈ PFe).
+
+a) Izgube v obeh navitjih (bakru) pri nazivni obremenitvi, ko teče nazivni tok:
+
+2
+2
+2
+2
+1
+2
+1
+1
+2
+2
+20,83
+0,76
+125,00
+0,006
+423,50 W
+Cun
+Cu n
+Cu n
+n
+n
+P
+P
+P
+I
+R
+I
+R
+=
++
+=
+⋅
++
+⋅
+=
+⋅
++
+⋅
+=
+
+3
+1
+1
+50 10
+20,83 A
+2400
+n
+n
+n
+S
+I
+U
+⋅
+=
+=
+=
+
+2
+1
+20,83 6
+125,00 A
+n
+n
+I
+I
+p
+=
+⋅
+=
+⋅
+=
+
+
+423,50
+300
+1,41
+Cun
+Fen
+P
+P
+=
+=
+  razmerje izgub pri nazivnem obratovalnem stanju
+
+b) Izgube v železu se delijo na histerezne in vrtinčne izgube (Opomba: več v učbeniku D. Miljavec, Električni
+stroji)
+50
+x
+h
+h
+Fe
+f
+P
+k
+B
+m
+=
+⋅
+⋅
+⋅
+,   x = (1,5 ÷ 3)
+histerezne izgube
+
+2
+2
+50
+v
+v
+Fe
+f
+P
+k
+B
+m
+
+
+=
+⋅
+⋅
+⋅
+
+
+
+
+
+
+vrtinčne izgube
+
+kh, kv, kFe so specifične histerezne, vrtinčne oziroma kombinirane izgube merjene na vzorcu 1 kg
+feromagnetnega materiala pri frekvenci 50 Hz in gostoti magnetnega pretoka 1 T. Podatek je podan s
+strani proizvajalca magnetne pločevine (primer v Dodatku na koncu vaje). Zapis obeh enačb v polni
+obliki ima naslednjo obliko, ki pa se zaradi normiranj z vrednostjo 1 poenostavi v zgoraj navedene:
+50
+1
+1
+x
+Fe
+h
+h
+m
+f
+B
+P
+k
+=
+⋅
+⋅
+⋅
+,
+2
+2
+50
+1
+1
+Fe
+v
+v
+m
+f
+B
+P
+k
+
+
+=
+⋅
+⋅
+⋅
+
+
+
+
+
+Opomba: pri zmogljivejših materialih se v zadnjem obdobju podajajo kh, kv in kFe merjene pri B = 1,5 T, kar je
+treba ustrezno upoštevati v uporabljeni enačbi!
+
+[IMAGE EXTRACTED: pdf_images/vaja_03_page1_img0.png]
+[IMAGE EXTRACTED: pdf_images/vaja_03_page1_img1.png]
+--- PAGE 2 ---
+2
+
+2
+50
+Fe
+Fe
+Fe
+f
+P
+k
+B
+m
+=
+⋅
+⋅
+⋅
+
+poenostavljen izraz za skupne izgube v feromagnetnem jedru
+Iz poznanega obratovalnega stanja iščemo novo obratovalno stanje s spremenjenimi magnetnimi
+razmerami zaradi drugačnih napajalnih parametrov:
+
+
+
+4,44
+Fe
+E
+f
+B N S
+=
+⋅
+⋅
+⋅
+⋅
+
+4,44
+Fe
+E
+f
+B
+N S
+′
+′
+′
+=
+⋅
+⋅
+⋅
+⋅
+
+konstrukcijski parametri ostanejo konstantni
+
+Ker iz podatkov izhaja U1' = U1n, sledi tudi E’ = E in po deljenju enačb za inducirano napetost v
+nazivnem in spremenjenem obratovalnem stanju dobimo:
+1
+f
+B
+f
+B
+B
+f B
+f
+′
+′
+⋅
+′
+=
+→
+=
+⋅
+′
+⋅
+
+Pri zvišanju frekvence napajalne napetosti se gostota magnetnega pretoka v jedru zmanjša. V praksi to
+izkoristimo predvsem pri napajanju porabnikov, kjer nismo vezani na omrežno napetost – pri višjih
+frekvencah napajalne napetosti dimenzije železnih jeder zmanjšamo, ne da bi pri tem prešli v nasičenje.
+S tem postanejo električni stroji manjši in lažji.
+Opomba: npr. v letalski tehniki je standardna frekvenca 400 Hz, v sodobnih inverterskih varilnih aparatih
+pretvornik močnostne elektronike zviša omrežno frekvenco 50 Hz na izhodno 1000 Hz.
+
+Tako kot pri relaciji za inducirano napetost E tudi pri izgubah v železu PFe novo obratovalno stanje
+primerjamo z znanim (enačbi delimo) in s tem eliminiramo koeficiente, ki ostanejo enaki ob
+spremenjenih napajalnih razmerah (konstrukcijski in snovni parametri – masa in presek jedra, specifične
+izgube, število ovojev, ….).
+2
+2
+50
+50
+Fe
+Fe
+Fe
+Fe
+Fe
+Fe
+f
+P
+k
+B
+m
+f
+P
+k
+B
+m
+=
+⋅
+⋅
+⋅
+′
+′
+′
+=
+⋅
+⋅
+⋅
+ } ⁒
+2
+2
+42
+0,84
+50
+Fe
+Fe
+P
+f
+B
+f
+P
+f
+f
+B
+′
+′
+′
+=
+⋅
+=
+=
+=
+′
+
+300 0,84
+252,00 W
+Fe
+P′ =
+⋅
+=
+
+
+V konkretnem primeru se je spremenila le frekvenca, ne pa tudi efektivna vrednost napetosti, zato se
+primarni in sekundarni tok ne spremenita in izgube v navitju ostanejo enake PCun.
+423,50
+252
+1,68
+Cun
+Fe
+P
+P
+=
+=
+′
+
+Opomba: običajno razmerje izgub pri transformatorjih je PCun/PFen ≈ 3
+
+Opomba: pozornost pri sklepanju in pravilni nastavitvi rešitve zaradi neproporcionalnih relacij
+2
+,
+,
+Fe
+E
+f B
+P
+f B
+∝
+∝
+
+
+Opomba: če želimo ohraniti optimalne razmere magnetenja železnega jedra (delovna točka v kolenu magnetilnice),
+moramo skladno s spreminjanjem frekvence f spreminjati tudi efektivno vrednost napajalne napetosti U. Princip
+B = U/f = konst. uporabljajo napajalni pretvorniki električnih pogonov pri regulaciji vrtilne hitrosti asinhronskih
+in sinhronskih motorjev.
+
+
+
+
+--- PAGE 3 ---
+3
+
+Dodatek: Izsek iz kataloga proizvajalca feromagnetne pločevine - primer podanih specifičnih izgub
+izmerjenih pri 1,5 T in 1,0 T.
+
+
+
+
+
+
+[IMAGE EXTRACTED: pdf_images/vaja_03_page3_img0.jpeg]
+[IMAGE EXTRACTED: pdf_images/vaja_03_page3_img1.jpeg]
+[IMAGE EXTRACTED: pdf_images/vaja_03_page3_img2.jpeg]
+[IMAGE EXTRACTED: pdf_images/vaja_03_page3_img3.jpeg]
+[IMAGE EXTRACTED: pdf_images/vaja_03_page3_img4.jpeg]
