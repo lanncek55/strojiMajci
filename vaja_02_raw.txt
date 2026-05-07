@@ -1,0 +1,613 @@
+--- PAGE 1 ---
+1
+
+Električni stroji
+Avditorne vaje | VAJA 2
+
+Enofazni transformator brez zračne reže ima jedro v obliki kvadratnega okvirja. Faktor polnjenja železnega
+jedra je fFe = 0,85. Magnetilna karakteristika feromagnetne pločevine, iz katere je sestavljeno železno jedro
+transformatorja, je podana na diagramu B = f(H).
+a)  Določite število primarnih ovojev N1, da bo pri pritisnjeni napetosti U1 = 220 V, f = 50 Hz maksimalna
+gostota magnetnega pretoka v železnem jedru B = 0,8 T.
+b)  Določite potrebno število ovojev sekundarnega navitja N2, da bo v prostem teku sekundarna napetost
+na izhodnih sponkah transformatorja U2 = 380 V.
+c)  Določite nazivno moč transformatorja Sn, če je faktor polnjenja transformatorskega okna fCu = 0,3 pri
+navitju, ki je obremenjeno s specifično gostoto toka j = 2∙106 A/m2.
+d)  Za koliko se spremeni magnetilni tok transformatorja, če v železnem jedru naredimo zračno režo
+δ = 0,5 mm?
+
+Rešitev
+Dimenzije transformatorskega jedra iz feromagnetne pločevine so razvidne s skice. Podane so vrednosti
+kvadratnega jedra, njegova debelina in prečni presek S, skozi katerega magnetno polje vstopa in izstopa pri
+svoji zaključeni poti (
+0
+S
+B dS
+⋅
+=
+
+
+
+
+).
+Pod točko (a) je jedro polno (brez zračne reže), po celotni sklenjeni poti se silnice magnetnega pretoka Φ
+zaključujejo po feromagnetnem materialu z visoko vrednostjo permeabilnosti
+0
+r
+µ = µ ⋅µ . Označen je potek
+nadomestne silnice lsr, s katero lahko v homogenem materialu (µr se ne spreminja) in enostavni geometriji
+(nespremenjen preseku jedra S tekom integracijske poti) poenostavimo izračun. Pri zahtevnejših
+geometrijah bi morali upoštevati razmere spreminjanja gostote magnetnega pretoka B od zunanjega do
+notranjega roba jedra. Podobno poenostavljeno geometrijo smo imeli že pri Vaji 1 v primeru toroidnega
+jedra. Označena je tudi širina zračne reže δ, ki bo pri točki (d) izvedena v enem stebru železnega jedra.
+
+Železno jedro je izdelano iz tankih lamel transformatorske pločevine za omejevanje neželenega vpliva
+vrtinčnih tokov, ki se tvorijo v električno prevodnem jedru pravokotno na smer kroženja izmeničnega
+magnetnega polja. Lamele pločevine so na obeh straneh s tanko plastjo oksida električno izolirane in ko jih
+sestavimo v transformatorsko jedro nameščene tesno skupaj, je upornost v prečni smeri (smer kroženja
+vrtinčnih tokov) zelo povečana. Lamele (feromagnetni material) imajo zaradi visoke relativne
+S
+
+[IMAGE EXTRACTED: pdf_images/vaja_02_page1_img0.jpeg]
+[IMAGE EXTRACTED: pdf_images/vaja_02_page1_img1.png]
+--- PAGE 2 ---
+2
+
+permeabilnosti (
+1
+r
+µ ≫) odlično prevodnost za magnetni pretok, medtem ko izolacijska plast med njimi
+(
+)
+1
+r
+µ ≈
+ zelo slabo vodi magnetni pretok. Praktično ves Φ poteka le znotraj feromagnetnega materiala, kar
+fizično dimenzijo debeline transformatorskega jedra “zmanjša” na takšno, ki jo upoštevamo pri izračunu
+magnetnih razmer. To definira podan faktor polnjenja železnega jedra fFe – kolikšen delež izdelanega jedra
+sestavlja feromagnetna pločevina (v konkretnem primeru 85 %) in kolikšen delež debeline jedra predstavlja
+izolacija lamel (v konkretnem primeru 15 %). Zaželeni so seveda polnilni faktorji čim bliže 100 %.
+Lamele transformatorskega jedra so vedno deljene (najmanj iz dveh delov), da je omogočena enostavnejša
+izdelava in namestitev navitij. Navitje se najprej navije na tuljavnik in se šele nato namesti na steber
+železnega jedra ter jarem skrbno sklene v zaključen magnetni krog brez nepotrebnih zračnih rež. Pri
+transformatorjih manjših moči so najpogostejša t.i. E-I in C-I jedra.
+
+
+
+
+E-I oblika trans. jedra
+
+
+
+
+
+
+C-I oblika transformatorskega jedra
+
+Vodilo pri oblikovanju lamel (naloga načrtovalca električnega stroja) je tudi čim boljši izkoristek materiala,
+brez nepotrebnega odpadka. To je možno zagotoviti najbolje ravno pri pravokotnih transformatorskih
+jedrih, manj pri rotacijskih strojih zaradi krožnih oblik lamel.
+
+
+
+
+Primer prilagojenih dimenzij lamel za čim boljši izkoristek materiala pri strojnem izsekavanju
+
+Podana statična magnetilna krivulja feromagnetnega
+materiala, iz katerega so izdelane lamele železnega jedra
+z značilnimi tremi področji:
+• strmo in linearno nenasičeno področje,
+• izrazito nelinearno področje kolena,
+• položno in linearno nasičeno področje.
+Iz podatkov lahko ocenimo, da je ta pločevina
+kvalitetnejša od tiste iz Vaje 1 (µr = 2653).
+0
+0
+1
+r
+B
+H
+µ
+µ =
+=
+⋅
+µ
+µ
+
+[IMAGE EXTRACTED: pdf_images/vaja_02_page2_img0.jpeg]
+[IMAGE EXTRACTED: pdf_images/vaja_02_page2_img1.jpeg]
+[IMAGE EXTRACTED: pdf_images/vaja_02_page2_img2.jpeg]
+[IMAGE EXTRACTED: pdf_images/vaja_02_page2_img3.jpeg]
+[IMAGE EXTRACTED: pdf_images/vaja_02_page2_img4.jpeg]
+--- PAGE 3 ---
+3
+
+
+a) Še vedno upoštevamo predpostavko, da imamo idealen transformator brez lastnih ohmskih in
+induktivnih upornosti. To pomeni, da je pritisnjeni napetosti na primarnem navitju enaka inducirana
+protinapetost
+1
+1
+U
+E
+=
+:
+
+1
+1
+1
+4,44
+4,44
+Fe
+E
+f
+N
+f
+N
+B S
+=
+⋅
+⋅
+⋅Φ =
+⋅
+⋅
+⋅
+⋅
+
+Fe
+Fe
+S
+S
+f
+=
+⋅
+
+
+
+
+1
+4
+220
+4,44
+4,44 50 0,8 5 5 10
+0,85
+Fe
+U
+N
+f B S
+f
+−
+=
+=
+=
+⋅
+⋅
+⋅
+⋅
+⋅
+⋅
+⋅⋅⋅
+⋅
+1
+583 ovojev
+Izračunano potrebno število ovojev primarnega navitja, da pri danih dimenzijah jedra, podani magnetilni
+krivulji in definirani napajalni napetosti dosežemo želene magnetne razmere pri B = 0,8 T.
+
+b) Prosti tek transformatorja pomeni, da je stroj magnetno polno vzbujen, na izhodnih sponkah pa nima
+priključenega zunanjega bremena. Zaradi predpostavke
+1
+1
+U
+E
+=
+velja tudi:
+1
+1
+2
+2
+U
+E
+U
+E
+≈
+
+1
+1
+2
+1
+2
+2
+1
+380
+583 220
+E
+N
+E
+N
+N
+E
+N
+E
+=
+→
+=
+⋅
+=
+⋅
+=
+2
+1007 ovojev
+ Napetost se transformira v razmerju števila ovojev primarnega in sekundarnega navitja.
+
+c) Dimenzije transformatorskega okna določajo razpoložljivo površino, ki je na voljo za namestitev
+primarnega in sekundarnega navitja na stebre železnega jedra. Ta omejitev posledično definira tudi
+maksimalni presek žice, ki jo lahko uporabimo za navitje, presek žice ob dopustni tokovni obremenitvi
+z gostoto toka j pa omejuje vrednost toka, da je tako obremenjeno navitje še v okviru dopustnih toplotnih
+obremenitev (več o tem kasneje pri obravnavi izračunov segrevanj transformatorjev).
+Slika prikazuje možni razporeditvi dveh navitij  ob polni izkoriščenosti transformatorskega okna - vsako
+navitje na svojem stebru (slabši magnetni sklep) ali eno navitje preko drugega (boljši magnetni sklep).
+S takšnim konstrukcijskim ukrepom vplivamo tudi na lastnosti transformatorja (parametre razsipanega
+oz. stresanega magnetnega polja). Kljub temu, da imata lahko obe navitji zelo različno število ovojev,
+pa običajno površino transformatorskega okna razdelimo na dva enaka dela, saj imamo pri več ovojih
+(višja napetost) manjši presek žice (nižji tok).
+
+Dve možni namestitvi primarnega in sekundarnega navitja glede na omejen prostor transformatorskega okna
+Prečni presek jedra S, ki vodi magnetni pretok Φ, se efektivno zmanjša na SFe z
+upoštevanjem faktorja polnjenja železnega jedra fFe, ker v izolaciji med lamelami
+praktično ni magnetnega polja.
+
+[IMAGE EXTRACTED: pdf_images/vaja_02_page3_img0.jpeg]
+[IMAGE EXTRACTED: pdf_images/vaja_02_page3_img1.png]
+--- PAGE 4 ---
+4
+
+Faktor polnjenja transformatorskega okna fCu definira,
+koliko razpoložljivega prostora lahko izkoristimo za
+namestitev prevodnega materiala – v večini primerov je to
+baker, lahko pa tudi aluminij, srebro ali kakšen drug material
+z visoko električno prevodnostjo. Faktor fCu ima v primerjavi
+s fFe precej nižjo vrednost, vendar je za velikoserijsko
+izdelavo navitij povsem realen. Podobne vrednosti ima tudi
+faktor polnjenja statorskega ali rotorskega utora pri
+rotacijskih
+strojih.
+Faktor
+je
+možno
+izboljšati
+s
+specializiranimi načini navijanja ali z namensko izdelanimi
+vodniki, ki se bolje prilagajajo razpoložljivemu prostoru in s
+tem zmanjšamo neizkoriščene zračne vrzeli. Iz prikazane
+slike izdelanega transformatorja vidimo, da razpoložljiv prostor poleg vodnikov (bakra) zasedajo še
+ostali konstrukcijski elementi in materiali (tuljavnik, distančniki, izolacija med žicami, izolacija med
+tuljavami, ….).
+
+
+
+Ilustracija polnilnega faktorja fCu realnega transformatorja majhne moči glede na razpoložljivi prostor za
+namestitev primarnega in sekundarnega navitja.
+
+ok
+S
+→
+
+
+
+površino transformatorskega okna odčitamo iz podane geometrije jedra
+2
+ok
+Cu
+Cu
+S
+S
+f
+=
+⋅
+
+
+razpoložljiva površina za baker enega navitja (v oknu sta dve navitji)
+
+1
+1
+1
+2
+ok
+Cu
+Cu
+S
+S
+f
+N
+=
+⋅
+⋅
+
+možna površina (prerez) enega vodnika (ovoja) primarnega navitja
+6
+2
+2
+1
+0,2 0,2
+1
+0,3
+10 10
+m
+10 mm
+2
+583
+Cu
+S
+−
+⋅
+=
+⋅
+⋅
+=
+⋅
+=
+ dimenzije vodnikov so podane v praktični enoti (mm)
+Dopustne tokovne obremenitve vodnikov, ki so v navitjih nameščeni tesno drug ob drugem, so v
+območju j = 2÷5 A/mm2. Povišanje gostote toka je dopustno le ob izboljšanih pogojih hlajenja, da se
+navitje ne pregreje in izolacija ne uniči.
+6
+6
+1
+1
+2 10
+10 10
+20 A
+Cu
+I
+j S
+−
+=
+⋅
+=
+⋅
+⋅
+⋅
+=
+
+nazivni tok v primarnem navitju
+Nazivna obratovalna točka električnega stroja je določena kot tista, pri kateri je stroj polno izkoriščen
+in doseže svojo dopustno temperaturo (definirana z razredom uporabljenega izolacijskega materiala).
+Ker so toplotni prehodni pojavi bistveno počasnejši kot elektromagnetni in tudi mehanski, pri uporabi
+električnih strojev izkoriščamo občasno kratkotrajne zmerne preobremenitve, vendar le pod pogojem,
+da ne presežemo dovoljene toplotne obremenitve stroja.
+1
+1
+1
+220 20
+S
+U
+I
+=
+=
+⋅
+=
+⋅
+=
+n
+S
+4,4 kVA
+izračunana nazivna moč transformatorja
+
+
+[IMAGE EXTRACTED: pdf_images/vaja_02_page4_img0.jpeg]
+[IMAGE EXTRACTED: pdf_images/vaja_02_page4_img1.jpeg]
+[IMAGE EXTRACTED: pdf_images/vaja_02_page4_img2.png]
+[IMAGE EXTRACTED: pdf_images/vaja_02_page4_img3.png]
+--- PAGE 5 ---
+5
+
+d) Zanima nas sprememba magnetilnega toka transformatorja, ki nastane v primeru nastale zračne reže v
+transformatorskem jedru. Najprej izračunamo magnetilni tok transformatorja z jedrom brez zračne reže.
+Srednja dolžina magnetne silnice v železnem jedru je:
+4 0,25
+1m
+srl
+=
+⋅
+=
+
+
+
+
+izhaja iz podanih dimenzij železnega jedra
+0
+r
+B
+H
+= µ ⋅µ ⋅
+
+
+
+
+
+uporabimo že znane ugotovitve iz Vaje 1 (izračun Iµ toroidne dušilke)
+max
+max
+1
+1
+2
+2
+sr
+sr
+Fe
+Fe
+H
+l
+H
+l
+I
+N
+I
+N
+µ
+µ
+⋅
+⋅
+=
+⋅
+⋅
+→
+=
+⋅
+
+A
+max
+m
+0,8 T
+140
+B
+H
+=
+→
+=
+  iz podane statične magnetilnice odčitamo podatke za želeno delovno točko
+140 1
+2 583
+⋅
+=
+=
+⋅
+IμFe
+0,17 A
+
+
+
+Določimo še tok potreben za magnetenje le zračne reže – bistveno krajša pot, vendar drug material z
+bistveno višjo magnetno upornostjo µ→µ0:
+1
+2
+H
+I
+N
+δ
+⋅δ
+=
+⋅
+
+Upoštevati je potrebno še spremembo gostote magnetnega pretoka B, ko preidemo iz feromagnetnega
+jedra v zračno režo. Pri razlagi faktorja fFe smo ugotovili, da se debelina jedra za vodenje Φ “navidezno”
+zmanjša zaradi izolacije med lamelami. Ko magnetni pretok izstopi iz feromagnetnih lamel jedra v
+homogeno zračno režo, se površina, preko katere Φ prehaja, spremeni v izhodiščne (nekorigirane)
+dimenzije. Zaradi
+konst
+B
+S
+Φ =
+=
+↓⋅↑, se gostota magnetnega pretoka v zračni reži Bδ toliko zniža,
+kolikor se je povečala površina prečnega prereza – to pa definira faktor fFe.
+Fe
+B
+B f
+δ =
+⋅
+
+0
+1
+2
+B
+I
+N
+δ
+δ
+⋅δ
+=
+⋅µ ⋅
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+3
+7
+0
+1
+0,8 0,85 0,5 10
+0,33 A
+2
+2 4
+10
+583
+Fe
+B f
+I
+N
+−
+δ
+−
+⋅
+⋅δ
+⋅
+⋅
+⋅
+=
+=
+=
+⋅µ ⋅
+⋅⋅π⋅
+⋅
+
+
+0,17
+0,33
+0,50 A
+Fe
+I
+I
+I
+µ
+µ
+δ
+=
++
+=
++
+=
+
+Magnetilni tok transformatorja se ob izvedbi zračne reže v feromagnetnem jedru debeline
+0,5 mm
+δ =
+
+poveča z
+0,17 A
+Fe
+Iµ
+=
+ na
+0,50 A
+Iµ =
+, torej za faktor 2,94. Ob tem smo zanemarili skrajšanje dolžine
+poti magnetnega polja po feromagnetnem materialu ob izvedbi zračne reže s 1000 mm na 999,5 mm,
+kar pa pri natančnosti izračuna na dve decimalni mesti ne spremeni rezultata.
+
+
+
+tok potreben za magnetenje feromagnetnega jedra (srednja dolžina
+nadomestne silnice lsr = 1 m)
+H tokrat ne moremo določiti iz magnetilne krivulje iz znane vrednosti B = 0,8 T,
+ker smo v zračni reži (drug material), zato ga izrazimo iz znanih magnetnih razmer.
+tok potreben za magnetenje zračne reže
+debeline δ = 0,5 mm
+Površina zračne reže se glede na
+površino feromagnetnih lamel jedra
+poveča za faktor polnjenja fFe.
+
+[IMAGE EXTRACTED: pdf_images/vaja_02_page5_img0.jpeg]
