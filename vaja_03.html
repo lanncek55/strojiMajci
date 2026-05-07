@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Razmerje izgub transformatorja - Avditorne vaje 03</title>
+    <title>Avditorna vaja 03 - Interaktivni učbenik</title>
     <link rel="stylesheet" href="style.css">
     <script>
         MathJax = {
@@ -21,193 +21,346 @@
 </head>
 <body>
     <header>
-        <h1>Električni stroji - Vaja 03</h1>
-        <p>Analiza razmerja izgub in vpliv spremembe napajalnih razmer na transformator (U/f regulacija).</p>
+        <h1>Avditorna vaja 03</h1>
+        <p>Razmerje izgub in vpliv spremembe napajalnih razmer transformatorja.</p>
     </header>
 
     <main class="container">
         <a href="index.html" style="display:inline-block; margin-bottom: 20px; color: var(--primary-color); text-decoration: none;">&larr; Nazaj na zemljevid</a>
 
         <section class="task">
-            <h2>NALOGA 03: Izgube in napajalne razmere transformatorja</h2>
-            <p>Transformator ima podane naslednje tehnične podatke in parametre nadomestnega vezja:</p>
-            <ul>
-                <li>Nazivna navidezna moč: \(S_n = 50 \text{ kVA}\)</li>
-                <li>Prestavno razmerje: \(p = \frac{N_1}{N_2} = 6\)</li>
-                <li>Nazivna primarna napetost: \(U_{1n} = 2400 \text{ V}\)</li>
-                <li>Nazivna frekvenca: \(f_n = 42 \text{ Hz}\)</li>
-                <li>Izgube v prostem teku: \(P_0 = 300 \text{ W}\)</li>
-                <li>Ohmska upornost primarnega navitja: \(R_1 = 0.76 \ \Omega\)</li>
-                <li>Ohmska upornost sekundarnega navitja: \(R_2 = 0.006 \ \Omega\)</li>
-            </ul>
-            <div class="image-grid">
-                <div class="image-box">
-                    <img src="pdf_images/vaja_03_page3_img0.jpeg" alt="Tabela izgub 1">
-                </div>
-                <div class="image-box">
-                    <img src="pdf_images/vaja_03_page3_img1.jpeg" alt="Tabela izgub 2">
-                </div>
-            </div>
-
-            <p><i>Opomba: Podane vrednosti upornosti (\(R_1, R_2\)) veljajo za toplo stanje navitij pri normalni obratovalni temperaturi 75 °C.</i></p>
+            <h3>Naloga: Analiza izgub transformatorja</h3>
+            <p>Transformator ima naslednje podatke: $S_n = 50 \text{ kVA}$; $p = N_1/N_2 = 6$; $U_{1n} = 2400 \text{ V}$; $f_n = 42 \text{ Hz}$; $P_0 = 300 \text{ W}$; $R_1 = 0,76 \ \Omega$; $R_2 = 0,006 \ \Omega$.</p>
 
             <ol type="a">
-                <li>Določite razmerje izgub \(P_{Cun} / P_{Fen}\) pri nazivnem obratovalnem stanju (ko je transformator polno obremenjen z nazivno močjo).</li>
-                <li>Določite razmerje izgub \(P_{Cu} / P_{Fe}\) pri <b>spremenjenih</b> napajalnih razmerah: efektivna vrednost napetosti se ohrani (\(U_1' = U_{1n}\)), vendar se poveča frekvenca na \(f' = 50 \text{ Hz}\).</li>
+                <li>Določite razmerje izgub $P_{Cun}/P_{Fen}$ pri nazivnem obratovalnem stanju.</li>
+                <li>Določite razmerje izgub $P_{Cu}/P_{Fe}$ pri spremenjenih napajalnih razmerah - nespremenjeni efektivni vrednosti napetosti $U_1' = U_{1n}$, vendar povišani frekvenci $f' = 50 \text{ Hz}$.</li>
             </ol>
 
-            <div class="interactive-container" style="justify-content: center; background: #fafafa;">
-                <div style="text-align: center; padding: 10px;">
-                    <h4>Vrste izgub v električnem stroju</h4>
-                    <svg width="350" height="200" viewBox="0 0 350 200">
-                        <rect x="50" y="50" width="100" height="100" fill="#f39c12" stroke="#e67e22" stroke-width="4" rx="10"/>
-                        <text x="100" y="90" font-size="14" fill="#fff" font-weight="bold" text-anchor="middle">Izgube</text>
-                        <text x="100" y="110" font-size="14" fill="#fff" font-weight="bold" text-anchor="middle">v Bakru</text>
-                        <text x="100" y="130" font-size="12" fill="#fff" text-anchor="middle">(PCu)</text>
-
-                        <rect x="200" y="50" width="100" height="100" fill="#7f8c8d" stroke="#bdc3c7" stroke-width="4" rx="10"/>
-                        <text x="250" y="90" font-size="14" fill="#fff" font-weight="bold" text-anchor="middle">Izgube</text>
-                        <text x="250" y="110" font-size="14" fill="#fff" font-weight="bold" text-anchor="middle">v Železu</text>
-                        <text x="250" y="130" font-size="12" fill="#fff" text-anchor="middle">(PFe)</text>
-
-                        <path d="M 100 150 Q 150 180 200 150" fill="none" stroke="#333" stroke-width="2" stroke-dasharray="5"/>
-                        <text x="150" y="185" font-size="12" font-style="italic" text-anchor="middle">Razmerje k</text>
-                    </svg>
+            <div class="solution-step">
+                <h4>Osnove za reševanje</h4>
+                <p>Prestavno razmerje transformatorja je definirano kot $p = \frac{N_1}{N_2} = \frac{U_1}{U_2}$.</p>
+                <p>Tok prostega teka je mnogo manjši od nazivnega toka transformatorja ($I_0 \ll I_n$), zato lahko izgube v prostem teku $P_0$, merjene pri nazivni napetosti in frekvenci, izenačimo z izgubami v feromagnetnem (železnem) jedru transformatorja:</p>
+                <div class="formula-box">
+                    \[ P_0 \approx P_{Fe} \]
                 </div>
+                <p>Ohmski upornosti primarnega in sekundarnega navitja ($R_1, R_2$) veljata za toplo stanje navitij pri $75^\circ\text{C}$.</p>
             </div>
-
-            <div class="real-world-box">
-                <div class="real-world-title">
-                    <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
-                    Uporaba v praksi
-                </div>
-                <p><strong>Izgube v transformatorjih (in hlajenje):</strong> Energija se pri nobenem pretvorniku ne pretvori 100% učinkovito. Kar se izgubi, se pretvori v toplotno energijo (segrevanje). Te izgube delimo v dve glavni veji. Prva veja so izgube v železu (\(P_{Fe}\)), ki nastanejo zaradi premagnetenja jedra (histerezne izgube) in vrtinčnih tokov – te izgube so prisotne celo takrat, ko transformator stoji prazen na mizi in je priključen le na vtičnico! Druga veja pa so izgube v bakru (\(P_{Cu}\)), ki pa so povsem odvisne od tega, koliko "toka" (bremena) obremenimo na transformator. Segrevanje teh dveh delov zahteva v praksi premišljen hladilni sistem z rebri ali celo s prečrpavanjem transformatorskega olja.</p>
-            </div>
-
-            <h3>Potek reševanja (Korak za korakom)</h3>
 
             <div class="solution-step">
-                <h4>Osnove in predpostavke</h4>
-                <p>Vemo, da je tok prostega teka (\(I_0\)) mnogo manjši od nazivnega toka (\(I_n\)). Zaradi tega lahko rečemo, da so izgube na bakru v času prostega teka zanemarljivo majhne. Posledično lahko izgube prostega teka (\(P_0\)) aproksimiramo zgolj z izgubami v feromagnetnem jedru transformatorja:</p>
+                <h4>a) Izgube pri nazivnem obratovalnem stanju</h4>
+                <p>Najprej določimo nazivne tokove na obeh straneh transformatorja iz podane nazivne moči $S_n = 50 \text{ kVA}$:</p>
                 <div class="formula-box">
-                    \[ P_0 \approx P_{Fe} = 300 \text{ W} \]
+                    \[ I_{1n} = \frac{S_n}{U_{1n}} = \frac{50 \cdot 10^3}{2400} = 20,83 \text{ A} \]
+                </div>
+                <p>S pomočjo prestavnega razmerja določimo tok na sekundarni strani ($I_{2n}$):</p>
+                <div class="formula-box">
+                    \[ I_{2n} = I_{1n} \cdot p = 20,83 \cdot 6 = 125,00 \text{ A} \]
+                </div>
+                <p>Izgube v bakru $P_{Cun}$ so posledica Joulovega segrevanja navitij ($I^2R$). Skupne izgube izračunamo kot seštevek izgub v primarnem in sekundarnem navitju ob nazivnem toku:</p>
+                <div class="formula-box">
+                    \[ P_{Cun} = I_{1n}^2 \cdot R_1 + I_{2n}^2 \cdot R_2 \]
+                    \[ P_{Cun} = 20,83^2 \cdot 0,76 + 125,00^2 \cdot 0,006 \]
+                    \[ P_{Cun} = 329,75 + 93,75 = 423,50 \text{ W} \]
+                </div>
+                <p>Iz podatkov vemo, da so izgube v železu pri nazivnem stanju enake $P_{Fen} = P_0 = 300 \text{ W}$. Razmerje izgub pri nazivnem obratovalnem stanju je tako:</p>
+                <div class="formula-box">
+                    \[ \frac{P_{Cun}}{P_{Fen}} = \frac{423,50}{300} = 1,41 \]
                 </div>
             </div>
 
             <div class="solution-step">
-                <h4>a) Izračun nazivnih izgub v bakru in razmerja</h4>
-                <p>Izgube v bakru se seštevajo iz toplotnih izgub (\(P = I^2 \cdot R\)) obeh navitij (primarja in sekundarja):</p>
+                <h4>b) Razmerje izgub pri spremenjenih napajalnih razmerah</h4>
+
+                <p>Izgube v železu se delijo na histerezne in vrtinčne izgube.</p>
                 <div class="formula-box">
-                    \[ P_{Cun} = P_{Cu\_primar} + P_{Cu\_sekundar} = I_{1n}^2 \cdot R_1 + I_{2n}^2 \cdot R_2 \]
+                    \[ P_h = k_h \cdot \left(\frac{f}{50}\right) \cdot B^x \cdot m, \quad x = (1.5 \div 3) \quad \text{... histerezne izgube} \]
+                    \[ P_v = k_v \cdot \left(\frac{f}{50}\right)^2 \cdot B^2 \cdot m \quad \text{... vrtinčne izgube} \]
                 </div>
-                <p>Potrebujemo vrednosti nazivnih tokov obeh strani. Tok lahko izračunamo iz podane nazivne moči \(S_n\) in ustrezne napetosti (tu uporabimo enofazno moč \(S = U \cdot I\)):</p>
+                <p>V praksi se za izračun skupnih izgub pogosto poslužujemo združenega izraza s specifičnimi izgubami, ki pa še vedno izraža temeljno proporcionalnost. Za poenostavljeno izpeljavo (ali če je v območju, kjer sta kvadratni odvisnosti približno dominantni) uporabimo:</p>
                 <div class="formula-box">
-                    \[ I_{1n} = \frac{S_n}{U_{1n}} = \frac{50 \cdot 10^3}{2400} = 20.83 \text{ A} \]
+                    \[ P_{Fe} = k_{Fe} \cdot \left(\frac{f}{50}\right)^2 \cdot B^2 \cdot m \]
                 </div>
-                <p>Sekundarni tok najlažje dobimo preko podanega prestavnega razmerja (\(p = \frac{N_1}{N_2} = \frac{I_2}{I_1}\), zato \(I_2 = I_1 \cdot p\)):</p>
+                <p>Pri tem je $k_{Fe}$ podatek proizvajalca pločevine za dano gostoto pretoka (npr. $1,0 \text{ T}$ ali $1,5 \text{ T}$) pri $50 \text{ Hz}$. Maso jedra $m$ in koeficient $k_{Fe}$ označimo kot konstante. Če obratovalno stanje primerjamo s starim, uporabimo razmerje novih in starih izgub (pri čemer se snovni in konstrukcijski parametri krajšajo):</p>
                 <div class="formula-box">
-                    \[ I_{2n} = I_{1n} \cdot p = 20.83 \cdot 6 = 125.00 \text{ A} \]
+                    \[ \frac{P_{Fe}'}{P_{Fe}} = \frac{k_{Fe} \cdot \left(\frac{f'}{50}\right)^2 \cdot B'^2 \cdot m}{k_{Fe} \cdot \left(\frac{f}{50}\right)^2 \cdot B^2 \cdot m} = \left(\frac{f'}{f}\right)^2 \cdot \left( \frac{B'}{B} \right)^2 \]
                 </div>
-                <p>Vstavimo tokove in upornosti v enačbo za izgube v bakru:</p>
+                <p>Toda pozor, zgornja enačba predpostavlja enako obliko obeh izgub! V originalni rešitvi je zapisano, da so izgube pri takem preračunu sorazmerne kar neposredno s frekvenco in kvadratom magnetnega polja. Raje sledimo dobesedno originalnemu gradivu, ki poenostavi relacijo za celotne izgube (vključujoč specifično pločevino) kot:</p>
                 <div class="formula-box">
-                    \[ P_{Cun} = 20.83^2 \cdot 0.76 + 125.00^2 \cdot 0.006 \]
-                    \[ P_{Cun} = 329.75 + 93.75 = 423.50 \text{ W} \]
+                    \[ P_{Fe} \propto f \cdot B^2 \quad \text{oz.} \quad \frac{P_{Fe}'}{P_{Fe}} = \frac{f' \cdot B'^2}{f \cdot B^2} \]
                 </div>
-                <p>Sedaj izračunamo iskano razmerje med izgubami v bakru in železu pri nazivnem obratovalnem stanju:</p>
+                <p>Toda kako določimo spremembo magnetnega pretoka $B'$? Iz relacije za inducirano napetost $E = 4,44 \cdot f \cdot B \cdot N \cdot S$ in ker velja $U_1' = U_{1n}$, sledi tudi $E' = E$:</p>
                 <div class="formula-box">
-                    \[ \frac{P_{Cun}}{P_{Fen}} = \frac{423.50}{300} = \underline{\underline{1.41}} \]
+                    \[ E' = E \quad \Rightarrow \quad 4,44 \cdot f' \cdot B' \cdot N \cdot S = 4,44 \cdot f \cdot B \cdot N \cdot S \]
                 </div>
-                <p><i>Opomba iz prakse: Pri običajnih transformatorjih je razmerje izgub pogosto blizu 3. Ta transformator je zasnovan z močnejšim poudarkom na manj izgub v bakru.</i></p>
+                <p>Ko pokrajšamo enake faktorje ($4,44, N, S$), dobimo:</p>
+                <div class="formula-box">
+                    \[ f' \cdot B' = f \cdot B \quad \Rightarrow \quad \frac{B'}{B} = \frac{f}{f'} \]
+                </div>
+                <p>Pri zvišanju frekvence napajalne napetosti se torej gostota magnetnega pretoka v jedru zmanjša. Tako kot pri relaciji za inducirano napetost, tudi pri izgubah delimo novi in stari izraz:</p>
+                <div class="formula-box">
+                    \[ \frac{P_{Fe}'}{P_{Fe}} = \left(\frac{f'}{f}\right) \cdot \left(\frac{B'}{B}\right)^2 = \left(\frac{f'}{f}\right) \cdot \left(\frac{f}{f'}\right)^2 = \frac{f}{f'} \]
+                </div>
+                <p>Vstavimo vrednosti in določimo nove izgube v železu:</p>
+                <div class="formula-box">
+                    \[ P_{Fe}' = P_{Fe} \cdot \frac{f}{f'} = 300 \cdot \frac{42}{50} = 300 \cdot 0,84 = 252,00 \text{ W} \]
+                </div>
+
+            <!-- Interactive Controls -->
+            <div class="interactive-container">
+                <div class="controls-panel">
+                    <h3>Vpliv frekvence na izgube železa</h3>
+                    <label for="slider-f-3">Frekvenca \(f'\) [Hz]: <span id="val-f-3">50</span></label>
+                    <input type="range" id="slider-f-3" min="10" max="400" step="5" value="50" oninput="updateTask3()">
+
+                    <div class="result-box">
+                        <p>Nove izgube v železu \(P_{Fe}'\): <strong><span id="res-pfe-3">252</span> W</strong></p>
+                    </div>
+                </div>
             </div>
 
-            <div class="solution-step">
-                <h4>b) Vpliv povečane frekvence in U/f regulacija</h4>
-                <p>Zanima nas, kaj se zgodi, če napravo (ki je zasnovana za 42 Hz) priklopimo na sodobnejše 50 Hz omrežje, pri <strong>isti</strong> nazivni napetosti \(U_1\). Ker se napetost ni spremenila, lahko sklepamo, da bo transformator še vedno poganjal isti efektivni bremenski tok \(I_n\). <strong>Zato izgube v bakru ostanejo nespremenjene!</strong></p>
-                <div class="formula-box">
-                    \[ P'_{Cu} = P_{Cun} = 423.50 \text{ W} \]
-                </div>
 
 
-                <p>Odvisnost izgub v železu od magnetne gostote (B) in frekvence (f) lahko zapišemo z enačbo: \( P_{Fe} \propto f \cdot B^2 \). Enačbo za dve različni stanji lahko zapišemo v obliki razmerja:</p>
-                <div class="formula-box">
-                    \[ \frac{P'_{Fe}}{P_{Fe}} = \left(\frac{f'}{f}\right) \cdot \left( \frac{B'}{B} \right)^2 \]
-                </div>
-                <p>Iz Faradayovega zakona za izmenično polje (\(U = 4.44 \cdot f \cdot N \cdot B \cdot S\)) lahko izrazimo magnetno gostoto:</p>
-                <div class="formula-box">
-                    \[ B = \frac{U}{4.44 \cdot f \cdot N \cdot S} \quad \text{in} \quad B' = \frac{U'}{4.44 \cdot f' \cdot N \cdot S} \]
-                </div>
-                <p>Ker se napetost ne spremeni (\(U' = U\)), velja:</p>
-                <div class="formula-box">
-                    \[ \frac{B'}{B} = \frac{\frac{U}{4.44 \cdot f' \cdot N \cdot S}}{\frac{U}{4.44 \cdot f \cdot N \cdot S}} = \frac{f}{f'} \]
-                </div>
-                <p>Vstavimo to razmerje nazaj v enačbo za izgube v železu in pokrajšamo:</p>
-                <div class="formula-box">
-                    \[ \frac{P'_{Fe}}{P_{Fe}} = \left(\frac{f'}{f}\right) \cdot \left( \frac{f}{f'} \right)^2 = \left(\frac{f'}{f}\right) \cdot \frac{f^2}{f'^2} = \frac{f}{f'} \]
-                </div>
-                <p>Zato so nove izgube v železu enake:</p>
-                <div class="formula-box">
-                    \[ P'_{Fe} = P_{Fe} \cdot \frac{f}{f'} = 300 \cdot \frac{42}{50} = 300 \cdot 0.84 = \underline{\underline{252 \text{ W}}} \]
-                </div>
+                <p>Ker se obratovalna <strong>napetost ni spremenila</strong> ($U_1' = U_{1n}$), so primarni in sekundarni nazivni tokovi (pri enaki navidezni moči) nespremenjeni. S tem ostanejo izgube v bakru popolnoma enake prvotnim ($P_{Cu}' = P_{Cun} = 423,50 \text{ W}$).</p>
 
-                <p>Sedaj lahko izračunamo novo razmerje izgub v teh spremenjenih razmerah:</p>
+                <p>Končno razmerje izgub pri spremenjenem frekvenčnem stanju je:</p>
                 <div class="formula-box">
-                    \[ \frac{P'_{Cu}}{P'_{Fe}} = \frac{423.50}{252} = \underline{\underline{1.68}} \]
+                    \[ \frac{P_{Cu}'}{P_{Fe}'} = \frac{423,50}{252} = 1,68 \]
                 </div>
-                <p><strong>Fizikalno ozadje:</strong> Če povečamo frekvenco (in ohranimo napetost), magnetnemu pretoku "ne uspe" več zrasti do tako velike amplitude v vsaki krajši polperiodi. Zato se magnetna gostota (\(B\)) v železu ZMANJŠA. Manjše premetavanje domen (manjši \(B\)) povzroči manj izgub, zato se jedro manj segreva (\(252 \text{ W} < 300 \text{ W}\)). Prav to je ključen razlog, zakaj sodobni letalski ali vesoljski sistemi uporabljajo omrežja s frekvenco 400 Hz! Pri višji frekvenci lahko za enako moč uporabijo bistveno manjša (in lažja!) železna jedra, ne da bi se ta pregrevala. Pravilo o ohranjanju razmerja (\(U/f = \text{konst.}\)) pa uporabljajo napajalni pretvorniki (inverterji) električnih pogonov pri regulaciji vrtilne hitrosti motorjev, da preprečijo nasičenje jedra pri nizkih obratih.</p>
+            </div>
+
+            <div style="text-align: center; margin: 30px 0;">
+                <p style="font-weight: bold;">Dodatek: Specifične izgube pločevine iz kataloga proizvajalca</p>
+                <img src="pdf_images/vaja03_p3_img2.jpeg" alt="Tabela specifičnih izgub pločevine" style="max-width: 100%; height: auto; border: 1px solid #ccc; padding: 10px; border-radius: 5px;">
+                <p style="font-size: 0.9em; color: #666; margin-top: 5px;">Izsek kaže odvisnost izgub $W/\text{kg}$ pri gostotah $1.0\text{ T}$ in $1.5\text{ T}$ ob frekvenci $50\text{ Hz}$.</p>
+            </div>
+
+        </section>
+
+        <section class="task">
+            <h3>Preveri svoje znanje</h3>
+
+            <div style="margin-bottom: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                <p><strong>1. Kviz: Povečanje napetosti in frekvence</strong></p>
+                <p>Izračunajte nove izgube v železu $P_{Fe}'$, če se hkrati povečata tako napetost kot frekvenca. Stare vrednosti so $P_{Fe} = 300 \text{ W}, U_{1} = 2400 \text{ V}, f = 42 \text{ Hz}$. Nove vrednosti naj bodo $U_{1}' = 2880 \text{ V}$ in $f' = 50 \text{ Hz}$. Vnesite nov $P_{Fe}'$ v Wattih.</p>
+
+                <div style="display: flex; gap: 10px; align-items: center; margin-top: 10px;">
+                    <input type="number" id="quiz1-input" step="1" style="padding: 5px; width: 100px;">
+                    <span>W</span>
+                    <button onclick="checkQuiz1()" style="padding: 5px 15px; background: var(--primary-color); color: white; border: none; border-radius: 4px; cursor: pointer;">Preveri</button>
+                </div>
+                <div id="quiz1-feedback" style="margin-top: 10px; font-weight: bold; display: none;"></div>
+                <details style="margin-top: 15px; cursor: pointer;">
+                    <summary>Prikaži namig/rešitev</summary>
+                    <div class="solution-step">
+                        <p>Najprej ugotovimo novo razmerje gostot pretoka: $\frac{B'}{B} = \frac{U_1' \cdot f}{U_1 \cdot f'} = \frac{2880 \cdot 42}{2400 \cdot 50} = \frac{120960}{120000} = 1,008$.</p>
+                        <p>Nato vstavimo v enačbo: $P_{Fe}' = P_{Fe} \cdot \frac{f'}{f} \cdot \left(\frac{B'}{B}\right)^2 = 300 \cdot \frac{50}{42} \cdot (1,008)^2 \approx 362,88 \text{ W}$. Zaradi zaokroževanja bo sprejeta vsaka vrednost med 362 in 364 W.</p>
+                    </div>
+                </details>
+            </div>
+
+            <div style="margin-bottom: 20px; padding: 15px; background-color: #f8f9fa; border-radius: 8px; border-left: 4px solid var(--primary-color);">
+                <p><strong>2. Kviz: Regulacija V/Hz</strong></p>
+                <p>Pri regulaciji hitrosti elektromotorjev s frekvenčnikom želimo doseči, da jedro stroja optimalno deluje (v kolenu magnetilnice). Zakaj mora frekvenčnik pri zniževanju frekvence (npr. z $50 \text{ Hz}$ na $25 \text{ Hz}$) ustrezno znižati tudi napetost na sponkah?</p>
+
+                <div style="display: flex; flex-direction: column; gap: 8px; margin-top: 10px;">
+                    <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                        <input type="radio" name="q2" value="a"> Ker nižja frekvenca pomeni večje izgube v bakru $P_{Cu}$ zaradi skin efekta.
+                    </label>
+                    <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                        <input type="radio" name="q2" value="b"> Ker se po relaciji $B \propto U/f$ pri nižji frekvenci in nespremenjeni napetosti gostota magnetnega pretoka močno poveča. Jedro bi prešlo v nasičenje, tok bi enormno narasel in stroj bi pregorel.
+                    </label>
+                    <label style="cursor: pointer; display: flex; align-items: center; gap: 8px;">
+                        <input type="radio" name="q2" value="c"> Da ohranimo konstantno razmerje izgub $P_{Cu}/P_{Fe} = 1$.
+                    </label>
+                    <button onclick="checkQuiz2()" style="margin-top: 10px; padding: 5px 15px; background: var(--primary-color); color: white; border: none; border-radius: 4px; cursor: pointer; width: fit-content;">Preveri</button>
+                </div>
+                <div id="quiz2-feedback" style="margin-top: 10px; font-weight: bold; display: none;"></div>
             </div>
         </section>
 
-        <!-- Kviz 03 -->
-        <section class="quiz-section">
-            <h3>Kviz 03: Vpliv frekvence na moč in težo</h3>
-            <p>V letalstvu uporabljajo omrežja s frekvenco 400 Hz namesto standardnih 50 Hz. Iz predhodne razlage o vplivu frekvence na magnetno gostoto B in velikost stroja: Kakšen je glavni fizikalno-konstrukcijski vpliv te visoke frekvence na električne stroje, ki omogoča, da so ti stroji idealni za letala?</p>
-            <form id="quiz03-form" style="margin-top: 15px;">
-                <label style="display:block; margin-bottom: 8px;">
-                    <input type="radio" name="q03" value="wrong1"> Večja frekvenca poveča moč motorjev z notranjim izgorevanjem.
-                </label>
-                <label style="display:block; margin-bottom: 8px;">
-                    <input type="radio" name="q03" value="correct"> Višja frekvenca (f) zahteva manjši magnetni pretok (B) za isto napetost (U), zato so lahko železna jedra in s tem celotni stroji drastično manjši in LAŽJI.
-                </label>
-                <label style="display:block; margin-bottom: 8px;">
-                    <input type="radio" name="q03" value="wrong2"> Visoka frekvenca pomeni več izgub, kar zviša zračni pritisk v kabini letala.
-                </label>
-                <button type="button" onclick="checkQuiz03()" style="margin-top: 10px;">Preveri</button>
-            </form>
-            <div id="quiz03-feedback" class="feedback"></div>
-        </section>
+        <div class="interactive-container" style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; align-items: flex-start; margin-top: 30px;">
+            <!-- Transformator z barvnim jedrom (Heatmap) SVG -->
+            <div style="flex: 1; min-width: 300px; text-align: center;">
+                <svg width="300" height="300" viewBox="0 0 300 300">
+                    <defs>
+                        <!-- Toplotni gradienti za prikaz segrevanja jedra -->
+                        <linearGradient id="heat-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" id="grad-start" stop-color="#4CAF50" />
+                            <stop offset="100%" id="grad-end" stop-color="#2E7D32" />
+                        </linearGradient>
+                        <radialGradient id="coil-heat">
+                            <stop offset="70%" stop-color="#FF5722"/>
+                            <stop offset="100%" stop-color="#D84315"/>
+                        </radialGradient>
+                    </defs>
+
+                    <!-- Železno jedro (toplotno obarvano) -->
+                    <path d="M 50 50 L 250 50 L 250 250 L 50 250 Z M 100 100 L 200 100 L 200 200 L 100 200 Z" fill="url(#heat-grad)" stroke="#333" stroke-width="2" fill-rule="evenodd" id="core-svg"/>
+
+                    <!-- Pretok B (puščice krožijo) -->
+                    <path d="M 75 75 L 225 75 L 225 225 L 75 225 Z" fill="none" stroke="rgba(255,255,255,0.7)" stroke-width="3" stroke-dasharray="8,8" />
+
+                    <!-- Tuljava primar (fiksna barva bakra/toplote) -->
+                    <path d="M 30 110 Q 10 120 30 130 T 30 150 T 30 170 T 30 190" fill="none" stroke="url(#coil-heat)" stroke-width="6"/>
+                    <text x="5" y="155" fill="#D84315" font-weight="bold">U'</text>
+
+                    <!-- Legenda toplote jedra -->
+                    <rect x="50" y="270" width="200" height="10" fill="none" stroke="#ccc"/>
+                    <rect x="50" y="270" width="200" height="10" fill="url(#heat-legend)"/>
+                    <defs>
+                        <linearGradient id="heat-legend" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#4CAF50" /> <!-- Cool -->
+                            <stop offset="50%" stop-color="#FFC107" /> <!-- Warn -->
+                            <stop offset="100%" stop-color="#F44336" /> <!-- Hot -->
+                        </linearGradient>
+                    </defs>
+                    <text x="50" y="295" font-size="10">Hladno (Malo izgub)</text>
+                    <text x="250" y="295" font-size="10" text-anchor="end">Vroče (Veliko izgub)</text>
+                </svg>
+                <p style="font-size: 0.9em; color: #666;">Toplotna simulacija izgub v železu ($P_{Fe}$)</p>
+            </div>
+
+            <!-- Kontrole -->
+            <div class="interactive-controls" style="flex: 1; min-width: 300px; padding: 20px; background: #fff; border-radius: 8px; box-shadow: 0 2px 5px rgba(0,0,0,0.1);">
+                <p style="font-size: 0.9em; color: #555; margin-bottom:15px;">Spreminjajte parametre napajanja, da opazujete spremembo izgub v železnem jedru. Izhodiščne izgube $P_{Fe} = 300 \text{ W}$ pri $U_1 = 2400 \text{ V}$ in $f = 42 \text{ Hz}$.</p>
+
+                <div class="control-group">
+                    <label for="u-slider">Napetost napajanja $U'$ (V): <span id="u-val">2400</span></label>
+                    <input type="range" id="u-slider" min="1000" max="4000" value="2400" step="100">
+                </div>
+                <div class="control-group">
+                    <label for="f-slider">Frekvenca napajanja $f'$ (Hz): <span id="f-val">42</span></label>
+                    <input type="range" id="f-slider" min="20" max="100" value="42" step="2">
+                </div>
+
+                <div class="interactive-results" style="margin-top: 20px; background: #f0f4f8; padding: 15px; border-radius: 5px;">
+                    <p><strong>Trenutni rezultati:</strong></p>
+                    <p>Relativni magnetni pretok $B'/B = $ <span id="res-b-ratio" style="font-weight:bold; color:var(--primary-color)">1.00</span></p>
+                    <hr style="margin: 10px 0; border: 0; border-top: 1px solid #ccc;">
+                    <p>Izgube v železu $P_{Fe}' = $ <span id="res-pfe" style="font-weight:bold; color:var(--primary-color)">300.0</span> W</p>
+                    <p id="saturation-warning" style="color: red; font-size: 0.85em; display: none; margin-top: 10px; font-weight: bold;">
+                        ⚠ OPOZORILO: Zaradi visoke napetosti oz. nizke frekvence je jedro prešlo v globoko nasičenje! To povzroča enormne izgube in pregrevanje!
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <script>
+            // Začetni podatki
+            const P_Fe_n = 300; // W pri U=2400, f=42
+            const U_n = 2400; // V
+            const f_n = 42; // Hz
+
+            const uSlider = document.getElementById('u-slider');
+            const fSlider = document.getElementById('f-slider');
+
+            const uVal = document.getElementById('u-val');
+            const fVal = document.getElementById('f-val');
+
+            const resBRatio = document.getElementById('res-b-ratio');
+            const resPfe = document.getElementById('res-pfe');
+            const warnSat = document.getElementById('saturation-warning');
+
+            const gradStart = document.getElementById('grad-start');
+            const gradEnd = document.getElementById('grad-end');
+
+            // Barvna lestvica: od zelene (hladno) do rdeče (vroče)
+            function getHeatColor(ratio) {
+                // clamp ratio med 0 in 1
+                ratio = Math.max(0, Math.min(1, ratio));
+                // Red, Green, Blue
+                // Zelena: rgb(76, 175, 80) -> #4CAF50
+                // Rdeča: rgb(244, 67, 54) -> #F44336
+                const r = Math.round(76 + (244 - 76) * ratio);
+                const g = Math.round(175 + (67 - 175) * ratio);
+                const b = Math.round(80 + (54 - 80) * ratio);
+                return `rgb(${r}, ${g}, ${b})`;
+            }
+            function getHeatColorDark(ratio) {
+                ratio = Math.max(0, Math.min(1, ratio));
+                const r = Math.round(46 + (183 - 46) * ratio);
+                const g = Math.round(125 + (28 - 125) * ratio);
+                const b = Math.round(50 + (28 - 50) * ratio);
+                return `rgb(${r}, ${g}, ${b})`;
+            }
+
+            function update() {
+                const U_new = parseFloat(uSlider.value);
+                const f_new = parseFloat(fSlider.value);
+
+                uVal.innerText = U_new;
+                fVal.innerText = f_new;
+
+                // Razmerje pretoka B'/B
+                // Ker je E ~ U = 4.44 * f * B * S * N  => B ~ U/f
+                // B'/B = (U_new / f_new) / (U_n / f_n)
+                const B_ratio = (U_new / f_new) / (U_n / f_n);
+                resBRatio.innerText = B_ratio.toFixed(2);
+
+                // Izgube v železu P_Fe'
+                // P_Fe' = P_Fe_n * (f_new / f_n) * (B_ratio)^2
+                const P_Fe_new = P_Fe_n * (f_new / f_n) * Math.pow(B_ratio, 2);
+                resPfe.innerText = P_Fe_new.toFixed(1);
+
+                // Nasičenje in pregrevanje
+                if (B_ratio > 1.3 || P_Fe_new > 800) {
+                    warnSat.style.display = 'block';
+                    resPfe.style.color = "red";
+                } else {
+                    warnSat.style.display = 'none';
+                    resPfe.style.color = "var(--primary-color)";
+                }
+
+                // Posodobi barvo SVG jedra
+                // Mapiraj P_Fe_new iz razpona [100, 900] v razpon [0, 1]
+                const heatRatio = (P_Fe_new - 100) / 800;
+                gradStart.setAttribute("stop-color", getHeatColor(heatRatio));
+                gradEnd.setAttribute("stop-color", getHeatColorDark(heatRatio));
+            }
+
+            uSlider.addEventListener('input', update);
+            fSlider.addEventListener('input', update);
+
+            update();
+
+            // Quiz functions
+            function checkQuiz1() {
+                const input = document.getElementById('quiz1-input').value;
+                const feedback = document.getElementById('quiz1-feedback');
+                const parsed = parseFloat(input);
+
+                if (isNaN(parsed)) {
+                    feedback.innerText = "Prosim vnesi številko.";
+                    feedback.style.color = "red";
+                } else if (parsed >= 362 && parsed <= 364) {
+                    feedback.innerText = "Pravilno! Nove izgube znašajo približno 363 W.";
+                    feedback.style.color = "green";
+                } else {
+                    feedback.innerText = "Napačno. Preveri svojo enačbo (uporabi f'/f * (B'/B)^2).";
+                    feedback.style.color = "red";
+                }
+                feedback.style.display = "block";
+            }
+
+            function checkQuiz2() {
+                const selected = document.querySelector('input[name="q2"]:checked');
+                const feedback = document.getElementById('quiz2-feedback');
+
+                if (!selected) {
+                    feedback.innerText = "Prosim izberi enega izmed odgovorov.";
+                    feedback.style.color = "red";
+                } else if (selected.value === 'b') {
+                    feedback.innerText = "Pravilno! Regulacija B ≈ U/f je temelj frekvenčnih pretvornikov (npr. pri asinhronskih in sinhronskih motorjih). Vzdrževanje konstantnega magnetnega pretoka ohranja stroj pred nasičenjem in pregrevanjem.";
+                    feedback.style.color = "green";
+                } else {
+                    feedback.innerText = "Napačno. Premisli, kaj se zgodi z enačbo B ≈ U/f, če se imenovalec manjša.";
+                    feedback.style.color = "red";
+                }
+                feedback.style.display = "block";
+            }
+        </script>
 
     </main>
-
-    <footer>
-        <p>Ustvarjeno za učenje in utrjevanje znanja.</p>
-    </footer>
-
-    <script>
-        function checkQuiz03() {
-            let radios = document.getElementsByName('q03');
-            let selectedValue = null;
-            for (let i = 0; i < radios.length; i++) {
-                if (radios[i].checked) {
-                    selectedValue = radios[i].value;
-                    break;
-                }
-            }
-
-            let fb = document.getElementById('quiz03-feedback');
-            if (!selectedValue) {
-                fb.className = "feedback error";
-                fb.innerText = "Prosim izberi enega izmed odgovorov.";
-                return;
-            }
-
-            if (selectedValue === "correct") {
-                fb.className = "feedback success";
-                fb.innerText = "Odlično, točno tako! Teža je v letalstvu in vesoljski tehniki največji sovražnik. S 400 Hz omrežjem prihranijo ogromno mase na transformatorjih in generatorjih.";
-            } else {
-                fb.className = "feedback error";
-                fb.innerText = "Napačno. Premisli, kaj je najbolj pomembno pri načrtovanju sistemov za letalo (namig: masa) in kako to korelira s prejšnjo razlago jedra.";
-            }
-        }
-    </script>
 </body>
 </html>

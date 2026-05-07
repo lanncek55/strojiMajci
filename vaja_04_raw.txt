@@ -1,0 +1,543 @@
+--- PAGE 1 ---
+1
+
+Električni stroji
+Avditorne vaje | VAJA 4
+
+Enofazni transformator s podatki Sn = 50 kVA; U1n = 2400 V; U2n = 400 V; fn = 50 Hz ima sledeče
+upornosti: R1 = 0,72 Ω; R2 = 0,07 Ω; Xσ1 = 0,92 Ω; Xσ2 = 0,009 Ω; X0 = 4,5 kΩ; R0 = 34 kΩ.
+a)  Narišite nadomestno shemo transformatorja glede na primarno stran in izračunajte reducirane vrednosti
+sekundarnih parametrov.
+b) Izračunajte tok kratkega stika in kratkostično napetost, če sta sekundarni sponki vezani kratko.
+c) Izračunajte delovno in jalovo komponento toka prostega teka.
+
+Rešitev
+R1 in R2
+… ohmski upornosti primarnega in sekundarnega navitja.
+Xσ1 in Xσ2  … induktivni upornosti (stresani reaktanci) primarnega in sekundarnega navitja.
+R0
+
+… v nadomestnem vezju ponazarja izgube v železu PFe.
+X0
+
+… v nadomestnem vezju ponazarja glavni magnetni pretok Φ.
+
+a) Redukcijski faktorji (Opomba: več v učbeniku D. Miljavec, Električni stroji):
+
+2
+2
+4,44
+E
+f
+N
+=
+⋅
+⋅
+⋅Φ   razmere v sekundarni tuljavi gledano iz sekundarne tuljave z N2 ovoji
+2
+1
+4,44
+E
+f
+N
+′
+′
+=
+⋅
+⋅
+⋅Φ
+razmere v sekundarni tuljavi gledano iz primarne tuljave z N1 ovoji
+
+Ob zanemaritvi stresanega magnetnega polja (kvalitetna feromagnetna pločevina, delovna točka v
+nenasičenem področju pod kolenom magnetilne karakteristike) je glavni magnetni pretok enak Φ' = Φ:
+
+2
+1
+2
+2
+4,44
+4,44
+E
+f
+N
+E
+f
+N
+′
+⋅
+⋅
+⋅Φ
+′
+=
+
+⋅
+⋅
+⋅Φ
+1
+2
+2
+2
+=
+N
+E
+E N   napetosti se reducirajo v razmerju števila ovojev
+Pri redukciji tokovnih razmer je potrebno ohraniti enakost magnetnih vzbujanj (ampernih ovojev):
+
+2
+1
+2
+2
+I
+N
+I
+N
+′
+′
+⋅
+=
+⋅
+
+⋅
+2
+2
+2
+1
+=
+N
+I
+I
+N
+
+tokovi se reducirajo v obratnem razmerju števila ovojev
+Kontrola enakosti moči in s tem ohranitev enakih fizikalnih razmer:
+
+1
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+1
+N
+N
+S
+E
+I
+E
+I
+E
+I
+S
+N
+N
+′
+′
+′
+=
+⋅
+=
+⋅
+⋅
+⋅
+=
+⋅
+=
+
+Iz enakosti celotne moči sledi tudi enakost posameznih komponent moči:
+
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+2
+1
+N
+I
+R
+I
+R
+I
+R
+N
+
+
+
+
+′
+′
+′
+′
+⋅
+=
+⋅
+=
+⋅
+⋅
+
+⋅
+
+
+
+
+
+
+
+
+
+
+′
+⋅
+
+
+
+
+⋯⋯
+2
+1
+2
+2
+2
+2
+1
+σ2
+σ2
+2
+=
+=
+N
+R
+R
+N
+N
+X
+X
+N
+
+
+1
+1
+2
+2
+6
+U
+N
+p
+U
+N
+=
+=
+=
+
+
+2
+2
+2
+2
+6
+0,07
+6
+0,009
+2,52 Ω
+0,32 Ω
+R
+Xσ
+′ =
+⋅
+=
+′ =
+⋅
+=
+
+upornosti se reducirajo s kvadratom
+razmerja števila ovojev
+
+--- PAGE 2 ---
+2
+
+Nadomestna shema transformatorja ima obliko četveropola, ki ga sestavljajo ohmske in induktivne
+upornosti. Da lahko transformator ponazorimo s takšnim električnim vezjem, moramo točke z različnimi
+potenciali (združitev primarne in sekundarne inducirane napetosti napetosti E1 ≠ E2) z redukcijo navidezno
+izenačiti na isti potencial E1 = E2'.
+Vsak transformator s poljubnim razmerjem števila ovojev lahko nadomestimo s transformatorjem, ki ima
+enako število ovojev na primarni in sekundarni strani, le da imajo vse sekundarne veličine nove,
+preračunane, imenujemo jih reducirane vrednosti (simboli veličin označeni s “črtico”). Povsem
+enakovredno bi lahko tudi primarne veličine reducirali na sekundarno stran in bi ohranile sekundarne
+veličine originalne vrednosti - odvisno od konkretnega primera, kaj nam ustreza pri izračunu.
+
+Nadomestna shema transformatorja v obliki četveropola
+
+b) V kratkem stiku lahko prečno vejo nadomestne sheme, ki predstavlja magnetenje železnega jedra,
+zanemarimo, ker preko nje teče bistveno manjši tok kot po kratkostični povezavi sekundarnih sponk.
+0
+0
+1
+2
+1
+2
+in
+,
+,
+,
+R
+X
+R R
+X
+X
+σ
+σ
+′
+′
+≫
+
+
+Poenostavljena nadomestna shema transformatorja v primeru kratkega stika
+
+(
+)
+(
+)
+1
+2
+1
+2
+ˆ
+j
+k
+Z
+R
+R
+X
+X
+σ
+σ
+′
+′
+=
++
++ ⋅
++
+  … kratkostična impedanca transformatorja
+(
+)
+(
+)
+2
+2
+2
+2
+1
+2
+1
+2
+ˆ
+3,24
+1,24
+3,47
+k
+Z
+R
+R
+X
+X
+σ
+σ
+′
+′
+=
++
++
++
+=
++
+=
+Ω
+1
+2400
+3,47
+n
+k
+k
+U
+I
+Z
+=
+=
+= 692 A  kratkostični tok
+Za primerjavo vrednost Ik primerjajmo s tokom nazivno obremenjenega transformatorja In:
+3
+1
+50 10
+20,83 A
+2400
+n
+n
+n
+S
+I
+U
+⋅
+=
+=
+=
+
+692
+33,2
+20,83
+k
+k
+n
+n
+I
+I
+I
+I =
+=
+
+≫
+
+Ker so sekundarne sponke vezane kratko, kratkostični tok omejuje le zelo nizka kratkostična impedanca
+transformatorja. Pri nazivni napajalni napetosti je vrednost kratkostičnega toka veliko previsoka, zato je
+potrebno transformator ščititi proti kratkemu stiku, da ne utrpi termičnih in mehanskih poškodb.
+
+--- PAGE 3 ---
+3
+
+Ob preizkusu kratkega stika je potrebno transformator napajati z zelo znižano napetostjo, da je tok
+omejen na dopustno vrednost, običajno se privzame kar nazivno vrednost toka. Iz tega izhaja tudi
+definicija kratkostične napetosti:
+Kratkostična napetost Uk je tista pritisnjena napetost, ki pri kratko sklenjenih sekundarnih sponkah
+po navitju transformatorja požene nazivni tok In, ki povzroča nazivne izgube PCun in s tem normalno
+segrevanje navitja.
+20,83 3,47
+72,28 V
+k
+n
+k
+U
+I
+Z
+=
+⋅
+=
+⋅
+=
+
+Uk je odvisna od kratkostične impedance Zk, ta pa je za konkretni transformator definirana z njegovo
+konstrukcijo in kvaliteto uporabljenih materialov, zato je kratkostična napetost eden od osnovnih
+podatkov vsakega transformatorja. Pogosto jo poda že proizvajalec transformatorja in sicer relativno
+izraženo v razmerju glede na nazivno napetost:
+
+1
+72,28
+%
+100 %
+100 %
+2400
+k
+k
+n
+U
+u
+U
+=
+⋅
+=
+⋅
+= 3%
+Za večino izvedb standardnih transformatorjev so vrednosti
+2
+7 %
+ku ≈
+÷
+.
+
+c) V prostem teku so sekundarne sponke proste, breme ni priključeno, bremenski tok ne teče in nadomestna
+shema se poenostavi le v prečno vejo.
+
+Poenostavljena nadomestna shema transformatorja v primeru prostega teka
+
+1
+0
+3
+0
+2400
+34 10
+n
+d
+U
+I
+R
+=
+=
+=
+⋅
+0,071 A
+… delovna komponenta toka prostega teka (krije izgube v železu)
+1
+3
+0
+2400
+4,5 10
+n
+U
+I
+X
+=
+=
+=
+⋅
+µ
+0,533 A
+ … magnetilna komponenta toka prostega teka (magneti železno jedro)
+2
+2
+0
+0
+0,538 A
+d
+I
+I
+Iµ
+=
++
+=
+
+
+… v toku prostega teka prevladuje magnetilna komponenta
+Tok prostega teka znaša le nekaj % nazivnega toka, zato ga pri poenostavljenih izračunih obremenilnih
+stanj transformatorja lahko zanemarimo.
+0
+0
+0,538
+2,58 %
+20,83
+n
+n
+I
+I
+I
+I =
+=
+
+≪
+
+
+
+
+
+
+kazalčni diagram transformatorja
+v prostem teku
+cosφ0 ≈ 0
+φ0 ≈ π/2

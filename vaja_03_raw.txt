@@ -205,8 +205,6 @@ k
 Opomba: pri zmogljivejših materialih se v zadnjem obdobju podajajo kh, kv in kFe merjene pri B = 1,5 T, kar je
 treba ustrezno upoštevati v uporabljeni enačbi!
 
-[IMAGE EXTRACTED: pdf_images/vaja_03_page1_img0.png]
-[IMAGE EXTRACTED: pdf_images/vaja_03_page1_img1.png]
 --- PAGE 2 ---
 2
 
@@ -397,14 +395,3 @@ in sinhronskih motorjev.
 
 Dodatek: Izsek iz kataloga proizvajalca feromagnetne pločevine - primer podanih specifičnih izgub
 izmerjenih pri 1,5 T in 1,0 T.
-
-
-
-
-
-
-[IMAGE EXTRACTED: pdf_images/vaja_03_page3_img0.jpeg]
-[IMAGE EXTRACTED: pdf_images/vaja_03_page3_img1.jpeg]
-[IMAGE EXTRACTED: pdf_images/vaja_03_page3_img2.jpeg]
-[IMAGE EXTRACTED: pdf_images/vaja_03_page3_img3.jpeg]
-[IMAGE EXTRACTED: pdf_images/vaja_03_page3_img4.jpeg]

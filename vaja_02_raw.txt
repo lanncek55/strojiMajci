@@ -48,8 +48,6 @@ sestavimo v transformatorsko jedro nameščene tesno skupaj, je upornost v preč
 vrtinčnih tokov) zelo povečana. Lamele (feromagnetni material) imajo zaradi visoke relativne
 S
 
-[IMAGE EXTRACTED: pdf_images/vaja_02_page1_img0.jpeg]
-[IMAGE EXTRACTED: pdf_images/vaja_02_page1_img1.png]
 --- PAGE 2 ---
 2
 
@@ -114,11 +112,6 @@ H
 µ
 µ
 
-[IMAGE EXTRACTED: pdf_images/vaja_02_page2_img0.jpeg]
-[IMAGE EXTRACTED: pdf_images/vaja_02_page2_img1.jpeg]
-[IMAGE EXTRACTED: pdf_images/vaja_02_page2_img2.jpeg]
-[IMAGE EXTRACTED: pdf_images/vaja_02_page2_img3.jpeg]
-[IMAGE EXTRACTED: pdf_images/vaja_02_page2_img4.jpeg]
 --- PAGE 3 ---
 3
 
@@ -256,8 +249,6 @@ Prečni presek jedra S, ki vodi magnetni pretok Φ, se efektivno zmanjša na SFe
 upoštevanjem faktorja polnjenja železnega jedra fFe, ker v izolaciji med lamelami
 praktično ni magnetnega polja.
 
-[IMAGE EXTRACTED: pdf_images/vaja_02_page3_img0.jpeg]
-[IMAGE EXTRACTED: pdf_images/vaja_02_page3_img1.png]
 --- PAGE 4 ---
 4
 
@@ -394,10 +385,6 @@ S
 izračunana nazivna moč transformatorja
 
 
-[IMAGE EXTRACTED: pdf_images/vaja_02_page4_img0.jpeg]
-[IMAGE EXTRACTED: pdf_images/vaja_02_page4_img1.jpeg]
-[IMAGE EXTRACTED: pdf_images/vaja_02_page4_img2.png]
-[IMAGE EXTRACTED: pdf_images/vaja_02_page4_img3.png]
 --- PAGE 5 ---
 5
 
@@ -609,5 +596,3 @@ debeline δ = 0,5 mm
 Površina zračne reže se glede na
 površino feromagnetnih lamel jedra
 poveča za faktor polnjenja fFe.
-
-[IMAGE EXTRACTED: pdf_images/vaja_02_page5_img0.jpeg]

@@ -1,5 +1,3 @@
-"OBVEZNO: Pri vseh vajah in nalogah morajo biti izpisane VSE matematične in fizikalne formule. Vsi postopki in izpeljave morajo biti izpisani KORAK ZA KORAKOM, brez preskakovanja. Vsaka formula mora imeti besedilno obrazložitev vseh spremenljivk. Krajšanje postopkov je STROGO PREPOVEDANO."
-
 
 ## Pravila za pisanje vsebine in za razvijalce (Slog za začetnike)
 Da bo učbenik maksimalno razumljiv, se je pri vsaki nalogi potrebno držati naslednjih pravil:

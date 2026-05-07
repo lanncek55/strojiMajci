@@ -1,0 +1,127 @@
+1
+
+Električni stroji
+Uvodne informacije o tematiki in področju električnih strojev
+
+Tematika električnih strojev je ena izmed temeljnih na področju Močnostne elektrotehnike. Električni stroji
+so osnovni gradniki in izvršni členi v mehatronskih sistemih, elektromotorskih pogonih, avtomatiziranih
+proizvodnih linijah, transportnih napravah, obdelovalnih strojih, ... Z njimi izvajamo pretvorbo električne
+energije v mehansko in obratno, zato je za električne stroje uveljavljen tudi izraz elektromehanski
+pretvorniki. Glede na vrsto in smer pretvorbe energije jih delimo na:
+TRANSFORMATORJI
+
+
+Wel   → Wel (drugačnih parametrov) statične naprave
+ELEKTRIČNI MOTORJI
+
+
+Wel   → Wmeh
+  
+
+
+
+
+rotacijski
+ELEKTRIČNI GENERATORJI
+Wmeh → Wel
+  
+
+
+
+
+stroji
+
+Razpon moči in posledično velikost električnih strojev je izredno velik – od nekaj mW do več 100 MW,
+največji sinhronski generatorji presegajo tudi GW območje moči. Nekaj tipičnih električnih strojev v
+vsakdanji praksi prikazujejo naslednje slike:
+
+
+       Trifazni distribucijski transformator velike moči                               Enofazni transformator majhne moči
+
+
+
+     Električni motor velike moči za pogon lokomotive             Električni motor majhne moči v izdelkih široke potrošnje
+
+2
+
+
+
+                                Turbogenerator velike moči                                                  Mali avtomobilski alternator
+
+Pretvorba energije poteka reverzibilno (v obe smeri): Wel  Wmeh, kar pomeni, da isti rotacijski stroj lahko
+obratuje kot motor ali kot generator, odvisno od trenutnih razmer pretoka električne in mehanske energije.
+To je pomembna prednost električnih motorjev npr. pri pogonu električnih vozil, saj med zaviranjem motor
+preide v generatorski režim obratovanja in se iz presežne Wmeh pretvorjena Wel shranjuje v baterijskem
+sistemu. To znatno podaljša doseg vožnje električnega vozila z enim polnjenjem akumulatorskih baterij in
+istočasno poveča izkoristek pretvorbe energije. Pri motorjih z notranjim zgorevanjem zaviranje poteka zgolj
+preko mehanskih izgub trenja, segrevanja zavor in obrabe materiala.
+Druga pomembna prednost električnih motorjev pred motorji z notranjim zgorevanjem je bistveno višji
+izkoristek, ki pri električnih motorjih znaša od (80 ÷ 95) %, motorji z notranjim zgorevanjem pa pretvarjajo
+energijo s približno 35 % izkoristkom. Pri pretvorbi energije v električnih strojih vedno prihaja do izgub
+(PCu, PFe, Pmeh), zato je izkoristek vedno < 1, lahko pa je zelo blizu (npr. ηtrafo ≈ 0,995). Izgube med
+obratovanjem povzročajo segrevanje, ki ga moramo nadzorovati in omejevati na dopustno vrednost, da ne
+poškodujemo temperaturno občutljivih delov strojev (izolacija, trajni magneti)
+
+Električne stroje glede na princip delovanja, vrsto napajanja in izvedbo magnetnega vzbujanja delimo na:
+TRANSFORMATORJE
+(TR) 
+SINHRONSKE STROJE
+(SS)   izmenični stroji
+ASINHRONSKE STROJE (AS) 
+ENOSMERNE STROJE
+(ES)
+enosmerni stroji
+
+Pri delovanju električnih strojev ima pri pretvorbi energije ključno vlogo elektromagnetno polje in dva
+temeljna pojava:
+• Inducirana napetost: v spremenljivem magnetnem polju se v zaključenih zankah (ovojih, tuljavah,
+navitjih) inducira napetost, ki požene električni tok. Spremembo magnetnega polja lahko dosežemo
+z časovno spremenljivim (izmeničnim) vzbujanjem (transformatorska inducirana napetost),
+krajevnim premikom časovno nespremenljivega (enosmernega) magnetnega polja (rezalna
+inducirana napetost) ali s kombinacijo obeh načinov. Naraščajoči magnetni pretok inducira v ovojih,
+ki ga obdajajo, naraščanju magnetnega pretoka nasprotujočo, negativno napetost in obratno.
+• Sila na vodnik: v magnetnem polju na vodnike, po katerih teče tok, feromagnetne materiale in trajne
+magnete deluje sila, ki jih skuša premakniti v skladu z naravno zakonitostjo težnje po ohranitvi
+energijskega ravnotežja (Lenzovo pravilo). Rotor rotacijskega stroja je izveden (uležajen) tako, da
+se pod vplivom elektromagnetne sile premika.
+
+
+
+
+3
+
+Štiri osnovne skupine električnih strojev bomo obravnavali v naslednjem vrstnem redu, znotraj osnovne
+delitve pa ima vsak tip električnega stroja še vrsto izvedenk in specifičnih področij uporabe, ki narekujejo
+tudi njegovo konstrukcijsko zasnovo in uporabljene materiale. Predvsem pa na razlike med njimi vpliva
+območje moči, za katerega so dimenzionirani.
+
+Tranformatorji
+enofazni
+male moči; velike serije; v sklopu napajalnikov elektronskih vezij, …..
+trifazni
+velike moči, distribucija električne energije
+Sinhronski stroji
+generator
+veliki stroji v hidro in termoelektrarnah, proizvodnja električne energije
+motor
+sodobni servomotorji z visokim izkoristkom in gostoto moči (W/kg)
+Asinhronski stroji
+motor
+male in srednje moči, najštevilčnejši električni motor v industrijskem okolju
+generator
+v sklopu alternativnih virov (vetrne, črpalne, male HE, ….)
+Enosmerni stroji
+motor
+enakovredno zastopan način delovanja, v zadnjem obdobju izgubljajo primat
+z izmeničnimi stroji zaradi drsnega mehanskega kontakta (ščetke/komutator)
+generator
+
+
+Električni stroji so prisotni že vse od začetka izkoriščanja pojava elektromagnetne indukcije, ki ga je 1831
+opisal angleški fizik in kemik Michael Faraday. Kljub že skoraj dvema stoletjema pa je razvoj na področju
+električnih strojev še vedno zelo dinamičen in intenziven. K temu prispevajo predvsem:
+• novi, zmogljivejši magnetni in izolacijski materiali,
+• računalniško podprto načrtovanje električnih strojev in simulacije njihovih obratovalnih stanj, ki
+zagotavlja cenejši in krajši razvojni cikel novega izdelka,
+• nova, še širša področja uporabe električnih strojev (nadomeščanje pnevmatskih in hidravličnih
+aktuatorjev, transportne naprave, …).

@@ -1,0 +1,552 @@
+--- PAGE 1 ---
+1
+
+Električni stroji
+Avditorne vaje | VAJA 5
+
+Razvoj kazalčnega diagrama transformatorja:
+Ko želimo časovno spremenljive harmonične veličine (sinusni in kosinusni poteki) grafično predstaviti, se
+pogosto poslužimo t.i. kazalcev in njihovih medsebojnih odvisnosti v kazalčnem diagramu. Pogosto jih
+imenujemo tudi fazorji in analiziramo njihov položaj v faznem prostoru.
+
+( )
+(
+)
+ˆ cos
+u t
+U
+t
+=
+ω + ϕ
+
+
+Signal lahko predstavimo tudi kot vrteči kazalec (fazor) ( )
+(
+)
+ˆ
+j
+t
+u t
+U e
+ω +ϕ
+=
+⋅
+, pri čemer velja med kosinusno
+funkcijo in vrtečim fazorjem zveza
+( )
+( )
+Re
+u t
+u t
+
+
+=
+
+. V analizi najpogosteje uporabimo stacionarne
+fazorje, ki so slike vrtečih fazorjev zamrznjenih v trenutku t = 0.
+( )
+(
+)
+( )
+ˆ
+ˆ
+ˆ
+0
+j
+t
+j t
+j
+j
+u t
+U e
+U e
+e
+U
+u
+U e
+ω +ϕ
+ω
+ϕ
+ϕ
+=
+⋅
+=
+⋅
+⋅
+
+=
+=
+⋅
+
+Kazalec U vsebuje informacijo o dolžini ˆU in faznem kotu φ, ki ga določa položaj kazalca glede na
+definiran fazni prostor, časovno spreminjanje s krožno frekvenco ω pa je abstrahirano. To nam omogoča
+kreiranje preglednih kazalčnih diagramov pri vseh izmeničnih električnih strojih.
+Kazalčni diagram idealnega transformatorja:
+Kot izhodišče razvoja kazalčnega diagrama (KD) za lažje razumevanje ponovno predpostavimo razmere,
+ki veljajo za idealni transformator (TR):
+•
+zanemarimo izgube v železu
+→  R0  ∞; I0d = 0
+•
+zanemarimo izgube v bakru
+
+→  R1, R2 = 0
+•
+idealen magnetni sklep, ni stresanega magnetnega polja →  µ∞; Xσ1, Xσ2 = 0
+V tem primeru se nadomestna shema TR poenostavi v obliko:
+
+(a) Prosti tek idealnega TR: v prostem teku so sekundarne sponke odprte, na njih ni priključena
+bremenska impedanca in sekundarni tok I2 = 0. Edini tok, ki teče iz napajalnega vira v primarju
+TR, je magnetilni tok Iµ.
+Nadomestna shema idealnega TR v (a) prostem teku
+in (b) pri obremenitvi na sekundarnih sponkah z Zb.
+Kosinusni signal je določen s svojo amplitudno vrednostjo ˆU , krožno frekvenco ω
+in faznim kotom φ.
+
+--- PAGE 2 ---
+2
+
+
+KD idealnega TR v prostem teku
+(b) Obremenitev idealnega TR: Vsaka sprememba magnetnega pretoka Φm povzroči spremembo
+inducirane napetosti E1, s tem pa se poruši napetostno ravnotežje v primarju, ker je napajalna
+napetost U1 = konst. Če U1 + E1 ≠ 0, se pojavi diferenčna napetost, ki požene dodaten tok I2, tako
+da I'2∙N1 zopet vzpostavi napetostno ravnotežje. Primarni magnetilni tok Iµ tvori s primarnimi ovoji
+N1 potrebne amperne ovoje za magnetni pretok Φm, ki inducira protinapetost E1 in drži ravnotežje
+pritisnjeni napetosti U1. Pri obremenitvi TR s tokom I2 z ampernimi ovoji I2∙N2 se to ravnotežje
+poruši in pritisnjena napetost U1 požene iz omrežja dodaten tok enak  toku I'2, ki je potreben za
+novo ravnotežno stanje. Dodaten tok iz omrežja kompenzira delovanje ampernih ovojev
+sekundarnega toka.
+
+Kazalčni diagram realnega transformatorja:
+KD idealnega TR dopolnimo z vplivom ohmske upornosti, stresanih induktivnosti in izgub v železu in
+dobimo popolni KD realnega TR, ki ustreza nadomestni shemi TR, ki je bila predstavljena v prejšnji vaji:
+
+V začetnem delu razvoja KD rišemo kazalce primarnih veličin zgoraj
+(nad kazalcem Φm), kazalce sekundarnih veličin pa spodaj (pod
+kazalcem Φm) in s tem vizuelno ločimo razmere v primarju in
+sekundarju.
+Predpostavimo tudi, da je število ovojev primarja in sekundarja enako
+(npr. ločilni transformator), iz česar sledi N1/N2 = 1 in E1 = E2. S tem
+postaneta kazalca E1 in E2 enako dolga tudi, ko E2 rišemo v originalni
+dolžini (vrednosti) na sekundarni strani, torej nereduciranega. Na ta
+način so kazalčni diagrami bolj pregledni, saj različne dolžine
+primarnih in sekundarnih veličin zaradi realnega prestavnega razmerja
+N1/N2 ≠ 1 ne spremenijo osnovne fizikalne slike dogajanja v TR.
+2
+2
+2
+2
+b
+b
+E
+I
+R
+X
+=
++
+ ;
+2
+arctan
+b
+b
+X
+R
+ϕ =
+
+Tok I2 je definiran z bremenom, ki je priključen na
+sekundarne sponke TR. Velika večina bremen v praksi je
+induktivnega značaja, zato so najpogosteje KD podani v
+obliki, ko I2 zaostaja za E2 za fazni kot φ2.
+1
+1
+1
+1
+1
+1
+U
+E
+I
+R
+I
+Xσ
+=
++
+⋅
++
+⋅
+
+2
+1
+2
+2
+2
+2
+2
+E
+E
+U
+I
+R
+I
+Xσ
+′
+′
+′
+′
+′
+′
+=
+=
++
+⋅
++
+⋅
+
+
+--- PAGE 3 ---
+3
+
+Opomba: KD je prikazan za primer induktivne obremenitve, ki je v praksi najpogostejša. Zaradi razločnosti
+slike KD in odnosov med posameznimi veličinami so vrednosti padcev napetosti na notranjih upornostih
+TR (
+1
+2
+1
+2
+,
+,
+,
+R R
+X
+X
+σ
+σ
+′
+′ ) pretirane glede na realno stanje. Dejansko je E1 pri normalnih obremenitvah manjša
+od U1 za nekaj % in ne toliko, kot je prikazano na sliki KD.
+S povečano obremenitvijo (večji I2 in posledično tudi I1) pada tudi U2, kar pomeni sesedanje izhodne
+napetosti TR pri povečani obremenitvi → U2 ni konstantna, ne po efektivni vrednosti, ne po faznem zamiku.
+Popolni kazalčni diagram realnega transformatorja
+
+
+Poenostavljen kazalčni diagram realnega transformatorja:
+Pri TR večjih moči pogosto tok prostega teka I0 zanemarimo, ker znaša le nekaj % nazivnega toka I (
+0
+n
+I
+I
+≪
+glej Vaja 4). V nadomestni shemi odpade prečna veja in ostanejo le zaporedno vezani dve ohmski in dve
+induktivni upornosti, skozi katere teče bremenski tok
+2
+1
+I
+I
+I
+′ =
+=
+.
+
+Zaporedje risanja kazalcev:
+Prosti tek idealnega TR
+1
+2
+,
+,
+,
+m I
+E E
+µ
+Φ
+−
+
+Vpeljava izgub v železnem jedru TR
+0
+0
+,
+d
+I
+I
+Obremenitev TR
+2
+2
+1
+,
+,
+I
+I
+I
+′
+−
+
+Padci napetosti na primarju
+1
+1
+1
+1
+1
+1
+,
+,
+,
+I
+R I
+X
+U
+σ
+⋅
+⋅
+ϕ
+Padci napetosti na sekundarju
+2
+2
+2
+2
+2
+2
+,
+,
+,
+I
+R
+I
+X
+U
+σ
+⋅
+⋅
+ϕ
+
+1
+1
+2
+2
+1
+2
+in
+E
+U
+E
+U
+E
+E
+E
+≠
+≠
+′
+=
+=
+
+
+
+--- PAGE 4 ---
+4
+
+
+V naslednjem koraku preslikamo vse sekundarne veličine na primarno stran, seveda ustrezno reducirane z
+redukcijskimi faktorji. S tem bomo lahko istoznačne padce napetosti (ohmske in induktivne) združili in
+dobili Kappov trikotnik, ki podaja padce napetosti na notranjih upornostih TR oz. za koliko se pri določeni
+obremenitvi zniža izhodna sekundarna napetost U'2 glede na vhodno primarno napetost U1.
+
+KD je najpogosteje risan v položaju, ko kaže bremenski tok I navpično navzgor. Zgornji KD le zasukamo
+v levo in ga ponovno narišemo v spremenjeni orientaciji.
+Za TR, pri katerem zanemarimo tok prostega teka, velja:
+1
+2
+I
+I
+I
+′
+=
+=
+
+1
+2
+k
+U
+U
+I Z
+′
+=
++ ⋅
+
+2
+2
+k
+k
+k
+k
+k
+Z
+R
+jX
+R
+X
+=
++
+=
++
+
+1
+2
+k
+R
+R
+R′
+=
++
+
+1
+2
+k
+X
+X
+X
+σ
+σ′
+=
++
+
+tan
+k
+k
+k
+X
+R
+ϕ =
+
+
+
+--- PAGE 5 ---
+5
+
+
+Kappov trikotnik je pravokotni trikotnik. Hipotenuza je skupni padec na notranjih upornostih TR uk, kateti
+pa sta enaki skupnemu ohmskemu uR in induktivnemu padcu uXσ. Napetostni padec uk je točno poznan za
+nazivno obremenitev že iz osnovnih podatkov TR (definicija podatka uk %, vaja 4, točka (b)), za drugačno
+obremenitev od nazivne pa se Kappov trikotnik ustrezno poveča oziroma zmanjša. Poveča se, ko naraste
+obremenitev preko nazivne, zmanjša se ob znižani obremenitvi TR (večji tok I, večji padci na upornostih
+TR in obratno).
+
+manj obremenjen TR
+
+
+
+
+
+bolj obremenjen TR
+Oblika Kappovega trikotnika se za konkreten TR ohranja, ker je razmerje med induktivno in ohmsko
+upornostjo določeno z njegovo konstrukcijo, z obremenitvijo se spreminja le njegova velikost. Pri večini
+TR je induktivni padec prevladujoč, pri posebnih izvedbah TR pa so možna tudi odstopanja od običajnih
+(zgoraj prikazanih) oblik Kappovega trikotnika.
+
+Kappov trikotnik TR z izrazito prevla-
+
+
+Kappov trikotnik TR z izrazito prevla-
+dujočim induktivnim padcem
+
+
+
+
+dujočim ohmskim padcem
+Kappov trikotnik je osnova za kreiranje Kappovega diagrama, ki v grafični obliki podaja pregledno sliko o
+tem, kako se spreminja padec napetosti ∆u na sekundarnih sponkah TR ob spreminjajoči obremenitvi, tako
+po velikosti bremenskega toka kot tudi značaju obremenitve. Tudi pri konstantnem bremenskem toku I se
+padec na izhodnih sponkah ∆u močno spreminja (poveča, zmanjša, postane celo negativen) pri različnih
+faznih kotih φ2, ki jih diktira značaj bremena (ohmsko, ohmsko-induktivno, ohmsko-kapacitivno). V praksi
+izrazito prevladuje ohmsko-induktivni značaj obremenitve.
+
+
+
+--- PAGE 6 ---
+6
+
+Kappov diagram:
+Ker je Kappov diagram grafični postopek, lahko ne le ponazorimo razmere v TR, temveč ob risanju v
+merilu iz slike tudi neposredno odčitamo iskane parametre. Vse razdalje so normirane na dolžino kazalca
+U1 (1 oz. 100 %), ki je toga napetost napajalnega omrežja in se ne spreminja. Merilo je poljubno izbrano,
+vendar nato definira vsa razmerja znotraj Kappovega diagrama.
+Za primer splošnega ohmsko-induktivnega bremena (siva barva v Kappovem diagramu) najprej narišemo
+KD za to obratovalno stanje (I, U'2, φ2, U1) vključno s Kappovim trikotnikom ABC s stranicami uk, uR, uXσ.
+KD dopolnimo z dvema krožnima lokoma k1 in k2, ki bosta služila za neposredno odčitovanje ∆u pri
+poljubnem značaju obremenitve.
+• Iz oglišča C narišemo krožni lok k1 z radijem U1.
+• Iz oglišča A narišemo krožni lok k2 z enakim radijem U1.
+• Na k1 je definirana točka E, ki je od oglišča C oddaljena za U1, saj je to radij krožnice k1;
+1
+EC
+U
+=
+.
+• Na k2 je definirana točka F, ki je od oglišča A oddaljena za U1, saj je to radij krožnice k2;
+1
+FA
+U
+=
+.
+• Razdalja točke E na k1 do A je U'2 (sekundarna napetost reducirana na primarno stran);
+2
+EA
+U′
+=
+.
+• Pri drugačni obremenitvi TR bi bili konkretni legi točk E in F na krožnicah k1 in k2 sicer drugačne,
+vendar še vedno v zgoraj opisanih relacijah.
+• Ker je razdalja med k2 in A vedno U1 in je razdalja med k1 in A vedno U'2, sledi da je razdalja med
+krožnicama k1 in k2 enaka padcu napetosti ∆u na notranjih upornostih TR;
+1
+2
+EF
+k
+U
+U
+I Z
+u
+′
+=
+−
+=
+⋅
+= ∆.
+
+
+
+
+--- PAGE 7 ---
+7
+
+Glede na spreminjajočo razdaljo med k1 in k2 in s tem tudi ∆u,  je v Kappovem diagramu nekaj značilnih
+točk:
+1. Pri idealno ohmskem bremenu R (rdeče oznake v diagramu) sta smeri kazalcev I in U'2 enaki, fazni kot
+je v tem primeru φ2 = 0. To je tudi meja med induktivnimi (tok I zaostaja za napetostjo U'2) in
+kapacitivnimi obremenitvami (tok I prehiteva napetost U'2). Dober približek čisto ohmskega bremena je
+električno grelo.
+2. Ko gremo v področje induktivnih bremen, razdalja med krožnicama narašča. Pri induktivnem bremenu
+RL (zelene oznake v diagramu), ko je
+2
+k
+ϕ = ϕ , doseže razdalja med k1 in k2 maksimalno vrednost
+max
+1
+2
+k
+u
+u
+U
+U′
+∆
+=
+=
+−
+. Ko induktivni značaj obremenitve še narašča preko te točke, se ∆u ponovno
+zmanjšuje. Mejni primer je čisto induktivna obremenitev, ko je φ2 = π/2 ind.
+3. Ko gremo v področje kapacitivnih bremen, se razdalja med krožnicama zmanjšuje. Pri nekem
+kapacitivnem bremenu RC se k1 in k2 sekata, kar pomeni da je ∆u = 0. Na izhodnih sponkah TR ni
+znižanja napetosti U'2 kljub polni obremenitvi TR in padcu napetosti uk. Ko kapacitivni značaj
+obremenitve še narašča preko te točke, ∆u postaja negativen, kar pomeni porast napetosti na izhodnih
+sponkah TR kljub polni obremenitvi. Mejni primer je čisto kapacitivna obremenitev, ko je φ2 = π/2 cap.
+
+Opomba: V naslednji nalogi bo obdelan primer kreiranja Kappovega diagrama v merilu za konkreten TR
+in različna obratovalna stanja.

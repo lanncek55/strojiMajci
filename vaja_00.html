@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Uvod v električne stroje - Avditorne vaje 00</title>
+    <title>Avditorna vaja 00 - Interaktivni učbenik</title>
     <link rel="stylesheet" href="style.css">
     <script>
         MathJax = {
@@ -17,15 +17,11 @@
         .task { background-color: #fcfcfc; border: 1px solid #e0e0e0; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
         .solution-step { margin-top: 15px; border-left: 3px solid var(--primary-color); padding-left: 15px; background: #f4f7f6; margin-bottom: 15px; padding-bottom: 10px; padding-top: 10px;}
         .formula-box { background-color: #f8f9fa; border-left: 4px solid var(--primary-color); padding: 1rem; margin: 1rem 0; font-family: monospace; font-size: 1.1rem; overflow-x: auto;}
-        .image-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; margin-top: 20px; margin-bottom: 20px;}
-        .image-box { text-align: center; background: #fff; padding: 10px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
-        .image-box img { max-width: 100%; height: auto; border-radius: 4px; }
-        .image-caption { font-size: 0.9em; color: #555; margin-top: 10px; }
     </style>
 </head>
 <body>
     <header>
-        <h1>Električni stroji - Vaja 00</h1>
+        <h1>Avditorna vaja 00</h1>
         <p>Uvodne informacije o tematiki in področju električnih strojev.</p>
     </header>
 
@@ -33,103 +29,119 @@
         <a href="index.html" style="display:inline-block; margin-bottom: 20px; color: var(--primary-color); text-decoration: none;">&larr; Nazaj na zemljevid</a>
 
         <section class="task">
-            <h2>Temelji električnih strojev</h2>
-            <p>Tematika električnih strojev je ena izmed temeljnih na področju Močnostne elektrotehnike. Električni stroji so osnovni gradniki in izvršni členi v mehatronskih sistemih, elektromotorskih pogonih, avtomatiziranih proizvodnih linijah, transportnih napravah, obdelovalnih strojih...</p>
-            <p>Z njimi izvajamo pretvorbo električne energije v mehansko in obratno, zato je za električne stroje uveljavljen tudi izraz <strong>elektromehanski pretvorniki</strong>. Glede na vrsto in smer pretvorbe energije jih delimo na:</p>
+            <h3>Uvod v električne stroje in elektromehansko pretvorbo</h3>
+            <p>Električni stroji so osnovni gradniki in izvršni členi v mehatronskih sistemih, elektromotorskih pogonih, avtomatiziranih proizvodnih linijah, transportnih napravah in obdelovalnih strojih. Z njimi izvajamo pretvorbo električne energije v mehansko in obratno, zato se zanje uporablja tudi izraz <strong>elektromehanski pretvorniki</strong>.</p>
 
-            <div class="solution-step">
-                <h4>Transformatorji</h4>
-                <p>Statične naprave, ki električno energijo pretvarjajo v električno energijo drugačnih parametrov (npr. sprememba napetosti in toka, ob ohranitvi frekvence).</p>
-                <div class="formula-box">
-                    \[ W_{el1} \rightarrow W_{el2} \]
-                </div>
-                <p>Kjer \(W_{el1}\) predstavlja električno energijo na primarni strani, \(W_{el2}\) pa električno energijo na sekundarni strani z drugačnimi parametri (drugačna napetost, drugačen tok).</p>
-
-                <h4>Električni motorji (Rotacijski stroji)</h4>
-                <p>Pretvarjajo električno energijo v mehansko delo.</p>
-                <div class="formula-box">
-                    \[ W_{el} \rightarrow W_{meh} \]
-                </div>
-                <p>Kjer \(W_{el}\) predstavlja dovedeno električno energijo, \(W_{meh}\) pa oddano mehansko energijo (npr. vrtenje osi).</p>
-
-                <h4>Električni generatorji (Rotacijski stroji)</h4>
-                <p>Pretvarjajo mehansko energijo v električno energijo.</p>
-                <div class="formula-box">
-                    \[ W_{meh} \rightarrow W_{el} \]
-                </div>
-                <p>Kjer \(W_{meh}\) predstavlja dovedeno mehansko energijo (npr. pogon z vodno ali vetrno turbino), \(W_{el}\) pa proizvedeno električno energijo.</p>
-            </div>
-
-            <p>Razpon moči in posledično velikost električnih strojev je izredno velik – od nekaj mW (miliwattov) do več 100 MW (megawattov), največji sinhronski generatorji presegajo tudi GW (gigawatt) območje moči. Nekaj tipičnih električnih strojev v vsakdanji praksi prikazujejo naslednje slike:</p>
-
-            <div class="image-grid">
-                <div class="image-box">
-                    <img src="pdf_images/vaja_00_page1_img0.jpeg" alt="Trifazni distribucijski transformator velike moči">
-                    <div class="image-caption">Trifazni distribucijski transformator velike moči</div>
-                </div>
-                <div class="image-box">
-                    <img src="pdf_images/vaja_00_page1_img1.jpeg" alt="Enofazni transformator majhne moči">
-                    <div class="image-caption">Enofazni transformator majhne moči</div>
-                </div>
-                <div class="image-box">
-                    <img src="pdf_images/vaja_00_page1_img2.jpeg" alt="Električni motor velike moči za pogon lokomotive">
-                    <div class="image-caption">Električni motor velike moči za pogon lokomotive</div>
-                </div>
-                <div class="image-box">
-                    <img src="pdf_images/vaja_00_page1_img3.jpeg" alt="Električni motor majhne moči v izdelkih široke potrošnje">
-                    <div class="image-caption">Električni motor majhne moči v izdelkih široke potrošnje</div>
-                </div>
-                <div class="image-box">
-                    <img src="pdf_images/vaja_00_page2_img0.jpeg" alt="Turbogenerator velike moči">
-                    <div class="image-caption">Turbogenerator velike moči</div>
-                </div>
-                <div class="image-box">
-                    <img src="pdf_images/vaja_00_page2_img1.jpeg" alt="Mali avtomobilski alternator">
-                    <div class="image-caption">Mali avtomobilski alternator</div>
-                </div>
-            </div>
+            <h4>Osnovna delitev glede na smer pretvorbe:</h4>
+            <ul>
+                <li><strong>TRANSFORMATORJI:</strong> Statične naprave, ki pretvarjajo električno energijo v električno energijo drugačnih parametrov (\(W_{el} \rightarrow W_{el}'\)).</li>
+                <li><strong>ELEKTRIČNI MOTORJI:</strong> Rotacijski stroji, ki pretvarjajo električno energijo v mehansko (\(W_{el} \rightarrow W_{meh}\)).</li>
+                <li><strong>ELEKTRIČNI GENERATORJI:</strong> Rotacijski stroji, ki pretvarjajo mehansko energijo v električno (\(W_{meh} \rightarrow W_{el}\)).</li>
+            </ul>
 
             <div class="real-world-box">
                 <div class="real-world-title">
                     <svg width="24" height="24" viewBox="0 0 24 24"><path d="M9 21c0 .55.45 1 1 1h4c.55 0 1-.45 1-1v-1H9v1zm3-19C8.14 2 5 5.14 5 9c0 2.38 1.19 4.47 3 5.74V17c0 .55.45 1 1 1h6c.55 0 1-.45 1-1v-2.26c1.81-1.27 3-3.36 3-5.74 0-3.86-3.14-7-7-7zm2.85 11.1l-.85.6V16h-4v-2.3l-.85-.6A4.997 4.997 0 0 1 7 9c0-2.76 2.24-5 5-5s5 2.24 5 5c0 1.63-.8 3.16-2.15 4.1z"/></svg>
-                    Uporaba v praksi: Reverzibilnost
+                    Uporaba v praksi
                 </div>
-                <p>Pretvorba energije poteka reverzibilno (v obe smeri): \(W_{el} \leftrightarrows W_{meh}\), kar pomeni, da isti rotacijski stroj lahko obratuje kot motor ali kot generator, odvisno od trenutnih razmer pretoka električne in mehanske energije. To je pomembna prednost električnih motorjev npr. pri pogonu električnih vozil, saj med zaviranjem motor preide v generatorski režim obratovanja in se iz presežne mehanske energije \(W_{meh}\) pretvorjena električna energija \(W_{el}\) shranjuje v baterijskem sistemu. To znatno podaljša doseg vožnje električnega vozila z enim polnjenjem akumulatorskih baterij in istočasno poveča izkoristek pretvorbe energije.</p>
-                <p>Druga pomembna prednost električnih motorjev pred motorji z notranjim zgorevanjem je bistveno višji izkoristek, ki pri električnih motorjih znaša od (80 ÷ 95) %, motorji z notranjim zgorevanjem pa pretvarjajo energijo s približno 35 % izkoristkom. Pri pretvorbi energije v električnih strojih vedno prihaja do izgub (\(P_{Cu}, P_{Fe}, P_{meh}\)), zato je izkoristek vedno \(< 1\), lahko pa je zelo blizu (npr. \(\eta_{trafo} \approx 0,995\)). Izgube povzročajo segrevanje, ki ga moramo nadzorovati, da ne poškodujemo izolacije ali trajnih magnetov.</p>
+                <p><strong>Reverzibilnost in regenerativno zaviranje:</strong> Pretvorba energije v strojih poteka reverzibilno (\(W_{el} \leftrightarrow W_{meh}\)). Isti rotacijski stroj lahko obratuje kot motor ali generator! Odličen primer so <strong>električna vozila (EV)</strong>. Med pospeševanjem stroj deluje kot motor, ki prazni baterijo. Ko pa pritisnete zavoro (ali spustite stopalko), stroj avtomatsko preide v generatorski režim. Kinetična energija avtomobila (\(W_{meh}\)) se pretvarja nazaj v elektriko in polni baterijo. Za razliko od bencinskih avtomobilov, kjer se vsa energija pri zaviranju spremeni v nekoristno toploto (izgube na zavornih ploščicah), regenerativno zaviranje drastično poveča doseg vozila in izkoristek.</p>
             </div>
 
-            <h3>Delitev električnih strojev</h3>
-            <p>Električne stroje glede na princip delovanja, vrsto napajanja in izvedbo magnetnega vzbujanja delimo na:</p>
-            <ul>
-                <li><strong>TRANSFORMATORJE (TR)</strong> in <strong>SINHRONSKE STROJE (SS)</strong> - izmenični stroji</li>
-                <li><strong>ASINHRONSKE STROJE (AS)</strong> - izmenični stroji</li>
-                <li><strong>ENOSMERNE STROJE (ES)</strong> - enosmerni stroji</li>
-            </ul>
+            <div class="interactive-container">
+                <div class="interactive-controls">
+                    <div class="control-group">
+                        <label>Izberi obratovalni režim stroja:</label>
+                        <button onclick="setMode('motor')" class="active-btn" id="btn-motor" style="margin-right:5px; margin-bottom:10px;">Motorski režim</button>
+                        <button onclick="setMode('generator')" id="btn-generator" style="margin-right:5px; margin-bottom:10px;">Generatorski režim</button>
+                    </div>
+                    <div class="interactive-results">
+                        <p id="desc-mode-00" style="font-size:14px;"><strong>Motorski režim:</strong> Baterija (\(W_{el}\)) poganja motor, ki ustvarja navor in vrti kolesa (\(W_{meh}\)). Smer toka je v stroj.</p>
+                    </div>
+                </div>
+                <div class="interactive-svg-wrapper">
+                    <!-- Flow diagram -->
+                    <svg id="svg-flow-00" width="400" height="200" viewBox="0 0 400 200">
+                        <!-- Battery -->
+                        <rect x="20" y="70" width="60" height="60" rx="5" fill="#f1c40f" stroke="#333" stroke-width="2"/>
+                        <text x="50" y="105" text-anchor="middle" font-weight="bold">W_el</text>
+                        <rect x="40" y="60" width="20" height="10" fill="#333"/>
 
-            <div class="solution-step">
-                <h4>Dva temeljna pojava elektromagnetnega polja v strojih</h4>
-                <p>Pri delovanju električnih strojev ima ključno vlogo elektromagnetno polje in naslednja pojava:</p>
-                <ul>
-                    <li><strong>Inducirana napetost:</strong> V spremenljivem magnetnem polju se v zaključenih zankah (ovojih, tuljavah, navitjih) inducira napetost, ki požene električni tok. Spremembo dosežemo z izmeničnim vzbujanjem (transformatorska inducirana napetost) ali krajevnim premikom (rezalna inducirana napetost). Velja Faradayev in Lenzov zakon.</li>
-                    <li><strong>Sila na vodnik:</strong> V magnetnem polju na vodnike, po katerih teče tok, feromagnetne materiale in trajne magnete deluje sila, ki jih skuša premakniti za ohranitev energijskega ravnotežja (Lenzovo pravilo). Rotor rotacijskega stroja je uležajen tako, da se pod vplivom sile premika.</li>
-                </ul>
+                        <!-- Machine -->
+                        <circle cx="200" cy="100" r="40" fill="#ecf0f1" stroke="#333" stroke-width="3"/>
+                        <text id="svg-machine-type" x="200" y="105" text-anchor="middle" font-weight="bold">MOTOR</text>
+
+                        <!-- Wheels / Mech Load -->
+                        <circle cx="350" cy="100" r="30" fill="none" stroke="#7f8c8d" stroke-width="6"/>
+                        <circle cx="350" cy="100" r="10" fill="#7f8c8d"/>
+                        <line x1="350" y1="70" x2="350" y2="130" stroke="#7f8c8d" stroke-width="2"/>
+                        <line x1="320" y1="100" x2="380" y2="100" stroke="#7f8c8d" stroke-width="2"/>
+                        <text x="350" y="150" text-anchor="middle" font-weight="bold" fill="#7f8c8d">W_meh</text>
+
+                        <!-- Arrows -->
+                        <defs>
+                            <marker id="arrow" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#e74c3c" />
+                            </marker>
+                            <marker id="arrow-green" markerWidth="10" markerHeight="7" refX="9" refY="3.5" orient="auto">
+                                <polygon points="0 0, 10 3.5, 0 7" fill="#27ae60" />
+                            </marker>
+                        </defs>
+
+                        <!-- El arrow -->
+                        <line id="arr-el-00" x1="90" y1="100" x2="150" y2="100" stroke="#e74c3c" stroke-width="4" marker-end="url(#arrow)"/>
+
+                        <!-- Meh arrow -->
+                        <line id="arr-meh-00" x1="250" y1="100" x2="310" y2="100" stroke="#e74c3c" stroke-width="4" marker-end="url(#arrow)"/>
+
+                        <!-- Animating flux/motion -->
+                        <path id="spin-arrow" d="M 180,70 A 45,45 0 0,1 220,70" fill="none" stroke="#3498db" stroke-width="2" marker-end="url(#arrow)"/>
+                    </svg>
+                </div>
             </div>
 
-            <h3>Pregled obravnavanih skupin strojev</h3>
-            <ul>
-                <li><strong>Transformatorji</strong>: Enofazni (male moči, napajalniki) in trifazni (velike moči, distribucija električne energije).</li>
-                <li><strong>Sinhronski stroji</strong>: Generatorji (veliki stroji v HE in TE, proizvodnja električne energije) in motorji (servomotorji z visokim izkoristkom in gostoto moči).</li>
-                <li><strong>Asinhronski stroji</strong>: Motorji (male in srednje moči, najštevilčnejši industrijski motorji) in generatorji (vetrne, črpalne HE).</li>
-                <li><strong>Enosmerni stroji</strong>: V zadnjem obdobju izgubljajo primat z izmeničnimi stroji zaradi drsnega mehanskega kontakta (ščetke in komutator).</li>
-            </ul>
+            <details>
+                <summary>Prikaži več teoretičnih osnov in razdelitev strojev</summary>
+
+                <div class="solution-step">
+                    <h4>Visok izkoristek in izgube:</h4>
+                    <p>Električni motorji imajo bistveno višji izkoristek (od 80% do 95%) v primerjavi z motorji z notranjim zgorevanjem (približno 35%). Vendar izkoristek nikoli ni točno 1 (100%), saj pri pretvorbi energije <strong>vedno</strong> prihaja do izgub, ki povzročajo segrevanje:</p>
+                    <ul>
+                        <li>\(P_{Cu}\): Izgube v bakru (zaradi ohmske upornosti navitij, na kateri tok tvori Joulovo toploto).</li>
+                        <li>\(P_{Fe}\): Izgube v železu (vrtinčni tokovi in histereza pri preusmerjanju magnetnih domen).</li>
+                        <li>\(P_{meh}\): Mehanske izgube (trenje v ležajih, zračni upor ventilatorja na rotorju).</li>
+                    </ul>
+                </div>
+
+                <div class="solution-step">
+                    <h4>Osnovne 4 skupine strojev (glede na princip delovanja in vzbujanje):</h4>
+                    <ul>
+                        <li><strong>1. Transformatorji (TR):</strong> Stroji brez premikajočih se delov.</li>
+                        <li><strong>2. Sinhronski stroji (SS):</strong> Izmenični stroji, kjer se rotor vrti <em>točno</em> sinhrono z magnetnim poljem statorja. Uporabljajo se predvsem kot ogromni generatorji v elektrarnah.</li>
+                        <li><strong>3. Asinhronski stroji (AS):</strong> Izmenični stroji, katerih rotor se vedno vrti nekoliko prepočasi ali prehitro (drsenje) glede na polje. To je najbolj pogost motor v industriji (robustna kratkostična kletka).</li>
+                        <li><strong>4. Enosmerni stroji (ES):</strong> Motorji, ki jih priklopimo na enosmerni tok (baterije). Zahtevajo drsni kontakt (ščetke in komutator), zaradi česar zadnje čase izgubljajo primat proti izmeničnim strojem (krmiljenim preko frekvenčnih pretvornikov).</li>
+                    </ul>
+                </div>
+
+                <div class="solution-step">
+                    <h4>Temeljna pojava elektromagnetizma:</h4>
+                    <p>Za delovanje rotacijskih strojev so ključni predvsem trije fizikalni zakoni:</p>
+                    <ol>
+                        <li><strong>Inducirana napetost (Faradayev zakon):</strong> V zaključenih zankah se ob spremembi magnetnega polja inducira napetost, ki požene tok. Magnetno polje se lahko spreminja zaradi časovne spremembe (izmenični tok v transformatorju) ali zaradi fizičnega premika zanke skozi polje.</li>
+                        <li><strong>Sila na vodnik v magnetnem polju (Lorentzova sila):</strong> Na vodnik, po katerem teče električni tok in se nahaja v magnetnem polju, deluje sila (\(F = I \cdot l \cdot B\)). Ta sila obrača rotor v motorju.</li>
+                        <li><strong>Lenzovo pravilo:</strong> Inducirana napetost in posledični tok vedno ustvarjata magnetno polje, ki nasprotuje vzroku (spremembi), ki ga je ustvaril. To je razlog za ravnotežje moči in stabilno obratovanje.</li>
+                    </ol>
+                </div>
+            </details>
         </section>
 
+        <!-- Kviz 00 -->
         <section class="quiz-section">
-            <h3>Kviz 00: Reverzibilnost strojev</h3>
-            <p>Zaradi reverzibilnosti pretvorbe energije lahko isti rotacijski stroj deluje kot motor (pretvarja električno energijo v mehansko) ali kot nekaj drugega, če pretvarja mehansko energijo (npr. pri zaviranju vozila) nazaj v električno. Kako imenujemo tak način obratovanja stroja?</p>
+            <h3>Kviz 00: Izkoristek in izgube</h3>
+            <p>Pri pretvorbi električne energije v mehansko z električnim motorjem se manjši del energije (zaradi izgub v bakru, železu in trenju) izgubi v obliki:</p>
             <div class="input-group">
-                <input type="text" id="quiz00-input" placeholder="npr. transformator" style="width: 250px;">
-                <button onclick="checkQuiz00()">Preveri</button>
+                <label><input type="radio" name="quiz00" value="zvok"> Zvočne energije (hrup stroja)</label><br>
+                <label><input type="radio" name="quiz00" value="toplota"> Toplotne energije (segrevanje stroja)</label><br>
+                <button onclick="checkQuiz00()" style="margin-top: 10px;">Preveri</button>
             </div>
             <div id="quiz00-feedback" class="feedback"></div>
         </section>
@@ -141,15 +153,65 @@
     </footer>
 
     <script>
+        function setMode(mode) {
+            document.getElementById('btn-motor').className = mode === 'motor' ? "active-btn" : "";
+            document.getElementById('btn-generator').className = mode === 'generator' ? "active-btn" : "";
+
+            let arr_el = document.getElementById('arr-el-00');
+            let arr_meh = document.getElementById('arr-meh-00');
+            let desc = document.getElementById('desc-mode-00');
+            let machine_type = document.getElementById('svg-machine-type');
+
+            if (mode === 'motor') {
+                machine_type.textContent = "MOTOR";
+                desc.innerHTML = "<strong>Motorski režim:</strong> Baterija (\\(W_{el}\\)) poganja motor, ki ustvarja navor in vrti kolesa (\\(W_{meh}\\)). Smer toka je od vira proti mehanskemu bremenu.";
+
+                arr_el.setAttribute('x1', 90);
+                arr_el.setAttribute('x2', 150);
+                arr_el.setAttribute('marker-end', 'url(#arrow)');
+                arr_el.setAttribute('marker-start', '');
+                arr_el.setAttribute('stroke', '#e74c3c');
+
+                arr_meh.setAttribute('x1', 250);
+                arr_meh.setAttribute('x2', 310);
+                arr_meh.setAttribute('marker-end', 'url(#arrow)');
+                arr_meh.setAttribute('marker-start', '');
+                arr_meh.setAttribute('stroke', '#e74c3c');
+            } else {
+                machine_type.textContent = "GEN.";
+                desc.innerHTML = "<strong>Generatorski režim (Zaviranje):</strong> Kinetična energija (\\(W_{meh}\\)) vrti rotor, generator pa to spreminja v elektriko (\\(W_{el}\\)) in polni baterijo. Energija potuje nazaj!";
+
+                arr_el.setAttribute('x1', 150);
+                arr_el.setAttribute('x2', 90);
+                arr_el.setAttribute('marker-end', 'url(#arrow-green)');
+                arr_el.setAttribute('stroke', '#27ae60');
+
+                arr_meh.setAttribute('x1', 310);
+                arr_meh.setAttribute('x2', 250);
+                arr_meh.setAttribute('marker-end', 'url(#arrow-green)');
+                arr_meh.setAttribute('stroke', '#27ae60');
+            }
+
+            // Re-render MathJax in the desc box
+            if (window.MathJax) {
+                MathJax.typesetPromise([desc]);
+            }
+        }
+
         function checkQuiz00() {
-            let input = document.getElementById('quiz00-input').value.trim().toLowerCase();
+            let selected = document.querySelector('input[name="quiz00"]:checked');
+            if (!selected) {
+                let fb = document.getElementById('quiz00-feedback');
+                fb.className = "feedback error"; fb.innerText = "Prosim izberite odgovor."; return;
+            }
+            let input = selected.value;
             let fb = document.getElementById('quiz00-feedback');
-            if (input === 'generator' || input === 'generatorski') {
+            if (input === 'toplota') {
                 fb.className = "feedback success";
-                fb.innerText = "Pravilno! Stroj obratuje kot generator (oz. v generatorskem režimu) in pretvarja mehansko energijo nazaj v električno.";
+                fb.innerText = "Pravilno! Vse izgube v stroju (Joulova toplota I^2*R, vrtinčni tokovi v jedru in celo samo mehansko trenje v ležajih) se neposredno pretvarjajo v toploto. Zato je segrevanje stroja in njegovo ohlajanje eden najpomembnejših inženirskih izzivov pri snovanju (kot smo videli pri enačbah za časovno konstanto segrevanja).";
             } else {
                 fb.className = "feedback error";
-                fb.innerText = "Ni prav. Ponovno preberi odstavek o reverzibilnosti. Kateri stroj pretvarja mehansko v električno energijo?";
+                fb.innerText = "Napačno. Čeprav stroj proizvaja nekaj hrupa (brnenje ali zvok zraka), je ta energija povsem zanemarljiva v primerjavi s tisto, zaradi katere lahko stroj dobesedno 'pregori'.";
             }
         }
     </script>
